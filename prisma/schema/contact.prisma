@@ -1,0 +1,20 @@
+// Contact Model
+model Contact {
+    id      String  @id @default(uuid())
+    name    String
+    email   String
+    subject String
+    message String? @db.Text
+
+    status    ContactStatus @default(UNREAD)
+    // Admin reply (optional — dashboard থেকে সরাসরি reply করার জন্য)
+    adminNote String?       @db.Text
+
+    // IP tracking (spam prevention)
+    ipAddress String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("contacts")
+}

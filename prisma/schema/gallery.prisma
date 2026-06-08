@@ -1,0 +1,14 @@
+// Gallery Model
+model Gallery {
+    id          String  @id @default(uuid())
+    image       String?
+    title       String?
+    description String? @db.Text
+    isPublished Boolean @default(true) // fixed: was isPublish
+    sortOrder   Int     @default(0)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("galleries")
+}

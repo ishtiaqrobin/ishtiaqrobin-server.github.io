@@ -1,0 +1,28 @@
+// Page View Model
+// প্রতিটা page visit track করে। Dashboard-এ visitor stats দেখাবে।
+model PageView {
+    id        String   @id @default(uuid())
+    page      String   // "/", "/projects", "/blog/my-post"
+    userAgent String?
+    ipAddress String?
+    country   String?
+    city      String?
+    referrer  String?  // কোথা থেকে এলো (google, facebook, direct)
+    createdAt DateTime @default(now())
+
+    @@index([page])
+    @@index([createdAt])
+    @@map("page_views")
+}
+
+// Resume Download Log
+// About singleton এর resumeDownloadCount এর সাথে এটা detail log।
+model ResumeDownloadLog {
+    id        String   @id @default(uuid())
+    ipAddress String?
+    country   String?
+    userAgent String?
+    createdAt DateTime @default(now())
+
+    @@map("resume_download_logs")
+}

@@ -1,0 +1,20 @@
+// NPM Package Model
+// Published npm packages showcase করার জন্য।
+model NpmPackage {
+    id          String  @id @default(uuid())
+    name        String  @unique // "@ishtiaqrobin/ui-kit"
+    description String? @db.Text
+    npmUrl      String
+    githubUrl   String?
+    weeklyDownloads Int  @default(0)  // npm API থেকে sync হবে
+    totalDownloads  Int  @default(0)
+    version     String? // latest version
+    isPublished Boolean @default(true)
+    sortOrder   Int     @default(0)
+
+    lastSyncedAt DateTime?
+    createdAt    DateTime  @default(now())
+    updatedAt    DateTime  @updatedAt
+
+    @@map("npm_packages")
+}

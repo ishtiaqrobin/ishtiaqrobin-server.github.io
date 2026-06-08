@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+        .value {
+            margin-top: 5px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">New Contact Form Submission</div>
+        
+        <div class="field">
+            <div class="label">Name:</div>
+            <div class="value"><%= name %></div>
+        </div>
+        
+        <div class="field">
+            <div class="label">Email:</div>
+            <div class="value"><%= email %></div>
+        </div>
+        
+        <div class="field">
+            <div class="label">Subject:</div>
+            <div class="value"><%= subject %></div>
+        </div>
+        
+        <div class="field">
+            <div class="label">Message:</div>
+            <div class="value"><%= message || 'No message provided' %></div>
+        </div>
+        
+        <div class="footer">
+            This email was sent from the contact form on Ishtiaq Robin's Portfolio.
+        </div>
+    </div>
+</body>
+</html>

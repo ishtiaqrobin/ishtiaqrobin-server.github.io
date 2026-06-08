@@ -1,0 +1,18 @@
+// Certificate Model
+model Certificate {
+    id            String    @id @default(uuid())
+    title         String
+    issuer        String
+    issuedDate    DateTime
+    expiryDate    DateTime?
+    credentialId  String?
+    credentialUrl String?
+    imageUrl      String?
+    isPublished   Boolean   @default(true)
+    sortOrder     Int       @default(0)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("certificates")
+}

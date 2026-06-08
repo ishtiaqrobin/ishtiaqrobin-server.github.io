@@ -1,0 +1,15 @@
+// Stats Model — SINGLETON
+// সবসময় একটাই row থাকবে। id = 'singleton' fixed।
+// Service layer-এ upsert({ where: { id: 'singleton' }, ... }) ব্যবহার করতে হবে।
+model Stats {
+    id           String @id @default("singleton")
+    experience   Int    @default(0)
+    projects     Int    @default(0)
+    happyClients Int    @default(0)
+    successRate  Int    @default(0)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("stats")
+}

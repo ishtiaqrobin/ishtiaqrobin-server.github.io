@@ -1,0 +1,65 @@
+// AI Provider Config — SINGLETON
+// Dashboard থেকে যেকোনো সময় provider, model, endpoint change করা যাবে।
+// id = 'singleton' fixed। upsert ব্যবহার করতে হবে।
+model AiProviderConfig {
+    id String @id @default("singleton")
+
+    provider    String  @default("gemini") // "gemini" | "openai" | "anthropic" | "custom"
+    apiKey      String  @db.Text // dashboard থেকে update করা যাবে
+    model       String  @default("gemini-2.0-flash") // e.g. "gpt-4o", "claude-3-5-haiku"
+    endpoint    String? // custom হলে এখানে দাও, না হলে provider default
+    maxTokens   Int     @default(1000)
+    temperature Float   @default(0.7) // 0.0 = focused, 1.0 = creative
+    isEnabled   Boolean @default(true)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("ai_provider_config")
+}
+
+// Chatbot Config — SINGLETON
+// Chatbot এর behavior ও rate limit configure করার জন্য।
+// id = 'singleton' fixed। upsert ব্যবহার করতে হবে।
+model ChatbotConfig {
+    id String @id @default("singleton")
+
+    isEnabled  Boolean @default(true)
+    botName    String  @default("Ishtiaq's Assistant")
+    welcomeMsg String?
+
+    // System prompt — DB context এর সাথে combine হবে
+    systemPrompt String? @db.Text
+
+    // If you need to remove rate limit and use by .env file
+    // so remove rateLimit and rateLimitWindow code
+
+    // Rate limit — dashboard থেকে configure করা যাবে
+    // rateLimit       Int @default(10) // per window এ max request
+    // rateLimitWindow Int @default(60) // seconds — default 60s
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("chatbot_config")
+}
+
+// ─────────────────────────────────────────────────────────────
+// Chatbot Conversation Log — DISABLED
+// আপাতত DB তে log save করা হচ্ছে না (privacy + storage cost কমাতে)।
+// পরে চালু করতে চাইলে: এই block uncomment করো, prisma migrate চালাও,
+// এবং chatbot.service.ts এ logging code uncomment করো।
+// ─────────────────────────────────────────────────────────────
+// model ChatbotLog {
+//     id        String  @id @default(uuid())
+//     sessionId String
+//     role      String // "user" | "assistant"
+//     message   String  @db.Text
+//     ipAddress String?
+//
+//     createdAt DateTime @default(now())
+//
+//     @@index([sessionId])
+//     @@index([createdAt])
+//     @@map("chatbot_logs")
+// }

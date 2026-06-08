@@ -1,0 +1,12 @@
+model Gallery {
+    id          String  @id @default(uuid())
+    image       String
+    title       String?
+    description String?
+
+    isPublish Boolean  @default(true)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("galleries")
+}

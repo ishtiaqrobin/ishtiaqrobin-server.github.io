@@ -1,0 +1,19 @@
+// Timeline / Career Highlight Model
+// Career-এর major milestones chronologically দেখানোর জন্য।
+// Experience ও Education থেকে আলাদা — এটা custom highlight।
+model Timeline {
+    id          String   @id @default(uuid())
+    title       String   // "Launched Ezbitly SaaS"
+    description String?  @db.Text
+    date        DateTime
+    icon        String?  // icon name — "rocket", "briefcase", "graduation-cap"
+    color       String?  // badge color — "blue", "green", "amber"
+    url         String?  // related link (optional)
+    isPublished Boolean  @default(true)
+    sortOrder   Int      @default(0)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("timelines")
+}

@@ -1,0 +1,20 @@
+// Education Model
+model Education {
+    id          String    @id @default(uuid())
+    degree      String
+    institution String
+    board       String?
+    startDate   DateTime
+    endDate     DateTime?
+    result      String?
+    group       String?
+
+    // description String?   @db.Text
+    isPublished Boolean   @default(true)
+    sortOrder   Int       @default(0)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("educations")
+}

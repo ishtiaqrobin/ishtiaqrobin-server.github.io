@@ -1,0 +1,60 @@
+// Role Enum
+enum Role {
+    USER
+    ADMIN
+}
+
+// User Status Enum
+enum UserStatus {
+    ACTIVE
+    BLOCKED
+    DELETED
+}
+
+// Skill Level Enum
+enum SkillLevel {
+    EXPERT
+    INTERMEDIATE
+    LEARNING
+    RECENTLY_LEARNED
+}
+
+// Contact Status Enum
+enum ContactStatus {
+    UNREAD
+    READ
+    REPLIED
+    ARCHIVED
+}
+
+// Blog Status Enum
+enum BlogStatus {
+    DRAFT
+    PUBLISHED
+    ARCHIVED
+}
+
+// Appointment Status Enum
+enum AppointmentStatus {
+    PENDING
+    CONFIRMED
+    CANCELLED
+    COMPLETED
+}
+
+// Product Status Enum
+enum ProductStatus {
+    DRAFT
+    PUBLISHED
+    OUT_OF_STOCK
+    ARCHIVED
+}
+
+// Order Status Enum
+enum OrderStatus {
+    PENDING
+    PAID
+    DELIVERED
+    REFUNDED
+    CANCELLED
+}
