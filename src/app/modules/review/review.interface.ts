@@ -1,10 +1,12 @@
 export interface CreateReviewInput {
-  rating: number;
+  position: string;
+  companyName: string;
   comment: string;
 }
 
 export interface UpdateReviewInput {
-  rating?: number;
+  position?: string;
+  companyName?: string;
   comment?: string;
 }
 

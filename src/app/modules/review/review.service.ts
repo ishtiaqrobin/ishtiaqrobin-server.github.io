@@ -69,7 +69,12 @@ const updateReview = async (
     user.role === "ADMIN"
       ? (payload as AdminUpdateReviewInput)
       : {
-          ...(payload.rating !== undefined ? { rating: payload.rating } : {}),
+          ...(payload.position !== undefined
+            ? { position: payload.position }
+            : {}),
+          ...(payload.companyName !== undefined
+            ? { companyName: payload.companyName }
+            : {}),
           ...(payload.comment !== undefined
             ? { comment: payload.comment }
             : {}),

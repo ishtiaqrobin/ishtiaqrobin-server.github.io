@@ -1,12 +1,15 @@
 // Review Model
 // একজন user একটাই review দিতে পারবে (userId @unique)
 model Review {
-    id         String   @id @default(uuid())
-    userId     String   @unique
-    rating     Int // 1–5
-    comment    String  @db.Text
-    isApproved Boolean  @default(false) // Admin approve করার আগে public-এ দেখাবে না
-    isPinned   Boolean  @default(false) // Featured review
+    id     String @id @default(uuid())
+    userId String @unique
+
+    position    String
+    companyName String
+    comment     String @db.Text
+
+    isApproved Boolean @default(false) // Admin approve করার আগে public-এ দেখাবে না
+    isPinned   Boolean @default(false) // Featured review
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt

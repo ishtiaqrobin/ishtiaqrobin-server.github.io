@@ -1,20 +1,24 @@
 import { z } from "zod";
 
 const createReviewZodSchema = z.object({
-  rating: z.number("rating is required").min(1).max(5),
-  comment: z.string("comment is required").min(2).max(200),
+  position: z.string("position is required").min(1).max(50),
+  companyName: z.string("company name is required").min(1).max(50),
+  comment: z.string("comment is required").min(2).max(500),
 });
 
-// User can only update rating and comment
+// User can update position, company name, and comment
 const updateReviewZodSchema = z.object({
-  rating: z.number().min(1).max(5).optional(),
-  comment: z.string().min(2).max(200).optional(),
+  position: z.string().min(1).max(50).optional(),
+  companyName: z.string().min(1).max(50).optional(),
+  comment: z.string().min(2).max(500).optional(),
 });
 
 // Admin can also toggle isApproved and isPinned
 const adminUpdateReviewZodSchema = z.object({
-  rating: z.number().min(1).max(5).optional(),
-  comment: z.string().min(2).max(200).optional(),
+  position: z.string().min(1).max(50).optional(),
+  companyName: z.string().min(1).max(50).optional(),
+  comment: z.string().min(2).max(500).optional(),
+
   isApproved: z.boolean().optional(),
   isPinned: z.boolean().optional(),
 });

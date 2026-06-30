@@ -8,90 +8,181 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f8fafc;
-            color: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f4f4f5;
+            color: #18181b;
             line-height: 1.6;
         }
 
         .wrapper {
-            padding: 40px 20px;
+            padding: 48px 20px;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 560px;
             margin: 0 auto;
             background: #ffffff;
-            border-radius: 16px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #e4e4e7;
         }
 
+        /* ── Top bar ── */
         .header {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            padding: 36px 30px;
-            text-align: center;
-            color: white;
+            background-color: #111116;
+            padding: 28px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .header h1 {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 800;
+        .header-brand {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.01em;
         }
 
+        .header-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            margin-left: 8px;
+            background-color: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #10b981;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* ── Content ── */
         .content {
-            padding: 32px 30px;
+            padding: 40px 32px;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            color: #10b981;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111116;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
         }
 
         .greeting {
-            font-size: 16px;
-            color: #334155;
+            font-size: 14px;
+            color: #71717a;
+            margin-bottom: 20px;
+        }
+
+        /* ── Blog title ── */
+        .blog-ref {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: #fafafa;
+            border: 1px solid #e4e4e7;
+            border-radius: 12px;
+            padding: 14px 16px;
             margin-bottom: 16px;
         }
 
-        .comment-box {
-            background-color: #f1f5f9;
-            border-left: 4px solid #3b82f6;
-            padding: 16px 18px;
-            border-radius: 8px;
-            margin: 20px 0;
-            font-style: italic;
-            color: #334155;
-        }
-
-        .blog-title {
+        .blog-ref-label {
+            font-size: 11px;
             font-weight: 600;
-            color: #0f172a;
-            margin: 16px 0 4px;
+            color: #a1a1aa;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            white-space: nowrap;
+            padding-top: 2px;
         }
 
+        .blog-ref-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #18181b;
+        }
+
+        /* ── Comment quote box ── */
+        .comment-box {
+            background-color: #fafafa;
+            border: 1px solid #e4e4e7;
+            border-left: 3px solid #10b981;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 28px;
+            font-size: 14px;
+            font-style: italic;
+            color: #3f3f46;
+            line-height: 1.7;
+        }
+
+        /* ── CTA button ── */
         .cta {
             text-align: center;
-            margin: 28px 0 10px;
+            margin-bottom: 24px;
         }
 
         .cta a {
             display: inline-block;
-            padding: 13px 30px;
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            color: #fff !important;
+            padding: 13px 32px;
+            background-color: #111116;
+            color: #ffffff !important;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 999px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
+            letter-spacing: 0.01em;
         }
 
+        .sub-note {
+            font-size: 13px;
+            color: #a1a1aa;
+            text-align: center;
+        }
+
+        /* ── Footer ── */
         .footer {
-            padding: 20px 30px 32px;
+            padding: 20px 32px 28px;
+            border-top: 1px solid #f4f4f5;
             text-align: center;
             font-size: 12px;
-            color: #94a3b8;
-            border-top: 1px solid #e2e8f0;
+            color: #a1a1aa;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .wrapper {
+                padding: 0;
+            }
+
+            .container {
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .header,
+            .content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
         }
     </style>
 </head>
@@ -99,22 +190,31 @@
 <body>
     <div class="wrapper">
         <div class="container">
+
             <div class="header">
-                <h1>💬 Your Comment is Live!</h1>
+                <span class="header-brand">Ishtiaq Robin</span>
+                <span class="header-badge">Comment Live</span>
             </div>
+
             <div class="content">
+                <p class="eyebrow">Blog Activity</p>
+                <h1 class="title">Your Comment is Live!</h1>
                 <p class="greeting">
                     Hi <strong>
                         <%= name %>
-                    </strong>,
+                    </strong>, thanks for engaging with the blog!
+                    Your comment has been approved and is now publicly visible on:
                 </p>
-                <p>Thanks for engaging with the blog! Your comment has been approved and is now visible publicly on:</p>
 
-                <p class="blog-title">📖 <%= blogTitle %>
-                </p>
+                <div class="blog-ref">
+                    <span class="blog-ref-label">Post</span>
+                    <span class="blog-ref-title">
+                        <%= blogTitle %>
+                    </span>
+                </div>
 
                 <div class="comment-box">
-                    "<%= comment %>"
+                    &ldquo;<%= comment %>&rdquo;
                 </div>
 
                 <% if (typeof blogUrl !=='undefined' && blogUrl) { %>
@@ -123,14 +223,16 @@
                     </div>
                     <% } %>
 
-                        <p style="font-size:13px; color:#64748b; margin-top:24px;">
-                            Feel free to keep the conversation going — reply to other comments or share the post with
-                            your network!
+                        <p class="sub-note">
+                            Feel free to keep the conversation going &mdash; reply to other comments or share the post
+                            with your network!
                         </p>
             </div>
+
             <div class="footer">
                 <p>&copy; 2026 Ishtiaq Robin Portfolio. All rights reserved.</p>
             </div>
+
         </div>
     </div>
 </body>
