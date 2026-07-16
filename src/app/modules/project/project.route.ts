@@ -12,7 +12,10 @@ const router = express.Router();
 // Get all projects
 router.get("/", ProjectController.getProjects);
 
-// Get single project
+// Get single project by slug
+router.get("/slug/:slug", ProjectController.getProjectBySlug);
+
+// Get single project by id
 router.get("/:id", ProjectController.getProjectById);
 
 // Create project
@@ -21,7 +24,7 @@ router.post(
   auth(UserRole.ADMIN),
   projectUpload.fields([
     { name: "thumbnail", maxCount: 1 },
-    { name: "images", maxCount: 10 },
+    { name: "bannerImage", maxCount: 1 },
   ]),
   validateRequest(ProjectValidation.createProjectZodSchema),
   ProjectController.createProject,
@@ -33,7 +36,7 @@ router.put(
   auth(UserRole.ADMIN),
   projectUpload.fields([
     { name: "thumbnail", maxCount: 1 },
-    { name: "images", maxCount: 10 },
+    { name: "bannerImage", maxCount: 1 },
   ]),
   validateRequest(ProjectValidation.updateProjectZodSchema),
   ProjectController.updateProject,

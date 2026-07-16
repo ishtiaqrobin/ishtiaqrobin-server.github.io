@@ -67,163 +67,76 @@ const unbanUser = async (userId: string) => {
 const getDashboardStats = async (): Promise<DashboardStats> => {
   return await prisma.$transaction(async (tx) => {
     const [
-      // Users
       grandTotalUsers,
       totalUsers,
       totalAdmins,
       totalVerifiedUsers,
       totalUnverifiedUsers,
 
-      // Core Portfolio
       totalProjects,
-      totalSkills,
       totalCategories,
-      totalServices,
-      totalExperiences,
-      totalEducations,
-      totalCertificates,
       totalReviews,
-      totalGallery,
-      totalVideos,
-      totalTimelines,
 
-      // Blog
-      totalBlogs,
-      totalPublishedBlogs,
-      totalDraftBlogs,
-      totalBlogTags,
-      totalBlogComments,
-
-      // Contacts & Appointments
       totalContacts,
       totalUnreadContacts,
-      totalAppointments,
-      totalPendingAppointments,
 
-      // Store
-      totalProducts,
-      totalOrders,
-      totalPaidOrders,
-
-      // Analytics & Engagement
       totalPageViews,
-      // totalChatbotLogs,
-
-      // Open Source & Packages
-      totalNpmPackages,
-      totalOpenSourceContributions,
-
-      // RSS
-      totalRssSubscribers,
-
-      // Translations
-      totalTranslations,
     ] = await Promise.all([
-      // Users
       tx.user.count(),
       tx.user.count({ where: { role: "USER" } }),
       tx.user.count({ where: { role: "ADMIN" } }),
       tx.user.count({ where: { emailVerified: true } }),
       tx.user.count({ where: { emailVerified: false } }),
 
-      // Core Portfolio
       tx.project.count(),
-      tx.skill.count(),
       tx.category.count(),
-      tx.service.count(),
-      tx.experience.count(),
-      tx.education.count(),
-      tx.certificate.count(),
       tx.review.count(),
-      tx.gallery.count(),
-      tx.video.count(),
-      tx.timeline.count(),
 
-      // Blog
-      tx.blog.count(),
-      tx.blog.count({ where: { status: "PUBLISHED" } }),
-      tx.blog.count({ where: { status: "DRAFT" } }),
-      tx.blogTag.count(),
-      tx.blogComment.count(),
-
-      // Contacts & Appointments
       tx.contact.count(),
       tx.contact.count({ where: { status: "UNREAD" } }),
-      tx.appointment.count(),
-      tx.appointment.count({ where: { status: "PENDING" } }),
 
-      // Store
-      tx.product.count(),
-      tx.order.count(),
-      tx.order.count({ where: { status: "PAID" } }),
-
-      // Analytics & Engagement
       tx.pageView.count(),
-      // tx.chatbotLog.count(),
-
-      // Open Source & Packages
-      tx.npmPackage.count(),
-      tx.openSourceContribution.count(),
-
-      // RSS
-      tx.rssSubscriber.count(),
-
-      // Translations
-      tx.translation.count(),
     ]);
 
     return {
-      // Users
       grandTotalUsers,
       totalUsers,
       totalAdmins,
       totalVerifiedUsers,
       totalUnverifiedUsers,
 
-      // Core Portfolio
       totalProjects,
-      totalSkills,
+      totalSkills: 0,
       totalCategories,
-      totalServices,
-      totalExperiences,
-      totalEducations,
-      totalCertificates,
+      totalServices: 0,
+      totalExperiences: 0,
+      totalEducations: 0,
+      totalCertificates: 0,
       totalReviews,
-      totalGallery,
-      totalVideos,
-      totalTimelines,
+      totalGallery: 0,
+      totalVideos: 0,
+      totalTimelines: 0,
 
-      // Blog
-      totalBlogs,
-      totalPublishedBlogs,
-      totalDraftBlogs,
-      totalBlogTags,
-      totalBlogComments,
+      totalBlogs: 0,
+      totalPublishedBlogs: 0,
+      totalDraftBlogs: 0,
+      totalBlogTags: 0,
+      totalBlogComments: 0,
 
-      // Contacts & Appointments
       totalContacts,
       totalUnreadContacts,
-      totalAppointments,
-      totalPendingAppointments,
+      totalAppointments: 0,
+      totalPendingAppointments: 0,
 
-      // Store
-      totalProducts,
-      totalOrders,
-      totalPaidOrders,
+      totalProducts: 0,
+      totalOrders: 0,
+      totalPaidOrders: 0,
 
-      // Analytics & Engagement
       totalPageViews,
-      // totalChatbotLogs,
-
-      // Open Source & Packages
-      totalNpmPackages,
-      totalOpenSourceContributions,
-
-      // RSS
-      totalRssSubscribers,
-
-      // Translations
-      totalTranslations,
+      totalNpmPackages: 0,
+      totalOpenSourceContributions: 0,
+      totalRssSubscribers: 0,
+      totalTranslations: 0,
     };
   });
 };

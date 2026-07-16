@@ -6,25 +6,17 @@ import status from "http-status";
 
 const projectInclude = {
   category: true,
-  images: { orderBy: { sortOrder: "asc" } },
 } as const;
 
 // Create project
 const createProject = async (payload: CreateProjectInput) => {
-  const { projectImages, ...projectData } = payload;
+  const { techStack, sections, ...projectData } = payload;
 
   const result = await prisma.project.create({
     data: {
       ...projectData,
-      ...(projectImages?.length && {
-        images: {
-          create: projectImages.map((img, idx) => ({
-            url: img.url,
-            alt: img.alt || null,
-            sortOrder: img.sortOrder ?? idx,
-          })),
-        },
-      }),
+      techStack: techStack || [],
+      sections: sections || undefined,
     },
     include: projectInclude,
   });
@@ -51,10 +43,24 @@ const getProjects = async (
   return result;
 };
 
-// Get single project
+// Get single project by id
 const getProjectById = async (id: string) => {
   const result = await prisma.project.findUnique({
     where: { id },
+    include: projectInclude,
+  });
+
+  if (!result) {
+    throw new AppError(status.NOT_FOUND, "Project not found");
+  }
+
+  return result;
+};
+
+// Get single project by slug
+const getProjectBySlug = async (slug: string) => {
+  const result = await prisma.project.findUnique({
+    where: { slug },
     include: projectInclude,
   });
 
@@ -69,7 +75,6 @@ const getProjectById = async (id: string) => {
 const updateProject = async (id: string, payload: UpdateProjectInput) => {
   const current = await prisma.project.findUnique({
     where: { id },
-    include: { images: true },
   });
 
   if (!current) {
@@ -85,23 +90,23 @@ const updateProject = async (id: string, payload: UpdateProjectInput) => {
     await deleteFileFromCloudinary(current.thumbnail);
   }
 
-  const { projectImages, ...updateData } = payload;
+  // Delete old bannerImage from Cloudinary if new one is being uploaded
+  if (
+    payload.bannerImage &&
+    current.bannerImage &&
+    payload.bannerImage !== current.bannerImage
+  ) {
+    await deleteFileFromCloudinary(current.bannerImage);
+  }
+
+  const { techStack, sections, ...updateData } = payload;
 
   const result = await prisma.project.update({
     where: { id },
     data: {
       ...updateData,
-      // Replace all images if new ones are provided
-      ...(projectImages?.length && {
-        images: {
-          deleteMany: {},
-          create: projectImages.map((img, idx) => ({
-            url: img.url,
-            alt: img.alt || null,
-            sortOrder: img.sortOrder ?? idx,
-          })),
-        },
-      }),
+      ...(techStack !== undefined && { techStack }),
+      ...(sections !== undefined && { sections }),
     } as any,
     include: projectInclude,
   });
@@ -112,17 +117,16 @@ const updateProject = async (id: string, payload: UpdateProjectInput) => {
 const deleteProject = async (id: string) => {
   const current = await prisma.project.findUnique({
     where: { id },
-    include: { images: true },
   });
 
   if (!current) {
     throw new AppError(status.NOT_FOUND, "Project not found");
   }
 
-  // Delete thumbnail and all images from Cloudinary
+  // Delete thumbnail and bannerImage from Cloudinary
   const urlsToDelete = [
     current.thumbnail,
-    ...current.images.map((img) => img.url),
+    current.bannerImage,
   ].filter(Boolean) as string[];
 
   await Promise.all(urlsToDelete.map(deleteFileFromCloudinary));
@@ -134,6 +138,7 @@ export const ProjectService = {
   createProject,
   getProjects,
   getProjectById,
+  getProjectBySlug,
   updateProject,
   deleteProject,
 };

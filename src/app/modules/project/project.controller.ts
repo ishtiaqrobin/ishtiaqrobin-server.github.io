@@ -31,7 +31,6 @@ import status from "http-status";
 // };
 
 const parseProjectPayload = (req: Request) => {
-  // Zod validation middleware ইতোমধ্যে types coerce করে দিয়েছে
   const payload: any = { ...req.body };
   const files = req.files as Record<string, Express.Multer.File[]> | undefined;
 
@@ -39,20 +38,31 @@ const parseProjectPayload = (req: Request) => {
     payload.thumbnail = files.thumbnail[0].path;
   }
 
-  if (files?.images?.length) {
-    payload.projectImages = files.images.map((file, idx) => ({
-      url: file.path,
-      alt: req.body[`alt_${idx}`] || undefined,
-    }));
+  if (files?.bannerImage?.[0]) {
+    payload.bannerImage = files.bannerImage[0].path;
   }
 
-  // tags আর manually parse করতে হবে না — Zod middleware করে দিয়েছে
-  // কিন্তু যদি validation skip হয় সে case-এর জন্য fallback রাখো:
   if (payload.tags && typeof payload.tags === "string") {
     try {
       payload.tags = JSON.parse(payload.tags);
     } catch {
       payload.tags = payload.tags.split(",").map((t: string) => t.trim());
+    }
+  }
+
+  if (payload.techStack && typeof payload.techStack === "string") {
+    try {
+      payload.techStack = JSON.parse(payload.techStack);
+    } catch {
+      payload.techStack = payload.techStack.split(",").map((t: string) => t.trim());
+    }
+  }
+
+  if (payload.sections && typeof payload.sections === "string") {
+    try {
+      payload.sections = JSON.parse(payload.sections);
+    } catch {
+      payload.sections = [];
     }
   }
 
@@ -106,7 +116,7 @@ const getProjects = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-// Get single project
+// Get single project by id
 const getProjectById = async (
   req: Request,
   res: Response,
@@ -115,6 +125,28 @@ const getProjectById = async (
   const id = req.params.id;
   try {
     const result = await ProjectService.getProjectById(id as string);
+    if (!result) {
+      throw new AppError(status.NOT_FOUND, "Project not found");
+    }
+    res.status(200).json({
+      success: true,
+      message: "Retrieved project successfully",
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// Get single project by slug
+const getProjectBySlug = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  const slug = req.params.slug;
+  try {
+    const result = await ProjectService.getProjectBySlug(slug as string);
     if (!result) {
       throw new AppError(status.NOT_FOUND, "Project not found");
     }
@@ -172,6 +204,7 @@ export const ProjectController = {
   createProject,
   getProjects,
   getProjectById,
+  getProjectBySlug,
   updateProject,
   deleteProject,
 };
