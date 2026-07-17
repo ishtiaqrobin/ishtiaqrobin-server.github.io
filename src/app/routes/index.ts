@@ -26,4 +26,6 @@ router.use("/chatbot", ChatbotRouter);
 router.use("/projects", ProjectRouter);
 router.use("/contacts", ContactRouter);
 
+// router.use("/blogs", BlogRouter);
+
 export const IndexRoutes = router;
