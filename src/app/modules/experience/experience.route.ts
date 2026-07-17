@@ -3,33 +3,30 @@ import { ExperienceController } from "./experience.controller";
 import auth, { UserRole } from "../../middlewares/auth";
 import { ExperienceValidation } from "./experience.validation";
 import { validateRequest } from "../../middlewares/validateRequest";
+import { createMulterUpload } from "../../config/multer.config";
+
+const experienceUpload = createMulterUpload("experiences");
 
 const router = express.Router();
 
-// Get all experiences
 router.get("/", ExperienceController.getExperiences);
 
-// Create experience
 router.post(
   "/",
   auth(UserRole.ADMIN),
+  experienceUpload.fields([{ name: "companyLogo", maxCount: 1 }]),
   validateRequest(ExperienceValidation.createExperienceZodSchema),
   ExperienceController.createExperience,
 );
 
-// Update experience
 router.put(
   "/:id",
   auth(UserRole.ADMIN),
+  experienceUpload.fields([{ name: "companyLogo", maxCount: 1 }]),
   validateRequest(ExperienceValidation.updateExperienceZodSchema),
   ExperienceController.updateExperience,
 );
 
-// Delete experience
-router.delete(
-  "/:id",
-  auth(UserRole.ADMIN),
-  ExperienceController.deleteExperience,
-);
+router.delete("/:id", auth(UserRole.ADMIN), ExperienceController.deleteExperience);
 
 export const ExperienceRouter: Router = router;

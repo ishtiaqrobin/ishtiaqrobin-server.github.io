@@ -30,13 +30,7 @@ const fileFilter = (
 
 // ✅ Factory function — folder name parameter নাও
 export const createMulterUpload = (
-  folder:
-    | "about"
-    | "galleries"
-    | "projects"
-    | "profiles"
-    | "certificates"
-    | "blogs",
+  folder: "about" | "projects" | "profiles" | "blogs" | "experiences",
 ) => {
   const storage = new CloudinaryStorage({
     cloudinary: cloudinaryUpload,

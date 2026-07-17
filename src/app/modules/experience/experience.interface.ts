@@ -1,12 +1,11 @@
 export type CreateExperienceInput = {
-  company: string;
-  title: string;
+  position: string;
+  companyName: string;
+  companyUrl?: string | null;
+  companyLogo?: string | null;
+  responsibilities: string[];
   startDate: string;
   endDate?: string | null;
-  location?: string | null;
-  description?: string | null;
-  // companyUrl?: string | null;
-  // companyLogo?: string | null;
   isPublished: boolean;
   sortOrder: number;
 };

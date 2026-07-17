@@ -1,15 +1,14 @@
 // Experience Model
 model Experience {
-    id          String    @id @default(uuid())
-    company     String
-    title       String
-    startDate   DateTime
-    endDate     DateTime? // null = currently working
-    location    String?
-    description String?   @db.Text
+    id               String  @id @default(uuid())
+    position         String
+    companyName      String
+    companyUrl       String?
+    companyLogo      String?
+    responsibilities String
 
-    companyUrl  String?
-    companyLogo String?
+    startDate DateTime
+    endDate   DateTime? // null = currently working (Present)
 
     isPublished Boolean @default(true)
     sortOrder   Int     @default(0)

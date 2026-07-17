@@ -8,6 +8,7 @@
     "dev": "tsx watch src/server.ts",
     "reset": "prisma migrate reset",
     "migrate": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
     "generate": "prisma generate",
     "db": "prisma db push",
     "studio": "prisma studio",

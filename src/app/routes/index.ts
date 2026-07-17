@@ -11,6 +11,7 @@ import { ContactRouter } from "../modules/contact/contact.route";
 import { AboutRouter } from "../modules/about/about.route";
 import { AnalyticsRouter } from "../modules/analytics/analytics.route";
 import { ChatbotRouter } from "../modules/chatbot/chatbot.route";
+import { ExperienceRouter } from "../modules/experience/experience.route";
 
 const router = Router();
 
@@ -25,6 +26,7 @@ router.use("/analytics", AnalyticsRouter);
 router.use("/chatbot", ChatbotRouter);
 router.use("/projects", ProjectRouter);
 router.use("/contacts", ContactRouter);
+router.use("/experiences", ExperienceRouter);
 
 // router.use("/blogs", BlogRouter);
 

@@ -1,14 +1,37 @@
 import { NextFunction, Request, Response } from "express";
 import { ExperienceService } from "./experience.service";
 
-// Create experience
+const parseExperiencePayload = (req: Request) => {
+  const payload: any = { ...req.body };
+  const files = req.files as Record<string, Express.Multer.File[]> | undefined;
+
+  if (files?.companyLogo?.[0]) {
+    payload.companyLogo = files.companyLogo[0].path;
+  }
+
+  if (payload.responsibilities && typeof payload.responsibilities === "string") {
+    try {
+      payload.responsibilities = JSON.parse(payload.responsibilities);
+    } catch {
+      payload.responsibilities = payload.responsibilities
+        .split("\n")
+        .map((r: string) => r.trim())
+        .filter(Boolean);
+    }
+  }
+
+  return payload;
+};
+
 const createExperience = async (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
   try {
-    const result = await ExperienceService.createExperience(req.body);
+    const result = await ExperienceService.createExperience(
+      parseExperiencePayload(req),
+    );
     res.status(201).json({
       success: true,
       message: "Experience created successfully",
@@ -19,7 +42,6 @@ const createExperience = async (
   }
 };
 
-// Get all experiences
 const getExperiences = async (
   req: Request,
   res: Response,
@@ -45,7 +67,6 @@ const getExperiences = async (
   }
 };
 
-// Update experience
 const updateExperience = async (
   req: Request,
   res: Response,
@@ -55,7 +76,7 @@ const updateExperience = async (
     const { id } = req.params;
     const result = await ExperienceService.updateExperience(
       id as string,
-      req.body,
+      parseExperiencePayload(req),
     );
     res.status(200).json({
       success: true,
@@ -67,7 +88,6 @@ const updateExperience = async (
   }
 };
 
-// Delete experience
 const deleteExperience = async (
   req: Request,
   res: Response,
@@ -75,11 +95,10 @@ const deleteExperience = async (
 ) => {
   try {
     const { id } = req.params;
-    const result = await ExperienceService.deleteExperience(id as string);
+    await ExperienceService.deleteExperience(id as string);
     res.status(200).json({
       success: true,
       message: "Experience deleted successfully",
-      data: result,
     });
   } catch (err) {
     next(err);

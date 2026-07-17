@@ -3,59 +3,84 @@ import {
   CreateExperienceInput,
   UpdateExperienceInput,
 } from "./experience.interface";
+import { deleteFileFromCloudinary } from "../../config/cloudinary.config";
+import AppError from "../../errorHelpers/AppError";
+import status from "http-status";
 
-// Create experience
-const createExperience = async (payload: CreateExperienceInput) => {
-  const data = { ...payload } as any;
+const parseExperience = (exp: Record<string, unknown>) => ({
+  ...exp,
+  responsibilities: exp.responsibilities
+    ? JSON.parse(exp.responsibilities as string)
+    : [],
+});
+
+const serializePayload = (payload: Record<string, unknown>) => {
+  const data = { ...payload };
   if (data.startDate) {
-    data.startDate = new Date(data.startDate).toISOString();
+    data.startDate = new Date(data.startDate as string).toISOString();
   }
   if (data.endDate) {
-    data.endDate = new Date(data.endDate).toISOString();
+    data.endDate = new Date(data.endDate as string).toISOString();
   }
-
-  const result = await prisma.experience.create({
-    data,
-  });
-  return result;
+  if (Array.isArray(data.responsibilities)) {
+    data.responsibilities = JSON.stringify(data.responsibilities);
+  }
+  return data;
 };
 
-// Get all experiences
+const createExperience = async (payload: CreateExperienceInput) => {
+  const data = serializePayload(payload as unknown as Record<string, unknown>);
+  const result = await prisma.experience.create({ data: data as any });
+  return parseExperience(result as unknown as Record<string, unknown>);
+};
+
 const getExperiences = async (isPublished?: boolean) => {
-  const result = await prisma.experience.findMany({
+  const results = await prisma.experience.findMany({
     where: {
       ...(isPublished !== undefined && { isPublished }),
     },
-    orderBy: {
-      sortOrder: "asc",
-    },
+    orderBy: { sortOrder: "asc" },
   });
-  return result;
+  return results.map((r) =>
+    parseExperience(r as unknown as Record<string, unknown>),
+  );
 };
 
-// Update experience
 const updateExperience = async (id: string, payload: UpdateExperienceInput) => {
-  const data = { ...payload } as any;
-  if (data.startDate) {
-    data.startDate = new Date(data.startDate).toISOString();
-  }
-  if (data.endDate) {
-    data.endDate = new Date(data.endDate).toISOString();
+  const current = await prisma.experience.findUnique({ where: { id } });
+
+  if (!current) {
+    throw new AppError(status.NOT_FOUND, "Experience not found");
   }
 
+  if (
+    payload.companyLogo &&
+    current.companyLogo &&
+    payload.companyLogo !== current.companyLogo
+  ) {
+    await deleteFileFromCloudinary(current.companyLogo);
+  }
+
+  const data = serializePayload(payload as unknown as Record<string, unknown>);
   const result = await prisma.experience.update({
     where: { id },
-    data,
+    data: data as any,
   });
-  return result;
+  return parseExperience(result as unknown as Record<string, unknown>);
 };
 
-// Delete experience
 const deleteExperience = async (id: string) => {
-  const result = await prisma.experience.delete({
-    where: { id },
-  });
-  return result;
+  const current = await prisma.experience.findUnique({ where: { id } });
+
+  if (!current) {
+    throw new AppError(status.NOT_FOUND, "Experience not found");
+  }
+
+  if (current.companyLogo) {
+    await deleteFileFromCloudinary(current.companyLogo);
+  }
+
+  await prisma.experience.delete({ where: { id } });
 };
 
 export const ExperienceService = {
