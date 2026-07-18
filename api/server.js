@@ -919,12 +919,12 @@ ${log3.fields?.reason}`;
       y.e = getBase10Exponent(xd, e);
       return external ? finalise(y, pr, rm) : y;
     };
-    P.precision = P.sd = function(z24) {
+    P.precision = P.sd = function(z10) {
       var k, x = this;
-      if (z24 !== void 0 && z24 !== !!z24 && z24 !== 1 && z24 !== 0) throw Error(invalidArgument + z24);
+      if (z10 !== void 0 && z10 !== !!z10 && z10 !== 1 && z10 !== 0) throw Error(invalidArgument + z10);
       if (x.d) {
         k = getPrecision(x.d);
-        if (z24 && x.e + 1 > k) k = x.e + 1;
+        if (z10 && x.e + 1 > k) k = x.e + 1;
       } else {
         k = NaN;
       }
@@ -6037,7 +6037,7 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
           }
           case "sum": {
             let o = await Promise.all(t.args.map((s) => this.interpretNode(s, r, n, i).then((a) => a.value)));
-            return { value: o.length > 0 ? o.reduce((s, a) => z24(s) + z24(a)) : 0 };
+            return { value: o.length > 0 ? o.reduce((s, a) => z10(s) + z10(a)) : 0 };
           }
           case "execute": {
             let o = Hn(t.args, n, i, this.#u()), s = 0;
@@ -6163,7 +6163,7 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
     function Wn(e) {
       return Array.isArray(e) ? e : [e];
     }
-    function z24(e) {
+    function z10(e) {
       if (typeof e == "number") return e;
       if (typeof e == "string") return Number(e);
       throw new Error(`Expected number, got ${typeof e}`);
@@ -6205,13 +6205,13 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
         case "set":
           return H(e.value, r, n);
         case "add":
-          return z24(t) + z24(H(e.value, r, n));
+          return z10(t) + z10(H(e.value, r, n));
         case "subtract":
-          return z24(t) - z24(H(e.value, r, n));
+          return z10(t) - z10(H(e.value, r, n));
         case "multiply":
-          return z24(t) * z24(H(e.value, r, n));
+          return z10(t) * z10(H(e.value, r, n));
         case "divide": {
-          let i = z24(t), o = z24(H(e.value, r, n));
+          let i = z10(t), o = z10(H(e.value, r, n));
           return o === 0 ? null : i / o;
         }
         default:
@@ -7822,7 +7822,7 @@ var require_query_compiler_bg = __commonJS({
     };
     var B = (e) => O(h({}, "__esModule", { value: true }), e);
     var xe = {};
-    D(xe, { QueryCompiler: () => F, __wbg_Error_e83987f665cf5504: () => q, __wbg_Number_bb48ca12f395cd08: () => C, __wbg_String_8f0eb39a4a4c2f66: () => k, __wbg___wbindgen_boolean_get_6d5a1ee65bab5f68: () => W, __wbg___wbindgen_debug_string_df47ffb5e35e6763: () => V, __wbg___wbindgen_in_bb933bd9e1b3bc0f: () => z24, __wbg___wbindgen_is_object_c818261d21f283a4: () => L, __wbg___wbindgen_is_string_fbb76cb2940daafd: () => P, __wbg___wbindgen_is_undefined_2d472862bd29a478: () => Q, __wbg___wbindgen_jsval_loose_eq_b664b38a2f582147: () => Y, __wbg___wbindgen_number_get_a20bf9b85341449d: () => G, __wbg___wbindgen_string_get_e4f06c90489ad01b: () => J, __wbg___wbindgen_throw_b855445ff6a94295: () => X, __wbg_entries_e171b586f8f6bdbf: () => H, __wbg_getTime_14776bfb48a1bff9: () => K, __wbg_get_7bed016f185add81: () => Z, __wbg_get_with_ref_key_1dc361bd10053bfe: () => v, __wbg_instanceof_ArrayBuffer_70beb1189ca63b38: () => ee, __wbg_instanceof_Uint8Array_20c8e73002f7af98: () => te, __wbg_isSafeInteger_d216eda7911dde36: () => ne, __wbg_length_69bca3cb64fc8748: () => re, __wbg_length_cdd215e10d9dd507: () => _e, __wbg_new_0_f9740686d739025c: () => oe, __wbg_new_1acc0b6eea89d040: () => ce, __wbg_new_5a79be3ab53b8aa5: () => ie, __wbg_new_68651c719dcda04e: () => se, __wbg_new_e17d9f43105b08be: () => ue, __wbg_prototypesetcall_2a6620b6922694b2: () => fe, __wbg_set_3f1d0b984ed272ed: () => be, __wbg_set_907fb406c34a251d: () => de, __wbg_set_c213c871859d6500: () => ae, __wbg_set_message_82ae475bb413aa5c: () => ge, __wbg_set_wasm: () => N, __wbindgen_cast_2241b6af4c4b2941: () => le, __wbindgen_cast_4625c577ab2ec9ee: () => we, __wbindgen_cast_9ae0607507abb057: () => pe, __wbindgen_cast_d6cd19b81560fd6e: () => ye, __wbindgen_init_externref_table: () => me });
+    D(xe, { QueryCompiler: () => F, __wbg_Error_e83987f665cf5504: () => q, __wbg_Number_bb48ca12f395cd08: () => C, __wbg_String_8f0eb39a4a4c2f66: () => k, __wbg___wbindgen_boolean_get_6d5a1ee65bab5f68: () => W, __wbg___wbindgen_debug_string_df47ffb5e35e6763: () => V, __wbg___wbindgen_in_bb933bd9e1b3bc0f: () => z10, __wbg___wbindgen_is_object_c818261d21f283a4: () => L, __wbg___wbindgen_is_string_fbb76cb2940daafd: () => P, __wbg___wbindgen_is_undefined_2d472862bd29a478: () => Q, __wbg___wbindgen_jsval_loose_eq_b664b38a2f582147: () => Y, __wbg___wbindgen_number_get_a20bf9b85341449d: () => G, __wbg___wbindgen_string_get_e4f06c90489ad01b: () => J, __wbg___wbindgen_throw_b855445ff6a94295: () => X, __wbg_entries_e171b586f8f6bdbf: () => H, __wbg_getTime_14776bfb48a1bff9: () => K, __wbg_get_7bed016f185add81: () => Z, __wbg_get_with_ref_key_1dc361bd10053bfe: () => v, __wbg_instanceof_ArrayBuffer_70beb1189ca63b38: () => ee, __wbg_instanceof_Uint8Array_20c8e73002f7af98: () => te, __wbg_isSafeInteger_d216eda7911dde36: () => ne, __wbg_length_69bca3cb64fc8748: () => re, __wbg_length_cdd215e10d9dd507: () => _e, __wbg_new_0_f9740686d739025c: () => oe, __wbg_new_1acc0b6eea89d040: () => ce, __wbg_new_5a79be3ab53b8aa5: () => ie, __wbg_new_68651c719dcda04e: () => se, __wbg_new_e17d9f43105b08be: () => ue, __wbg_prototypesetcall_2a6620b6922694b2: () => fe, __wbg_set_3f1d0b984ed272ed: () => be, __wbg_set_907fb406c34a251d: () => de, __wbg_set_c213c871859d6500: () => ae, __wbg_set_message_82ae475bb413aa5c: () => ge, __wbg_set_wasm: () => N, __wbindgen_cast_2241b6af4c4b2941: () => le, __wbindgen_cast_4625c577ab2ec9ee: () => we, __wbindgen_cast_9ae0607507abb057: () => pe, __wbindgen_cast_d6cd19b81560fd6e: () => ye, __wbindgen_init_externref_table: () => me });
     module.exports = B(xe);
     var A = () => {
     };
@@ -7963,7 +7963,7 @@ ${e.stack}` : _;
       const n = I(t), _ = l(n, o.__wbindgen_malloc, o.__wbindgen_realloc), r = f;
       u().setInt32(e + 4 * 1, r, true), u().setInt32(e + 4 * 0, _, true);
     }
-    function z24(e, t) {
+    function z10(e, t) {
       return e in t;
     }
     function L(e) {
@@ -8188,30 +8188,6 @@ var require_prisma = __commonJS({
       userAgent: "userAgent",
       createdAt: "createdAt"
     };
-    exports.Prisma.AppointmentSlotScalarFieldEnum = {
-      id: "id",
-      dayOfWeek: "dayOfWeek",
-      startTime: "startTime",
-      endTime: "endTime",
-      isAvailable: "isAvailable",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.AppointmentScalarFieldEnum = {
-      id: "id",
-      name: "name",
-      email: "email",
-      phone: "phone",
-      topic: "topic",
-      message: "message",
-      date: "date",
-      status: "status",
-      meetLink: "meetLink",
-      adminNote: "adminNote",
-      slotId: "slotId",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
     exports.Prisma.UserScalarFieldEnum = {
       id: "id",
       email: "email",
@@ -8307,20 +8283,6 @@ var require_prisma = __commonJS({
       createdAt: "createdAt",
       updatedAt: "updatedAt"
     };
-    exports.Prisma.CertificateScalarFieldEnum = {
-      id: "id",
-      title: "title",
-      issuer: "issuer",
-      issuedDate: "issuedDate",
-      expiryDate: "expiryDate",
-      credentialId: "credentialId",
-      credentialUrl: "credentialUrl",
-      imageUrl: "imageUrl",
-      isPublished: "isPublished",
-      sortOrder: "sortOrder",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
     exports.Prisma.AiProviderConfigScalarFieldEnum = {
       id: "id",
       provider: "provider",
@@ -8354,118 +8316,42 @@ var require_prisma = __commonJS({
       createdAt: "createdAt",
       updatedAt: "updatedAt"
     };
-    exports.Prisma.EducationScalarFieldEnum = {
-      id: "id",
-      degree: "degree",
-      institution: "institution",
-      board: "board",
-      startDate: "startDate",
-      endDate: "endDate",
-      result: "result",
-      group: "group",
-      isPublished: "isPublished",
-      sortOrder: "sortOrder",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
     exports.Prisma.ExperienceScalarFieldEnum = {
       id: "id",
-      company: "company",
-      title: "title",
-      startDate: "startDate",
-      endDate: "endDate",
-      location: "location",
-      description: "description",
+      position: "position",
+      companyName: "companyName",
       companyUrl: "companyUrl",
       companyLogo: "companyLogo",
+      responsibilities: "responsibilities",
+      startDate: "startDate",
+      endDate: "endDate",
       isPublished: "isPublished",
       sortOrder: "sortOrder",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.GalleryScalarFieldEnum = {
-      id: "id",
-      image: "image",
-      title: "title",
-      description: "description",
-      isPublished: "isPublished",
-      sortOrder: "sortOrder",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.GitHubStatsCacheScalarFieldEnum = {
-      id: "id",
-      username: "username",
-      publicRepos: "publicRepos",
-      followers: "followers",
-      following: "following",
-      totalStars: "totalStars",
-      totalForks: "totalForks",
-      totalCommits: "totalCommits",
-      contributionGraph: "contributionGraph",
-      topLanguages: "topLanguages",
-      lastSyncedAt: "lastSyncedAt",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.OpenSourceContributionScalarFieldEnum = {
-      id: "id",
-      repoName: "repoName",
-      repoUrl: "repoUrl",
-      description: "description",
-      prUrl: "prUrl",
-      issueUrl: "issueUrl",
-      mergedAt: "mergedAt",
-      isPublished: "isPublished",
-      sortOrder: "sortOrder",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.TranslationScalarFieldEnum = {
-      id: "id",
-      key: "key",
-      locale: "locale",
-      value: "value",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.NpmPackageScalarFieldEnum = {
-      id: "id",
-      name: "name",
-      description: "description",
-      npmUrl: "npmUrl",
-      githubUrl: "githubUrl",
-      weeklyDownloads: "weeklyDownloads",
-      totalDownloads: "totalDownloads",
-      version: "version",
-      isPublished: "isPublished",
-      sortOrder: "sortOrder",
-      lastSyncedAt: "lastSyncedAt",
       createdAt: "createdAt",
       updatedAt: "updatedAt"
     };
     exports.Prisma.ProjectScalarFieldEnum = {
       id: "id",
+      slug: "slug",
       title: "title",
       description: "description",
       thumbnail: "thumbnail",
+      bannerImage: "bannerImage",
+      year: "year",
+      bgColor: "bgColor",
       liveUrl: "liveUrl",
       githubUrl: "githubUrl",
+      roles: "roles",
+      client: "client",
+      techStack: "techStack",
       tags: "tags",
+      sections: "sections",
       isFeatured: "isFeatured",
       isPublished: "isPublished",
       sortOrder: "sortOrder",
       categoryId: "categoryId",
       createdAt: "createdAt",
       updatedAt: "updatedAt"
-    };
-    exports.Prisma.ProjectImageScalarFieldEnum = {
-      id: "id",
-      url: "url",
-      alt: "alt",
-      sortOrder: "sortOrder",
-      projectId: "projectId",
-      createdAt: "createdAt"
     };
     exports.Prisma.ReviewScalarFieldEnum = {
       id: "id",
@@ -8475,35 +8361,6 @@ var require_prisma = __commonJS({
       comment: "comment",
       isApproved: "isApproved",
       isPinned: "isPinned",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.RssConfigScalarFieldEnum = {
-      id: "id",
-      isEnabled: "isEnabled",
-      title: "title",
-      description: "description",
-      feedUrl: "feedUrl",
-      language: "language",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.RssSubscriberScalarFieldEnum = {
-      id: "id",
-      email: "email",
-      isVerified: "isVerified",
-      verifyToken: "verifyToken",
-      unsubscribeToken: "unsubscribeToken",
-      subscribedAt: "subscribedAt",
-      unsubscribedAt: "unsubscribedAt"
-    };
-    exports.Prisma.ServiceScalarFieldEnum = {
-      id: "id",
-      name: "name",
-      icon: "icon",
-      description: "description",
-      isPublished: "isPublished",
-      sortOrder: "sortOrder",
       createdAt: "createdAt",
       updatedAt: "updatedAt"
     };
@@ -8528,90 +8385,6 @@ var require_prisma = __commonJS({
       experience: "experience",
       metaDescription: "metaDescription",
       metaKeywords: "metaKeywords",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.SkillScalarFieldEnum = {
-      id: "id",
-      name: "name",
-      level: "level",
-      icon: "icon",
-      sortOrder: "sortOrder",
-      categoryId: "categoryId",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.StatsScalarFieldEnum = {
-      id: "id",
-      experience: "experience",
-      projects: "projects",
-      happyClients: "happyClients",
-      successRate: "successRate",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.ProductScalarFieldEnum = {
-      id: "id",
-      title: "title",
-      slug: "slug",
-      description: "description",
-      thumbnail: "thumbnail",
-      previewUrl: "previewUrl",
-      price: "price",
-      discountPrice: "discountPrice",
-      currency: "currency",
-      status: "status",
-      isFeatured: "isFeatured",
-      sortOrder: "sortOrder",
-      techStack: "techStack",
-      includes: "includes",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.ProductImageScalarFieldEnum = {
-      id: "id",
-      url: "url",
-      alt: "alt",
-      sortOrder: "sortOrder",
-      productId: "productId"
-    };
-    exports.Prisma.OrderScalarFieldEnum = {
-      id: "id",
-      buyerName: "buyerName",
-      buyerEmail: "buyerEmail",
-      amount: "amount",
-      currency: "currency",
-      status: "status",
-      paymentMethod: "paymentMethod",
-      transactionId: "transactionId",
-      paidAt: "paidAt",
-      downloadToken: "downloadToken",
-      downloadCount: "downloadCount",
-      downloadExpiry: "downloadExpiry",
-      productId: "productId",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.TimelineScalarFieldEnum = {
-      id: "id",
-      title: "title",
-      description: "description",
-      date: "date",
-      icon: "icon",
-      color: "color",
-      url: "url",
-      isPublished: "isPublished",
-      sortOrder: "sortOrder",
-      createdAt: "createdAt",
-      updatedAt: "updatedAt"
-    };
-    exports.Prisma.VideoScalarFieldEnum = {
-      id: "id",
-      title: "title",
-      description: "description",
-      videoUrl: "videoUrl",
-      isPublished: "isPublished",
-      sortOrder: "sortOrder",
       createdAt: "createdAt",
       updatedAt: "updatedAt"
     };
@@ -8686,8 +8459,6 @@ var require_prisma = __commonJS({
       AdminProfile: "AdminProfile",
       PageView: "PageView",
       ResumeDownloadLog: "ResumeDownloadLog",
-      AppointmentSlot: "AppointmentSlot",
-      Appointment: "Appointment",
       User: "User",
       Session: "Session",
       Account: "Account",
@@ -8696,31 +8467,13 @@ var require_prisma = __commonJS({
       BlogTag: "BlogTag",
       BlogComment: "BlogComment",
       Category: "Category",
-      Certificate: "Certificate",
       AiProviderConfig: "AiProviderConfig",
       ChatbotConfig: "ChatbotConfig",
       Contact: "Contact",
-      Education: "Education",
       Experience: "Experience",
-      Gallery: "Gallery",
-      GitHubStatsCache: "GitHubStatsCache",
-      OpenSourceContribution: "OpenSourceContribution",
-      Translation: "Translation",
-      NpmPackage: "NpmPackage",
       Project: "Project",
-      ProjectImage: "ProjectImage",
       Review: "Review",
-      RssConfig: "RssConfig",
-      RssSubscriber: "RssSubscriber",
-      Service: "Service",
-      Settings: "Settings",
-      Skill: "Skill",
-      Stats: "Stats",
-      Product: "Product",
-      ProductImage: "ProductImage",
-      Order: "Order",
-      Timeline: "Timeline",
-      Video: "Video"
+      Settings: "Settings"
     };
     var config = {
       "previewFeatures": [],
@@ -8790,46 +8543,6 @@ model ResumeDownloadLog {
   createdAt DateTime @default(now())
 
   @@map("resume_download_logs")
-}
-
-// Appointment Slot Model
-// Admin dashboard \u09A5\u09C7\u0995\u09C7 available time slots define \u0995\u09B0\u09AC\u09C7\u0964
-model AppointmentSlot {
-  id          String  @id @default(uuid())
-  dayOfWeek   Int // 0=Sunday, 1=Monday ... 6=Saturday
-  startTime   String // "10:00"
-  endTime     String // "11:00"
-  isAvailable Boolean @default(true)
-
-  appointments Appointment[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("appointment_slots")
-}
-
-// Appointment Model
-// Visitor \u098F\u0995\u099F\u09BE slot book \u0995\u09B0\u09AC\u09C7\u0964
-model Appointment {
-  id        String            @id @default(uuid())
-  name      String
-  email     String
-  phone     String?
-  topic     String // "Project discussion", "Consultation"
-  message   String?           @db.Text
-  date      DateTime // \u09A8\u09BF\u09B0\u09CD\u09A6\u09BF\u09B7\u09CD\u099F \u09A6\u09BF\u09A8
-  status    AppointmentStatus @default(PENDING)
-  meetLink  String? // Google Meet / Zoom link (admin add \u0995\u09B0\u09AC\u09C7 confirm \u098F\u09B0 \u09AA\u09B0)
-  adminNote String?           @db.Text
-
-  slotId String
-  slot   AppointmentSlot @relation(fields: [slotId], references: [id])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("appointments")
 }
 
 // User Model
@@ -8990,28 +8703,8 @@ model Category {
   updatedAt DateTime @updatedAt
 
   projects Project[]
-  skills   Skill[]
 
   @@map("categories")
-}
-
-// Certificate Model
-model Certificate {
-  id            String    @id @default(uuid())
-  title         String
-  issuer        String
-  issuedDate    DateTime
-  expiryDate    DateTime?
-  credentialId  String?
-  credentialUrl String?
-  imageUrl      String?
-  isPublished   Boolean   @default(true)
-  sortOrder     Int       @default(0)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("certificates")
 }
 
 // AI Provider Config \u2014 SINGLETON
@@ -9101,27 +8794,6 @@ model Contact {
   @@map("contacts")
 }
 
-// Education Model
-model Education {
-  id          String    @id @default(uuid())
-  degree      String
-  institution String
-  board       String?
-  startDate   DateTime
-  endDate     DateTime?
-  result      String?
-  group       String?
-
-  // description String?   @db.Text
-  isPublished Boolean @default(true)
-  sortOrder   Int     @default(0)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("educations")
-}
-
 // Role Enum
 enum Role {
   USER
@@ -9185,16 +8857,15 @@ enum OrderStatus {
 
 // Experience Model
 model Experience {
-  id          String    @id @default(uuid())
-  company     String
-  title       String
-  startDate   DateTime
-  endDate     DateTime? // null = currently working
-  location    String?
-  description String?   @db.Text
+  id               String  @id @default(uuid())
+  position         String
+  companyName      String
+  companyUrl       String?
+  companyLogo      String?
+  responsibilities String
 
-  companyUrl  String?
-  companyLogo String?
+  startDate DateTime
+  endDate   DateTime? // null = currently working (Present)
 
   isPublished Boolean @default(true)
   sortOrder   Int     @default(0)
@@ -9205,146 +8876,37 @@ model Experience {
   @@map("experiences")
 }
 
-// Gallery Model
-model Gallery {
-  id          String  @id @default(uuid())
-  image       String?
-  title       String?
-  description String? @db.Text
-  isPublished Boolean @default(true) // fixed: was isPublish
-  sortOrder   Int     @default(0)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("galleries")
-}
-
-// GitHub Stats Cache Model \u2014 SINGLETON
-// GitHub API \u09A5\u09C7\u0995\u09C7 fetch \u0995\u09B0\u09BE data cache \u0995\u09B0\u09C7 \u09B0\u09BE\u0996\u09BE \u09B9\u09AF\u09BC\u0964
-// \u09AA\u09CD\u09B0\u09A4\u09BF \u0995\u09AF\u09BC\u09C7\u0995 \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC \u098F\u0995\u09AC\u09BE\u09B0 background job update \u0995\u09B0\u09AC\u09C7\u0964
-// id = 'singleton' fixed\u0964
-model GitHubStatsCache {
-  id String @id @default("singleton")
-
-  username     String?
-  publicRepos  Int     @default(0)
-  followers    Int     @default(0)
-  following    Int     @default(0)
-  totalStars   Int     @default(0)
-  totalForks   Int     @default(0)
-  totalCommits Int     @default(0)
-
-  // Contribution graph raw JSON (GitHub API response)
-  contributionGraph Json?
-
-  // Top languages JSON \u2014 [{ name: "TypeScript", percentage: 45 }, ...]
-  topLanguages Json?
-
-  lastSyncedAt DateTime?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-
-  @@map("github_stats_cache")
-}
-
-// Open Source Contribution Model
-// manually add \u0995\u09B0\u09BE \u09AF\u09BE\u09AC\u09C7 admin dashboard \u09A5\u09C7\u0995\u09C7\u0964
-model OpenSourceContribution {
-  id          String    @id @default(uuid())
-  repoName    String // "vercel/next.js"
-  repoUrl     String
-  description String?   @db.Text
-  prUrl       String? // merged PR link
-  issueUrl    String?
-  mergedAt    DateTime?
-  isPublished Boolean   @default(true)
-  sortOrder   Int       @default(0)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("open_source_contributions")
-}
-
-// Translation Model
-// Multi-language support (EN + BN) \u098F\u09B0 \u099C\u09A8\u09CD\u09AF\u0964
-// key = "hero.title", locale = "bn", value = "\u0986\u09AE\u09BF \u0987\u09B6\u09A4\u09BF\u09AF\u09BC\u09BE\u0995 \u09B0\u09AC\u09BF\u09A8"
-model Translation {
-  id     String @id @default(uuid())
-  key    String // "hero.title", "about.bio", "nav.home"
-  locale String // "en", "bn"
-  value  String @db.Text
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@unique([key, locale]) // \u098F\u0995\u0987 key \u098F\u09B0 \u099C\u09A8\u09CD\u09AF \u098F\u0995\u099F\u09BE\u0987 locale \u09A5\u09BE\u0995\u09AC\u09C7
-  @@index([locale])
-  @@map("translations")
-}
-
-// NPM Package Model
-// Published npm packages showcase \u0995\u09B0\u09BE\u09B0 \u099C\u09A8\u09CD\u09AF\u0964
-model NpmPackage {
-  id              String  @id @default(uuid())
-  name            String  @unique // "@ishtiaqrobin/ui-kit"
-  description     String? @db.Text
-  npmUrl          String
-  githubUrl       String?
-  weeklyDownloads Int     @default(0) // npm API \u09A5\u09C7\u0995\u09C7 sync \u09B9\u09AC\u09C7
-  totalDownloads  Int     @default(0)
-  version         String? // latest version
-  isPublished     Boolean @default(true)
-  sortOrder       Int     @default(0)
-
-  lastSyncedAt DateTime?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-
-  @@map("npm_packages")
-}
-
 // Project Model
 model Project {
   id          String  @id @default(uuid())
+  slug        String  @unique
   title       String
   description String  @db.Text
   thumbnail   String?
+  bannerImage String?
+  year        String?
+  bgColor     String?
 
   liveUrl   String?
   githubUrl String?
 
-  tags        String[]
-  isFeatured  Boolean  @default(false)
-  isPublished Boolean  @default(true)
-  sortOrder   Int      @default(0) // Admin dashboard-\u098F drag-to-reorder \u098F\u09B0 \u099C\u09A8\u09CD\u09AF
+  roles     String?
+  client    String?
+  techStack String[]
+  tags      String[]
+  sections  Json?
+
+  isFeatured  Boolean @default(false)
+  isPublished Boolean @default(true)
+  sortOrder   Int     @default(0)
 
   categoryId String
   category   Category @relation(fields: [categoryId], references: [id])
-
-  // Multiple screenshots support
-  images ProjectImage[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("projects")
-}
-
-// Project Image Model (multiple screenshots per project)
-model ProjectImage {
-  id        String  @id @default(uuid())
-  url       String
-  alt       String?
-  sortOrder Int     @default(0)
-
-  projectId String
-  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
-
-  createdAt DateTime @default(now())
-
-  @@map("project_images")
 }
 
 // Review Model
@@ -9369,37 +8931,6 @@ model Review {
   @@map("reviews")
 }
 
-// RSS Feed Config \u2014 SINGLETON
-// Blog subscriber \u098F\u09B0 \u099C\u09A8\u09CD\u09AF RSS feed settings\u0964
-// id = 'singleton' fixed\u0964
-model RssConfig {
-  id          String  @id @default("singleton")
-  isEnabled   Boolean @default(true)
-  title       String? // "Ishtiaq Robin's Blog"
-  description String?
-  feedUrl     String? // "https://ishtiaq-robin.vercel.app/rss.xml"
-  language    String  @default("en")
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("rss_config")
-}
-
-// RSS Subscriber Model
-// Email \u09A6\u09BF\u09AF\u09BC\u09C7 subscribe \u0995\u09B0\u09BE users\u0964
-model RssSubscriber {
-  id               String    @id @default(uuid())
-  email            String    @unique
-  isVerified       Boolean   @default(false)
-  verifyToken      String?   @unique
-  unsubscribeToken String    @unique @default(uuid())
-  subscribedAt     DateTime  @default(now())
-  unsubscribedAt   DateTime?
-
-  @@map("rss_subscribers")
-}
-
 generator client {
   provider = "prisma-client-js"
   output   = "../../src/generated/prisma"
@@ -9407,21 +8938,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-}
-
-// Service Model
-model Service {
-  id          String  @id @default(uuid())
-  name        String
-  icon        Json? // { name, library, color, bgColor }
-  description String? @db.Text
-  isPublished Boolean @default(true) // fixed: was isPublish
-  sortOrder   Int     @default(0)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("services")
 }
 
 // Settings Model \u2014 SINGLETON
@@ -9464,152 +8980,9 @@ model Settings {
 
   @@map("settings")
 }
-
-// Skill Model
-model Skill {
-  id    String     @id @default(uuid())
-  name  String     @unique
-  level SkillLevel @default(LEARNING)
-
-  icon      Json? // { name, library, color }
-  sortOrder Int   @default(0)
-
-  categoryId String
-  category   Category @relation(fields: [categoryId], references: [id])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("skills")
-}
-
-// Stats Model \u2014 SINGLETON
-// \u09B8\u09AC\u09B8\u09AE\u09AF\u09BC \u098F\u0995\u099F\u09BE\u0987 row \u09A5\u09BE\u0995\u09AC\u09C7\u0964 id = 'singleton' fixed\u0964
-// Service layer-\u098F upsert({ where: { id: 'singleton' }, ... }) \u09AC\u09CD\u09AF\u09AC\u09B9\u09BE\u09B0 \u0995\u09B0\u09A4\u09C7 \u09B9\u09AC\u09C7\u0964
-model Stats {
-  id           String @id @default("singleton")
-  experience   Int    @default(0)
-  projects     Int    @default(0)
-  happyClients Int    @default(0)
-  successRate  Int    @default(0)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("stats")
-}
-
-// Digital Product Model
-// Template, boilerplate, UI kit \u09AC\u09BF\u0995\u09CD\u09B0\u09BF\u09B0 \u099C\u09A8\u09CD\u09AF\u0964
-model Product {
-  id            String        @id @default(uuid())
-  title         String
-  slug          String        @unique
-  description   String        @db.Text
-  thumbnail     String
-  previewUrl    String? // live demo link
-  price         Decimal       @db.Decimal(10, 2)
-  discountPrice Decimal?      @db.Decimal(10, 2)
-  currency      String        @default("USD")
-  status        ProductStatus @default(DRAFT)
-  isFeatured    Boolean       @default(false)
-  sortOrder     Int           @default(0)
-
-  // Tech stack tags \u2014 ["Next.js", "TailwindCSS"]
-  techStack String[]
-
-  // What's included \u2014 ["Source code", "Documentation", "Free updates"]
-  includes String[]
-
-  images ProductImage[]
-  orders Order[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("products")
-}
-
-// Product Image Model
-model ProductImage {
-  id        String  @id @default(uuid())
-  url       String
-  alt       String?
-  sortOrder Int     @default(0)
-
-  productId String
-  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-
-  @@map("product_images")
-}
-
-// Order Model
-// Buyer \u098F\u0995\u099F\u09BE product \u0995\u09BF\u09A8\u09B2\u09C7 \u098F\u0987 record \u09A4\u09C8\u09B0\u09BF \u09B9\u09AF\u09BC\u0964
-model Order {
-  id         String      @id @default(uuid())
-  buyerName  String
-  buyerEmail String
-  amount     Decimal     @db.Decimal(10, 2)
-  currency   String      @default("USD")
-  status     OrderStatus @default(PENDING)
-
-  // Payment info
-  paymentMethod String? // "stripe", "bkash", "paypal"
-  transactionId String?
-  paidAt        DateTime?
-
-  // Download
-  downloadToken  String?   @unique // secure one-time token
-  downloadCount  Int       @default(0)
-  downloadExpiry DateTime?
-
-  productId String
-  product   Product @relation(fields: [productId], references: [id])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("orders")
-}
-
-// Timeline / Career Highlight Model
-// Career-\u098F\u09B0 major milestones chronologically \u09A6\u09C7\u0996\u09BE\u09A8\u09CB\u09B0 \u099C\u09A8\u09CD\u09AF\u0964
-// Experience \u0993 Education \u09A5\u09C7\u0995\u09C7 \u0986\u09B2\u09BE\u09A6\u09BE \u2014 \u098F\u099F\u09BE custom highlight\u0964
-model Timeline {
-  id          String   @id @default(uuid())
-  title       String // "Launched Ezbitly SaaS"
-  description String?  @db.Text
-  date        DateTime
-  icon        String? // icon name \u2014 "rocket", "briefcase", "graduation-cap"
-  color       String? // badge color \u2014 "blue", "green", "amber"
-  url         String? // related link (optional)
-  isPublished Boolean  @default(true)
-  sortOrder   Int      @default(0)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("timelines")
-}
-
-// Video Model (YouTube embed \u09AC\u09BE external video URL)
-model Video {
-  id          String  @id @default(uuid())
-  title       String?
-  description String? @db.Text
-  videoUrl    String // YouTube embed URL or direct video URL
-  // thumbnail   String? // Custom thumbnail (optional, YouTube auto-thumbnail \u0993 \u09B9\u09AF\u09BC)
-  isPublished Boolean @default(true)
-  sortOrder   Int     @default(0)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("videos")
-}
 `
     };
-    config.runtimeDataModel = JSON.parse('{"models":{"About":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"heroImg","kind":"scalar","type":"String"},{"name":"aboutMeImg","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subtitle","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"resumeUrl","kind":"scalar","type":"String"},{"name":"resumeDownloadCount","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"about"},"AdminProfile":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"bio","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AdminProfileToUser"}],"dbName":"admin_profile"},"PageView":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"page","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"city","kind":"scalar","type":"String"},{"name":"referrer","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"page_views"},"ResumeDownloadLog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"resume_download_logs"},"AppointmentSlot":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"dayOfWeek","kind":"scalar","type":"Int"},{"name":"startTime","kind":"scalar","type":"String"},{"name":"endTime","kind":"scalar","type":"String"},{"name":"isAvailable","kind":"scalar","type":"Boolean"},{"name":"appointments","kind":"object","type":"Appointment","relationName":"AppointmentToAppointmentSlot"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"appointment_slots"},"Appointment":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"phone","kind":"scalar","type":"String"},{"name":"topic","kind":"scalar","type":"String"},{"name":"message","kind":"scalar","type":"String"},{"name":"date","kind":"scalar","type":"DateTime"},{"name":"status","kind":"enum","type":"AppointmentStatus"},{"name":"meetLink","kind":"scalar","type":"String"},{"name":"adminNote","kind":"scalar","type":"String"},{"name":"slotId","kind":"scalar","type":"String"},{"name":"slot","kind":"object","type":"AppointmentSlot","relationName":"AppointmentToAppointmentSlot"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"appointments"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"emailVerified","kind":"scalar","type":"Boolean"},{"name":"name","kind":"scalar","type":"String"},{"name":"image","kind":"scalar","type":"String"},{"name":"phone","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"Role"},{"name":"status","kind":"enum","type":"UserStatus"},{"name":"needPasswordChange","kind":"scalar","type":"Boolean"},{"name":"isDeleted","kind":"scalar","type":"Boolean"},{"name":"deletedAt","kind":"scalar","type":"DateTime"},{"name":"isActive","kind":"scalar","type":"Boolean"},{"name":"isBanned","kind":"scalar","type":"Boolean"},{"name":"isReviewed","kind":"scalar","type":"Boolean"},{"name":"reviewId","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"sessions","kind":"object","type":"Session","relationName":"SessionToUser"},{"name":"accounts","kind":"object","type":"Account","relationName":"AccountToUser"},{"name":"adminProfile","kind":"object","type":"AdminProfile","relationName":"AdminProfileToUser"},{"name":"reviews","kind":"object","type":"Review","relationName":"ReviewToUser"}],"dbName":"users"},"Session":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"token","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"user","kind":"object","type":"User","relationName":"SessionToUser"}],"dbName":"sessions"},"Account":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"accountId","kind":"scalar","type":"String"},{"name":"providerId","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"accessToken","kind":"scalar","type":"String"},{"name":"refreshToken","kind":"scalar","type":"String"},{"name":"idToken","kind":"scalar","type":"String"},{"name":"accessTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"refreshTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"scope","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AccountToUser"}],"dbName":"accounts"},"Verification":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"identifier","kind":"scalar","type":"String"},{"name":"value","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"verifications"},"Blog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"excerpt","kind":"scalar","type":"String"},{"name":"content","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"BlogStatus"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"publishedAt","kind":"scalar","type":"DateTime"},{"name":"metaTitle","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"viewCount","kind":"scalar","type":"Int"},{"name":"likeCount","kind":"scalar","type":"Int"},{"name":"tags","kind":"object","type":"BlogTag","relationName":"BlogToBlogTag"},{"name":"comments","kind":"object","type":"BlogComment","relationName":"BlogToBlogComment"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blogs"},"BlogTag":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"blogs","kind":"object","type":"Blog","relationName":"BlogToBlogTag"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_tags"},"BlogComment":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"blogId","kind":"scalar","type":"String"},{"name":"blog","kind":"object","type":"Blog","relationName":"BlogToBlogComment"},{"name":"parentId","kind":"scalar","type":"String"},{"name":"parent","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"replies","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_comments"},"Category":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"projects","kind":"object","type":"Project","relationName":"CategoryToProject"},{"name":"skills","kind":"object","type":"Skill","relationName":"CategoryToSkill"}],"dbName":"categories"},"Certificate":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"issuer","kind":"scalar","type":"String"},{"name":"issuedDate","kind":"scalar","type":"DateTime"},{"name":"expiryDate","kind":"scalar","type":"DateTime"},{"name":"credentialId","kind":"scalar","type":"String"},{"name":"credentialUrl","kind":"scalar","type":"String"},{"name":"imageUrl","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"certificates"},"AiProviderConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"provider","kind":"scalar","type":"String"},{"name":"apiKey","kind":"scalar","type":"String"},{"name":"model","kind":"scalar","type":"String"},{"name":"endpoint","kind":"scalar","type":"String"},{"name":"maxTokens","kind":"scalar","type":"Int"},{"name":"temperature","kind":"scalar","type":"Float"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"ai_provider_config"},"ChatbotConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"botName","kind":"scalar","type":"String"},{"name":"welcomeMsg","kind":"scalar","type":"String"},{"name":"systemPrompt","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"chatbot_config"},"Contact":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"subject","kind":"scalar","type":"String"},{"name":"message","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"ContactStatus"},{"name":"adminNote","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"contacts"},"Education":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"degree","kind":"scalar","type":"String"},{"name":"institution","kind":"scalar","type":"String"},{"name":"board","kind":"scalar","type":"String"},{"name":"startDate","kind":"scalar","type":"DateTime"},{"name":"endDate","kind":"scalar","type":"DateTime"},{"name":"result","kind":"scalar","type":"String"},{"name":"group","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"educations"},"Experience":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"company","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"startDate","kind":"scalar","type":"DateTime"},{"name":"endDate","kind":"scalar","type":"DateTime"},{"name":"location","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"companyUrl","kind":"scalar","type":"String"},{"name":"companyLogo","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"experiences"},"Gallery":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"image","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"galleries"},"GitHubStatsCache":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"username","kind":"scalar","type":"String"},{"name":"publicRepos","kind":"scalar","type":"Int"},{"name":"followers","kind":"scalar","type":"Int"},{"name":"following","kind":"scalar","type":"Int"},{"name":"totalStars","kind":"scalar","type":"Int"},{"name":"totalForks","kind":"scalar","type":"Int"},{"name":"totalCommits","kind":"scalar","type":"Int"},{"name":"contributionGraph","kind":"scalar","type":"Json"},{"name":"topLanguages","kind":"scalar","type":"Json"},{"name":"lastSyncedAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"github_stats_cache"},"OpenSourceContribution":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"repoName","kind":"scalar","type":"String"},{"name":"repoUrl","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"prUrl","kind":"scalar","type":"String"},{"name":"issueUrl","kind":"scalar","type":"String"},{"name":"mergedAt","kind":"scalar","type":"DateTime"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"open_source_contributions"},"Translation":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"key","kind":"scalar","type":"String"},{"name":"locale","kind":"scalar","type":"String"},{"name":"value","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"translations"},"NpmPackage":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"npmUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"weeklyDownloads","kind":"scalar","type":"Int"},{"name":"totalDownloads","kind":"scalar","type":"Int"},{"name":"version","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"lastSyncedAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"npm_packages"},"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"liveUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"tags","kind":"scalar","type":"String"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"categoryId","kind":"scalar","type":"String"},{"name":"category","kind":"object","type":"Category","relationName":"CategoryToProject"},{"name":"images","kind":"object","type":"ProjectImage","relationName":"ProjectToProjectImage"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"projects"},"ProjectImage":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"url","kind":"scalar","type":"String"},{"name":"alt","kind":"scalar","type":"String"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"projectId","kind":"scalar","type":"String"},{"name":"project","kind":"object","type":"Project","relationName":"ProjectToProjectImage"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"project_images"},"Review":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"isPinned","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"ReviewToUser"}],"dbName":"reviews"},"RssConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"feedUrl","kind":"scalar","type":"String"},{"name":"language","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"rss_config"},"RssSubscriber":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"isVerified","kind":"scalar","type":"Boolean"},{"name":"verifyToken","kind":"scalar","type":"String"},{"name":"unsubscribeToken","kind":"scalar","type":"String"},{"name":"subscribedAt","kind":"scalar","type":"DateTime"},{"name":"unsubscribedAt","kind":"scalar","type":"DateTime"}],"dbName":"rss_subscribers"},"Service":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"icon","kind":"scalar","type":"Json"},{"name":"description","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"services"},"Settings":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"siteTitle","kind":"scalar","type":"String"},{"name":"tagline","kind":"scalar","type":"String"},{"name":"logoUrl","kind":"scalar","type":"String"},{"name":"faviconUrl","kind":"scalar","type":"String"},{"name":"linkedinUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"facebookUrl","kind":"scalar","type":"String"},{"name":"instagramUrl","kind":"scalar","type":"String"},{"name":"twitterUrl","kind":"scalar","type":"String"},{"name":"youtubeUrl","kind":"scalar","type":"String"},{"name":"resumeLink","kind":"scalar","type":"String"},{"name":"contactEmail","kind":"scalar","type":"String"},{"name":"contactPhone","kind":"scalar","type":"String"},{"name":"whatsappNumber","kind":"scalar","type":"String"},{"name":"address","kind":"scalar","type":"String"},{"name":"availability","kind":"scalar","type":"String"},{"name":"experience","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"metaKeywords","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"settings"},"Skill":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"level","kind":"enum","type":"SkillLevel"},{"name":"icon","kind":"scalar","type":"Json"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"categoryId","kind":"scalar","type":"String"},{"name":"category","kind":"object","type":"Category","relationName":"CategoryToSkill"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"skills"},"Stats":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"experience","kind":"scalar","type":"Int"},{"name":"projects","kind":"scalar","type":"Int"},{"name":"happyClients","kind":"scalar","type":"Int"},{"name":"successRate","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"stats"},"Product":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"previewUrl","kind":"scalar","type":"String"},{"name":"price","kind":"scalar","type":"Decimal"},{"name":"discountPrice","kind":"scalar","type":"Decimal"},{"name":"currency","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"ProductStatus"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"techStack","kind":"scalar","type":"String"},{"name":"includes","kind":"scalar","type":"String"},{"name":"images","kind":"object","type":"ProductImage","relationName":"ProductToProductImage"},{"name":"orders","kind":"object","type":"Order","relationName":"OrderToProduct"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"products"},"ProductImage":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"url","kind":"scalar","type":"String"},{"name":"alt","kind":"scalar","type":"String"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"productId","kind":"scalar","type":"String"},{"name":"product","kind":"object","type":"Product","relationName":"ProductToProductImage"}],"dbName":"product_images"},"Order":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"buyerName","kind":"scalar","type":"String"},{"name":"buyerEmail","kind":"scalar","type":"String"},{"name":"amount","kind":"scalar","type":"Decimal"},{"name":"currency","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"OrderStatus"},{"name":"paymentMethod","kind":"scalar","type":"String"},{"name":"transactionId","kind":"scalar","type":"String"},{"name":"paidAt","kind":"scalar","type":"DateTime"},{"name":"downloadToken","kind":"scalar","type":"String"},{"name":"downloadCount","kind":"scalar","type":"Int"},{"name":"downloadExpiry","kind":"scalar","type":"DateTime"},{"name":"productId","kind":"scalar","type":"String"},{"name":"product","kind":"object","type":"Product","relationName":"OrderToProduct"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"orders"},"Timeline":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"date","kind":"scalar","type":"DateTime"},{"name":"icon","kind":"scalar","type":"String"},{"name":"color","kind":"scalar","type":"String"},{"name":"url","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"timelines"},"Video":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"videoUrl","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"videos"}},"enums":{},"types":{}}');
+    config.runtimeDataModel = JSON.parse('{"models":{"About":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"heroImg","kind":"scalar","type":"String"},{"name":"aboutMeImg","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subtitle","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"resumeUrl","kind":"scalar","type":"String"},{"name":"resumeDownloadCount","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"about"},"AdminProfile":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"bio","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AdminProfileToUser"}],"dbName":"admin_profile"},"PageView":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"page","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"city","kind":"scalar","type":"String"},{"name":"referrer","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"page_views"},"ResumeDownloadLog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"resume_download_logs"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"emailVerified","kind":"scalar","type":"Boolean"},{"name":"name","kind":"scalar","type":"String"},{"name":"image","kind":"scalar","type":"String"},{"name":"phone","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"Role"},{"name":"status","kind":"enum","type":"UserStatus"},{"name":"needPasswordChange","kind":"scalar","type":"Boolean"},{"name":"isDeleted","kind":"scalar","type":"Boolean"},{"name":"deletedAt","kind":"scalar","type":"DateTime"},{"name":"isActive","kind":"scalar","type":"Boolean"},{"name":"isBanned","kind":"scalar","type":"Boolean"},{"name":"isReviewed","kind":"scalar","type":"Boolean"},{"name":"reviewId","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"sessions","kind":"object","type":"Session","relationName":"SessionToUser"},{"name":"accounts","kind":"object","type":"Account","relationName":"AccountToUser"},{"name":"adminProfile","kind":"object","type":"AdminProfile","relationName":"AdminProfileToUser"},{"name":"reviews","kind":"object","type":"Review","relationName":"ReviewToUser"}],"dbName":"users"},"Session":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"token","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"user","kind":"object","type":"User","relationName":"SessionToUser"}],"dbName":"sessions"},"Account":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"accountId","kind":"scalar","type":"String"},{"name":"providerId","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"accessToken","kind":"scalar","type":"String"},{"name":"refreshToken","kind":"scalar","type":"String"},{"name":"idToken","kind":"scalar","type":"String"},{"name":"accessTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"refreshTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"scope","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AccountToUser"}],"dbName":"accounts"},"Verification":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"identifier","kind":"scalar","type":"String"},{"name":"value","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"verifications"},"Blog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"excerpt","kind":"scalar","type":"String"},{"name":"content","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"BlogStatus"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"publishedAt","kind":"scalar","type":"DateTime"},{"name":"metaTitle","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"viewCount","kind":"scalar","type":"Int"},{"name":"likeCount","kind":"scalar","type":"Int"},{"name":"tags","kind":"object","type":"BlogTag","relationName":"BlogToBlogTag"},{"name":"comments","kind":"object","type":"BlogComment","relationName":"BlogToBlogComment"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blogs"},"BlogTag":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"blogs","kind":"object","type":"Blog","relationName":"BlogToBlogTag"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_tags"},"BlogComment":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"blogId","kind":"scalar","type":"String"},{"name":"blog","kind":"object","type":"Blog","relationName":"BlogToBlogComment"},{"name":"parentId","kind":"scalar","type":"String"},{"name":"parent","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"replies","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_comments"},"Category":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"projects","kind":"object","type":"Project","relationName":"CategoryToProject"}],"dbName":"categories"},"AiProviderConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"provider","kind":"scalar","type":"String"},{"name":"apiKey","kind":"scalar","type":"String"},{"name":"model","kind":"scalar","type":"String"},{"name":"endpoint","kind":"scalar","type":"String"},{"name":"maxTokens","kind":"scalar","type":"Int"},{"name":"temperature","kind":"scalar","type":"Float"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"ai_provider_config"},"ChatbotConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"botName","kind":"scalar","type":"String"},{"name":"welcomeMsg","kind":"scalar","type":"String"},{"name":"systemPrompt","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"chatbot_config"},"Contact":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"subject","kind":"scalar","type":"String"},{"name":"message","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"ContactStatus"},{"name":"adminNote","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"contacts"},"Experience":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"companyUrl","kind":"scalar","type":"String"},{"name":"companyLogo","kind":"scalar","type":"String"},{"name":"responsibilities","kind":"scalar","type":"String"},{"name":"startDate","kind":"scalar","type":"DateTime"},{"name":"endDate","kind":"scalar","type":"DateTime"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"experiences"},"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"bannerImage","kind":"scalar","type":"String"},{"name":"year","kind":"scalar","type":"String"},{"name":"bgColor","kind":"scalar","type":"String"},{"name":"liveUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"roles","kind":"scalar","type":"String"},{"name":"client","kind":"scalar","type":"String"},{"name":"techStack","kind":"scalar","type":"String"},{"name":"tags","kind":"scalar","type":"String"},{"name":"sections","kind":"scalar","type":"Json"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"categoryId","kind":"scalar","type":"String"},{"name":"category","kind":"object","type":"Category","relationName":"CategoryToProject"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"projects"},"Review":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"isPinned","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"ReviewToUser"}],"dbName":"reviews"},"Settings":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"siteTitle","kind":"scalar","type":"String"},{"name":"tagline","kind":"scalar","type":"String"},{"name":"logoUrl","kind":"scalar","type":"String"},{"name":"faviconUrl","kind":"scalar","type":"String"},{"name":"linkedinUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"facebookUrl","kind":"scalar","type":"String"},{"name":"instagramUrl","kind":"scalar","type":"String"},{"name":"twitterUrl","kind":"scalar","type":"String"},{"name":"youtubeUrl","kind":"scalar","type":"String"},{"name":"resumeLink","kind":"scalar","type":"String"},{"name":"contactEmail","kind":"scalar","type":"String"},{"name":"contactPhone","kind":"scalar","type":"String"},{"name":"whatsappNumber","kind":"scalar","type":"String"},{"name":"address","kind":"scalar","type":"String"},{"name":"availability","kind":"scalar","type":"String"},{"name":"experience","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"metaKeywords","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"settings"}},"enums":{},"types":{}}');
     defineDmmfProperty2(exports.Prisma, config.runtimeDataModel);
     config.compilerWasm = {
       getRuntime: async () => require_query_compiler_bg(),
@@ -9640,7 +9013,7 @@ init_esm_shims();
 
 // src/app.ts
 init_esm_shims();
-import express29 from "express";
+import express14 from "express";
 import { toNodeHandler } from "better-auth/node";
 
 // src/app/lib/auth.ts
@@ -9989,7 +9362,7 @@ import path3 from "path";
 
 // src/app/routes/index.ts
 init_esm_shims();
-import { Router as Router26 } from "express";
+import { Router as Router12 } from "express";
 
 // src/app/modules/auth/auth.route.ts
 init_esm_shims();
@@ -10449,13 +9822,86 @@ var UserController = {
   updateProfile
 };
 
+// src/app/config/multer.config.ts
+init_esm_shims();
+import multer from "multer";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+
+// src/app/config/cloudinary.config.ts
+init_esm_shims();
+import { v2 as cloudinary } from "cloudinary";
+import status5 from "http-status";
+cloudinary.config({
+  cloud_name: env.CLOUDINARY.CLOUD_NAME,
+  api_key: env.CLOUDINARY.API_KEY,
+  api_secret: env.CLOUDINARY.API_SECRET
+});
+var deleteFileFromCloudinary = async (imageUrl) => {
+  try {
+    const regex = /\/v\d+\/(.+?)(?:\.[a-zA-Z0-9]+)+$/;
+    const match = imageUrl.match(regex);
+    if (!match?.[1]) return;
+    await cloudinary.uploader.destroy(match[1], { resource_type: "image" });
+  } catch (error) {
+    throw new AppError_default(
+      status5.INTERNAL_SERVER_ERROR,
+      "Failed to delete file from Cloudinary"
+    );
+  }
+};
+var cloudinaryUpload = cloudinary;
+
+// src/app/config/multer.config.ts
+var fileSizeLimitBytes = 5 * 1024 * 1024;
+var fileFilter = (_req, file, cb) => {
+  const allowedMimeTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/gif",
+    "image/webp",
+    "image/svg+xml",
+    "application/pdf"
+  ];
+  if (allowedMimeTypes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(
+      new Error(
+        "Invalid file type. Only images (JPEG, PNG, GIF, WebP, SVG) and PDFs are allowed."
+      )
+    );
+  }
+};
+var createMulterUpload = (folder) => {
+  const storage = new CloudinaryStorage({
+    cloudinary: cloudinaryUpload,
+    params: async (_req, file) => {
+      const originalName = file.originalname;
+      const nameWithoutExt = originalName.split(".").slice(0, -1).join(".").toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9\-]/g, "");
+      const uniqueName = Math.random().toString(36).substring(2) + "-" + Date.now() + "-" + nameWithoutExt;
+      return {
+        folder: `ishtiaq-robin/${folder}`,
+        // ✅ সঠিক folder
+        public_id: uniqueName,
+        resource_type: "auto"
+      };
+    }
+  });
+  return multer({
+    storage,
+    limits: { fileSize: fileSizeLimitBytes },
+    fileFilter
+  });
+};
+
 // src/app/modules/user/user.route.ts
+var profileUpload = createMulterUpload("profiles");
 var router2 = express.Router();
 router2.get("/me", auth_default("USER" /* USER */, "ADMIN" /* ADMIN */), UserController.getMe);
 router2.put(
   "/profile",
   auth_default("USER" /* USER */, "ADMIN" /* ADMIN */),
-  // multerUpload.single("image"),
+  profileUpload.single("image"),
   UserController.updateProfile
 );
 var UserRouter = router2;
@@ -10523,138 +9969,64 @@ var unbanUser = async (userId) => {
 var getDashboardStats = async () => {
   return await prisma.$transaction(async (tx) => {
     const [
-      // Users
       grandTotalUsers,
       totalUsers,
       totalAdmins,
       totalVerifiedUsers,
       totalUnverifiedUsers,
-      // Core Portfolio
       totalProjects,
-      totalSkills,
       totalCategories,
-      totalServices,
-      totalExperiences,
-      totalEducations,
-      totalCertificates,
       totalReviews,
-      totalGallery,
-      totalVideos,
-      totalTimelines,
-      // Blog
-      totalBlogs,
-      totalPublishedBlogs,
-      totalDraftBlogs,
-      totalBlogTags,
-      totalBlogComments,
-      // Contacts & Appointments
       totalContacts,
       totalUnreadContacts,
-      totalAppointments,
-      totalPendingAppointments,
-      // Store
-      totalProducts,
-      totalOrders,
-      totalPaidOrders,
-      // Analytics & Engagement
-      totalPageViews,
-      // totalChatbotLogs,
-      // Open Source & Packages
-      totalNpmPackages,
-      totalOpenSourceContributions,
-      // RSS
-      totalRssSubscribers,
-      // Translations
-      totalTranslations
+      totalPageViews
     ] = await Promise.all([
-      // Users
       tx.user.count(),
       tx.user.count({ where: { role: "USER" } }),
       tx.user.count({ where: { role: "ADMIN" } }),
       tx.user.count({ where: { emailVerified: true } }),
       tx.user.count({ where: { emailVerified: false } }),
-      // Core Portfolio
       tx.project.count(),
-      tx.skill.count(),
       tx.category.count(),
-      tx.service.count(),
-      tx.experience.count(),
-      tx.education.count(),
-      tx.certificate.count(),
       tx.review.count(),
-      tx.gallery.count(),
-      tx.video.count(),
-      tx.timeline.count(),
-      // Blog
-      tx.blog.count(),
-      tx.blog.count({ where: { status: "PUBLISHED" } }),
-      tx.blog.count({ where: { status: "DRAFT" } }),
-      tx.blogTag.count(),
-      tx.blogComment.count(),
-      // Contacts & Appointments
       tx.contact.count(),
       tx.contact.count({ where: { status: "UNREAD" } }),
-      tx.appointment.count(),
-      tx.appointment.count({ where: { status: "PENDING" } }),
-      // Store
-      tx.product.count(),
-      tx.order.count(),
-      tx.order.count({ where: { status: "PAID" } }),
-      // Analytics & Engagement
-      tx.pageView.count(),
-      // tx.chatbotLog.count(),
-      // Open Source & Packages
-      tx.npmPackage.count(),
-      tx.openSourceContribution.count(),
-      // RSS
-      tx.rssSubscriber.count(),
-      // Translations
-      tx.translation.count()
+      tx.pageView.count()
     ]);
     return {
-      // Users
       grandTotalUsers,
       totalUsers,
       totalAdmins,
       totalVerifiedUsers,
       totalUnverifiedUsers,
-      // Core Portfolio
       totalProjects,
-      totalSkills,
+      totalSkills: 0,
       totalCategories,
-      totalServices,
-      totalExperiences,
-      totalEducations,
-      totalCertificates,
+      totalServices: 0,
+      totalExperiences: 0,
+      totalEducations: 0,
+      totalCertificates: 0,
       totalReviews,
-      totalGallery,
-      totalVideos,
-      totalTimelines,
-      // Blog
-      totalBlogs,
-      totalPublishedBlogs,
-      totalDraftBlogs,
-      totalBlogTags,
-      totalBlogComments,
-      // Contacts & Appointments
+      totalGallery: 0,
+      totalVideos: 0,
+      totalTimelines: 0,
+      totalBlogs: 0,
+      totalPublishedBlogs: 0,
+      totalDraftBlogs: 0,
+      totalBlogTags: 0,
+      totalBlogComments: 0,
       totalContacts,
       totalUnreadContacts,
-      totalAppointments,
-      totalPendingAppointments,
-      // Store
-      totalProducts,
-      totalOrders,
-      totalPaidOrders,
-      // Analytics & Engagement
+      totalAppointments: 0,
+      totalPendingAppointments: 0,
+      totalProducts: 0,
+      totalOrders: 0,
+      totalPaidOrders: 0,
       totalPageViews,
-      // totalChatbotLogs,
-      // Open Source & Packages
-      totalNpmPackages,
-      totalOpenSourceContributions,
-      // RSS
-      totalRssSubscribers,
-      // Translations
-      totalTranslations
+      totalNpmPackages: 0,
+      totalOpenSourceContributions: 0,
+      totalRssSubscribers: 0,
+      totalTranslations: 0
     };
   });
 };
@@ -11098,17 +10470,17 @@ import { z } from "zod";
 var createReviewZodSchema = z.object({
   position: z.string("position is required").min(1).max(50),
   companyName: z.string("company name is required").min(1).max(50),
-  comment: z.string("comment is required").min(2).max(500)
+  comment: z.string("comment is required").min(20).max(500)
 });
 var updateReviewZodSchema = z.object({
   position: z.string().min(1).max(50).optional(),
   companyName: z.string().min(1).max(50).optional(),
-  comment: z.string().min(2).max(500).optional()
+  comment: z.string().min(20).max(500).optional()
 });
 var adminUpdateReviewZodSchema = z.object({
   position: z.string().min(1).max(50).optional(),
   companyName: z.string().min(1).max(50).optional(),
-  comment: z.string().min(2).max(500).optional(),
+  comment: z.string().min(20).max(500).optional(),
   isApproved: z.boolean().optional(),
   isPinned: z.boolean().optional()
 });
@@ -11322,11 +10694,11 @@ var SettingService = {
 };
 
 // src/app/modules/setting/setting.controller.ts
-import status5 from "http-status";
+import status6 from "http-status";
 var getSettings2 = catchAsync(async (req, res) => {
   const result = await SettingService.getSettings();
   sendResponse(res, {
-    statusCode: status5.OK,
+    statusCode: status6.OK,
     success: true,
     message: "Settings retrieved successfully",
     data: result
@@ -11335,7 +10707,7 @@ var getSettings2 = catchAsync(async (req, res) => {
 var updateSettings2 = catchAsync(async (req, res) => {
   const result = await SettingService.updateSettings(req.body);
   sendResponse(res, {
-    statusCode: status5.OK,
+    statusCode: status6.OK,
     success: true,
     message: "Settings updated successfully",
     data: result
@@ -11352,424 +10724,26 @@ router6.get("/", SettingController.getSettings);
 router6.patch("/", auth_default("ADMIN" /* ADMIN */), SettingController.updateSettings);
 var SettingRouter = router6;
 
-// src/app/modules/stats/stats.route.ts
-init_esm_shims();
-import express6 from "express";
-
-// src/app/modules/stats/stats.controller.ts
-init_esm_shims();
-
-// src/app/modules/stats/stats.service.ts
-init_esm_shims();
-var SINGLETON_ID2 = "singleton";
-var getPublicStats = async () => {
-  const stats = await prisma.stats.upsert({
-    where: { id: SINGLETON_ID2 },
-    update: {},
-    create: { id: SINGLETON_ID2 }
-  });
-  return stats;
-};
-var updatePublicStats = async (payload) => {
-  const result = await prisma.stats.upsert({
-    where: { id: SINGLETON_ID2 },
-    update: payload,
-    create: { id: SINGLETON_ID2, ...payload }
-  });
-  return result;
-};
-var StatsService = {
-  getPublicStats,
-  updatePublicStats
-};
-
-// src/app/modules/stats/stats.controller.ts
-import status6 from "http-status";
-var getPublicStats2 = catchAsync(async (req, res) => {
-  const result = await StatsService.getPublicStats();
-  sendResponse(res, {
-    statusCode: status6.OK,
-    success: true,
-    message: "Public statistics retrieved successfully",
-    data: result
-  });
-});
-var updatePublicStats2 = catchAsync(async (req, res) => {
-  const result = await StatsService.updatePublicStats(req.body);
-  sendResponse(res, {
-    statusCode: status6.OK,
-    success: true,
-    message: "Public stats updated successfully",
-    data: result
-  });
-});
-var StatsController = {
-  updatePublicStats: updatePublicStats2,
-  getPublicStats: getPublicStats2
-};
-
-// src/app/modules/stats/stats.route.ts
-var router7 = express6.Router();
-router7.patch("/", auth_default("ADMIN" /* ADMIN */), StatsController.updatePublicStats);
-router7.get("/", StatsController.getPublicStats);
-var StatsRouter = router7;
-
-// src/app/modules/skill/skill.route.ts
-init_esm_shims();
-import express7 from "express";
-
-// src/app/modules/skill/skill.controller.ts
-init_esm_shims();
-
-// src/app/modules/skill/skill.service.ts
-init_esm_shims();
-var createSkill = async (payload) => {
-  const result = await prisma.skill.create({
-    data: payload
-  });
-  return result;
-};
-var getSkills = async (categoryId) => {
-  const where = categoryId ? { categoryId } : {};
-  const result = await prisma.skill.findMany({
-    where,
-    include: {
-      category: true
-    }
-  });
-  return result;
-};
-var updateSkill = async (id, payload) => {
-  const result = await prisma.skill.update({
-    where: { id },
-    data: payload
-  });
-  return result;
-};
-var deleteSkill = async (id) => {
-  const result = await prisma.skill.delete({
-    where: { id }
-  });
-  return result;
-};
-var SkillService = {
-  createSkill,
-  getSkills,
-  updateSkill,
-  deleteSkill
-};
-
-// src/app/modules/skill/skill.controller.ts
-var createSkill2 = async (req, res, next) => {
-  try {
-    const result = await SkillService.createSkill(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Skill created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getSkills2 = async (req, res, next) => {
-  try {
-    const { categoryId } = req.query;
-    const result = await SkillService.getSkills(categoryId);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all skills successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateSkill2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await SkillService.updateSkill(id, req.body);
-    res.status(200).json({
-      success: true,
-      message: "Skill updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteSkill2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await SkillService.deleteSkill(id);
-    res.status(200).json({
-      success: true,
-      message: "Skill deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var SkillController = {
-  createSkill: createSkill2,
-  getSkills: getSkills2,
-  updateSkill: updateSkill2,
-  deleteSkill: deleteSkill2
-};
-
-// src/app/modules/skill/skill.validation.ts
-init_esm_shims();
-var import_prisma13 = __toESM(require_prisma(), 1);
-import { z as z3 } from "zod";
-var createSkillZodSchema = z3.object({
-  name: z3.string("name is required"),
-  level: z3.enum(import_prisma13.SkillLevel, "Invalid skill level"),
-  icon: z3.object({
-    name: z3.string(),
-    library: z3.string(),
-    color: z3.string()
-  }).optional(),
-  categoryId: z3.string("categoryId is required"),
-  sortOrder: z3.number().default(0)
-});
-var updateSkillZodSchema = z3.object({
-  name: z3.string().optional(),
-  level: z3.enum(import_prisma13.SkillLevel, "Invalid skill level").optional(),
-  icon: z3.object({
-    name: z3.string().optional(),
-    library: z3.string().optional(),
-    color: z3.string().optional()
-  }).optional(),
-  categoryId: z3.string().optional(),
-  sortOrder: z3.number().optional()
-});
-var SkillValidation = {
-  createSkillZodSchema,
-  updateSkillZodSchema
-};
-
-// src/app/modules/skill/skill.route.ts
-var router8 = express7.Router();
-router8.get("/", SkillController.getSkills);
-router8.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(SkillValidation.createSkillZodSchema),
-  SkillController.createSkill
-);
-router8.put(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(SkillValidation.updateSkillZodSchema),
-  SkillController.updateSkill
-);
-router8.delete(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  SkillController.deleteSkill
-);
-var SkillRouter = router8;
-
-// src/app/modules/service/service.route.ts
-init_esm_shims();
-import express8 from "express";
-
-// src/app/modules/service/service.controller.ts
-init_esm_shims();
-
-// src/app/modules/service/service.service.ts
-init_esm_shims();
-var createService = async (payload) => {
-  const result = await prisma.service.create({
-    data: payload
-  });
-  return result;
-};
-var getServices = async (isPublished) => {
-  const result = await prisma.service.findMany({
-    where: {
-      ...isPublished !== void 0 && { isPublished }
-    },
-    orderBy: {
-      sortOrder: "asc"
-    }
-  });
-  return result;
-};
-var updateService = async (id, payload) => {
-  const result = await prisma.service.update({
-    where: { id },
-    data: payload
-  });
-  return result;
-};
-var deleteService = async (id) => {
-  const result = await prisma.service.delete({
-    where: { id }
-  });
-  return result;
-};
-var ServiceService = {
-  createService,
-  getServices,
-  updateService,
-  deleteService
-};
-
-// src/app/modules/service/service.controller.ts
-var createService2 = async (req, res, next) => {
-  try {
-    const result = await ServiceService.createService(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Service created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getServices2 = async (req, res, next) => {
-  try {
-    const { isPublished } = req.query;
-    const publishedFilter = isPublished === "true" ? true : isPublished === "false" ? false : void 0;
-    const result = await ServiceService.getServices(publishedFilter);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all services successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateService2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await ServiceService.updateService(id, req.body);
-    res.status(200).json({
-      success: true,
-      message: "Service updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteService2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await ServiceService.deleteService(id);
-    res.status(200).json({
-      success: true,
-      message: "Service deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var ServiceController = {
-  createService: createService2,
-  getServices: getServices2,
-  updateService: updateService2,
-  deleteService: deleteService2
-};
-
-// src/app/modules/service/service.validation.ts
-init_esm_shims();
-import { z as z4 } from "zod";
-var createServiceZodSchema = z4.object({
-  name: z4.string("name is required"),
-  icon: z4.object({
-    name: z4.string(),
-    library: z4.string(),
-    color: z4.string(),
-    bgColor: z4.string()
-  }).optional(),
-  description: z4.string().optional(),
-  isPublished: z4.boolean().default(true),
-  sortOrder: z4.number().default(0)
-});
-var updateServiceZodSchema = createServiceZodSchema.partial();
-var ServiceValidation = {
-  createServiceZodSchema,
-  updateServiceZodSchema
-};
-
-// src/app/modules/service/service.route.ts
-var router9 = express8.Router();
-router9.get("/", ServiceController.getServices);
-router9.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(ServiceValidation.createServiceZodSchema),
-  ServiceController.createService
-);
-router9.put(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(ServiceValidation.updateServiceZodSchema),
-  ServiceController.updateService
-);
-router9.delete("/:id", auth_default("ADMIN" /* ADMIN */), ServiceController.deleteService);
-var ServiceRouter = router9;
-
 // src/app/modules/project/project.route.ts
 init_esm_shims();
-import express9 from "express";
+import express6 from "express";
 
 // src/app/modules/project/project.controller.ts
 init_esm_shims();
 
 // src/app/modules/project/project.service.ts
 init_esm_shims();
-
-// src/app/config/cloudinary.config.ts
-init_esm_shims();
-import { v2 as cloudinary } from "cloudinary";
 import status7 from "http-status";
-cloudinary.config({
-  cloud_name: env.CLOUDINARY.CLOUD_NAME,
-  api_key: env.CLOUDINARY.API_KEY,
-  api_secret: env.CLOUDINARY.API_SECRET
-});
-var deleteFileFromCloudinary = async (imageUrl) => {
-  try {
-    const regex = /\/v\d+\/(.+?)(?:\.[a-zA-Z0-9]+)+$/;
-    const match = imageUrl.match(regex);
-    if (!match?.[1]) return;
-    await cloudinary.uploader.destroy(match[1], { resource_type: "image" });
-  } catch (error) {
-    throw new AppError_default(
-      status7.INTERNAL_SERVER_ERROR,
-      "Failed to delete file from Cloudinary"
-    );
-  }
-};
-var cloudinaryUpload = cloudinary;
-
-// src/app/modules/project/project.service.ts
-import status8 from "http-status";
 var projectInclude = {
-  category: true,
-  images: { orderBy: { sortOrder: "asc" } }
+  category: true
 };
 var createProject = async (payload) => {
-  const { projectImages, ...projectData } = payload;
+  const { techStack, sections, ...projectData } = payload;
   const result = await prisma.project.create({
     data: {
       ...projectData,
-      ...projectImages?.length && {
-        images: {
-          create: projectImages.map((img, idx) => ({
-            url: img.url,
-            alt: img.alt || null,
-            sortOrder: img.sortOrder ?? idx
-          }))
-        }
-      }
+      techStack: techStack || [],
+      sections: sections || void 0
     },
     include: projectInclude
   });
@@ -11795,37 +10769,40 @@ var getProjectById = async (id) => {
     include: projectInclude
   });
   if (!result) {
-    throw new AppError_default(status8.NOT_FOUND, "Project not found");
+    throw new AppError_default(status7.NOT_FOUND, "Project not found");
+  }
+  return result;
+};
+var getProjectBySlug = async (slug) => {
+  const result = await prisma.project.findUnique({
+    where: { slug },
+    include: projectInclude
+  });
+  if (!result) {
+    throw new AppError_default(status7.NOT_FOUND, "Project not found");
   }
   return result;
 };
 var updateProject = async (id, payload) => {
   const current = await prisma.project.findUnique({
-    where: { id },
-    include: { images: true }
+    where: { id }
   });
   if (!current) {
-    throw new AppError_default(status8.NOT_FOUND, "Project not found");
+    throw new AppError_default(status7.NOT_FOUND, "Project not found");
   }
   if (payload.thumbnail && current.thumbnail && payload.thumbnail !== current.thumbnail) {
     await deleteFileFromCloudinary(current.thumbnail);
   }
-  const { projectImages, ...updateData } = payload;
+  if (payload.bannerImage && current.bannerImage && payload.bannerImage !== current.bannerImage) {
+    await deleteFileFromCloudinary(current.bannerImage);
+  }
+  const { techStack, sections, ...updateData } = payload;
   const result = await prisma.project.update({
     where: { id },
     data: {
       ...updateData,
-      // Replace all images if new ones are provided
-      ...projectImages?.length && {
-        images: {
-          deleteMany: {},
-          create: projectImages.map((img, idx) => ({
-            url: img.url,
-            alt: img.alt || null,
-            sortOrder: img.sortOrder ?? idx
-          }))
-        }
-      }
+      ...techStack !== void 0 && { techStack },
+      ...sections !== void 0 && { sections }
     },
     include: projectInclude
   });
@@ -11833,15 +10810,14 @@ var updateProject = async (id, payload) => {
 };
 var deleteProject = async (id) => {
   const current = await prisma.project.findUnique({
-    where: { id },
-    include: { images: true }
+    where: { id }
   });
   if (!current) {
-    throw new AppError_default(status8.NOT_FOUND, "Project not found");
+    throw new AppError_default(status7.NOT_FOUND, "Project not found");
   }
   const urlsToDelete = [
     current.thumbnail,
-    ...current.images.map((img) => img.url)
+    current.bannerImage
   ].filter(Boolean);
   await Promise.all(urlsToDelete.map(deleteFileFromCloudinary));
   await prisma.project.delete({ where: { id } });
@@ -11850,29 +10826,41 @@ var ProjectService = {
   createProject,
   getProjects,
   getProjectById,
+  getProjectBySlug,
   updateProject,
   deleteProject
 };
 
 // src/app/modules/project/project.controller.ts
-import status9 from "http-status";
+import status8 from "http-status";
 var parseProjectPayload = (req) => {
   const payload = { ...req.body };
   const files = req.files;
   if (files?.thumbnail?.[0]) {
     payload.thumbnail = files.thumbnail[0].path;
   }
-  if (files?.images?.length) {
-    payload.projectImages = files.images.map((file, idx) => ({
-      url: file.path,
-      alt: req.body[`alt_${idx}`] || void 0
-    }));
+  if (files?.bannerImage?.[0]) {
+    payload.bannerImage = files.bannerImage[0].path;
   }
   if (payload.tags && typeof payload.tags === "string") {
     try {
       payload.tags = JSON.parse(payload.tags);
     } catch {
       payload.tags = payload.tags.split(",").map((t) => t.trim());
+    }
+  }
+  if (payload.techStack && typeof payload.techStack === "string") {
+    try {
+      payload.techStack = JSON.parse(payload.techStack);
+    } catch {
+      payload.techStack = payload.techStack.split(",").map((t) => t.trim());
+    }
+  }
+  if (payload.sections && typeof payload.sections === "string") {
+    try {
+      payload.sections = JSON.parse(payload.sections);
+    } catch {
+      payload.sections = [];
     }
   }
   return payload;
@@ -11913,7 +10901,23 @@ var getProjectById2 = async (req, res, next) => {
   try {
     const result = await ProjectService.getProjectById(id);
     if (!result) {
-      throw new AppError_default(status9.NOT_FOUND, "Project not found");
+      throw new AppError_default(status8.NOT_FOUND, "Project not found");
+    }
+    res.status(200).json({
+      success: true,
+      message: "Retrieved project successfully",
+      data: result
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var getProjectBySlug2 = async (req, res, next) => {
+  const slug = req.params.slug;
+  try {
+    const result = await ProjectService.getProjectBySlug(slug);
+    if (!result) {
+      throw new AppError_default(status8.NOT_FOUND, "Project not found");
     }
     res.status(200).json({
       success: true,
@@ -11956,22 +10960,23 @@ var ProjectController = {
   createProject: createProject2,
   getProjects: getProjects2,
   getProjectById: getProjectById2,
+  getProjectBySlug: getProjectBySlug2,
   updateProject: updateProject2,
   deleteProject: deleteProject2
 };
 
 // src/app/modules/project/project.validation.ts
 init_esm_shims();
-import { z as z5 } from "zod";
-var booleanFromString = z5.union([z5.boolean(), z5.string()]).transform((val) => {
+import { z as z3 } from "zod";
+var booleanFromString = z3.union([z3.boolean(), z3.string()]).transform((val) => {
   if (typeof val === "boolean") return val;
   return val === "true" || val === "on";
 });
-var numberFromString = z5.union([z5.number(), z5.string()]).transform((val) => {
+var numberFromString = z3.union([z3.number(), z3.string()]).transform((val) => {
   if (typeof val === "number") return val;
   return Number(val);
-}).pipe(z5.number());
-var tagsField = z5.union([z5.array(z5.string()), z5.string()]).transform((val) => {
+}).pipe(z3.number());
+var tagsField = z3.union([z3.array(z3.string()), z3.string()]).transform((val) => {
   if (Array.isArray(val)) return val;
   try {
     const parsed = JSON.parse(val);
@@ -11980,15 +10985,31 @@ var tagsField = z5.union([z5.array(z5.string()), z5.string()]).transform((val) =
     return val.split(",").map((t) => t.trim()).filter(Boolean);
   }
   return [val];
-}).pipe(z5.array(z5.string()).nonempty("At least one tag is required"));
-var createProjectZodSchema = z5.object({
-  title: z5.string().min(1, "title is required"),
-  description: z5.string().min(1, "description is required"),
+}).pipe(z3.array(z3.string()).nonempty("At least one tag is required"));
+var sectionsField = z3.union([z3.array(z3.any()), z3.string()]).transform((val) => {
+  if (Array.isArray(val)) return val;
+  try {
+    return JSON.parse(val);
+  } catch {
+    return [];
+  }
+}).optional();
+var createProjectZodSchema = z3.object({
+  title: z3.string().min(1, "title is required"),
+  slug: z3.string().min(1, "slug is required"),
+  description: z3.string().min(1, "description is required"),
   tags: tagsField,
-  categoryId: z5.string().min(1, "categoryId is required"),
-  thumbnail: z5.string().optional(),
-  liveUrl: z5.string().optional(),
-  githubUrl: z5.string().optional(),
+  categoryId: z3.string().min(1, "categoryId is required"),
+  thumbnail: z3.string().optional(),
+  bannerImage: z3.string().optional(),
+  year: z3.string().optional(),
+  bgColor: z3.string().optional(),
+  liveUrl: z3.string().optional(),
+  githubUrl: z3.string().optional(),
+  roles: z3.string().optional(),
+  client: z3.string().optional(),
+  techStack: tagsField.optional(),
+  sections: sectionsField,
   isFeatured: booleanFromString.optional(),
   isPublished: booleanFromString.optional(),
   sortOrder: numberFromString.optional()
@@ -11999,759 +11020,53 @@ var ProjectValidation = {
   updateProjectZodSchema
 };
 
-// src/app/config/multer.config.ts
-init_esm_shims();
-import multer from "multer";
-import { CloudinaryStorage } from "multer-storage-cloudinary";
-var fileSizeLimitBytes = 5 * 1024 * 1024;
-var fileFilter = (_req, file, cb) => {
-  const allowedMimeTypes = [
-    "image/jpeg",
-    "image/png",
-    "image/gif",
-    "image/webp",
-    "image/svg+xml",
-    "application/pdf"
-  ];
-  if (allowedMimeTypes.includes(file.mimetype)) {
-    cb(null, true);
-  } else {
-    cb(
-      new Error(
-        "Invalid file type. Only images (JPEG, PNG, GIF, WebP, SVG) and PDFs are allowed."
-      )
-    );
-  }
-};
-var createMulterUpload = (folder) => {
-  const storage = new CloudinaryStorage({
-    cloudinary: cloudinaryUpload,
-    params: async (_req, file) => {
-      const originalName = file.originalname;
-      const nameWithoutExt = originalName.split(".").slice(0, -1).join(".").toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9\-]/g, "");
-      const uniqueName = Math.random().toString(36).substring(2) + "-" + Date.now() + "-" + nameWithoutExt;
-      return {
-        folder: `ishtiaq-robin/${folder}`,
-        // ✅ সঠিক folder
-        public_id: uniqueName,
-        resource_type: "auto"
-      };
-    }
-  });
-  return multer({
-    storage,
-    limits: { fileSize: fileSizeLimitBytes },
-    fileFilter
-  });
-};
-
 // src/app/modules/project/project.route.ts
 var projectUpload = createMulterUpload("projects");
-var router10 = express9.Router();
-router10.get("/", ProjectController.getProjects);
-router10.get("/:id", ProjectController.getProjectById);
-router10.post(
+var router7 = express6.Router();
+router7.get("/", ProjectController.getProjects);
+router7.get("/slug/:slug", ProjectController.getProjectBySlug);
+router7.get("/:id", ProjectController.getProjectById);
+router7.post(
   "/",
   auth_default("ADMIN" /* ADMIN */),
   projectUpload.fields([
     { name: "thumbnail", maxCount: 1 },
-    { name: "images", maxCount: 10 }
+    { name: "bannerImage", maxCount: 1 }
   ]),
   validateRequest(ProjectValidation.createProjectZodSchema),
   ProjectController.createProject
 );
-router10.put(
+router7.put(
   "/:id",
   auth_default("ADMIN" /* ADMIN */),
   projectUpload.fields([
     { name: "thumbnail", maxCount: 1 },
-    { name: "images", maxCount: 10 }
+    { name: "bannerImage", maxCount: 1 }
   ]),
   validateRequest(ProjectValidation.updateProjectZodSchema),
   ProjectController.updateProject
 );
-router10.delete("/:id", auth_default("ADMIN" /* ADMIN */), ProjectController.deleteProject);
-var ProjectRouter = router10;
-
-// src/app/modules/gallery/gallery.route.ts
-init_esm_shims();
-import express10 from "express";
-
-// src/app/modules/gallery/gallery.controller.ts
-init_esm_shims();
-
-// src/app/modules/gallery/gallery.service.ts
-init_esm_shims();
-var createGallery = async (payload) => {
-  const result = await prisma.gallery.create({
-    data: payload
-  });
-  return result;
-};
-var getGalleries = async (isPublished) => {
-  const result = await prisma.gallery.findMany({
-    where: {
-      ...isPublished !== void 0 && { isPublished }
-    },
-    orderBy: {
-      sortOrder: "asc"
-    }
-  });
-  return result;
-};
-var getGalleryById = async (id) => {
-  const result = await prisma.gallery.findUnique({
-    where: { id }
-  });
-  return result;
-};
-var updateGallery = async (id, payload) => {
-  const current = await prisma.gallery.findUnique({ where: { id } });
-  if (!current) {
-    throw new Error("Gallery not found");
-  }
-  if (payload.image && current.image && payload.image !== current.image) {
-    await deleteFileFromCloudinary(current.image);
-  }
-  const result = await prisma.gallery.update({
-    where: { id },
-    data: payload
-  });
-  return result;
-};
-var deleteGallery = async (id) => {
-  const current = await prisma.gallery.findUnique({ where: { id } });
-  if (!current) {
-    throw new Error("Gallery not found");
-  }
-  if (current.image) {
-    await deleteFileFromCloudinary(current.image);
-  }
-  const result = await prisma.gallery.delete({
-    where: { id }
-  });
-  return result;
-};
-var GalleryService = {
-  createGallery,
-  getGalleries,
-  getGalleryById,
-  updateGallery,
-  deleteGallery
-};
-
-// src/app/modules/gallery/gallery.controller.ts
-var createGallery2 = async (req, res, next) => {
-  try {
-    const payload = { ...req.body };
-    if (req.file) {
-      payload.image = req.file.path;
-    }
-    const result = await GalleryService.createGallery(payload);
-    res.status(201).json({
-      success: true,
-      message: "Gallery created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getGalleries2 = async (req, res, next) => {
-  try {
-    const { isPublished } = req.query;
-    const publishedFilter = isPublished === "true" ? true : isPublished === "false" ? false : void 0;
-    const result = await GalleryService.getGalleries(publishedFilter);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all galleries successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getGalleryById2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await GalleryService.getGalleryById(id);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved gallery successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateGallery2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const payload = { ...req.body };
-    if (req.file) {
-      payload.image = req.file.path;
-    }
-    const result = await GalleryService.updateGallery(id, payload);
-    res.status(200).json({
-      success: true,
-      message: "Gallery updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteGallery2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await GalleryService.deleteGallery(id);
-    res.status(200).json({
-      success: true,
-      message: "Gallery deleted successfully"
-      // data: result,
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var GalleryController = {
-  createGallery: createGallery2,
-  getGalleries: getGalleries2,
-  getGalleryById: getGalleryById2,
-  updateGallery: updateGallery2,
-  deleteGallery: deleteGallery2
-};
-
-// src/app/modules/gallery/gallery.validation.ts
-init_esm_shims();
-import { z as z6 } from "zod";
-var createGalleryZodSchema = z6.object({
-  image: z6.string().optional(),
-  title: z6.string().optional(),
-  description: z6.string().optional(),
-  // isPublish: z.boolean().optional(),
-  // sortOrder: z.number().optional(),
-  isPublished: z6.coerce.boolean().optional(),
-  sortOrder: z6.coerce.number().optional()
-});
-var updateGalleryZodSchema = createGalleryZodSchema.partial();
-var GalleryValidation = {
-  createGalleryZodSchema,
-  updateGalleryZodSchema
-};
-
-// src/app/modules/gallery/gallery.route.ts
-var galleryImageUpload = createMulterUpload("galleries");
-var router11 = express10.Router();
-router11.get("/", GalleryController.getGalleries);
-router11.get("/:id", GalleryController.getGalleryById);
-router11.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  galleryImageUpload.single("image"),
-  validateRequest(GalleryValidation.createGalleryZodSchema),
-  GalleryController.createGallery
-);
-router11.put(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  galleryImageUpload.single("image"),
-  validateRequest(GalleryValidation.updateGalleryZodSchema),
-  GalleryController.updateGallery
-);
-router11.delete("/:id", auth_default("ADMIN" /* ADMIN */), GalleryController.deleteGallery);
-var GalleryRouter = router11;
-
-// src/app/modules/experience/experience.route.ts
-init_esm_shims();
-import express11 from "express";
-
-// src/app/modules/experience/experience.controller.ts
-init_esm_shims();
-
-// src/app/modules/experience/experience.service.ts
-init_esm_shims();
-var createExperience = async (payload) => {
-  const data = { ...payload };
-  if (data.startDate) {
-    data.startDate = new Date(data.startDate).toISOString();
-  }
-  if (data.endDate) {
-    data.endDate = new Date(data.endDate).toISOString();
-  }
-  const result = await prisma.experience.create({
-    data
-  });
-  return result;
-};
-var getExperiences = async (isPublished) => {
-  const result = await prisma.experience.findMany({
-    where: {
-      ...isPublished !== void 0 && { isPublished }
-    },
-    orderBy: {
-      sortOrder: "asc"
-    }
-  });
-  return result;
-};
-var updateExperience = async (id, payload) => {
-  const data = { ...payload };
-  if (data.startDate) {
-    data.startDate = new Date(data.startDate).toISOString();
-  }
-  if (data.endDate) {
-    data.endDate = new Date(data.endDate).toISOString();
-  }
-  const result = await prisma.experience.update({
-    where: { id },
-    data
-  });
-  return result;
-};
-var deleteExperience = async (id) => {
-  const result = await prisma.experience.delete({
-    where: { id }
-  });
-  return result;
-};
-var ExperienceService = {
-  createExperience,
-  getExperiences,
-  updateExperience,
-  deleteExperience
-};
-
-// src/app/modules/experience/experience.controller.ts
-var createExperience2 = async (req, res, next) => {
-  try {
-    const result = await ExperienceService.createExperience(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Experience created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getExperiences2 = async (req, res, next) => {
-  try {
-    const { isPublished } = req.query;
-    const publishedFilter = isPublished === "true" ? true : isPublished === "false" ? false : void 0;
-    const result = await ExperienceService.getExperiences(publishedFilter);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all experiences successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateExperience2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await ExperienceService.updateExperience(
-      id,
-      req.body
-    );
-    res.status(200).json({
-      success: true,
-      message: "Experience updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteExperience2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await ExperienceService.deleteExperience(id);
-    res.status(200).json({
-      success: true,
-      message: "Experience deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var ExperienceController = {
-  createExperience: createExperience2,
-  getExperiences: getExperiences2,
-  updateExperience: updateExperience2,
-  deleteExperience: deleteExperience2
-};
-
-// src/app/modules/experience/experience.validation.ts
-init_esm_shims();
-import { z as z7 } from "zod";
-var createExperienceZodSchema = z7.object({
-  company: z7.string("company is required"),
-  title: z7.string("title is required"),
-  startDate: z7.string("startDate is required"),
-  endDate: z7.string().optional().nullable(),
-  location: z7.string().optional().nullable(),
-  description: z7.string("description is required"),
-  companyUrl: z7.string().optional().nullable(),
-  companyLogo: z7.string().optional().nullable(),
-  isPublished: z7.boolean().default(true),
-  sortOrder: z7.number().default(0)
-});
-var updateExperienceZodSchema = createExperienceZodSchema.partial();
-var ExperienceValidation = {
-  createExperienceZodSchema,
-  updateExperienceZodSchema
-};
-
-// src/app/modules/experience/experience.route.ts
-var router12 = express11.Router();
-router12.get("/", ExperienceController.getExperiences);
-router12.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(ExperienceValidation.createExperienceZodSchema),
-  ExperienceController.createExperience
-);
-router12.put(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(ExperienceValidation.updateExperienceZodSchema),
-  ExperienceController.updateExperience
-);
-router12.delete(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  ExperienceController.deleteExperience
-);
-var ExperienceRouter = router12;
-
-// src/app/modules/education/education.route.ts
-init_esm_shims();
-import express12 from "express";
-
-// src/app/modules/education/education.controller.ts
-init_esm_shims();
-
-// src/app/modules/education/education.service.ts
-init_esm_shims();
-var createEducation = async (payload) => {
-  const data = { ...payload };
-  if (data.startDate) {
-    data.startDate = new Date(data.startDate).toISOString();
-  }
-  if (data.endDate) {
-    data.endDate = new Date(data.endDate).toISOString();
-  }
-  const result = await prisma.education.create({
-    data
-  });
-  return result;
-};
-var getEducations = async (isPublished) => {
-  const result = await prisma.education.findMany({
-    where: {
-      ...isPublished !== void 0 && { isPublished }
-    },
-    orderBy: {
-      sortOrder: "asc"
-    }
-  });
-  return result;
-};
-var updateEducation = async (id, payload) => {
-  const data = { ...payload };
-  if (data.startDate) {
-    data.startDate = new Date(data.startDate).toISOString();
-  }
-  if (data.endDate) {
-    data.endDate = new Date(data.endDate).toISOString();
-  }
-  const result = await prisma.education.update({
-    where: { id },
-    data
-  });
-  return result;
-};
-var deleteEducation = async (id) => {
-  const result = await prisma.education.delete({
-    where: { id }
-  });
-  return result;
-};
-var EducationService = {
-  createEducation,
-  getEducations,
-  updateEducation,
-  deleteEducation
-};
-
-// src/app/modules/education/education.controller.ts
-var createEducation2 = async (req, res, next) => {
-  try {
-    const result = await EducationService.createEducation(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Education created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getEducations2 = async (req, res, next) => {
-  try {
-    const { isPublished } = req.query;
-    const publishedFilter = isPublished === "true" ? true : isPublished === "false" ? false : void 0;
-    const result = await EducationService.getEducations(publishedFilter);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all educations successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateEducation2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await EducationService.updateEducation(
-      id,
-      req.body
-    );
-    res.status(200).json({
-      success: true,
-      message: "Education updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteEducation2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await EducationService.deleteEducation(id);
-    res.status(200).json({
-      success: true,
-      message: "Education deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var EducationController = {
-  createEducation: createEducation2,
-  getEducations: getEducations2,
-  updateEducation: updateEducation2,
-  deleteEducation: deleteEducation2
-};
-
-// src/app/modules/education/education.validation.ts
-init_esm_shims();
-import { z as z8 } from "zod";
-var createEducationZodSchema = z8.object({
-  degree: z8.string("degree is required"),
-  institution: z8.string("institution is required"),
-  startDate: z8.string("startDate is required"),
-  result: z8.string("result is required"),
-  board: z8.string().optional().nullable(),
-  endDate: z8.string().optional().nullable(),
-  group: z8.string().optional().nullable(),
-  // description: z.string().optional().nullable(),
-  isPublished: z8.boolean().default(true),
-  sortOrder: z8.number().default(0)
-});
-var updateEducationZodSchema = createEducationZodSchema.partial();
-var EducationValidation = {
-  createEducationZodSchema,
-  updateEducationZodSchema
-};
-
-// src/app/modules/education/education.route.ts
-var router13 = express12.Router();
-router13.get("/", EducationController.getEducations);
-router13.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(EducationValidation.createEducationZodSchema),
-  EducationController.createEducation
-);
-router13.put(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(EducationValidation.updateEducationZodSchema),
-  EducationController.updateEducation
-);
-router13.delete(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  EducationController.deleteEducation
-);
-var EducationRouter = router13;
-
-// src/app/modules/video/video.route.ts
-init_esm_shims();
-import express13 from "express";
-
-// src/app/modules/video/video.controller.ts
-init_esm_shims();
-
-// src/app/modules/video/video.service.ts
-init_esm_shims();
-var createVideo = async (payload) => {
-  const result = await prisma.video.create({
-    data: payload
-  });
-  return result;
-};
-var getVideos = async (isPublished) => {
-  const result = await prisma.video.findMany({
-    where: {
-      ...isPublished !== void 0 && { isPublished }
-    },
-    orderBy: {
-      sortOrder: "asc"
-    }
-  });
-  return result;
-};
-var updateVideo = async (id, payload) => {
-  const result = await prisma.video.update({
-    where: { id },
-    data: payload
-  });
-  return result;
-};
-var deleteVideo = async (id) => {
-  const result = await prisma.video.delete({
-    where: { id }
-  });
-  return result;
-};
-var VideoService = {
-  createVideo,
-  getVideos,
-  updateVideo,
-  deleteVideo
-};
-
-// src/app/modules/video/video.controller.ts
-var createVideo2 = async (req, res, next) => {
-  try {
-    const result = await VideoService.createVideo(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Video created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getVideos2 = async (req, res, next) => {
-  try {
-    const { isPublished } = req.query;
-    const publishedFilter = isPublished === "true" ? true : isPublished === "false" ? false : void 0;
-    const result = await VideoService.getVideos(publishedFilter);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all videos successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateVideo2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await VideoService.updateVideo(id, req.body);
-    res.status(200).json({
-      success: true,
-      message: "Video updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteVideo2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await VideoService.deleteVideo(id);
-    res.status(200).json({
-      success: true,
-      message: "Video deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var VideoController = {
-  createVideo: createVideo2,
-  getVideos: getVideos2,
-  updateVideo: updateVideo2,
-  deleteVideo: deleteVideo2
-};
-
-// src/app/modules/video/video.validation.ts
-init_esm_shims();
-import { z as z9 } from "zod";
-var createVideoZodSchema = z9.object({
-  title: z9.string().optional(),
-  description: z9.string().optional(),
-  videoUrl: z9.string("Video URL is required").url("Invalid video URL"),
-  isPublished: z9.boolean().default(true),
-  sortOrder: z9.number().default(0)
-});
-var updateVideoZodSchema = createVideoZodSchema.partial();
-var VideoValidation = {
-  createVideoZodSchema,
-  updateVideoZodSchema
-};
-
-// src/app/modules/video/video.route.ts
-var router14 = express13.Router();
-router14.get("/", VideoController.getVideos);
-router14.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(VideoValidation.createVideoZodSchema),
-  VideoController.createVideo
-);
-router14.put(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(VideoValidation.updateVideoZodSchema),
-  VideoController.updateVideo
-);
-router14.delete("/:id", auth_default("ADMIN" /* ADMIN */), VideoController.deleteVideo);
-var VideoRouter = router14;
+router7.delete("/:id", auth_default("ADMIN" /* ADMIN */), ProjectController.deleteProject);
+var ProjectRouter = router7;
 
 // src/app/modules/contact/contact.route.ts
 init_esm_shims();
-import express14 from "express";
+import express7 from "express";
 
 // src/app/modules/contact/contact.validation.ts
 init_esm_shims();
-var import_prisma20 = __toESM(require_prisma(), 1);
-import { z as z10 } from "zod";
-var createContactZodSchema = z10.object({
-  name: z10.string("Name is required"),
-  email: z10.string("Email is required").email("Invalid email format"),
-  subject: z10.string("Subject is required"),
-  message: z10.string().optional(),
-  ipAddress: z10.string().optional()
+var import_prisma12 = __toESM(require_prisma(), 1);
+import { z as z4 } from "zod";
+var createContactZodSchema = z4.object({
+  name: z4.string("Name is required"),
+  email: z4.string("Email is required").email("Invalid email format"),
+  subject: z4.string("Subject is required"),
+  message: z4.string().optional(),
+  ipAddress: z4.string().optional()
 });
-var updateContactZodSchema = z10.object({
-  status: z10.nativeEnum(import_prisma20.ContactStatus).optional(),
-  adminNote: z10.string().optional()
+var updateContactZodSchema = z4.object({
+  status: z4.nativeEnum(import_prisma12.ContactStatus).optional(),
+  adminNote: z4.string().optional()
 });
 var ContactValidation = {
   createContactZodSchema,
@@ -12804,10 +11119,10 @@ var createContact = async (payload) => {
   return result;
 };
 var getAllContacts = async (query) => {
-  const { status: status19, startDate, endDate } = query;
+  const { status: status16, startDate, endDate } = query;
   const result = await prisma.contact.findMany({
     where: {
-      ...status19 && { status: status19 },
+      ...status16 && { status: status16 },
       ...startDate || endDate ? {
         createdAt: {
           ...startDate && { gte: new Date(startDate) },
@@ -12958,10 +11273,10 @@ var ContactController = {
 // src/app/middlewares/rateLimiter.ts
 init_esm_shims();
 import rateLimit from "express-rate-limit";
-import status10 from "http-status";
+import status9 from "http-status";
 var buildLimitMessage = (message) => ({
   success: false,
-  statusCode: status10.TOO_MANY_REQUESTS,
+  statusCode: status9.TOO_MANY_REQUESTS,
   message,
   errorSources: [
     {
@@ -13007,28 +11322,28 @@ var strictLimiter = rateLimit({
 });
 
 // src/app/modules/contact/contact.route.ts
-var router15 = express14.Router();
-router15.post(
+var router8 = express7.Router();
+router8.post(
   "/",
   strictLimiter,
   validateRequest(ContactValidation.createContactZodSchema),
   ContactController.createContact
 );
-router15.get("/", auth_default("ADMIN" /* ADMIN */), ContactController.getAllContacts);
-router15.get("/stats", auth_default("ADMIN" /* ADMIN */), ContactController.getContactStats);
-router15.get("/:id", auth_default("ADMIN" /* ADMIN */), ContactController.getContactById);
-router15.patch(
+router8.get("/", auth_default("ADMIN" /* ADMIN */), ContactController.getAllContacts);
+router8.get("/stats", auth_default("ADMIN" /* ADMIN */), ContactController.getContactStats);
+router8.get("/:id", auth_default("ADMIN" /* ADMIN */), ContactController.getContactById);
+router8.patch(
   "/:id",
   auth_default("ADMIN" /* ADMIN */),
   validateRequest(ContactValidation.updateContactZodSchema),
   ContactController.updateContact
 );
-router15.delete("/:id", auth_default("ADMIN" /* ADMIN */), ContactController.deleteContact);
-var ContactRouter = router15;
+router8.delete("/:id", auth_default("ADMIN" /* ADMIN */), ContactController.deleteContact);
+var ContactRouter = router8;
 
 // src/app/modules/about/about.route.ts
 init_esm_shims();
-import express15 from "express";
+import express8 from "express";
 
 // src/app/modules/about/about.controller.ts
 init_esm_shims();
@@ -13082,7 +11397,7 @@ var AboutService = {
 };
 
 // src/app/modules/about/about.controller.ts
-import status11 from "http-status";
+import status10 from "http-status";
 var createAbout2 = async (req, res, next) => {
   try {
     const payload = { ...req.body };
@@ -13104,7 +11419,7 @@ var getAbout2 = async (req, res, next) => {
   try {
     const result = await AboutService.getAbout();
     if (!result) {
-      throw new AppError_default(status11.NOT_FOUND, "About not found");
+      throw new AppError_default(status10.NOT_FOUND, "About not found");
     }
     res.status(200).json({
       success: true,
@@ -13136,7 +11451,7 @@ var downloadResume2 = async (req, res, next) => {
   try {
     const result = await AboutService.downloadResume();
     if (!result?.resumeUrl) {
-      throw new AppError_default(status11.NOT_FOUND, "Resume not found");
+      throw new AppError_default(status10.NOT_FOUND, "Resume not found");
     }
     res.status(200).json({
       success: true,
@@ -13159,14 +11474,14 @@ var AboutController = {
 
 // src/app/modules/about/about.validation.ts
 init_esm_shims();
-import { z as z11 } from "zod";
-var createAboutZodSchema = z11.object({
-  title: z11.string().optional(),
-  subtitle: z11.string().optional(),
-  description: z11.string().optional(),
-  heroImg: z11.string().optional(),
-  aboutMeImg: z11.string().optional(),
-  resumeUrl: z11.string().optional()
+import { z as z5 } from "zod";
+var createAboutZodSchema = z5.object({
+  title: z5.string().optional(),
+  subtitle: z5.string().optional(),
+  description: z5.string().optional(),
+  heroImg: z5.string().optional(),
+  aboutMeImg: z5.string().optional(),
+  resumeUrl: z5.string().optional()
 });
 var updateAboutZodSchema = createAboutZodSchema.partial();
 var AboutValidation = {
@@ -13176,10 +11491,10 @@ var AboutValidation = {
 
 // src/app/modules/about/about.route.ts
 var aboutImageUpload = createMulterUpload("about");
-var router16 = express15.Router();
-router16.get("/", AboutController.getAbout);
-router16.post("/download-resume", AboutController.downloadResume);
-router16.post(
+var router9 = express8.Router();
+router9.get("/", AboutController.getAbout);
+router9.post("/download-resume", AboutController.downloadResume);
+router9.post(
   "/",
   auth_default("ADMIN" /* ADMIN */),
   aboutImageUpload.fields([
@@ -13190,7 +11505,7 @@ router16.post(
   validateRequest(AboutValidation.createAboutZodSchema),
   AboutController.createAbout
 );
-router16.put(
+router9.put(
   "/",
   auth_default("ADMIN" /* ADMIN */),
   aboutImageUpload.fields([
@@ -13201,830 +11516,11 @@ router16.put(
   validateRequest(AboutValidation.updateAboutZodSchema),
   AboutController.updateAbout
 );
-var AboutRouter = router16;
-
-// src/app/modules/certificate/certificate.route.ts
-init_esm_shims();
-import express16 from "express";
-
-// src/app/modules/certificate/certificate.controller.ts
-init_esm_shims();
-
-// src/app/modules/certificate/certificate.service.ts
-init_esm_shims();
-var createCertificate = async (payload) => {
-  const result = await prisma.certificate.create({
-    data: payload
-  });
-  return result;
-};
-var getCertificates = async (isPublished) => {
-  const result = await prisma.certificate.findMany({
-    where: isPublished !== void 0 ? { isPublished } : {},
-    orderBy: {
-      sortOrder: "asc"
-    }
-  });
-  return result;
-};
-var getCertificateById = async (id) => {
-  const result = await prisma.certificate.findUnique({
-    where: { id }
-  });
-  return result;
-};
-var updateCertificate = async (id, payload) => {
-  const current = await prisma.certificate.findUnique({ where: { id } });
-  if (!current) {
-    throw new Error("Certificate not found");
-  }
-  if (payload.imageUrl && current.imageUrl && payload.imageUrl !== current.imageUrl) {
-    await deleteFileFromCloudinary(current.imageUrl);
-  }
-  const result = await prisma.certificate.update({
-    where: { id },
-    data: payload
-  });
-  return result;
-};
-var deleteCertificate = async (id) => {
-  const current = await prisma.certificate.findUnique({ where: { id } });
-  if (!current) {
-    throw new Error("Certificate not found");
-  }
-  if (current.imageUrl) {
-    await deleteFileFromCloudinary(current.imageUrl);
-  }
-  const result = await prisma.certificate.delete({ where: { id } });
-  return result;
-};
-var CertificateService = {
-  createCertificate,
-  getCertificates,
-  getCertificateById,
-  updateCertificate,
-  deleteCertificate
-};
-
-// src/app/modules/certificate/certificate.controller.ts
-import status12 from "http-status";
-var toISODateTime = (value) => {
-  if (!value || typeof value !== "string") return void 0;
-  if (value.includes("T")) return new Date(value).toISOString();
-  return (/* @__PURE__ */ new Date(`${value}T00:00:00.000Z`)).toISOString();
-};
-var createCertificate2 = async (req, res, next) => {
-  try {
-    const payload = { ...req.body };
-    if (payload.issuedDate)
-      payload.issuedDate = toISODateTime(payload.issuedDate);
-    if (payload.expiryDate)
-      payload.expiryDate = toISODateTime(payload.expiryDate);
-    if (req.file) {
-      payload.imageUrl = req.file.path;
-    }
-    const result = await CertificateService.createCertificate(payload);
-    res.status(201).json({
-      success: true,
-      message: "Certificate created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getCertificates2 = async (req, res, next) => {
-  try {
-    const { isPublished } = req.query;
-    const publishedFilter = isPublished === "true" ? true : isPublished === "false" ? false : void 0;
-    const result = await CertificateService.getCertificates(publishedFilter);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved certificates successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getCertificateById2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await CertificateService.getCertificateById(id);
-    if (!result) {
-      throw new AppError_default(status12.NOT_FOUND, "Certificate not found");
-    }
-    res.status(200).json({
-      success: true,
-      message: "Retrieved certificate successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateCertificate2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const payload = { ...req.body };
-    if (payload.issuedDate)
-      payload.issuedDate = toISODateTime(payload.issuedDate);
-    if (payload.expiryDate)
-      payload.expiryDate = toISODateTime(payload.expiryDate);
-    if (req.file) {
-      payload.imageUrl = req.file.path;
-    }
-    const result = await CertificateService.updateCertificate(
-      id,
-      payload
-    );
-    res.status(200).json({
-      success: true,
-      message: "Certificate updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteCertificate2 = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await CertificateService.deleteCertificate(id);
-    res.status(200).json({
-      success: true,
-      message: "Certificate deleted successfully"
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var CertificateController = {
-  createCertificate: createCertificate2,
-  getCertificates: getCertificates2,
-  getCertificateById: getCertificateById2,
-  updateCertificate: updateCertificate2,
-  deleteCertificate: deleteCertificate2
-};
-
-// src/app/modules/certificate/certificate.validation.ts
-init_esm_shims();
-import { z as z12 } from "zod";
-var createCertificateZodSchema = z12.object({
-  title: z12.string("title is required"),
-  issuer: z12.string("issuer is required"),
-  issuedDate: z12.string("issuedDate is required"),
-  expiryDate: z12.string().optional(),
-  credentialId: z12.string().optional(),
-  credentialUrl: z12.string().optional(),
-  imageUrl: z12.string().optional(),
-  // z.coerce handles FormData strings ("true"/"false", "0"/"1") AND native types
-  isPublished: z12.coerce.boolean().optional(),
-  sortOrder: z12.coerce.number().optional()
-});
-var updateCertificateZodSchema = createCertificateZodSchema.partial();
-var CertificateValidation = {
-  createCertificateZodSchema,
-  updateCertificateZodSchema
-};
-
-// src/app/modules/certificate/certificate.route.ts
-var certificateImageUpload = createMulterUpload("certificates");
-var router17 = express16.Router();
-router17.get("/", CertificateController.getCertificates);
-router17.get("/:id", CertificateController.getCertificateById);
-router17.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  certificateImageUpload.single("imageUrl"),
-  validateRequest(CertificateValidation.createCertificateZodSchema),
-  CertificateController.createCertificate
-);
-router17.put(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  certificateImageUpload.single("imageUrl"),
-  validateRequest(CertificateValidation.updateCertificateZodSchema),
-  CertificateController.updateCertificate
-);
-router17.delete(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  CertificateController.deleteCertificate
-);
-var CertificateRouter = router17;
-
-// src/app/modules/blog/blog.route.ts
-init_esm_shims();
-import express17 from "express";
-
-// src/app/modules/blog/blog.controller.ts
-init_esm_shims();
-
-// src/app/modules/blog/blog.service.ts
-init_esm_shims();
-import status13 from "http-status";
-var blogInclude = {
-  tags: true,
-  comments: {
-    where: { isApproved: true, parentId: null },
-    include: {
-      replies: { where: { isApproved: true } }
-    },
-    orderBy: { createdAt: "desc" }
-  }
-};
-var createBlog = async (payload) => {
-  const { tagIds, publishedAt, ...blogData } = payload;
-  const result = await prisma.blog.create({
-    data: {
-      ...blogData,
-      ...publishedAt && { publishedAt: new Date(publishedAt) },
-      ...tagIds?.length && {
-        tags: { connect: tagIds.map((id) => ({ id })) }
-      }
-    },
-    include: blogInclude
-  });
-  return result;
-};
-var getBlogs = async (filters) => {
-  const result = await prisma.blog.findMany({
-    where: {
-      ...filters?.status && { status: filters.status },
-      ...filters?.isFeatured !== void 0 && {
-        isFeatured: filters.isFeatured
-      },
-      ...filters?.tagId && { tags: { some: { id: filters.tagId } } }
-    },
-    include: blogInclude,
-    orderBy: { createdAt: "desc" }
-  });
-  return result;
-};
-var getBlogById = async (id) => {
-  const result = await prisma.blog.findUnique({
-    where: { id },
-    include: blogInclude
-  });
-  if (!result) throw new AppError_default(status13.NOT_FOUND, "Blog not found");
-  return result;
-};
-var getBlogBySlug = async (slug) => {
-  const result = await prisma.blog.update({
-    where: { slug },
-    data: { viewCount: { increment: 1 } },
-    include: blogInclude
-  });
-  if (!result) throw new AppError_default(status13.NOT_FOUND, "Blog not found");
-  return result;
-};
-var updateBlog = async (id, payload) => {
-  const current = await prisma.blog.findUnique({ where: { id } });
-  if (!current) throw new AppError_default(status13.NOT_FOUND, "Blog not found");
-  if (payload.thumbnail && current.thumbnail && payload.thumbnail !== current.thumbnail) {
-    await deleteFileFromCloudinary(current.thumbnail);
-  }
-  const { tagIds, publishedAt, ...updateData } = payload;
-  const result = await prisma.blog.update({
-    where: { id },
-    data: {
-      ...updateData,
-      ...publishedAt && { publishedAt: new Date(publishedAt) },
-      // Replace all tags if new ones are provided
-      ...tagIds?.length && {
-        tags: { set: tagIds.map((id2) => ({ id: id2 })) }
-      }
-    },
-    include: blogInclude
-  });
-  return result;
-};
-var likeBlog = async (id) => {
-  const result = await prisma.blog.update({
-    where: { id },
-    data: { likeCount: { increment: 1 } }
-  });
-  return result;
-};
-var deleteBlog = async (id) => {
-  const current = await prisma.blog.findUnique({ where: { id } });
-  if (!current) throw new AppError_default(status13.NOT_FOUND, "Blog not found");
-  if (current.thumbnail) {
-    await deleteFileFromCloudinary(current.thumbnail);
-  }
-  await prisma.blog.delete({ where: { id } });
-};
-var createBlogTag = async (payload) => {
-  const result = await prisma.blogTag.create({ data: payload });
-  return result;
-};
-var getBlogTags = async () => {
-  const result = await prisma.blogTag.findMany({
-    orderBy: { name: "asc" }
-  });
-  return result;
-};
-var updateBlogTag = async (id, payload) => {
-  const result = await prisma.blogTag.update({
-    where: { id },
-    data: payload
-  });
-  return result;
-};
-var deleteBlogTag = async (id) => {
-  await prisma.blogTag.delete({ where: { id } });
-};
-var createComment = async (payload, ipAddress) => {
-  const result = await prisma.blogComment.create({
-    data: { ...payload, ipAddress }
-  });
-  return result;
-};
-var getComments = async (blogId, isApproved) => {
-  const result = await prisma.blogComment.findMany({
-    where: {
-      ...blogId && { blogId },
-      ...isApproved !== void 0 && { isApproved },
-      parentId: null
-    },
-    include: { replies: true },
-    orderBy: { createdAt: "desc" }
-  });
-  return result;
-};
-var approveComment = async (id) => {
-  const result = await prisma.blogComment.update({
-    where: { id },
-    data: { isApproved: true },
-    include: { blog: { select: { title: true, slug: true } } }
-  });
-  if (result.email) {
-    try {
-      const blogUrl = result.blog?.slug ? `${env.FRONTEND_URL}/blogs/${result.blog.slug}` : env.FRONTEND_URL;
-      await sendEmail({
-        to: result.email,
-        subject: `Your comment is now live on Ishtiaq Robin's blog`,
-        templateName: "blog-comment-approved",
-        templateData: {
-          name: result.name,
-          comment: result.comment,
-          blogTitle: result.blog?.title || "the blog",
-          blogUrl
-        }
-      });
-    } catch (err) {
-      console.error("Failed to send comment-approved email:", err);
-    }
-  }
-  return result;
-};
-var deleteComment = async (id) => {
-  await prisma.blogComment.delete({ where: { id } });
-};
-var BlogService = {
-  // Blog
-  createBlog,
-  getBlogs,
-  getBlogById,
-  getBlogBySlug,
-  updateBlog,
-  likeBlog,
-  deleteBlog,
-  //   Tag,
-  createBlogTag,
-  getBlogTags,
-  updateBlogTag,
-  deleteBlogTag,
-  //   Comment,
-  createComment,
-  getComments,
-  approveComment,
-  deleteComment
-};
-
-// src/app/modules/blog/blog.controller.ts
-import status14 from "http-status";
-var createBlog2 = async (req, res, next) => {
-  try {
-    const payload = { ...req.body };
-    if (req.file) payload.thumbnail = req.file.path;
-    const result = await BlogService.createBlog(payload);
-    res.status(201).json({
-      success: true,
-      message: "Blog created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getBlogs2 = async (req, res, next) => {
-  try {
-    const { status: blogStatus, isFeatured, tagId } = req.query;
-    const isFeaturedFilter = isFeatured === "true" ? true : isFeatured === "false" ? false : void 0;
-    const filters = {};
-    if (blogStatus) filters.status = blogStatus;
-    if (isFeaturedFilter !== void 0) filters.isFeatured = isFeaturedFilter;
-    if (tagId) filters.tagId = tagId;
-    const result = await BlogService.getBlogs(filters);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved blogs successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getBlogById2 = async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    const result = await BlogService.getBlogById(id);
-    if (!result) throw new AppError_default(status14.NOT_FOUND, "Blog not found");
-    res.status(200).json({
-      success: true,
-      message: "Retrieved blog successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getBlogBySlug2 = async (req, res, next) => {
-  try {
-    const id = req.params.slug;
-    const result = await BlogService.getBlogBySlug(id);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved blog successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateBlog2 = async (req, res, next) => {
-  try {
-    const payload = { ...req.body };
-    const id = req.params.id;
-    if (req.file) payload.thumbnail = req.file.path;
-    const result = await BlogService.updateBlog(id, payload);
-    res.status(200).json({
-      success: true,
-      message: "Blog updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var likeBlog2 = async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    const result = await BlogService.likeBlog(id);
-    res.status(200).json({
-      success: true,
-      message: "Blog liked",
-      data: { likeCount: result.likeCount }
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteBlog2 = async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    await BlogService.deleteBlog(id);
-    res.status(200).json({
-      success: true,
-      message: "Blog deleted successfully"
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var createBlogTag2 = async (req, res, next) => {
-  try {
-    const result = await BlogService.createBlogTag(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Tag created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getBlogTags2 = async (req, res, next) => {
-  try {
-    const result = await BlogService.getBlogTags();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved tags successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateBlogTag2 = async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    const result = await BlogService.updateBlogTag(id, req.body);
-    res.status(200).json({
-      success: true,
-      message: "Tag updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteBlogTag2 = async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    await BlogService.deleteBlogTag(id);
-    res.status(200).json({
-      success: true,
-      message: "Tag deleted successfully"
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var createComment2 = async (req, res, next) => {
-  try {
-    const ipAddress = req.ip || req.socket.remoteAddress;
-    const result = await BlogService.createComment(req.body, ipAddress);
-    res.status(201).json({
-      success: true,
-      message: "Comment submitted, pending approval",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getComments2 = async (req, res, next) => {
-  try {
-    const { blogId, isApproved } = req.query;
-    const result = await BlogService.getComments(
-      blogId,
-      isApproved === "true" ? true : isApproved === "false" ? false : void 0
-    );
-    res.status(200).json({
-      success: true,
-      message: "Retrieved comments successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var approveComment2 = async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    const result = await BlogService.approveComment(id);
-    res.status(200).json({
-      success: true,
-      message: "Comment approved",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteComment2 = async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    await BlogService.deleteComment(id);
-    res.status(200).json({
-      success: true,
-      message: "Comment deleted successfully"
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var BlogController = {
-  // Blog
-  createBlog: createBlog2,
-  getBlogs: getBlogs2,
-  getBlogById: getBlogById2,
-  getBlogBySlug: getBlogBySlug2,
-  updateBlog: updateBlog2,
-  likeBlog: likeBlog2,
-  deleteBlog: deleteBlog2,
-  //   Tag,
-  createBlogTag: createBlogTag2,
-  getBlogTags: getBlogTags2,
-  updateBlogTag: updateBlogTag2,
-  deleteBlogTag: deleteBlogTag2,
-  //   Comment,
-  createComment: createComment2,
-  getComments: getComments2,
-  approveComment: approveComment2,
-  deleteComment: deleteComment2
-};
-
-// src/app/modules/blog/blog.validation.ts
-init_esm_shims();
-import { z as z13 } from "zod";
-
-// src/app/utils/sanitize.ts
-init_esm_shims();
-import sanitizeHtmlLib from "sanitize-html";
-var sanitizeText = (input) => {
-  if (!input) return "";
-  return sanitizeHtmlLib(input, {
-    allowedTags: [],
-    allowedAttributes: {},
-    // decode entities so &amp; doesn't pile up on repeated runs
-    disallowedTagsMode: "discard"
-  }).trim();
-};
-var sanitizeRichContent = (input) => {
-  if (!input) return "";
-  return sanitizeHtmlLib(input, {
-    allowedTags: [
-      // headings
-      "h1",
-      "h2",
-      "h3",
-      "h4",
-      "h5",
-      "h6",
-      // text blocks
-      "p",
-      "blockquote",
-      "pre",
-      "code",
-      "hr",
-      "br",
-      // inline
-      "strong",
-      "em",
-      "b",
-      "i",
-      "u",
-      "s",
-      "mark",
-      "small",
-      "sub",
-      "sup",
-      "span",
-      // lists
-      "ul",
-      "ol",
-      "li",
-      // links & media
-      "a",
-      "img",
-      "figure",
-      "figcaption",
-      // tables
-      "table",
-      "thead",
-      "tbody",
-      "tr",
-      "th",
-      "td",
-      // semantic
-      "div"
-    ],
-    allowedAttributes: {
-      a: ["href", "name", "target", "rel", "title"],
-      img: ["src", "alt", "title", "width", "height", "loading"],
-      code: ["class"],
-      // language-xxx for syntax highlight
-      pre: ["class"],
-      span: ["class"],
-      div: ["class"],
-      th: ["align", "colspan", "rowspan"],
-      td: ["align", "colspan", "rowspan"]
-    },
-    allowedSchemes: ["http", "https", "mailto"],
-    allowedSchemesByTag: {
-      img: ["http", "https", "data"]
-      // base64 images allowed
-    },
-    // Force every anchor to be safe + open externally
-    transformTags: {
-      a: sanitizeHtmlLib.simpleTransform("a", {
-        rel: "noopener noreferrer nofollow",
-        target: "_blank"
-      })
-    },
-    // strip scripts/styles entirely (don't leave their text content)
-    disallowedTagsMode: "discard",
-    nonTextTags: ["style", "script", "textarea", "option", "noscript"]
-  }).trim();
-};
-var sanitizeUrl = (input) => {
-  if (!input) return "";
-  const trimmed = input.trim();
-  if (/^(javascript|data|vbscript|file):/i.test(trimmed)) return "";
-  return trimmed;
-};
-
-// src/app/modules/blog/blog.validation.ts
-var textField = z13.string().transform((v) => sanitizeText(v));
-var richField = z13.string().transform((v) => sanitizeRichContent(v));
-var optionalText = z13.string().optional().transform((v) => v === void 0 ? void 0 : sanitizeText(v));
-var createBlogZodSchema = z13.object({
-  title: textField.refine((v) => v.length > 0, "title is required"),
-  slug: textField.refine((v) => v.length > 0, "slug is required"),
-  // Rich HTML — keep safe tags only
-  content: richField.refine((v) => v.length > 0, "content is required"),
-  excerpt: optionalText,
-  thumbnail: z13.string().optional(),
-  // URL from Cloudinary — already controlled
-  status: z13.enum(["DRAFT", "PUBLISHED", "ARCHIVED"]).optional(),
-  isFeatured: z13.boolean().optional(),
-  publishedAt: z13.string().optional(),
-  metaTitle: optionalText,
-  metaDescription: optionalText,
-  tagIds: z13.array(z13.string()).optional()
-});
-var updateBlogZodSchema = createBlogZodSchema.partial();
-var createBlogTagZodSchema = z13.object({
-  name: textField.refine((v) => v.length > 0, "name is required"),
-  slug: textField.refine((v) => v.length > 0, "slug is required")
-});
-var updateBlogTagZodSchema = createBlogTagZodSchema.partial();
-var createBlogCommentZodSchema = z13.object({
-  name: textField.refine((v) => v.length > 0, "name is required"),
-  email: z13.string("email is required").email("invalid email").transform((v) => sanitizeText(v).toLowerCase()),
-  comment: textField.refine((v) => v.length > 0, "comment is required"),
-  blogId: z13.string("blogId is required"),
-  parentId: z13.string().optional()
-});
-var BlogValidation = {
-  createBlogZodSchema,
-  updateBlogZodSchema,
-  createBlogTagZodSchema,
-  updateBlogTagZodSchema,
-  createBlogCommentZodSchema
-};
-
-// src/app/modules/blog/blog.route.ts
-var blogImageUpload = createMulterUpload("blogs");
-var router18 = express17.Router();
-router18.get("/", BlogController.getBlogs);
-router18.get("/slug/:slug", BlogController.getBlogBySlug);
-router18.get("/:id", BlogController.getBlogById);
-router18.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  blogImageUpload.single("thumbnail"),
-  validateRequest(BlogValidation.createBlogZodSchema),
-  BlogController.createBlog
-);
-router18.put(
-  "/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  blogImageUpload.single("thumbnail"),
-  validateRequest(BlogValidation.updateBlogZodSchema),
-  BlogController.updateBlog
-);
-router18.patch("/:id/like", BlogController.likeBlog);
-router18.delete("/:id", auth_default("ADMIN" /* ADMIN */), BlogController.deleteBlog);
-router18.get("/tags/all", BlogController.getBlogTags);
-router18.post(
-  "/tags",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(BlogValidation.createBlogTagZodSchema),
-  BlogController.createBlogTag
-);
-router18.put(
-  "/tags/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(BlogValidation.updateBlogTagZodSchema),
-  BlogController.updateBlogTag
-);
-router18.delete("/tags/:id", auth_default("ADMIN" /* ADMIN */), BlogController.deleteBlogTag);
-router18.post(
-  "/comments",
-  validateRequest(BlogValidation.createBlogCommentZodSchema),
-  BlogController.createComment
-);
-router18.get("/comments/all", auth_default("ADMIN" /* ADMIN */), BlogController.getComments);
-router18.patch(
-  "/comments/:id/approve",
-  auth_default("ADMIN" /* ADMIN */),
-  BlogController.approveComment
-);
-router18.delete(
-  "/comments/:id",
-  auth_default("ADMIN" /* ADMIN */),
-  BlogController.deleteComment
-);
-var BlogRouter = router18;
+var AboutRouter = router9;
 
 // src/app/modules/analytics/analytics.route.ts
 init_esm_shims();
-import express18 from "express";
+import express9 from "express";
 
 // src/app/modules/analytics/analytics.controller.ts
 init_esm_shims();
@@ -14198,19 +11694,19 @@ var AnalyticsController = {
 
 // src/app/modules/analytics/analytics.validation.ts
 init_esm_shims();
-import { z as z14 } from "zod";
-var createPageViewZodSchema = z14.object({
-  page: z14.string("Page is required"),
-  userAgent: z14.string().optional(),
-  ipAddress: z14.string().optional(),
-  country: z14.string().optional(),
-  city: z14.string().optional(),
-  referrer: z14.string().optional()
+import { z as z6 } from "zod";
+var createPageViewZodSchema = z6.object({
+  page: z6.string("Page is required"),
+  userAgent: z6.string().optional(),
+  ipAddress: z6.string().optional(),
+  country: z6.string().optional(),
+  city: z6.string().optional(),
+  referrer: z6.string().optional()
 });
-var createResumeDownloadLogZodSchema = z14.object({
-  ipAddress: z14.string().optional(),
-  country: z14.string().optional(),
-  userAgent: z14.string().optional()
+var createResumeDownloadLogZodSchema = z6.object({
+  ipAddress: z6.string().optional(),
+  country: z6.string().optional(),
+  userAgent: z6.string().optional()
 });
 var AnalyticsValidation = {
   createPageViewZodSchema,
@@ -14218,1848 +11714,49 @@ var AnalyticsValidation = {
 };
 
 // src/app/modules/analytics/analytics.route.ts
-var router19 = express18.Router();
-router19.post(
+var router10 = express9.Router();
+router10.post(
   "/page-views",
   validateRequest(AnalyticsValidation.createPageViewZodSchema),
   AnalyticsController.trackPageView
 );
-router19.get(
+router10.get(
   "/page-views",
   auth_default("ADMIN" /* ADMIN */),
   AnalyticsController.getPageViews
 );
-router19.get(
+router10.get(
   "/page-views/stats",
   auth_default("ADMIN" /* ADMIN */),
   AnalyticsController.getPageViewStats
 );
-router19.post(
+router10.post(
   "/resume-downloads",
   validateRequest(AnalyticsValidation.createResumeDownloadLogZodSchema),
   AnalyticsController.trackResumeDownload
 );
-router19.get(
+router10.get(
   "/resume-downloads",
   auth_default("ADMIN" /* ADMIN */),
   AnalyticsController.getResumeDownloadLogs
 );
-router19.get(
+router10.get(
   "/resume-downloads/count",
   auth_default("ADMIN" /* ADMIN */),
   AnalyticsController.getResumeDownloadCount
 );
-var AnalyticsRouter = router19;
-
-// src/app/modules/appointment/appointment.route.ts
-init_esm_shims();
-import express19 from "express";
-
-// src/app/modules/appointment/appointment.controller.ts
-init_esm_shims();
-
-// src/app/modules/appointment/appointment.service.ts
-init_esm_shims();
-var createAppointmentSlot = async (payload) => {
-  const result = await prisma.appointmentSlot.create({
-    data: payload
-  });
-  return result;
-};
-var getAppointmentSlots = async () => {
-  const result = await prisma.appointmentSlot.findMany({
-    orderBy: [{ dayOfWeek: "asc" }, { startTime: "asc" }]
-  });
-  return result;
-};
-var getAvailableSlots = async () => {
-  const result = await prisma.appointmentSlot.findMany({
-    where: { isAvailable: true },
-    orderBy: [{ dayOfWeek: "asc" }, { startTime: "asc" }]
-  });
-  return result;
-};
-var updateAppointmentSlot = async (slotId, payload) => {
-  const result = await prisma.appointmentSlot.update({
-    where: { id: slotId },
-    data: payload
-  });
-  return result;
-};
-var deleteAppointmentSlot = async (slotId) => {
-  const result = await prisma.appointmentSlot.delete({
-    where: { id: slotId }
-  });
-  return result;
-};
-var createAppointment = async (payload) => {
-  const { date, ...rest } = payload;
-  const slot = await prisma.appointmentSlot.findFirst({
-    where: { id: rest.slotId, isAvailable: true }
-  });
-  if (!slot) {
-    throw new Error("Selected slot is not available");
-  }
-  const existing = await prisma.appointment.findFirst({
-    where: {
-      slotId: rest.slotId,
-      date: new Date(date),
-      status: { notIn: ["CANCELLED"] }
-    }
-  });
-  if (existing) {
-    throw new Error("This slot is already booked for the selected date");
-  }
-  const result = await prisma.appointment.create({
-    data: {
-      ...rest,
-      date: new Date(date)
-    },
-    include: { slot: true }
-  });
-  return result;
-};
-var getAppointments = async () => {
-  const result = await prisma.appointment.findMany({
-    include: { slot: true },
-    orderBy: { date: "asc" }
-  });
-  return result;
-};
-var getAppointmentById = async (appointmentId) => {
-  const result = await prisma.appointment.findUnique({
-    where: { id: appointmentId },
-    include: { slot: true }
-  });
-  return result;
-};
-var updateAppointment = async (appointmentId, payload) => {
-  const { date, ...rest } = payload;
-  const result = await prisma.appointment.update({
-    where: { id: appointmentId },
-    data: {
-      ...rest,
-      ...date && { date: new Date(date) }
-    },
-    include: { slot: true }
-  });
-  return result;
-};
-var updateAppointmentStatus = async (appointmentId, payload) => {
-  const result = await prisma.appointment.update({
-    where: { id: appointmentId },
-    data: payload,
-    include: { slot: true }
-  });
-  if (payload.status === "CONFIRMED" && result.email) {
-    try {
-      const dateStr = new Date(result.date).toLocaleDateString("en-US", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      });
-      const timeStr = result.slot ? `${result.slot.startTime} - ${result.slot.endTime}` : "TBA";
-      await sendEmail({
-        to: result.email,
-        subject: `Your appointment with Ishtiaq Robin is confirmed`,
-        templateName: "appointment-confirmed",
-        templateData: {
-          name: result.name,
-          topic: result.topic,
-          date: dateStr,
-          time: timeStr,
-          meetLink: result.meetLink || "",
-          adminNote: result.adminNote || ""
-        }
-      });
-    } catch (err) {
-      console.error("Failed to send appointment confirmation email:", err);
-    }
-  }
-  return result;
-};
-var deleteAppointment = async (appointmentId) => {
-  const result = await prisma.appointment.delete({
-    where: { id: appointmentId }
-  });
-  return result;
-};
-var AppointmentService = {
-  createAppointmentSlot,
-  getAppointmentSlots,
-  getAvailableSlots,
-  updateAppointmentSlot,
-  deleteAppointmentSlot,
-  createAppointment,
-  getAppointments,
-  getAppointmentById,
-  updateAppointment,
-  updateAppointmentStatus,
-  deleteAppointment
-};
-
-// src/app/modules/appointment/appointment.controller.ts
-var createAppointmentSlot2 = async (req, res, next) => {
-  try {
-    const result = await AppointmentService.createAppointmentSlot(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Appointment slot created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getAppointmentSlots2 = async (req, res, next) => {
-  try {
-    const result = await AppointmentService.getAppointmentSlots();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all appointment slots successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getAvailableSlots2 = async (req, res, next) => {
-  try {
-    const result = await AppointmentService.getAvailableSlots();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved available slots successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateAppointmentSlot2 = async (req, res, next) => {
-  try {
-    const { slotId } = req.params;
-    const result = await AppointmentService.updateAppointmentSlot(
-      slotId,
-      req.body
-    );
-    res.status(200).json({
-      success: true,
-      message: "Appointment slot updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteAppointmentSlot2 = async (req, res, next) => {
-  try {
-    const { slotId } = req.params;
-    const result = await AppointmentService.deleteAppointmentSlot(
-      slotId
-    );
-    res.status(200).json({
-      success: true,
-      message: "Appointment slot deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var createAppointment2 = async (req, res, next) => {
-  try {
-    const result = await AppointmentService.createAppointment(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Appointment booked successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getAppointments2 = async (req, res, next) => {
-  try {
-    const result = await AppointmentService.getAppointments();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all appointments successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getAppointmentById2 = async (req, res, next) => {
-  try {
-    const { appointmentId } = req.params;
-    const result = await AppointmentService.getAppointmentById(
-      appointmentId
-    );
-    res.status(200).json({
-      success: true,
-      message: "Retrieved appointment successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateAppointment2 = async (req, res, next) => {
-  try {
-    const { appointmentId } = req.params;
-    const result = await AppointmentService.updateAppointment(
-      appointmentId,
-      req.body
-    );
-    res.status(200).json({
-      success: true,
-      message: "Appointment updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateAppointmentStatus2 = async (req, res, next) => {
-  try {
-    const { appointmentId } = req.params;
-    const result = await AppointmentService.updateAppointmentStatus(
-      appointmentId,
-      req.body
-    );
-    res.status(200).json({
-      success: true,
-      message: "Appointment status updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteAppointment2 = async (req, res, next) => {
-  try {
-    const { appointmentId } = req.params;
-    const result = await AppointmentService.deleteAppointment(
-      appointmentId
-    );
-    res.status(200).json({
-      success: true,
-      message: "Appointment deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var AppointmentController = {
-  createAppointmentSlot: createAppointmentSlot2,
-  getAppointmentSlots: getAppointmentSlots2,
-  getAvailableSlots: getAvailableSlots2,
-  updateAppointmentSlot: updateAppointmentSlot2,
-  deleteAppointmentSlot: deleteAppointmentSlot2,
-  createAppointment: createAppointment2,
-  getAppointments: getAppointments2,
-  getAppointmentById: getAppointmentById2,
-  updateAppointment: updateAppointment2,
-  updateAppointmentStatus: updateAppointmentStatus2,
-  deleteAppointment: deleteAppointment2
-};
-
-// src/app/modules/appointment/appointment.validation.ts
-init_esm_shims();
-var import_prisma27 = __toESM(require_prisma(), 1);
-import { z as z15 } from "zod";
-var createAppointmentSlotZodSchema = z15.object({
-  dayOfWeek: z15.number("Day of week is required").int().min(0, "Day must be between 0 (Sunday) and 6 (Saturday)").max(6, "Day must be between 0 (Sunday) and 6 (Saturday)"),
-  startTime: z15.string("Start time is required").regex(/^\d{2}:\d{2}$/, "Start time must be in HH:MM format"),
-  endTime: z15.string("End time is required").regex(/^\d{2}:\d{2}$/, "End time must be in HH:MM format"),
-  isAvailable: z15.boolean().optional().default(true)
-});
-var updateAppointmentSlotZodSchema = z15.object({
-  dayOfWeek: z15.number().int().min(0).max(6).optional(),
-  startTime: z15.string().regex(/^\d{2}:\d{2}$/, "Start time must be in HH:MM format").optional(),
-  endTime: z15.string().regex(/^\d{2}:\d{2}$/, "End time must be in HH:MM format").optional(),
-  isAvailable: z15.boolean().optional()
-});
-var createAppointmentZodSchema = z15.object({
-  name: z15.string("Name is required"),
-  email: z15.string("Email is required").email("Invalid email address"),
-  phone: z15.string().optional(),
-  topic: z15.string("Topic is required"),
-  message: z15.string().optional(),
-  date: z15.string("Date is required").datetime("Invalid date format"),
-  slotId: z15.string("Slot ID is required").uuid("Invalid slot ID")
-});
-var updateAppointmentZodSchema = z15.object({
-  name: z15.string().optional(),
-  email: z15.string().email("Invalid email address").optional(),
-  phone: z15.string().optional(),
-  topic: z15.string().optional(),
-  message: z15.string().optional(),
-  date: z15.string().datetime("Invalid date format").optional(),
-  slotId: z15.string().uuid("Invalid slot ID").optional()
-});
-var updateAppointmentStatusZodSchema = z15.object({
-  status: z15.nativeEnum(import_prisma27.AppointmentStatus).describe(
-    "Status is required and must be one of: PENDING, APPROVED, REJECTED, COMPLETED"
-  ),
-  meetLink: z15.string().url("Invalid meet link").optional(),
-  adminNote: z15.string().optional()
-});
-var AppointmentValidation = {
-  createAppointmentSlotZodSchema,
-  updateAppointmentSlotZodSchema,
-  createAppointmentZodSchema,
-  updateAppointmentZodSchema,
-  updateAppointmentStatusZodSchema
-};
-
-// src/app/modules/appointment/appointment.route.ts
-var router20 = express19.Router();
-router20.get("/slots", AppointmentController.getAppointmentSlots);
-router20.get("/slots/available", AppointmentController.getAvailableSlots);
-router20.post(
-  "/slots",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(AppointmentValidation.createAppointmentSlotZodSchema),
-  AppointmentController.createAppointmentSlot
-);
-router20.put(
-  "/slots/:slotId",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(AppointmentValidation.updateAppointmentSlotZodSchema),
-  AppointmentController.updateAppointmentSlot
-);
-router20.delete(
-  "/slots/:slotId",
-  auth_default("ADMIN" /* ADMIN */),
-  AppointmentController.deleteAppointmentSlot
-);
-router20.post(
-  "/",
-  validateRequest(AppointmentValidation.createAppointmentZodSchema),
-  AppointmentController.createAppointment
-);
-router20.get("/", auth_default("ADMIN" /* ADMIN */), AppointmentController.getAppointments);
-router20.get(
-  "/:appointmentId",
-  auth_default("ADMIN" /* ADMIN */),
-  AppointmentController.getAppointmentById
-);
-router20.put(
-  "/:appointmentId",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(AppointmentValidation.updateAppointmentZodSchema),
-  AppointmentController.updateAppointment
-);
-router20.patch(
-  "/:appointmentId/status",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(AppointmentValidation.updateAppointmentStatusZodSchema),
-  AppointmentController.updateAppointmentStatus
-);
-router20.delete(
-  "/:appointmentId",
-  auth_default("ADMIN" /* ADMIN */),
-  AppointmentController.deleteAppointment
-);
-var AppointmentRouter = router20;
-
-// src/app/modules/github/github.route.ts
-init_esm_shims();
-import express20 from "express";
-
-// src/app/modules/github/github.controller.ts
-init_esm_shims();
-
-// src/app/modules/github/github.service.ts
-init_esm_shims();
-import httpStatus2 from "http-status";
-var GITHUB_API_BASE = "https://api.github.com";
-var getGithubStats = async () => {
-  const result = await prisma.gitHubStatsCache.findUnique({
-    where: { id: "singleton" }
-  });
-  return result;
-};
-var syncGithubStats = async (username) => {
-  const headers = {
-    Accept: "application/vnd.github+json",
-    "X-GitHub-Api-Version": "2022-11-28",
-    ...process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}
-  };
-  const userRes = await fetch(`${GITHUB_API_BASE}/users/${username}`, {
-    headers
-  });
-  if (!userRes.ok) {
-    throw new AppError_default(
-      httpStatus2.BAD_GATEWAY,
-      `Failed to fetch GitHub profile for "${username}"`
-    );
-  }
-  const user = await userRes.json();
-  const reposRes = await fetch(
-    `${GITHUB_API_BASE}/users/${username}/repos?per_page=100&type=owner`,
-    { headers }
-  );
-  const repos = reposRes.ok ? await reposRes.json() : [];
-  const totalStars = repos.reduce(
-    (sum, r) => sum + (r.stargazers_count ?? 0),
-    0
-  );
-  const totalForks = repos.reduce((sum, r) => sum + (r.forks_count ?? 0), 0);
-  const languageCounts = {};
-  await Promise.allSettled(
-    repos.map(async (repo) => {
-      const langRes = await fetch(repo.languages_url, { headers });
-      if (!langRes.ok) return;
-      const langs = await langRes.json();
-      for (const [lang, bytes] of Object.entries(langs)) {
-        languageCounts[lang] = (languageCounts[lang] ?? 0) + bytes;
-      }
-    })
-  );
-  const totalBytes = Object.values(languageCounts).reduce((a, b) => a + b, 0);
-  const topLanguages = Object.entries(languageCounts).map(([name, bytes]) => ({
-    name,
-    percentage: totalBytes > 0 ? Math.round(bytes / totalBytes * 100) : 0
-  })).sort((a, b) => b.percentage - a.percentage).slice(0, 10);
-  const result = await prisma.gitHubStatsCache.upsert({
-    where: { id: "singleton" },
-    update: {
-      username,
-      publicRepos: user.public_repos ?? 0,
-      followers: user.followers ?? 0,
-      following: user.following ?? 0,
-      totalStars,
-      totalForks,
-      topLanguages,
-      lastSyncedAt: /* @__PURE__ */ new Date()
-    },
-    create: {
-      id: "singleton",
-      username,
-      publicRepos: user.public_repos ?? 0,
-      followers: user.followers ?? 0,
-      following: user.following ?? 0,
-      totalStars,
-      totalForks,
-      topLanguages,
-      lastSyncedAt: /* @__PURE__ */ new Date()
-    }
-  });
-  return result;
-};
-var createContribution = async (payload) => {
-  const { mergedAt, ...rest } = payload;
-  const result = await prisma.openSourceContribution.create({
-    data: {
-      ...rest,
-      ...mergedAt ? { mergedAt: new Date(mergedAt) } : {}
-    }
-  });
-  return result;
-};
-var getAllContributions = async () => {
-  const result = await prisma.openSourceContribution.findMany({
-    where: { isPublished: true },
-    orderBy: [
-      { sortOrder: "asc" },
-      { mergedAt: "desc" },
-      { createdAt: "desc" }
-    ]
-  });
-  return result;
-};
-var getAllContributionsAdmin = async () => {
-  const result = await prisma.openSourceContribution.findMany({
-    orderBy: [
-      { sortOrder: "asc" },
-      { mergedAt: "desc" },
-      { createdAt: "desc" }
-    ]
-  });
-  return result;
-};
-var getContributionById = async (id) => {
-  const result = await prisma.openSourceContribution.findUnique({
-    where: { id }
-  });
-  if (!result) {
-    throw new AppError_default(httpStatus2.NOT_FOUND, "Contribution not found");
-  }
-  return result;
-};
-var updateContribution = async (id, payload) => {
-  await getContributionById(id);
-  const { mergedAt, ...rest } = payload;
-  const result = await prisma.openSourceContribution.update({
-    where: { id },
-    data: {
-      ...rest,
-      ...mergedAt ? { mergedAt: new Date(mergedAt) } : {}
-    }
-  });
-  return result;
-};
-var deleteContribution = async (id) => {
-  await getContributionById(id);
-  await prisma.openSourceContribution.delete({ where: { id } });
-};
-var GithubService = {
-  getGithubStats,
-  syncGithubStats,
-  createContribution,
-  getAllContributions,
-  getAllContributionsAdmin,
-  getContributionById,
-  updateContribution,
-  deleteContribution
-};
-
-// src/app/modules/github/github.controller.ts
-var getGithubStats2 = async (req, res, next) => {
-  try {
-    const result = await GithubService.getGithubStats();
-    res.status(200).json({
-      success: true,
-      message: "GitHub stats retrieved successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var syncGithubStats2 = async (req, res, next) => {
-  try {
-    const { username } = req.body;
-    const result = await GithubService.syncGithubStats(username);
-    res.status(200).json({
-      success: true,
-      message: "GitHub stats synced successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getAllContributions2 = async (req, res, next) => {
-  try {
-    const result = await GithubService.getAllContributions();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all contributions successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getAllContributionsAdmin2 = async (req, res, next) => {
-  try {
-    const result = await GithubService.getAllContributionsAdmin();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all contributions successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getContributionById2 = async (req, res, next) => {
-  try {
-    const { contributionId } = req.params;
-    const result = await GithubService.getContributionById(
-      contributionId
-    );
-    res.status(200).json({
-      success: true,
-      message: "Contribution retrieved successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var createContribution2 = async (req, res, next) => {
-  try {
-    const result = await GithubService.createContribution(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Contribution created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateContribution2 = async (req, res, next) => {
-  try {
-    const { contributionId } = req.params;
-    const result = await GithubService.updateContribution(
-      contributionId,
-      req.body
-    );
-    res.status(200).json({
-      success: true,
-      message: "Contribution updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteContribution2 = async (req, res, next) => {
-  try {
-    const { contributionId } = req.params;
-    await GithubService.deleteContribution(contributionId);
-    res.status(200).json({
-      success: true,
-      message: "Contribution deleted successfully",
-      data: null
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var GithubController = {
-  getGithubStats: getGithubStats2,
-  syncGithubStats: syncGithubStats2,
-  getAllContributions: getAllContributions2,
-  getAllContributionsAdmin: getAllContributionsAdmin2,
-  getContributionById: getContributionById2,
-  createContribution: createContribution2,
-  updateContribution: updateContribution2,
-  deleteContribution: deleteContribution2
-};
-
-// src/app/modules/github/github.validation.ts
-init_esm_shims();
-import { z as z16 } from "zod";
-var createContributionZodSchema = z16.object({
-  repoName: z16.string("Repo name is required"),
-  repoUrl: z16.string("Repo URL is required").url("Invalid repo URL"),
-  description: z16.string().optional(),
-  prUrl: z16.string().url("Invalid PR URL").optional(),
-  issueUrl: z16.string().url("Invalid issue URL").optional(),
-  mergedAt: z16.string().datetime({ offset: true }).optional(),
-  isPublished: z16.boolean().optional(),
-  sortOrder: z16.number().int().optional()
-});
-var updateContributionZodSchema = z16.object({
-  repoName: z16.string().optional(),
-  repoUrl: z16.string().url("Invalid repo URL").optional(),
-  description: z16.string().optional(),
-  prUrl: z16.string().url("Invalid PR URL").optional(),
-  issueUrl: z16.string().url("Invalid issue URL").optional(),
-  mergedAt: z16.string().datetime({ offset: true }).optional(),
-  isPublished: z16.boolean().optional(),
-  sortOrder: z16.number().int().optional()
-});
-var GithubValidation = {
-  createContributionZodSchema,
-  updateContributionZodSchema
-};
-
-// src/app/modules/github/github.route.ts
-var router21 = express20.Router();
-router21.get("/stats", GithubController.getGithubStats);
-router21.post(
-  "/stats/sync",
-  auth_default("ADMIN" /* ADMIN */),
-  GithubController.syncGithubStats
-);
-router21.get("/contributions", GithubController.getAllContributions);
-router21.get(
-  "/contributions/admin",
-  auth_default("ADMIN" /* ADMIN */),
-  GithubController.getAllContributionsAdmin
-);
-router21.get(
-  "/contributions/:contributionId",
-  auth_default("ADMIN" /* ADMIN */),
-  GithubController.getContributionById
-);
-router21.post(
-  "/contributions",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(GithubValidation.createContributionZodSchema),
-  GithubController.createContribution
-);
-router21.put(
-  "/contributions/:contributionId",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(GithubValidation.updateContributionZodSchema),
-  GithubController.updateContribution
-);
-router21.delete(
-  "/contributions/:contributionId",
-  auth_default("ADMIN" /* ADMIN */),
-  GithubController.deleteContribution
-);
-var GithubRouter = router21;
-
-// src/app/modules/npm/npm.route.ts
-init_esm_shims();
-import express21 from "express";
-
-// src/app/modules/npm/npm.controller.ts
-init_esm_shims();
-
-// src/app/modules/npm/npm.service.ts
-init_esm_shims();
-import httpStatus3 from "http-status";
-var NPM_API_BASE = "https://api.npmjs.org";
-var syncNpmPackage = async (name) => {
-  const pkg = await getNpmPackageByName(name);
-  const weeklyRes = await fetch(
-    `${NPM_API_BASE}/downloads/point/last-week/${encodeURIComponent(name)}`
-  );
-  if (!weeklyRes.ok) {
-    throw new AppError_default(
-      httpStatus3.BAD_GATEWAY,
-      `Failed to fetch npm download stats for "${name}"`
-    );
-  }
-  const weeklyData = await weeklyRes.json();
-  const totalRes = await fetch(
-    `${NPM_API_BASE}/downloads/point/1000-01-01:${(/* @__PURE__ */ new Date()).toISOString().split("T")[0]}/${encodeURIComponent(name)}`
-  );
-  const totalData = totalRes.ok ? await totalRes.json() : null;
-  const registryRes = await fetch(
-    `https://registry.npmjs.org/${encodeURIComponent(name)}/latest`
-  );
-  const registryData = registryRes.ok ? await registryRes.json() : null;
-  const result = await prisma.npmPackage.update({
-    where: { id: pkg.id },
-    data: {
-      weeklyDownloads: weeklyData.downloads ?? pkg.weeklyDownloads,
-      totalDownloads: totalData?.downloads ?? pkg.totalDownloads,
-      version: registryData?.version ?? pkg.version,
-      lastSyncedAt: /* @__PURE__ */ new Date()
-    }
-  });
-  return result;
-};
-var createNpmPackage = async (payload) => {
-  const result = await prisma.npmPackage.create({
-    data: payload
-  });
-  return result;
-};
-var getAllNpmPackages = async () => {
-  const result = await prisma.npmPackage.findMany({
-    where: { isPublished: true },
-    orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }]
-  });
-  return result;
-};
-var getAllNpmPackagesAdmin = async () => {
-  const result = await prisma.npmPackage.findMany({
-    orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }]
-  });
-  return result;
-};
-var getNpmPackageById = async (id) => {
-  const result = await prisma.npmPackage.findUnique({
-    where: { id }
-  });
-  if (!result) {
-    throw new AppError_default(httpStatus3.NOT_FOUND, "npm package not found");
-  }
-  return result;
-};
-var getNpmPackageByName = async (name) => {
-  const result = await prisma.npmPackage.findUnique({
-    where: { name }
-  });
-  if (!result) {
-    throw new AppError_default(httpStatus3.NOT_FOUND, `npm package "${name}" not found`);
-  }
-  return result;
-};
-var updateNpmPackage = async (id, payload) => {
-  await getNpmPackageById(id);
-  const result = await prisma.npmPackage.update({
-    where: { id },
-    data: payload
-  });
-  return result;
-};
-var deleteNpmPackage = async (id) => {
-  await getNpmPackageById(id);
-  await prisma.npmPackage.delete({ where: { id } });
-};
-var NpmService = {
-  syncNpmPackage,
-  createNpmPackage,
-  getAllNpmPackages,
-  getAllNpmPackagesAdmin,
-  getNpmPackageById,
-  updateNpmPackage,
-  deleteNpmPackage
-};
-
-// src/app/modules/npm/npm.controller.ts
-var syncNpmPackage2 = async (req, res, next) => {
-  try {
-    const { name } = req.body;
-    const result = await NpmService.syncNpmPackage(name);
-    res.status(200).json({
-      success: true,
-      message: "npm package synced successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getAllNpmPackages2 = async (req, res, next) => {
-  try {
-    const result = await NpmService.getAllNpmPackages();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all npm packages successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getAllNpmPackagesAdmin2 = async (req, res, next) => {
-  try {
-    const result = await NpmService.getAllNpmPackagesAdmin();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all npm packages successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getNpmPackageById2 = async (req, res, next) => {
-  try {
-    const { packageId } = req.params;
-    const result = await NpmService.getNpmPackageById(packageId);
-    res.status(200).json({
-      success: true,
-      message: "npm package retrieved successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var createNpmPackage2 = async (req, res, next) => {
-  try {
-    const result = await NpmService.createNpmPackage(req.body);
-    res.status(201).json({
-      success: true,
-      message: "npm package created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateNpmPackage2 = async (req, res, next) => {
-  try {
-    const { packageId } = req.params;
-    const result = await NpmService.updateNpmPackage(
-      packageId,
-      req.body
-    );
-    res.status(200).json({
-      success: true,
-      message: "npm package updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteNpmPackage2 = async (req, res, next) => {
-  try {
-    const { packageId } = req.params;
-    await NpmService.deleteNpmPackage(packageId);
-    res.status(200).json({
-      success: true,
-      message: "npm package deleted successfully",
-      data: null
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var NpmController = {
-  syncNpmPackage: syncNpmPackage2,
-  getAllNpmPackages: getAllNpmPackages2,
-  getAllNpmPackagesAdmin: getAllNpmPackagesAdmin2,
-  getNpmPackageById: getNpmPackageById2,
-  createNpmPackage: createNpmPackage2,
-  updateNpmPackage: updateNpmPackage2,
-  deleteNpmPackage: deleteNpmPackage2
-};
-
-// src/app/modules/npm/npm.validation.ts
-init_esm_shims();
-import { z as z17 } from "zod";
-var createNpmPackageZodSchema = z17.object({
-  name: z17.string("Package name is required"),
-  description: z17.string().optional(),
-  npmUrl: z17.string("npm URL is required").url("Invalid npm URL"),
-  githubUrl: z17.string().url("Invalid GitHub URL").optional(),
-  weeklyDownloads: z17.number().int().nonnegative().optional(),
-  totalDownloads: z17.number().int().nonnegative().optional(),
-  version: z17.string().optional(),
-  isPublished: z17.boolean().optional(),
-  sortOrder: z17.number().int().optional()
-});
-var updateNpmPackageZodSchema = z17.object({
-  name: z17.string().optional(),
-  description: z17.string().optional(),
-  npmUrl: z17.string().url("Invalid npm URL").optional(),
-  githubUrl: z17.string().url("Invalid GitHub URL").optional(),
-  weeklyDownloads: z17.number().int().nonnegative().optional(),
-  totalDownloads: z17.number().int().nonnegative().optional(),
-  version: z17.string().optional(),
-  isPublished: z17.boolean().optional(),
-  sortOrder: z17.number().int().optional()
-});
-var NpmValidation = {
-  createNpmPackageZodSchema,
-  updateNpmPackageZodSchema
-};
-
-// src/app/modules/npm/npm.route.ts
-var router22 = express21.Router();
-router22.get("/", NpmController.getAllNpmPackages);
-router22.get(
-  "/admin",
-  auth_default("ADMIN" /* ADMIN */),
-  NpmController.getAllNpmPackagesAdmin
-);
-router22.get(
-  "/:packageId",
-  auth_default("ADMIN" /* ADMIN */),
-  NpmController.getNpmPackageById
-);
-router22.post("/sync", auth_default("ADMIN" /* ADMIN */), NpmController.syncNpmPackage);
-router22.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(NpmValidation.createNpmPackageZodSchema),
-  NpmController.createNpmPackage
-);
-router22.put(
-  "/:packageId",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(NpmValidation.updateNpmPackageZodSchema),
-  NpmController.updateNpmPackage
-);
-router22.delete(
-  "/:packageId",
-  auth_default("ADMIN" /* ADMIN */),
-  NpmController.deleteNpmPackage
-);
-var NpmRouter = router22;
-
-// src/app/modules/store/store.route.ts
-init_esm_shims();
-import express22 from "express";
-
-// src/app/modules/store/store.controller.ts
-init_esm_shims();
-
-// src/app/modules/store/store.service.ts
-init_esm_shims();
-var createProduct = async (payload) => {
-  const result = await prisma.product.create({
-    data: payload,
-    include: { images: true }
-  });
-  return result;
-};
-var getProducts = async () => {
-  const result = await prisma.product.findMany({
-    include: { images: true },
-    orderBy: { sortOrder: "asc" }
-  });
-  return result;
-};
-var getProduct = async (productId) => {
-  const result = await prisma.product.findFirst({
-    where: {
-      OR: [{ id: productId }, { slug: productId }]
-    },
-    include: { images: true }
-  });
-  return result;
-};
-var updateProduct = async (productId, payload) => {
-  const result = await prisma.product.update({
-    where: { id: productId },
-    data: payload,
-    include: { images: true }
-  });
-  return result;
-};
-var deleteProduct = async (productId) => {
-  const result = await prisma.product.delete({
-    where: { id: productId }
-  });
-  return result;
-};
-var addProductImage = async (payload) => {
-  const result = await prisma.productImage.create({
-    data: payload
-  });
-  return result;
-};
-var deleteProductImage = async (imageId) => {
-  const result = await prisma.productImage.delete({
-    where: { id: imageId }
-  });
-  return result;
-};
-var createOrder = async (payload) => {
-  const result = await prisma.order.create({
-    data: payload,
-    include: { product: true }
-  });
-  return result;
-};
-var getOrders = async () => {
-  const result = await prisma.order.findMany({
-    include: { product: true },
-    orderBy: { createdAt: "desc" }
-  });
-  return result;
-};
-var getOrder = async (orderId) => {
-  const result = await prisma.order.findUnique({
-    where: { id: orderId },
-    include: { product: true }
-  });
-  return result;
-};
-var updateOrder = async (orderId, payload) => {
-  const result = await prisma.order.update({
-    where: { id: orderId },
-    data: payload,
-    include: { product: true }
-  });
-  return result;
-};
-var StoreService = {
-  createProduct,
-  getProducts,
-  getProduct,
-  updateProduct,
-  deleteProduct,
-  addProductImage,
-  deleteProductImage,
-  createOrder,
-  getOrders,
-  getOrder,
-  updateOrder
-};
-
-// src/app/modules/store/store.controller.ts
-var createProduct2 = async (req, res, next) => {
-  try {
-    const result = await StoreService.createProduct(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Product created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getProducts2 = async (req, res, next) => {
-  try {
-    const result = await StoreService.getProducts();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all products successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getProduct2 = async (req, res, next) => {
-  try {
-    const { productId } = req.params;
-    const result = await StoreService.getProduct(productId);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved product successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateProduct2 = async (req, res, next) => {
-  try {
-    const { productId } = req.params;
-    const result = await StoreService.updateProduct(
-      productId,
-      req.body
-    );
-    res.status(200).json({
-      success: true,
-      message: "Product updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteProduct2 = async (req, res, next) => {
-  try {
-    const { productId } = req.params;
-    const result = await StoreService.deleteProduct(productId);
-    res.status(200).json({
-      success: true,
-      message: "Product deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var addProductImage2 = async (req, res, next) => {
-  try {
-    const { productId } = req.params;
-    const result = await StoreService.addProductImage({
-      ...req.body,
-      productId
-    });
-    res.status(201).json({
-      success: true,
-      message: "Product image added successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteProductImage2 = async (req, res, next) => {
-  try {
-    const { imageId } = req.params;
-    const result = await StoreService.deleteProductImage(imageId);
-    res.status(200).json({
-      success: true,
-      message: "Product image deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var createOrder2 = async (req, res, next) => {
-  try {
-    const result = await StoreService.createOrder(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Order created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getOrders2 = async (req, res, next) => {
-  try {
-    const result = await StoreService.getOrders();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all orders successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getOrder2 = async (req, res, next) => {
-  try {
-    const { orderId } = req.params;
-    const result = await StoreService.getOrder(orderId);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved order successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateOrder2 = async (req, res, next) => {
-  try {
-    const { orderId } = req.params;
-    const result = await StoreService.updateOrder(orderId, req.body);
-    res.status(200).json({
-      success: true,
-      message: "Order updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var StoreController = {
-  createProduct: createProduct2,
-  getProducts: getProducts2,
-  getProduct: getProduct2,
-  updateProduct: updateProduct2,
-  deleteProduct: deleteProduct2,
-  addProductImage: addProductImage2,
-  deleteProductImage: deleteProductImage2,
-  createOrder: createOrder2,
-  getOrders: getOrders2,
-  getOrder: getOrder2,
-  updateOrder: updateOrder2
-};
-
-// src/app/modules/store/store.validation.ts
-init_esm_shims();
-var import_prisma31 = __toESM(require_prisma(), 1);
-import { z as z18 } from "zod";
-var createProductZodSchema = z18.object({
-  title: z18.string("Title is required"),
-  slug: z18.string("Slug is required"),
-  description: z18.string("Description is required"),
-  thumbnail: z18.string("Thumbnail is required"),
-  previewUrl: z18.string().url().optional(),
-  price: z18.number("Price is required").nonnegative(),
-  discountPrice: z18.number("Discount price is required").nonnegative().optional(),
-  currency: z18.string().optional().default("USD"),
-  status: z18.nativeEnum(import_prisma31.ProductStatus).optional().default(import_prisma31.ProductStatus.DRAFT),
-  isFeatured: z18.boolean().optional().default(false),
-  sortOrder: z18.number().int().optional().default(0),
-  techStack: z18.array(z18.string()).optional().default([]),
-  includes: z18.array(z18.string()).optional().default([])
-});
-var updateProductZodSchema = z18.object({
-  title: z18.string().optional(),
-  slug: z18.string().optional(),
-  description: z18.string().optional(),
-  thumbnail: z18.string().optional(),
-  previewUrl: z18.string().url().optional(),
-  price: z18.number().nonnegative().optional(),
-  discountPrice: z18.number().nonnegative().optional(),
-  currency: z18.string().optional(),
-  status: z18.nativeEnum(import_prisma31.ProductStatus).optional(),
-  isFeatured: z18.boolean().optional(),
-  sortOrder: z18.number().int().optional(),
-  techStack: z18.array(z18.string()).optional(),
-  includes: z18.array(z18.string()).optional()
-});
-var addProductImageZodSchema = z18.object({
-  url: z18.string("Image URL is required"),
-  alt: z18.string().optional(),
-  sortOrder: z18.number().int().optional().default(0)
-});
-var createOrderZodSchema = z18.object({
-  buyerName: z18.string("Buyer name is required"),
-  buyerEmail: z18.string("Buyer email is required").email(),
-  amount: z18.number("Amount is required").nonnegative(),
-  currency: z18.string().optional().default("USD"),
-  paymentMethod: z18.string().optional(),
-  transactionId: z18.string().optional(),
-  productId: z18.string("Product ID is required")
-});
-var updateOrderZodSchema = z18.object({
-  status: z18.nativeEnum(import_prisma31.OrderStatus).optional(),
-  paymentMethod: z18.string().optional(),
-  transactionId: z18.string().optional(),
-  paidAt: z18.coerce.date().optional(),
-  downloadToken: z18.string().optional(),
-  downloadCount: z18.number().int().optional(),
-  downloadExpiry: z18.coerce.date().optional()
-});
-var StoreValidation = {
-  createProductZodSchema,
-  updateProductZodSchema,
-  addProductImageZodSchema,
-  createOrderZodSchema,
-  updateOrderZodSchema
-};
-
-// src/app/modules/store/store.route.ts
-var router23 = express22.Router();
-router23.get("/products", StoreController.getProducts);
-router23.get("/products/:productId", StoreController.getProduct);
-router23.post(
-  "/products",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(StoreValidation.createProductZodSchema),
-  StoreController.createProduct
-);
-router23.put(
-  "/products/:productId",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(StoreValidation.updateProductZodSchema),
-  StoreController.updateProduct
-);
-router23.delete(
-  "/products/:productId",
-  auth_default("ADMIN" /* ADMIN */),
-  StoreController.deleteProduct
-);
-router23.post(
-  "/products/:productId/images",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(StoreValidation.addProductImageZodSchema),
-  StoreController.addProductImage
-);
-router23.delete(
-  "/images/:imageId",
-  auth_default("ADMIN" /* ADMIN */),
-  StoreController.deleteProductImage
-);
-router23.post(
-  "/orders",
-  validateRequest(StoreValidation.createOrderZodSchema),
-  StoreController.createOrder
-);
-router23.get("/orders", auth_default("ADMIN" /* ADMIN */), StoreController.getOrders);
-router23.get("/orders/:orderId", auth_default("ADMIN" /* ADMIN */), StoreController.getOrder);
-router23.patch(
-  "/orders/:orderId",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(StoreValidation.updateOrderZodSchema),
-  StoreController.updateOrder
-);
-var StoreRouter = router23;
-
-// src/app/modules/timeline/timeline.route.ts
-init_esm_shims();
-import express23 from "express";
-
-// src/app/modules/timeline/timeline.controller.ts
-init_esm_shims();
-
-// src/app/modules/timeline/timeline.service.ts
-init_esm_shims();
-var createTimeline = async (payload) => {
-  const result = await prisma.timeline.create({
-    data: payload
-  });
-  return result;
-};
-var getTimelines = async () => {
-  const result = await prisma.timeline.findMany({
-    orderBy: { sortOrder: "asc" }
-  });
-  return result;
-};
-var getTimeline = async (timelineId) => {
-  const result = await prisma.timeline.findUnique({
-    where: { id: timelineId }
-  });
-  return result;
-};
-var updateTimeline = async (timelineId, payload) => {
-  const result = await prisma.timeline.update({
-    where: { id: timelineId },
-    data: payload
-  });
-  return result;
-};
-var deleteTimeline = async (timelineId) => {
-  const result = await prisma.timeline.delete({
-    where: { id: timelineId }
-  });
-  return result;
-};
-var TimelineService = {
-  createTimeline,
-  getTimelines,
-  getTimeline,
-  updateTimeline,
-  deleteTimeline
-};
-
-// src/app/modules/timeline/timeline.controller.ts
-var createTimeline2 = async (req, res, next) => {
-  try {
-    const result = await TimelineService.createTimeline(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Timeline entry created successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getTimelines2 = async (req, res, next) => {
-  try {
-    const result = await TimelineService.getTimelines();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all timeline entries successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getTimeline2 = async (req, res, next) => {
-  try {
-    const { timelineId } = req.params;
-    const result = await TimelineService.getTimeline(timelineId);
-    res.status(200).json({
-      success: true,
-      message: "Retrieved timeline entry successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateTimeline2 = async (req, res, next) => {
-  try {
-    const { timelineId } = req.params;
-    const result = await TimelineService.updateTimeline(
-      timelineId,
-      req.body
-    );
-    res.status(200).json({
-      success: true,
-      message: "Timeline entry updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteTimeline2 = async (req, res, next) => {
-  try {
-    const { timelineId } = req.params;
-    const result = await TimelineService.deleteTimeline(timelineId);
-    res.status(200).json({
-      success: true,
-      message: "Timeline entry deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var TimelineController = {
-  createTimeline: createTimeline2,
-  getTimelines: getTimelines2,
-  getTimeline: getTimeline2,
-  updateTimeline: updateTimeline2,
-  deleteTimeline: deleteTimeline2
-};
-
-// src/app/modules/timeline/timeline.validation.ts
-init_esm_shims();
-import { z as z19 } from "zod";
-var createTimelineZodSchema = z19.object({
-  title: z19.string("Title is required"),
-  description: z19.string().optional(),
-  date: z19.coerce.date("Date is required"),
-  icon: z19.string().optional(),
-  color: z19.string().optional(),
-  url: z19.string().url().optional(),
-  isPublished: z19.boolean().optional().default(true),
-  sortOrder: z19.number().int().optional().default(0)
-});
-var updateTimelineZodSchema = z19.object({
-  title: z19.string().optional(),
-  description: z19.string().optional(),
-  date: z19.coerce.date().optional(),
-  icon: z19.string().optional(),
-  color: z19.string().optional(),
-  url: z19.string().url().optional(),
-  isPublished: z19.boolean().optional(),
-  sortOrder: z19.number().int().optional()
-});
-var TimelineValidation = {
-  createTimelineZodSchema,
-  updateTimelineZodSchema
-};
-
-// src/app/modules/timeline/timeline.route.ts
-var router24 = express23.Router();
-router24.get("/", TimelineController.getTimelines);
-router24.get("/:timelineId", TimelineController.getTimeline);
-router24.post(
-  "/",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(TimelineValidation.createTimelineZodSchema),
-  TimelineController.createTimeline
-);
-router24.put(
-  "/:timelineId",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(TimelineValidation.updateTimelineZodSchema),
-  TimelineController.updateTimeline
-);
-router24.delete(
-  "/:timelineId",
-  auth_default("ADMIN" /* ADMIN */),
-  TimelineController.deleteTimeline
-);
-var TimelineRouter = router24;
-
-// src/app/modules/rss/rss.route.ts
-init_esm_shims();
-import express24 from "express";
-
-// src/app/modules/rss/rss.controller.ts
-init_esm_shims();
-
-// src/app/modules/rss/rss.service.ts
-init_esm_shims();
-import { randomUUID } from "crypto";
-var SINGLETON_ID3 = "singleton";
-var getConfig = async () => {
-  const config = await prisma.rssConfig.upsert({
-    where: { id: SINGLETON_ID3 },
-    update: {},
-    create: { id: SINGLETON_ID3 }
-  });
-  return config;
-};
-var updateConfig = async (payload) => {
-  const result = await prisma.rssConfig.upsert({
-    where: { id: SINGLETON_ID3 },
-    update: payload,
-    create: { id: SINGLETON_ID3, ...payload }
-  });
-  return result;
-};
-var subscribe = async (payload) => {
-  const verifyToken = randomUUID();
-  const result = await prisma.rssSubscriber.create({
-    data: {
-      email: payload.email,
-      verifyToken
-    }
-  });
-  try {
-    const config = await prisma.rssConfig.findUnique({
-      where: { id: SINGLETON_ID3 }
-    });
-    const verifyUrl = `${env.FRONTEND_URL}/rss/verify?token=${verifyToken}`;
-    await sendEmail({
-      to: payload.email,
-      subject: `Confirm your subscription to Ishtiaq Robin's blog`,
-      templateName: "rss-verify",
-      templateData: {
-        blogTitle: config?.title || "Ishtiaq Robin's Blog",
-        verifyUrl
-      }
-    });
-  } catch (err) {
-    console.error("Failed to send RSS verify email:", err);
-  }
-  return result;
-};
-var verifySubscriber = async (verifyToken) => {
-  const result = await prisma.rssSubscriber.update({
-    where: { verifyToken },
-    data: {
-      isVerified: true,
-      verifyToken: null
-    }
-  });
-  return result;
-};
-var unsubscribe = async (unsubscribeToken) => {
-  const result = await prisma.rssSubscriber.update({
-    where: { unsubscribeToken },
-    data: {
-      unsubscribedAt: /* @__PURE__ */ new Date()
-    }
-  });
-  return result;
-};
-var getSubscribers = async () => {
-  const result = await prisma.rssSubscriber.findMany({
-    orderBy: { subscribedAt: "desc" }
-  });
-  return result;
-};
-var deleteSubscriber = async (subscriberId) => {
-  const result = await prisma.rssSubscriber.delete({
-    where: { id: subscriberId }
-  });
-  return result;
-};
-var RssService = {
-  getConfig,
-  updateConfig,
-  subscribe,
-  verifySubscriber,
-  unsubscribe,
-  getSubscribers,
-  deleteSubscriber
-};
-
-// src/app/modules/rss/rss.controller.ts
-var getConfig2 = async (req, res, next) => {
-  try {
-    const result = await RssService.getConfig();
-    res.status(200).json({
-      success: true,
-      message: "RSS config retrieved successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var updateConfig2 = async (req, res, next) => {
-  try {
-    const result = await RssService.updateConfig(req.body);
-    res.status(200).json({
-      success: true,
-      message: "RSS config updated successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var subscribe2 = async (req, res, next) => {
-  try {
-    const result = await RssService.subscribe(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Subscribed successfully. Please verify your email.",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var verifySubscriber2 = async (req, res, next) => {
-  try {
-    const { token } = req.params;
-    const result = await RssService.verifySubscriber(token);
-    res.status(200).json({
-      success: true,
-      message: "Email verified successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var unsubscribe2 = async (req, res, next) => {
-  try {
-    const { token } = req.params;
-    const result = await RssService.unsubscribe(token);
-    res.status(200).json({
-      success: true,
-      message: "Unsubscribed successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getSubscribers2 = async (req, res, next) => {
-  try {
-    const result = await RssService.getSubscribers();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved all subscribers successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteSubscriber2 = async (req, res, next) => {
-  try {
-    const { subscriberId } = req.params;
-    const result = await RssService.deleteSubscriber(subscriberId);
-    res.status(200).json({
-      success: true,
-      message: "Subscriber deleted successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var RssController = {
-  getConfig: getConfig2,
-  updateConfig: updateConfig2,
-  subscribe: subscribe2,
-  verifySubscriber: verifySubscriber2,
-  unsubscribe: unsubscribe2,
-  getSubscribers: getSubscribers2,
-  deleteSubscriber: deleteSubscriber2
-};
-
-// src/app/modules/rss/rss.validation.ts
-init_esm_shims();
-import { z as z20 } from "zod";
-var updateConfigZodSchema = z20.object({
-  isEnabled: z20.boolean().optional(),
-  title: z20.string().optional(),
-  description: z20.string().optional(),
-  feedUrl: z20.string().url().optional(),
-  language: z20.string().optional()
-});
-var subscribeZodSchema = z20.object({
-  email: z20.string("Email is required").email("Invalid email address")
-});
-var RssValidation = {
-  updateConfigZodSchema,
-  subscribeZodSchema
-};
-
-// src/app/modules/rss/rss.route.ts
-var router25 = express24.Router();
-router25.get("/config", RssController.getConfig);
-router25.patch(
-  "/config",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(RssValidation.updateConfigZodSchema),
-  RssController.updateConfig
-);
-router25.post(
-  "/subscribe",
-  validateRequest(RssValidation.subscribeZodSchema),
-  RssController.subscribe
-);
-router25.get("/verify/:token", RssController.verifySubscriber);
-router25.get("/unsubscribe/:token", RssController.unsubscribe);
-router25.get("/subscribers", auth_default("ADMIN" /* ADMIN */), RssController.getSubscribers);
-router25.delete(
-  "/subscribers/:subscriberId",
-  auth_default("ADMIN" /* ADMIN */),
-  RssController.deleteSubscriber
-);
-var RssRouter = router25;
+var AnalyticsRouter = router10;
 
 // src/app/modules/chatbot/chatbot.route.ts
 init_esm_shims();
-import express25 from "express";
+import express10 from "express";
 
 // src/app/modules/chatbot/chatbot.controller.ts
 init_esm_shims();
 
 // src/app/modules/chatbot/chatbot.service.ts
 init_esm_shims();
-import status15 from "http-status";
+import status11 from "http-status";
 var rateLimitStore = /* @__PURE__ */ new Map();
 var checkRateLimit = (ip, rateLimit2, rateLimitWindow) => {
   const now = Date.now();
@@ -16074,7 +11771,7 @@ var checkRateLimit = (ip, rateLimit2, rateLimitWindow) => {
       (windowMs - (now - record.windowStart)) / 1e3
     );
     throw new AppError_default(
-      status15.TOO_MANY_REQUESTS,
+      status11.TOO_MANY_REQUESTS,
       `Too many requests. Please wait ${retryAfter} seconds.`
     );
   }
@@ -16180,7 +11877,7 @@ var callAiApi = async (providerConfig, systemPrompt, history, userMessage) => {
     if (!res.ok) {
       const err = await res.json();
       throw new AppError_default(
-        status15.BAD_GATEWAY,
+        status11.BAD_GATEWAY,
         err?.error?.message || "Gemini API error"
       );
     }
@@ -16213,14 +11910,14 @@ var callAiApi = async (providerConfig, systemPrompt, history, userMessage) => {
     if (!res.ok) {
       const err = await res.json();
       throw new AppError_default(
-        status15.BAD_GATEWAY,
+        status11.BAD_GATEWAY,
         err?.error?.message || "OpenAI API error"
       );
     }
     const data = await res.json();
     return data.choices?.[0]?.message?.content || "Sorry, I couldn't generate a response.";
   }
-  throw new AppError_default(status15.BAD_REQUEST, `Unsupported provider: ${provider}`);
+  throw new AppError_default(status11.BAD_REQUEST, `Unsupported provider: ${provider}`);
 };
 var sendMessage = async (payload, ipAddress) => {
   const { message, sessionId } = payload;
@@ -16230,13 +11927,13 @@ var sendMessage = async (payload, ipAddress) => {
   ]);
   if (!chatbotConfig?.isEnabled) {
     throw new AppError_default(
-      status15.SERVICE_UNAVAILABLE,
+      status11.SERVICE_UNAVAILABLE,
       "Chatbot is currently disabled."
     );
   }
   if (!aiConfig?.isEnabled || !aiConfig?.apiKey) {
     throw new AppError_default(
-      status15.SERVICE_UNAVAILABLE,
+      status11.SERVICE_UNAVAILABLE,
       "AI provider is not configured."
     );
   }
@@ -16380,36 +12077,57 @@ var ChatbotController = {
 
 // src/app/modules/chatbot/chatbot.validation.ts
 init_esm_shims();
-import { z as z21 } from "zod";
-var optionalText2 = z21.string().optional().transform((v) => v === void 0 ? void 0 : sanitizeText(v));
-var optionalNullableUrl = z21.string().optional().nullable().transform((v) => v === void 0 || v === null ? v : sanitizeUrl(v));
-var createAiProviderConfigZodSchema = z21.object({
-  provider: z21.string("provider is required").transform((v) => sanitizeText(v)),
+import { z as z7 } from "zod";
+
+// src/app/utils/sanitize.ts
+init_esm_shims();
+import sanitizeHtmlLib from "sanitize-html";
+var sanitizeText = (input) => {
+  if (!input) return "";
+  return sanitizeHtmlLib(input, {
+    allowedTags: [],
+    allowedAttributes: {},
+    // decode entities so &amp; doesn't pile up on repeated runs
+    disallowedTagsMode: "discard"
+  }).trim();
+};
+var sanitizeUrl = (input) => {
+  if (!input) return "";
+  const trimmed = input.trim();
+  if (/^(javascript|data|vbscript|file):/i.test(trimmed)) return "";
+  return trimmed;
+};
+
+// src/app/modules/chatbot/chatbot.validation.ts
+var optionalText = z7.string().optional().transform((v) => v === void 0 ? void 0 : sanitizeText(v));
+var optionalNullableUrl = z7.string().optional().nullable().transform((v) => v === void 0 || v === null ? v : sanitizeUrl(v));
+var createAiProviderConfigZodSchema = z7.object({
+  provider: z7.string("provider is required").transform((v) => sanitizeText(v)),
   // apiKey — never rendered to UI, but still strip HTML defensively
-  apiKey: z21.string("apiKey is required").transform((v) => sanitizeText(v)),
-  model: z21.string("model is required").transform((v) => sanitizeText(v)),
+  apiKey: z7.string("apiKey is required").transform((v) => sanitizeText(v)),
+  model: z7.string("model is required").transform((v) => sanitizeText(v)),
   endpoint: optionalNullableUrl,
-  maxTokens: z21.number().optional(),
-  temperature: z21.number().min(0).max(1).optional(),
-  isEnabled: z21.boolean().optional()
+  maxTokens: z7.number().optional(),
+  temperature: z7.number().min(0).max(1).optional(),
+  isEnabled: z7.boolean().optional()
 });
 var updateAiProviderConfigZodSchema = createAiProviderConfigZodSchema.partial();
-var createChatbotConfigZodSchema = z21.object({
-  isEnabled: z21.boolean().optional(),
-  botName: optionalText2,
-  welcomeMsg: optionalText2,
+var createChatbotConfigZodSchema = z7.object({
+  isEnabled: z7.boolean().optional(),
+  botName: optionalText,
+  welcomeMsg: optionalText,
   // System prompt is fed to the LLM, not rendered as HTML.
   // Still strip HTML to keep prompts clean & predictable.
-  systemPrompt: optionalText2
+  systemPrompt: optionalText
   // If you need to remove rate limit and use by .env file
   // so remove rateLimit and rateLimitWindow code
   // rateLimit: z.number().min(1).optional(),
   // rateLimitWindow: z.number().min(1).optional(),
 });
 var updateChatbotConfigZodSchema = createChatbotConfigZodSchema.partial();
-var sendMessageZodSchema = z21.object({
-  message: z21.string("message is required").min(1, "message cannot be empty").transform((v) => sanitizeText(v)).refine((v) => v.length > 0, "message cannot be empty after sanitization"),
-  sessionId: z21.string("sessionId is required").transform((v) => sanitizeText(v))
+var sendMessageZodSchema = z7.object({
+  message: z7.string("message is required").min(1, "message cannot be empty").transform((v) => sanitizeText(v)).refine((v) => v.length > 0, "message cannot be empty after sanitization"),
+  sessionId: z7.string("sessionId is required").transform((v) => sanitizeText(v))
 });
 var ChatbotValidation = {
   createAiProviderConfigZodSchema,
@@ -16420,397 +12138,276 @@ var ChatbotValidation = {
 };
 
 // src/app/modules/chatbot/chatbot.route.ts
-var router26 = express25.Router();
-router26.post(
+var router11 = express10.Router();
+router11.post(
   "/send",
   validateRequest(ChatbotValidation.sendMessageZodSchema),
   ChatbotController.sendMessage
 );
-router26.get(
+router11.get(
   "/ai-config",
   auth_default("ADMIN" /* ADMIN */),
   ChatbotController.getAiProviderConfig
 );
-router26.post(
+router11.post(
   "/ai-config",
   auth_default("ADMIN" /* ADMIN */),
   validateRequest(ChatbotValidation.createAiProviderConfigZodSchema),
   ChatbotController.upsertAiProviderConfig
 );
-router26.put(
+router11.put(
   "/ai-config",
   auth_default("ADMIN" /* ADMIN */),
   validateRequest(ChatbotValidation.updateAiProviderConfigZodSchema),
   ChatbotController.upsertAiProviderConfig
 );
-router26.get("/config", auth_default("ADMIN" /* ADMIN */), ChatbotController.getChatbotConfig);
-router26.post(
+router11.get("/config", auth_default("ADMIN" /* ADMIN */), ChatbotController.getChatbotConfig);
+router11.post(
   "/config",
   auth_default("ADMIN" /* ADMIN */),
   validateRequest(ChatbotValidation.createChatbotConfigZodSchema),
   ChatbotController.upsertChatbotConfig
 );
-router26.put(
+router11.put(
   "/config",
   auth_default("ADMIN" /* ADMIN */),
   validateRequest(ChatbotValidation.updateChatbotConfigZodSchema),
   ChatbotController.upsertChatbotConfig
 );
-var ChatbotRouter = router26;
+var ChatbotRouter = router11;
 
-// src/app/modules/translation/translation.route.ts
+// src/app/modules/experience/experience.route.ts
 init_esm_shims();
-import express26 from "express";
+import express11 from "express";
 
-// src/app/modules/translation/translation.controller.ts
+// src/app/modules/experience/experience.controller.ts
 init_esm_shims();
 
-// src/app/modules/translation/translation.service.ts
+// src/app/modules/experience/experience.service.ts
 init_esm_shims();
-import httpStatus4 from "http-status";
-var getTranslationsByLocale = async (locale) => {
-  const rows = await prisma.translation.findMany({
-    where: { locale },
-    select: { key: true, value: true },
-    orderBy: { key: "asc" }
-  });
-  const result = rows.reduce((acc, row) => {
-    acc[row.key] = row.value;
-    return acc;
-  }, {});
-  return result;
-};
-var getTranslationByKeyAndLocale = async (key, locale) => {
-  const result = await prisma.translation.findUnique({
-    where: { key_locale: { key, locale } }
-  });
-  if (!result) {
-    throw new AppError_default(
-      httpStatus4.NOT_FOUND,
-      `Translation not found for key "${key}" and locale "${locale}"`
-    );
+import status12 from "http-status";
+var parseExperience = (exp) => ({
+  ...exp,
+  responsibilities: exp.responsibilities ? JSON.parse(exp.responsibilities) : []
+});
+var serializePayload = (payload) => {
+  const data = { ...payload };
+  if (data.startDate) {
+    data.startDate = new Date(data.startDate).toISOString();
   }
-  return result;
-};
-var getAllTranslations = async () => {
-  const result = await prisma.translation.findMany({
-    orderBy: [{ key: "asc" }, { locale: "asc" }]
-  });
-  return result;
-};
-var getTranslationById = async (id) => {
-  const result = await prisma.translation.findUnique({
-    where: { id }
-  });
-  if (!result) {
-    throw new AppError_default(httpStatus4.NOT_FOUND, "Translation not found");
+  if (data.endDate) {
+    data.endDate = new Date(data.endDate).toISOString();
   }
-  return result;
-};
-var createTranslation = async (payload) => {
-  const existing = await prisma.translation.findUnique({
-    where: { key_locale: { key: payload.key, locale: payload.locale } }
-  });
-  if (existing) {
-    throw new AppError_default(
-      httpStatus4.CONFLICT,
-      `A translation already exists for key "${payload.key}" with locale "${payload.locale}". Use update or bulk upsert instead.`
-    );
+  if (Array.isArray(data.responsibilities)) {
+    data.responsibilities = JSON.stringify(data.responsibilities);
   }
-  const result = await prisma.translation.create({
-    data: payload
+  return data;
+};
+var createExperience = async (payload) => {
+  const data = serializePayload(payload);
+  const result = await prisma.experience.create({ data });
+  return parseExperience(result);
+};
+var getExperiences = async (isPublished) => {
+  const results = await prisma.experience.findMany({
+    where: {
+      ...isPublished !== void 0 && { isPublished }
+    },
+    orderBy: { sortOrder: "asc" }
   });
-  return result;
-};
-var updateTranslation = async (id, payload) => {
-  await getTranslationById(id);
-  const result = await prisma.translation.update({
-    where: { id },
-    data: { value: payload.value }
-  });
-  return result;
-};
-var deleteTranslation = async (id) => {
-  await getTranslationById(id);
-  await prisma.translation.delete({ where: { id } });
-};
-var upsertTranslations = async (entries) => {
-  const results = await prisma.$transaction(
-    entries.map(
-      ({ key, locale, value }) => prisma.translation.upsert({
-        where: { key_locale: { key, locale } },
-        update: { value },
-        create: { key, locale, value }
-      })
-    )
+  return results.map(
+    (r) => parseExperience(r)
   );
-  return results;
 };
-var deleteTranslationsByLocale = async (locale) => {
-  const result = await prisma.translation.deleteMany({
-    where: { locale }
+var updateExperience = async (id, payload) => {
+  const current = await prisma.experience.findUnique({ where: { id } });
+  if (!current) {
+    throw new AppError_default(status12.NOT_FOUND, "Experience not found");
+  }
+  if (payload.companyLogo && current.companyLogo && payload.companyLogo !== current.companyLogo) {
+    await deleteFileFromCloudinary(current.companyLogo);
+  }
+  const data = serializePayload(payload);
+  const result = await prisma.experience.update({
+    where: { id },
+    data
   });
-  return result;
+  return parseExperience(result);
 };
-var TranslationService = {
-  getTranslationsByLocale,
-  getTranslationByKeyAndLocale,
-  getAllTranslations,
-  getTranslationById,
-  createTranslation,
-  updateTranslation,
-  deleteTranslation,
-  upsertTranslations,
-  deleteTranslationsByLocale
+var deleteExperience = async (id) => {
+  const current = await prisma.experience.findUnique({ where: { id } });
+  if (!current) {
+    throw new AppError_default(status12.NOT_FOUND, "Experience not found");
+  }
+  if (current.companyLogo) {
+    await deleteFileFromCloudinary(current.companyLogo);
+  }
+  await prisma.experience.delete({ where: { id } });
+};
+var ExperienceService = {
+  createExperience,
+  getExperiences,
+  updateExperience,
+  deleteExperience
 };
 
-// src/app/modules/translation/translation.controller.ts
-var getTranslationsByLocale2 = async (req, res, next) => {
+// src/app/modules/experience/experience.controller.ts
+var parseExperiencePayload = (req) => {
+  const payload = { ...req.body };
+  const files = req.files;
+  if (files?.companyLogo?.[0]) {
+    payload.companyLogo = files.companyLogo[0].path;
+  }
+  if (payload.responsibilities && typeof payload.responsibilities === "string") {
+    try {
+      payload.responsibilities = JSON.parse(payload.responsibilities);
+    } catch {
+      payload.responsibilities = payload.responsibilities.split("\n").map((r) => r.trim()).filter(Boolean);
+    }
+  }
+  return payload;
+};
+var createExperience2 = async (req, res, next) => {
   try {
-    const { locale } = req.params;
-    const result = await TranslationService.getTranslationsByLocale(
-      locale
+    const result = await ExperienceService.createExperience(
+      parseExperiencePayload(req)
     );
-    res.status(200).json({
-      success: true,
-      message: `Translations for locale "${locale}" retrieved successfully`,
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getTranslationByKeyAndLocale2 = async (req, res, next) => {
-  try {
-    const { locale, key } = req.params;
-    const result = await TranslationService.getTranslationByKeyAndLocale(
-      key,
-      locale
-    );
-    res.status(200).json({
-      success: true,
-      message: "Translation retrieved successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getAllTranslations2 = async (req, res, next) => {
-  try {
-    const result = await TranslationService.getAllTranslations();
-    res.status(200).json({
-      success: true,
-      message: "All translations retrieved successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var getTranslationById2 = async (req, res, next) => {
-  try {
-    const { translationId } = req.params;
-    const result = await TranslationService.getTranslationById(
-      translationId
-    );
-    res.status(200).json({
-      success: true,
-      message: "Translation retrieved successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var createTranslation2 = async (req, res, next) => {
-  try {
-    const result = await TranslationService.createTranslation(req.body);
     res.status(201).json({
       success: true,
-      message: "Translation created successfully",
+      message: "Experience created successfully",
       data: result
     });
   } catch (err) {
     next(err);
   }
 };
-var updateTranslation2 = async (req, res, next) => {
+var getExperiences2 = async (req, res, next) => {
   try {
-    const { translationId } = req.params;
-    const result = await TranslationService.updateTranslation(
-      translationId,
-      req.body
+    const { isPublished } = req.query;
+    const publishedFilter = isPublished === "true" ? true : isPublished === "false" ? false : void 0;
+    const result = await ExperienceService.getExperiences(publishedFilter);
+    res.status(200).json({
+      success: true,
+      message: "Retrieved all experiences successfully",
+      data: result
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var updateExperience2 = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await ExperienceService.updateExperience(
+      id,
+      parseExperiencePayload(req)
     );
     res.status(200).json({
       success: true,
-      message: "Translation updated successfully",
+      message: "Experience updated successfully",
       data: result
     });
   } catch (err) {
     next(err);
   }
 };
-var deleteTranslation2 = async (req, res, next) => {
+var deleteExperience2 = async (req, res, next) => {
   try {
-    const { translationId } = req.params;
-    await TranslationService.deleteTranslation(translationId);
+    const { id } = req.params;
+    await ExperienceService.deleteExperience(id);
     res.status(200).json({
       success: true,
-      message: "Translation deleted successfully",
-      data: null
+      message: "Experience deleted successfully"
     });
   } catch (err) {
     next(err);
   }
 };
-var upsertTranslations2 = async (req, res, next) => {
-  try {
-    const { translations } = req.body;
-    const result = await TranslationService.upsertTranslations(translations);
-    res.status(200).json({
-      success: true,
-      message: `${result.length} translation(s) upserted successfully`,
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var deleteTranslationsByLocale2 = async (req, res, next) => {
-  try {
-    const { locale } = req.params;
-    const result = await TranslationService.deleteTranslationsByLocale(
-      locale
-    );
-    res.status(200).json({
-      success: true,
-      message: `All "${locale}" translations deleted successfully`,
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-var TranslationController = {
-  getTranslationsByLocale: getTranslationsByLocale2,
-  getTranslationByKeyAndLocale: getTranslationByKeyAndLocale2,
-  getAllTranslations: getAllTranslations2,
-  getTranslationById: getTranslationById2,
-  createTranslation: createTranslation2,
-  updateTranslation: updateTranslation2,
-  deleteTranslation: deleteTranslation2,
-  upsertTranslations: upsertTranslations2,
-  deleteTranslationsByLocale: deleteTranslationsByLocale2
+var ExperienceController = {
+  createExperience: createExperience2,
+  getExperiences: getExperiences2,
+  updateExperience: updateExperience2,
+  deleteExperience: deleteExperience2
 };
 
-// src/app/modules/translation/translation.validation.ts
+// src/app/modules/experience/experience.validation.ts
 init_esm_shims();
-import { z as z22 } from "zod";
-var supportedLocale = z22.string().refine((val) => ["en", "bn"].includes(val), {
-  message: 'Locale must be "en" or "bn"'
+import { z as z8 } from "zod";
+var booleanFromString2 = z8.union([z8.boolean(), z8.string()]).transform((val) => {
+  if (typeof val === "boolean") return val;
+  return val === "true" || val === "on";
 });
-var createTranslationZodSchema = z22.object({
-  key: z22.string().min(1, "Key is required"),
-  locale: supportedLocale,
-  value: z22.string().min(1, "Value is required")
+var numberFromString2 = z8.union([z8.number(), z8.string()]).transform((val) => {
+  if (typeof val === "number") return val;
+  return Number(val);
+}).pipe(z8.number());
+var responsibilitiesField = z8.union([z8.array(z8.string()), z8.string()]).transform((val) => {
+  if (Array.isArray(val)) return val;
+  try {
+    const parsed = JSON.parse(val);
+    if (Array.isArray(parsed)) return parsed;
+  } catch {
+    return val.split("\n").map((r) => r.trim()).filter(Boolean);
+  }
+  return [val];
 });
-var updateTranslationZodSchema = z22.object({
-  value: z22.string().min(1, "Value is required")
+var createExperienceZodSchema = z8.object({
+  position: z8.string().min(1, "position is required"),
+  companyName: z8.string().min(1, "companyName is required"),
+  startDate: z8.string().min(1, "startDate is required"),
+  endDate: z8.string().optional().nullable(),
+  companyUrl: z8.string().optional().nullable(),
+  companyLogo: z8.string().optional().nullable(),
+  responsibilities: responsibilitiesField,
+  isPublished: booleanFromString2.optional(),
+  sortOrder: numberFromString2.optional()
 });
-var upsertTranslationsZodSchema = z22.object({
-  translations: z22.array(
-    z22.object({
-      key: z22.string().min(1, "Key is required"),
-      locale: supportedLocale,
-      value: z22.string().min(1, "Value is required")
-    })
-  ).min(1, "At least one translation entry is required")
-});
-var TranslationValidation = {
-  createTranslationZodSchema,
-  updateTranslationZodSchema,
-  upsertTranslationsZodSchema
+var updateExperienceZodSchema = createExperienceZodSchema.partial();
+var ExperienceValidation = {
+  createExperienceZodSchema,
+  updateExperienceZodSchema
 };
 
-// src/app/modules/translation/translation.route.ts
-var router27 = express26.Router();
-router27.get("/:locale", TranslationController.getTranslationsByLocale);
-router27.get("/:locale/:key", TranslationController.getTranslationByKeyAndLocale);
-router27.get(
-  "/admin/all",
-  auth_default("ADMIN" /* ADMIN */),
-  TranslationController.getAllTranslations
-);
-router27.get(
-  "/admin/:translationId",
-  auth_default("ADMIN" /* ADMIN */),
-  TranslationController.getTranslationById
-);
-router27.post(
+// src/app/modules/experience/experience.route.ts
+var experienceUpload = createMulterUpload("experiences");
+var router12 = express11.Router();
+router12.get("/", ExperienceController.getExperiences);
+router12.post(
   "/",
   auth_default("ADMIN" /* ADMIN */),
-  validateRequest(TranslationValidation.createTranslationZodSchema),
-  TranslationController.createTranslation
+  experienceUpload.fields([{ name: "companyLogo", maxCount: 1 }]),
+  validateRequest(ExperienceValidation.createExperienceZodSchema),
+  ExperienceController.createExperience
 );
-router27.post(
-  "/upsert",
+router12.put(
+  "/:id",
   auth_default("ADMIN" /* ADMIN */),
-  validateRequest(TranslationValidation.upsertTranslationsZodSchema),
-  TranslationController.upsertTranslations
+  experienceUpload.fields([{ name: "companyLogo", maxCount: 1 }]),
+  validateRequest(ExperienceValidation.updateExperienceZodSchema),
+  ExperienceController.updateExperience
 );
-router27.put(
-  "/:translationId",
-  auth_default("ADMIN" /* ADMIN */),
-  validateRequest(TranslationValidation.updateTranslationZodSchema),
-  TranslationController.updateTranslation
-);
-router27.delete(
-  "/locale/:locale",
-  auth_default("ADMIN" /* ADMIN */),
-  TranslationController.deleteTranslationsByLocale
-);
-router27.delete(
-  "/:translationId",
-  auth_default("ADMIN" /* ADMIN */),
-  TranslationController.deleteTranslation
-);
-var TranslationRouter = router27;
+router12.delete("/:id", auth_default("ADMIN" /* ADMIN */), ExperienceController.deleteExperience);
+var ExperienceRouter = router12;
 
 // src/app/routes/index.ts
-var router28 = Router26();
-router28.use("/auth", AuthRouter);
-router28.use("/users", UserRouter);
-router28.use("/admins", AdminRouter);
-router28.use("/reviews", ReviewRouter);
-router28.use("/categories", CategoryRouter);
-router28.use("/settings", SettingRouter);
-router28.use("/public-stats", StatsRouter);
-router28.use("/about", AboutRouter);
-router28.use("/certificates", CertificateRouter);
-router28.use("/blogs", BlogRouter);
-router28.use("/analytics", AnalyticsRouter);
-router28.use("/appointments", AppointmentRouter);
-router28.use("/github", GithubRouter);
-router28.use("/npm", NpmRouter);
-router28.use("/store", StoreRouter);
-router28.use("/timeline", TimelineRouter);
-router28.use("/rss", RssRouter);
-router28.use("/chatbot", ChatbotRouter);
-router28.use("/translations", TranslationRouter);
-router28.use("/skills", SkillRouter);
-router28.use("/services", ServiceRouter);
-router28.use("/projects", ProjectRouter);
-router28.use("/galleries", GalleryRouter);
-router28.use("/experiences", ExperienceRouter);
-router28.use("/educations", EducationRouter);
-router28.use("/videos", VideoRouter);
-router28.use("/contacts", ContactRouter);
-var IndexRoutes = router28;
+var router13 = Router12();
+router13.use("/auth", AuthRouter);
+router13.use("/users", UserRouter);
+router13.use("/admins", AdminRouter);
+router13.use("/reviews", ReviewRouter);
+router13.use("/categories", CategoryRouter);
+router13.use("/settings", SettingRouter);
+router13.use("/about", AboutRouter);
+router13.use("/analytics", AnalyticsRouter);
+router13.use("/chatbot", ChatbotRouter);
+router13.use("/projects", ProjectRouter);
+router13.use("/contacts", ContactRouter);
+router13.use("/experiences", ExperienceRouter);
+var IndexRoutes = router13;
 
 // src/app/modules/sitemap/sitemap.route.ts
 init_esm_shims();
-import express27 from "express";
+import express12 from "express";
 
 // src/app/modules/sitemap/sitemap.controller.ts
 init_esm_shims();
@@ -17006,11 +12603,11 @@ var SitemapController = {
 };
 
 // src/app/modules/sitemap/sitemap.route.ts
-var router29 = express27.Router();
-router29.get("/sitemap.xml", SitemapController.getSitemapXml);
-router29.get("/sitemap.json", SitemapController.getSitemapJson);
-router29.get("/robots.txt", SitemapController.getRobotsTxt);
-var SitemapRouter = router29;
+var router14 = express12.Router();
+router14.get("/sitemap.xml", SitemapController.getSitemapXml);
+router14.get("/sitemap.json", SitemapController.getSitemapJson);
+router14.get("/robots.txt", SitemapController.getRobotsTxt);
+var SitemapRouter = router14;
 
 // src/app/middlewares/notFound.ts
 init_esm_shims();
@@ -17025,16 +12622,16 @@ function notFound(req, res) {
 
 // src/app/middlewares/globalErrorHandler.ts
 init_esm_shims();
-import status18 from "http-status";
-import { z as z23 } from "zod";
+import status15 from "http-status";
+import { z as z9 } from "zod";
 import multer2 from "multer";
-var import_prisma37 = __toESM(require_prisma(), 1);
+var import_prisma19 = __toESM(require_prisma(), 1);
 
 // src/app/errorHelpers/handleZodError.ts
 init_esm_shims();
-import status16 from "http-status";
+import status13 from "http-status";
 var handleZodError = (err) => {
-  const statusCode = status16.BAD_REQUEST;
+  const statusCode = status13.BAD_REQUEST;
   const message = "Zod Validation Error";
   const errorSources = [];
   err.issues.forEach((issue) => {
@@ -17054,9 +12651,9 @@ var handleZodError = (err) => {
 
 // src/app/errorHelpers/handlePrismaError.ts
 init_esm_shims();
-import status17 from "http-status";
+import status14 from "http-status";
 var handlePrismaKnownRequestError = (err) => {
-  let statusCode = status17.BAD_REQUEST;
+  let statusCode = status14.BAD_REQUEST;
   let message = "Database Request Error";
   let errorSources = [];
   switch (err.code) {
@@ -17064,7 +12661,7 @@ var handlePrismaKnownRequestError = (err) => {
     case "P2002": {
       const target = err.meta?.target;
       const fieldName = Array.isArray(target) ? target.join(", ") : target || "field";
-      statusCode = status17.CONFLICT;
+      statusCode = status14.CONFLICT;
       message = `Duplicate value for ${fieldName}. This value already exists.`;
       errorSources = [
         {
@@ -17076,7 +12673,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Record not found (update / delete / findUniqueOrThrow) ────────────
     case "P2025": {
-      statusCode = status17.NOT_FOUND;
+      statusCode = status14.NOT_FOUND;
       message = "Record Not Found";
       errorSources = [
         {
@@ -17089,7 +12686,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Foreign key constraint failed ─────────────────────────────────────
     case "P2003": {
       const fieldName = err.meta?.field_name || "foreign key";
-      statusCode = status17.BAD_REQUEST;
+      statusCode = status14.BAD_REQUEST;
       message = "Foreign Key Constraint Failed";
       errorSources = [
         {
@@ -17102,7 +12699,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Value too long for column ─────────────────────────────────────────
     case "P2000": {
       const column = err.meta?.column_name || "field";
-      statusCode = status17.BAD_REQUEST;
+      statusCode = status14.BAD_REQUEST;
       message = "Input Value Too Long";
       errorSources = [
         {
@@ -17115,7 +12712,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Null constraint violation ─────────────────────────────────────────
     case "P2011": {
       const constraint = err.meta?.constraint || "field";
-      statusCode = status17.BAD_REQUEST;
+      statusCode = status14.BAD_REQUEST;
       message = "Null Constraint Violation";
       errorSources = [
         {
@@ -17128,7 +12725,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Missing required value ────────────────────────────────────────────
     case "P2012": {
       const path4 = err.meta?.path || "field";
-      statusCode = status17.BAD_REQUEST;
+      statusCode = status14.BAD_REQUEST;
       message = "Missing Required Value";
       errorSources = [
         {
@@ -17141,7 +12738,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Required relation violation ───────────────────────────────────────
     case "P2014": {
       const relation = err.meta?.relation_name || "relation";
-      statusCode = status17.BAD_REQUEST;
+      statusCode = status14.BAD_REQUEST;
       message = "Relation Constraint Violation";
       errorSources = [
         {
@@ -17153,7 +12750,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Invalid ID format (e.g. bad UUID / ObjectId) ──────────────────────
     case "P2023": {
-      statusCode = status17.BAD_REQUEST;
+      statusCode = status14.BAD_REQUEST;
       message = "Invalid ID Format";
       errorSources = [
         {
@@ -17165,7 +12762,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Connection pool timeout ───────────────────────────────────────────
     case "P2024": {
-      statusCode = status17.SERVICE_UNAVAILABLE;
+      statusCode = status14.SERVICE_UNAVAILABLE;
       message = "Database Connection Timeout";
       errorSources = [
         {
@@ -17177,7 +12774,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Transaction write conflict / deadlock ─────────────────────────────
     case "P2034": {
-      statusCode = status17.CONFLICT;
+      statusCode = status14.CONFLICT;
       message = "Transaction Conflict";
       errorSources = [
         {
@@ -17211,7 +12808,7 @@ var handlePrismaValidationError = (err) => {
   const lines = err.message.split("\n").map((l) => l.trim()).filter(Boolean);
   const reason = lines[lines.length - 1] || err.message;
   return {
-    statusCode: status17.BAD_REQUEST,
+    statusCode: status14.BAD_REQUEST,
     success: false,
     message: "Invalid Data Provided",
     errorSources: [
@@ -17225,7 +12822,7 @@ var handlePrismaValidationError = (err) => {
 };
 var handlePrismaInitializationError = (err) => {
   return {
-    statusCode: status17.SERVICE_UNAVAILABLE,
+    statusCode: status14.SERVICE_UNAVAILABLE,
     success: false,
     message: "Database Service Unavailable",
     errorSources: [
@@ -17239,7 +12836,7 @@ var handlePrismaInitializationError = (err) => {
 };
 var handlePrismaUnknownRequestError = (err) => {
   return {
-    statusCode: status17.INTERNAL_SERVER_ERROR,
+    statusCode: status14.INTERNAL_SERVER_ERROR,
     success: false,
     message: "Unexpected Database Error",
     errorSources: [
@@ -17253,7 +12850,7 @@ var handlePrismaUnknownRequestError = (err) => {
 };
 var handlePrismaRustPanicError = (err) => {
   return {
-    statusCode: status17.INTERNAL_SERVER_ERROR,
+    statusCode: status14.INTERNAL_SERVER_ERROR,
     success: false,
     message: "Critical Database Engine Error",
     errorSources: [
@@ -17304,45 +12901,45 @@ var cleanupUploadedFiles = async (req) => {
 };
 var globalErrorHandler = async (err, req, res, _next) => {
   await cleanupUploadedFiles(req);
-  let statusCode = status18.INTERNAL_SERVER_ERROR;
+  let statusCode = status15.INTERNAL_SERVER_ERROR;
   let message = "Internal Server Error";
   let errorSources = [];
   if (err instanceof AppError_default) {
     statusCode = err.statusCode;
     message = err.message;
     errorSources = err.errorSources ?? [{ path: "", message: err.message }];
-  } else if (err instanceof z23.ZodError) {
+  } else if (err instanceof z9.ZodError) {
     const simplified = handleZodError(err);
-    statusCode = simplified.statusCode ?? status18.BAD_REQUEST;
+    statusCode = simplified.statusCode ?? status15.BAD_REQUEST;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma37.Prisma.PrismaClientKnownRequestError) {
+  } else if (err instanceof import_prisma19.Prisma.PrismaClientKnownRequestError) {
     const simplified = handlePrismaKnownRequestError(err);
-    statusCode = simplified.statusCode ?? status18.BAD_REQUEST;
+    statusCode = simplified.statusCode ?? status15.BAD_REQUEST;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma37.Prisma.PrismaClientValidationError) {
+  } else if (err instanceof import_prisma19.Prisma.PrismaClientValidationError) {
     const simplified = handlePrismaValidationError(err);
-    statusCode = simplified.statusCode ?? status18.BAD_REQUEST;
+    statusCode = simplified.statusCode ?? status15.BAD_REQUEST;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma37.Prisma.PrismaClientInitializationError) {
+  } else if (err instanceof import_prisma19.Prisma.PrismaClientInitializationError) {
     const simplified = handlePrismaInitializationError(err);
-    statusCode = simplified.statusCode ?? status18.SERVICE_UNAVAILABLE;
+    statusCode = simplified.statusCode ?? status15.SERVICE_UNAVAILABLE;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma37.Prisma.PrismaClientUnknownRequestError) {
+  } else if (err instanceof import_prisma19.Prisma.PrismaClientUnknownRequestError) {
     const simplified = handlePrismaUnknownRequestError(err);
-    statusCode = simplified.statusCode ?? status18.INTERNAL_SERVER_ERROR;
+    statusCode = simplified.statusCode ?? status15.INTERNAL_SERVER_ERROR;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma37.Prisma.PrismaClientRustPanicError) {
+  } else if (err instanceof import_prisma19.Prisma.PrismaClientRustPanicError) {
     const simplified = handlePrismaRustPanicError(err);
-    statusCode = simplified.statusCode ?? status18.INTERNAL_SERVER_ERROR;
+    statusCode = simplified.statusCode ?? status15.INTERNAL_SERVER_ERROR;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
   } else if (err instanceof multer2.MulterError) {
-    statusCode = status18.BAD_REQUEST;
+    statusCode = status15.BAD_REQUEST;
     switch (err.code) {
       case "LIMIT_FILE_SIZE":
         message = "File too large. Maximum allowed size is 5MB.";
@@ -17361,11 +12958,11 @@ var globalErrorHandler = async (err, req, res, _next) => {
     }
     errorSources = [{ path: err.field || "file", message }];
   } else if (err instanceof SyntaxError && "body" in err) {
-    statusCode = status18.BAD_REQUEST;
+    statusCode = status15.BAD_REQUEST;
     message = "Malformed JSON in request body";
     errorSources = [{ path: "body", message }];
   } else if (err && typeof err.code === "string" && NETWORK_ERROR_CODES.has(err.code)) {
-    statusCode = status18.SERVICE_UNAVAILABLE;
+    statusCode = status15.SERVICE_UNAVAILABLE;
     message = "Upstream Service Unavailable";
     errorSources = [
       {
@@ -17402,7 +12999,7 @@ var globalErrorHandler_default = globalErrorHandler;
 
 // src/app/modules/health/health.route.ts
 init_esm_shims();
-import express28 from "express";
+import express13 from "express";
 
 // src/app/modules/health/health.controller.ts
 init_esm_shims();
@@ -17453,12 +13050,12 @@ var healthCheck = async (_req, res) => {
 };
 
 // src/app/modules/health/health.route.ts
-var router30 = express28.Router();
-router30.get("/", healthCheck);
-var HealthRoutes = router30;
+var router15 = express13.Router();
+router15.get("/", healthCheck);
+var HealthRoutes = router15;
 
 // src/app.ts
-var app = express29();
+var app = express14();
 app.set("view engine", "ejs");
 app.set("views", path3.resolve(process.cwd(), "src/app/templates"));
 app.use(
@@ -17474,8 +13071,8 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
-app.use(express29.json());
-app.use(express29.urlencoded({ extended: true }));
+app.use(express14.json());
+app.use(express14.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.all("/api/auth/*splat", authLimiter, toNodeHandler(auth));
 app.use("/api/v1", globalLimiter, IndexRoutes);

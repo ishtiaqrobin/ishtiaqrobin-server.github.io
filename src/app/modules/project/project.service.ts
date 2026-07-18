@@ -34,6 +34,9 @@ const getProjects = async (
       ...(categoryId && { categoryId }),
       ...(isPublished !== undefined && { isPublished }),
       ...(isFeatured !== undefined && { isFeatured }),
+      category: {
+        isPublished: true,
+      },
     },
     include: projectInclude,
     orderBy: {

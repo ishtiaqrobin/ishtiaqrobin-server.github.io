@@ -1,7 +1,9 @@
 // Category Model
 model Category {
-    id          String  @id @default(uuid())
-    name        String  @unique
+    id   String @id @default(uuid())
+    name String @unique
+
+    sortOrder   Int     @default(0) // new field
     isPublished Boolean @default(true)
 
     createdAt DateTime @default(now())
