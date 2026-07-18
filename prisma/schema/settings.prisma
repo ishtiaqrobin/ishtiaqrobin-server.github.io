@@ -4,34 +4,15 @@
 model Settings {
     id String @id @default("singleton")
 
-    // Site identity
-    siteTitle   String?
-    tagline     String?
-    logoUrl     String?
-    faviconUrl  String?
-
     // Social Links
-    linkedinUrl   String?
-    githubUrl     String?
-    facebookUrl   String?
-    instagramUrl  String?
-    twitterUrl    String?
-    youtubeUrl    String?
+    linkedinUrl  String?
+    githubUrl    String?
+    contactEmail String?
+    facebookUrl  String?
 
     // Contact info
     resumeLink     String?
-    contactEmail   String?
-    contactPhone   String?
     whatsappNumber String?
-    address        String?
-
-    // Availability & meta
-    availability String?
-    experience   String?
-
-    // SEO
-    metaDescription String?
-    metaKeywords    String?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt

@@ -1,0 +1,16 @@
+// Award Model
+model Award {
+    id       String @id @default(uuid())
+    title    String
+    subTitle String
+    date     String
+    details  String // JSON array stored as string
+
+    isPublished Boolean @default(true)
+    sortOrder   Int     @default(0)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("awards")
+}

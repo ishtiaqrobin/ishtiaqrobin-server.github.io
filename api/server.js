@@ -919,12 +919,12 @@ ${log3.fields?.reason}`;
       y.e = getBase10Exponent(xd, e);
       return external ? finalise(y, pr, rm) : y;
     };
-    P.precision = P.sd = function(z10) {
+    P.precision = P.sd = function(z11) {
       var k, x = this;
-      if (z10 !== void 0 && z10 !== !!z10 && z10 !== 1 && z10 !== 0) throw Error(invalidArgument + z10);
+      if (z11 !== void 0 && z11 !== !!z11 && z11 !== 1 && z11 !== 0) throw Error(invalidArgument + z11);
       if (x.d) {
         k = getPrecision(x.d);
-        if (z10 && x.e + 1 > k) k = x.e + 1;
+        if (z11 && x.e + 1 > k) k = x.e + 1;
       } else {
         k = NaN;
       }
@@ -6037,7 +6037,7 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
           }
           case "sum": {
             let o = await Promise.all(t.args.map((s) => this.interpretNode(s, r, n, i).then((a) => a.value)));
-            return { value: o.length > 0 ? o.reduce((s, a) => z10(s) + z10(a)) : 0 };
+            return { value: o.length > 0 ? o.reduce((s, a) => z11(s) + z11(a)) : 0 };
           }
           case "execute": {
             let o = Hn(t.args, n, i, this.#u()), s = 0;
@@ -6163,7 +6163,7 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
     function Wn(e) {
       return Array.isArray(e) ? e : [e];
     }
-    function z10(e) {
+    function z11(e) {
       if (typeof e == "number") return e;
       if (typeof e == "string") return Number(e);
       throw new Error(`Expected number, got ${typeof e}`);
@@ -6205,13 +6205,13 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
         case "set":
           return H(e.value, r, n);
         case "add":
-          return z10(t) + z10(H(e.value, r, n));
+          return z11(t) + z11(H(e.value, r, n));
         case "subtract":
-          return z10(t) - z10(H(e.value, r, n));
+          return z11(t) - z11(H(e.value, r, n));
         case "multiply":
-          return z10(t) * z10(H(e.value, r, n));
+          return z11(t) * z11(H(e.value, r, n));
         case "divide": {
-          let i = z10(t), o = z10(H(e.value, r, n));
+          let i = z11(t), o = z11(H(e.value, r, n));
           return o === 0 ? null : i / o;
         }
         default:
@@ -7822,7 +7822,7 @@ var require_query_compiler_bg = __commonJS({
     };
     var B = (e) => O(h({}, "__esModule", { value: true }), e);
     var xe = {};
-    D(xe, { QueryCompiler: () => F, __wbg_Error_e83987f665cf5504: () => q, __wbg_Number_bb48ca12f395cd08: () => C, __wbg_String_8f0eb39a4a4c2f66: () => k, __wbg___wbindgen_boolean_get_6d5a1ee65bab5f68: () => W, __wbg___wbindgen_debug_string_df47ffb5e35e6763: () => V, __wbg___wbindgen_in_bb933bd9e1b3bc0f: () => z10, __wbg___wbindgen_is_object_c818261d21f283a4: () => L, __wbg___wbindgen_is_string_fbb76cb2940daafd: () => P, __wbg___wbindgen_is_undefined_2d472862bd29a478: () => Q, __wbg___wbindgen_jsval_loose_eq_b664b38a2f582147: () => Y, __wbg___wbindgen_number_get_a20bf9b85341449d: () => G, __wbg___wbindgen_string_get_e4f06c90489ad01b: () => J, __wbg___wbindgen_throw_b855445ff6a94295: () => X, __wbg_entries_e171b586f8f6bdbf: () => H, __wbg_getTime_14776bfb48a1bff9: () => K, __wbg_get_7bed016f185add81: () => Z, __wbg_get_with_ref_key_1dc361bd10053bfe: () => v, __wbg_instanceof_ArrayBuffer_70beb1189ca63b38: () => ee, __wbg_instanceof_Uint8Array_20c8e73002f7af98: () => te, __wbg_isSafeInteger_d216eda7911dde36: () => ne, __wbg_length_69bca3cb64fc8748: () => re, __wbg_length_cdd215e10d9dd507: () => _e, __wbg_new_0_f9740686d739025c: () => oe, __wbg_new_1acc0b6eea89d040: () => ce, __wbg_new_5a79be3ab53b8aa5: () => ie, __wbg_new_68651c719dcda04e: () => se, __wbg_new_e17d9f43105b08be: () => ue, __wbg_prototypesetcall_2a6620b6922694b2: () => fe, __wbg_set_3f1d0b984ed272ed: () => be, __wbg_set_907fb406c34a251d: () => de, __wbg_set_c213c871859d6500: () => ae, __wbg_set_message_82ae475bb413aa5c: () => ge, __wbg_set_wasm: () => N, __wbindgen_cast_2241b6af4c4b2941: () => le, __wbindgen_cast_4625c577ab2ec9ee: () => we, __wbindgen_cast_9ae0607507abb057: () => pe, __wbindgen_cast_d6cd19b81560fd6e: () => ye, __wbindgen_init_externref_table: () => me });
+    D(xe, { QueryCompiler: () => F, __wbg_Error_e83987f665cf5504: () => q, __wbg_Number_bb48ca12f395cd08: () => C, __wbg_String_8f0eb39a4a4c2f66: () => k, __wbg___wbindgen_boolean_get_6d5a1ee65bab5f68: () => W, __wbg___wbindgen_debug_string_df47ffb5e35e6763: () => V, __wbg___wbindgen_in_bb933bd9e1b3bc0f: () => z11, __wbg___wbindgen_is_object_c818261d21f283a4: () => L, __wbg___wbindgen_is_string_fbb76cb2940daafd: () => P, __wbg___wbindgen_is_undefined_2d472862bd29a478: () => Q, __wbg___wbindgen_jsval_loose_eq_b664b38a2f582147: () => Y, __wbg___wbindgen_number_get_a20bf9b85341449d: () => G, __wbg___wbindgen_string_get_e4f06c90489ad01b: () => J, __wbg___wbindgen_throw_b855445ff6a94295: () => X, __wbg_entries_e171b586f8f6bdbf: () => H, __wbg_getTime_14776bfb48a1bff9: () => K, __wbg_get_7bed016f185add81: () => Z, __wbg_get_with_ref_key_1dc361bd10053bfe: () => v, __wbg_instanceof_ArrayBuffer_70beb1189ca63b38: () => ee, __wbg_instanceof_Uint8Array_20c8e73002f7af98: () => te, __wbg_isSafeInteger_d216eda7911dde36: () => ne, __wbg_length_69bca3cb64fc8748: () => re, __wbg_length_cdd215e10d9dd507: () => _e, __wbg_new_0_f9740686d739025c: () => oe, __wbg_new_1acc0b6eea89d040: () => ce, __wbg_new_5a79be3ab53b8aa5: () => ie, __wbg_new_68651c719dcda04e: () => se, __wbg_new_e17d9f43105b08be: () => ue, __wbg_prototypesetcall_2a6620b6922694b2: () => fe, __wbg_set_3f1d0b984ed272ed: () => be, __wbg_set_907fb406c34a251d: () => de, __wbg_set_c213c871859d6500: () => ae, __wbg_set_message_82ae475bb413aa5c: () => ge, __wbg_set_wasm: () => N, __wbindgen_cast_2241b6af4c4b2941: () => le, __wbindgen_cast_4625c577ab2ec9ee: () => we, __wbindgen_cast_9ae0607507abb057: () => pe, __wbindgen_cast_d6cd19b81560fd6e: () => ye, __wbindgen_init_externref_table: () => me });
     module.exports = B(xe);
     var A = () => {
     };
@@ -7963,7 +7963,7 @@ ${e.stack}` : _;
       const n = I(t), _ = l(n, o.__wbindgen_malloc, o.__wbindgen_realloc), r = f;
       u().setInt32(e + 4 * 1, r, true), u().setInt32(e + 4 * 0, _, true);
     }
-    function z10(e, t) {
+    function z11(e, t) {
       return e in t;
     }
     function L(e) {
@@ -8241,6 +8241,17 @@ var require_prisma = __commonJS({
       createdAt: "createdAt",
       updatedAt: "updatedAt"
     };
+    exports.Prisma.AwardScalarFieldEnum = {
+      id: "id",
+      title: "title",
+      subTitle: "subTitle",
+      date: "date",
+      details: "details",
+      isPublished: "isPublished",
+      sortOrder: "sortOrder",
+      createdAt: "createdAt",
+      updatedAt: "updatedAt"
+    };
     exports.Prisma.BlogScalarFieldEnum = {
       id: "id",
       title: "title",
@@ -8279,6 +8290,7 @@ var require_prisma = __commonJS({
     exports.Prisma.CategoryScalarFieldEnum = {
       id: "id",
       name: "name",
+      sortOrder: "sortOrder",
       isPublished: "isPublished",
       createdAt: "createdAt",
       updatedAt: "updatedAt"
@@ -8463,6 +8475,7 @@ var require_prisma = __commonJS({
       Session: "Session",
       Account: "Account",
       Verification: "Verification",
+      Award: "Award",
       Blog: "Blog",
       BlogTag: "BlogTag",
       BlogComment: "BlogComment",
@@ -8626,6 +8639,23 @@ model Verification {
   @@map("verifications")
 }
 
+// Award Model
+model Award {
+  id       String @id @default(uuid())
+  title    String
+  subTitle String
+  date     String
+  details  String // JSON array stored as string
+
+  isPublished Boolean @default(true)
+  sortOrder   Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("awards")
+}
+
 // Blog Post Model
 model Blog {
   id          String     @id @default(uuid())
@@ -8695,8 +8725,10 @@ model BlogComment {
 
 // Category Model
 model Category {
-  id          String  @id @default(uuid())
-  name        String  @unique
+  id   String @id @default(uuid())
+  name String @unique
+
+  sortOrder   Int     @default(0) // new field
   isPublished Boolean @default(true)
 
   createdAt DateTime @default(now())
@@ -8982,7 +9014,7 @@ model Settings {
 }
 `
     };
-    config.runtimeDataModel = JSON.parse('{"models":{"About":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"heroImg","kind":"scalar","type":"String"},{"name":"aboutMeImg","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subtitle","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"resumeUrl","kind":"scalar","type":"String"},{"name":"resumeDownloadCount","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"about"},"AdminProfile":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"bio","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AdminProfileToUser"}],"dbName":"admin_profile"},"PageView":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"page","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"city","kind":"scalar","type":"String"},{"name":"referrer","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"page_views"},"ResumeDownloadLog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"resume_download_logs"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"emailVerified","kind":"scalar","type":"Boolean"},{"name":"name","kind":"scalar","type":"String"},{"name":"image","kind":"scalar","type":"String"},{"name":"phone","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"Role"},{"name":"status","kind":"enum","type":"UserStatus"},{"name":"needPasswordChange","kind":"scalar","type":"Boolean"},{"name":"isDeleted","kind":"scalar","type":"Boolean"},{"name":"deletedAt","kind":"scalar","type":"DateTime"},{"name":"isActive","kind":"scalar","type":"Boolean"},{"name":"isBanned","kind":"scalar","type":"Boolean"},{"name":"isReviewed","kind":"scalar","type":"Boolean"},{"name":"reviewId","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"sessions","kind":"object","type":"Session","relationName":"SessionToUser"},{"name":"accounts","kind":"object","type":"Account","relationName":"AccountToUser"},{"name":"adminProfile","kind":"object","type":"AdminProfile","relationName":"AdminProfileToUser"},{"name":"reviews","kind":"object","type":"Review","relationName":"ReviewToUser"}],"dbName":"users"},"Session":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"token","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"user","kind":"object","type":"User","relationName":"SessionToUser"}],"dbName":"sessions"},"Account":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"accountId","kind":"scalar","type":"String"},{"name":"providerId","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"accessToken","kind":"scalar","type":"String"},{"name":"refreshToken","kind":"scalar","type":"String"},{"name":"idToken","kind":"scalar","type":"String"},{"name":"accessTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"refreshTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"scope","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AccountToUser"}],"dbName":"accounts"},"Verification":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"identifier","kind":"scalar","type":"String"},{"name":"value","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"verifications"},"Blog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"excerpt","kind":"scalar","type":"String"},{"name":"content","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"BlogStatus"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"publishedAt","kind":"scalar","type":"DateTime"},{"name":"metaTitle","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"viewCount","kind":"scalar","type":"Int"},{"name":"likeCount","kind":"scalar","type":"Int"},{"name":"tags","kind":"object","type":"BlogTag","relationName":"BlogToBlogTag"},{"name":"comments","kind":"object","type":"BlogComment","relationName":"BlogToBlogComment"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blogs"},"BlogTag":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"blogs","kind":"object","type":"Blog","relationName":"BlogToBlogTag"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_tags"},"BlogComment":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"blogId","kind":"scalar","type":"String"},{"name":"blog","kind":"object","type":"Blog","relationName":"BlogToBlogComment"},{"name":"parentId","kind":"scalar","type":"String"},{"name":"parent","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"replies","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_comments"},"Category":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"projects","kind":"object","type":"Project","relationName":"CategoryToProject"}],"dbName":"categories"},"AiProviderConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"provider","kind":"scalar","type":"String"},{"name":"apiKey","kind":"scalar","type":"String"},{"name":"model","kind":"scalar","type":"String"},{"name":"endpoint","kind":"scalar","type":"String"},{"name":"maxTokens","kind":"scalar","type":"Int"},{"name":"temperature","kind":"scalar","type":"Float"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"ai_provider_config"},"ChatbotConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"botName","kind":"scalar","type":"String"},{"name":"welcomeMsg","kind":"scalar","type":"String"},{"name":"systemPrompt","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"chatbot_config"},"Contact":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"subject","kind":"scalar","type":"String"},{"name":"message","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"ContactStatus"},{"name":"adminNote","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"contacts"},"Experience":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"companyUrl","kind":"scalar","type":"String"},{"name":"companyLogo","kind":"scalar","type":"String"},{"name":"responsibilities","kind":"scalar","type":"String"},{"name":"startDate","kind":"scalar","type":"DateTime"},{"name":"endDate","kind":"scalar","type":"DateTime"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"experiences"},"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"bannerImage","kind":"scalar","type":"String"},{"name":"year","kind":"scalar","type":"String"},{"name":"bgColor","kind":"scalar","type":"String"},{"name":"liveUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"roles","kind":"scalar","type":"String"},{"name":"client","kind":"scalar","type":"String"},{"name":"techStack","kind":"scalar","type":"String"},{"name":"tags","kind":"scalar","type":"String"},{"name":"sections","kind":"scalar","type":"Json"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"categoryId","kind":"scalar","type":"String"},{"name":"category","kind":"object","type":"Category","relationName":"CategoryToProject"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"projects"},"Review":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"isPinned","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"ReviewToUser"}],"dbName":"reviews"},"Settings":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"siteTitle","kind":"scalar","type":"String"},{"name":"tagline","kind":"scalar","type":"String"},{"name":"logoUrl","kind":"scalar","type":"String"},{"name":"faviconUrl","kind":"scalar","type":"String"},{"name":"linkedinUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"facebookUrl","kind":"scalar","type":"String"},{"name":"instagramUrl","kind":"scalar","type":"String"},{"name":"twitterUrl","kind":"scalar","type":"String"},{"name":"youtubeUrl","kind":"scalar","type":"String"},{"name":"resumeLink","kind":"scalar","type":"String"},{"name":"contactEmail","kind":"scalar","type":"String"},{"name":"contactPhone","kind":"scalar","type":"String"},{"name":"whatsappNumber","kind":"scalar","type":"String"},{"name":"address","kind":"scalar","type":"String"},{"name":"availability","kind":"scalar","type":"String"},{"name":"experience","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"metaKeywords","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"settings"}},"enums":{},"types":{}}');
+    config.runtimeDataModel = JSON.parse('{"models":{"About":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"heroImg","kind":"scalar","type":"String"},{"name":"aboutMeImg","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subtitle","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"resumeUrl","kind":"scalar","type":"String"},{"name":"resumeDownloadCount","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"about"},"AdminProfile":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"bio","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AdminProfileToUser"}],"dbName":"admin_profile"},"PageView":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"page","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"city","kind":"scalar","type":"String"},{"name":"referrer","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"page_views"},"ResumeDownloadLog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"resume_download_logs"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"emailVerified","kind":"scalar","type":"Boolean"},{"name":"name","kind":"scalar","type":"String"},{"name":"image","kind":"scalar","type":"String"},{"name":"phone","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"Role"},{"name":"status","kind":"enum","type":"UserStatus"},{"name":"needPasswordChange","kind":"scalar","type":"Boolean"},{"name":"isDeleted","kind":"scalar","type":"Boolean"},{"name":"deletedAt","kind":"scalar","type":"DateTime"},{"name":"isActive","kind":"scalar","type":"Boolean"},{"name":"isBanned","kind":"scalar","type":"Boolean"},{"name":"isReviewed","kind":"scalar","type":"Boolean"},{"name":"reviewId","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"sessions","kind":"object","type":"Session","relationName":"SessionToUser"},{"name":"accounts","kind":"object","type":"Account","relationName":"AccountToUser"},{"name":"adminProfile","kind":"object","type":"AdminProfile","relationName":"AdminProfileToUser"},{"name":"reviews","kind":"object","type":"Review","relationName":"ReviewToUser"}],"dbName":"users"},"Session":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"token","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"user","kind":"object","type":"User","relationName":"SessionToUser"}],"dbName":"sessions"},"Account":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"accountId","kind":"scalar","type":"String"},{"name":"providerId","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"accessToken","kind":"scalar","type":"String"},{"name":"refreshToken","kind":"scalar","type":"String"},{"name":"idToken","kind":"scalar","type":"String"},{"name":"accessTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"refreshTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"scope","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AccountToUser"}],"dbName":"accounts"},"Verification":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"identifier","kind":"scalar","type":"String"},{"name":"value","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"verifications"},"Award":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subTitle","kind":"scalar","type":"String"},{"name":"date","kind":"scalar","type":"String"},{"name":"details","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"awards"},"Blog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"excerpt","kind":"scalar","type":"String"},{"name":"content","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"BlogStatus"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"publishedAt","kind":"scalar","type":"DateTime"},{"name":"metaTitle","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"viewCount","kind":"scalar","type":"Int"},{"name":"likeCount","kind":"scalar","type":"Int"},{"name":"tags","kind":"object","type":"BlogTag","relationName":"BlogToBlogTag"},{"name":"comments","kind":"object","type":"BlogComment","relationName":"BlogToBlogComment"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blogs"},"BlogTag":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"blogs","kind":"object","type":"Blog","relationName":"BlogToBlogTag"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_tags"},"BlogComment":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"blogId","kind":"scalar","type":"String"},{"name":"blog","kind":"object","type":"Blog","relationName":"BlogToBlogComment"},{"name":"parentId","kind":"scalar","type":"String"},{"name":"parent","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"replies","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_comments"},"Category":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"projects","kind":"object","type":"Project","relationName":"CategoryToProject"}],"dbName":"categories"},"AiProviderConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"provider","kind":"scalar","type":"String"},{"name":"apiKey","kind":"scalar","type":"String"},{"name":"model","kind":"scalar","type":"String"},{"name":"endpoint","kind":"scalar","type":"String"},{"name":"maxTokens","kind":"scalar","type":"Int"},{"name":"temperature","kind":"scalar","type":"Float"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"ai_provider_config"},"ChatbotConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"botName","kind":"scalar","type":"String"},{"name":"welcomeMsg","kind":"scalar","type":"String"},{"name":"systemPrompt","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"chatbot_config"},"Contact":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"subject","kind":"scalar","type":"String"},{"name":"message","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"ContactStatus"},{"name":"adminNote","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"contacts"},"Experience":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"companyUrl","kind":"scalar","type":"String"},{"name":"companyLogo","kind":"scalar","type":"String"},{"name":"responsibilities","kind":"scalar","type":"String"},{"name":"startDate","kind":"scalar","type":"DateTime"},{"name":"endDate","kind":"scalar","type":"DateTime"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"experiences"},"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"bannerImage","kind":"scalar","type":"String"},{"name":"year","kind":"scalar","type":"String"},{"name":"bgColor","kind":"scalar","type":"String"},{"name":"liveUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"roles","kind":"scalar","type":"String"},{"name":"client","kind":"scalar","type":"String"},{"name":"techStack","kind":"scalar","type":"String"},{"name":"tags","kind":"scalar","type":"String"},{"name":"sections","kind":"scalar","type":"Json"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"categoryId","kind":"scalar","type":"String"},{"name":"category","kind":"object","type":"Category","relationName":"CategoryToProject"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"projects"},"Review":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"isPinned","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"ReviewToUser"}],"dbName":"reviews"},"Settings":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"siteTitle","kind":"scalar","type":"String"},{"name":"tagline","kind":"scalar","type":"String"},{"name":"logoUrl","kind":"scalar","type":"String"},{"name":"faviconUrl","kind":"scalar","type":"String"},{"name":"linkedinUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"facebookUrl","kind":"scalar","type":"String"},{"name":"instagramUrl","kind":"scalar","type":"String"},{"name":"twitterUrl","kind":"scalar","type":"String"},{"name":"youtubeUrl","kind":"scalar","type":"String"},{"name":"resumeLink","kind":"scalar","type":"String"},{"name":"contactEmail","kind":"scalar","type":"String"},{"name":"contactPhone","kind":"scalar","type":"String"},{"name":"whatsappNumber","kind":"scalar","type":"String"},{"name":"address","kind":"scalar","type":"String"},{"name":"availability","kind":"scalar","type":"String"},{"name":"experience","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"metaKeywords","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"settings"}},"enums":{},"types":{}}');
     defineDmmfProperty2(exports.Prisma, config.runtimeDataModel);
     config.compilerWasm = {
       getRuntime: async () => require_query_compiler_bg(),
@@ -9013,7 +9045,7 @@ init_esm_shims();
 
 // src/app.ts
 init_esm_shims();
-import express14 from "express";
+import express15 from "express";
 import { toNodeHandler } from "better-auth/node";
 
 // src/app/lib/auth.ts
@@ -9362,7 +9394,7 @@ import path3 from "path";
 
 // src/app/routes/index.ts
 init_esm_shims();
-import { Router as Router12 } from "express";
+import { Router as Router13 } from "express";
 
 // src/app/modules/auth/auth.route.ts
 init_esm_shims();
@@ -10536,7 +10568,11 @@ var createCategory = async (payload) => {
   return result;
 };
 var getCategories = async () => {
-  const result = await prisma.category.findMany();
+  const result = await prisma.category.findMany({
+    orderBy: {
+      sortOrder: "asc"
+    }
+  });
   return result;
 };
 var updateCategory = async (categoryId, payload) => {
@@ -10627,12 +10663,15 @@ var CategoryController = {
 // src/app/modules/category/category.validation.ts
 init_esm_shims();
 import { z as z2 } from "zod";
+var numberFromString = z2.union([z2.number(), z2.string().transform((val) => Number(val))]);
 var createCategoryZodSchema = z2.object({
   name: z2.string("Name is required"),
+  sortOrder: numberFromString.optional(),
   isPublished: z2.boolean().optional().default(true)
 });
 var updateCategoryZodSchema = z2.object({
   name: z2.string("Name is required").optional(),
+  sortOrder: numberFromString.optional(),
   isPublished: z2.boolean().optional()
 });
 var CategoryValidation = {
@@ -10754,7 +10793,10 @@ var getProjects = async (categoryId, isPublished, isFeatured) => {
     where: {
       ...categoryId && { categoryId },
       ...isPublished !== void 0 && { isPublished },
-      ...isFeatured !== void 0 && { isFeatured }
+      ...isFeatured !== void 0 && { isFeatured },
+      category: {
+        isPublished: true
+      }
     },
     include: projectInclude,
     orderBy: {
@@ -10972,7 +11014,7 @@ var booleanFromString = z3.union([z3.boolean(), z3.string()]).transform((val) =>
   if (typeof val === "boolean") return val;
   return val === "true" || val === "on";
 });
-var numberFromString = z3.union([z3.number(), z3.string()]).transform((val) => {
+var numberFromString2 = z3.union([z3.number(), z3.string()]).transform((val) => {
   if (typeof val === "number") return val;
   return Number(val);
 }).pipe(z3.number());
@@ -11012,7 +11054,7 @@ var createProjectZodSchema = z3.object({
   sections: sectionsField,
   isFeatured: booleanFromString.optional(),
   isPublished: booleanFromString.optional(),
-  sortOrder: numberFromString.optional()
+  sortOrder: numberFromString2.optional()
 });
 var updateProjectZodSchema = createProjectZodSchema.partial();
 var ProjectValidation = {
@@ -11119,10 +11161,10 @@ var createContact = async (payload) => {
   return result;
 };
 var getAllContacts = async (query) => {
-  const { status: status16, startDate, endDate } = query;
+  const { status: status17, startDate, endDate } = query;
   const result = await prisma.contact.findMany({
     where: {
-      ...status16 && { status: status16 },
+      ...status17 && { status: status17 },
       ...startDate || endDate ? {
         createdAt: {
           ...startDate && { gte: new Date(startDate) },
@@ -12337,7 +12379,7 @@ var booleanFromString2 = z8.union([z8.boolean(), z8.string()]).transform((val) =
   if (typeof val === "boolean") return val;
   return val === "true" || val === "on";
 });
-var numberFromString2 = z8.union([z8.number(), z8.string()]).transform((val) => {
+var numberFromString3 = z8.union([z8.number(), z8.string()]).transform((val) => {
   if (typeof val === "number") return val;
   return Number(val);
 }).pipe(z8.number());
@@ -12360,7 +12402,7 @@ var createExperienceZodSchema = z8.object({
   companyLogo: z8.string().optional().nullable(),
   responsibilities: responsibilitiesField,
   isPublished: booleanFromString2.optional(),
-  sortOrder: numberFromString2.optional()
+  sortOrder: numberFromString3.optional()
 });
 var updateExperienceZodSchema = createExperienceZodSchema.partial();
 var ExperienceValidation = {
@@ -12389,25 +12431,221 @@ router12.put(
 router12.delete("/:id", auth_default("ADMIN" /* ADMIN */), ExperienceController.deleteExperience);
 var ExperienceRouter = router12;
 
+// src/app/modules/award/award.route.ts
+init_esm_shims();
+import express12 from "express";
+import multer2 from "multer";
+
+// src/app/modules/award/award.controller.ts
+init_esm_shims();
+
+// src/app/modules/award/award.service.ts
+init_esm_shims();
+import status13 from "http-status";
+var parseAward = (award) => ({
+  ...award,
+  details: award.details ? JSON.parse(award.details) : []
+});
+var serializePayload2 = (payload) => {
+  const data = { ...payload };
+  if (Array.isArray(data.details)) {
+    data.details = JSON.stringify(data.details);
+  }
+  return data;
+};
+var createAward = async (payload) => {
+  const data = serializePayload2(payload);
+  const result = await prisma.award.create({ data });
+  return parseAward(result);
+};
+var getAwards = async (isPublished) => {
+  const results = await prisma.award.findMany({
+    where: {
+      ...isPublished !== void 0 && { isPublished }
+    },
+    orderBy: { sortOrder: "asc" }
+  });
+  return results.map(
+    (r) => parseAward(r)
+  );
+};
+var updateAward = async (id, payload) => {
+  const current = await prisma.award.findUnique({ where: { id } });
+  if (!current) {
+    throw new AppError_default(status13.NOT_FOUND, "Award not found");
+  }
+  const data = serializePayload2(payload);
+  const result = await prisma.award.update({
+    where: { id },
+    data
+  });
+  return parseAward(result);
+};
+var deleteAward = async (id) => {
+  const current = await prisma.award.findUnique({ where: { id } });
+  if (!current) {
+    throw new AppError_default(status13.NOT_FOUND, "Award not found");
+  }
+  await prisma.award.delete({ where: { id } });
+};
+var AwardService = {
+  createAward,
+  getAwards,
+  updateAward,
+  deleteAward
+};
+
+// src/app/modules/award/award.controller.ts
+var parseAwardPayload = (req) => {
+  const payload = { ...req.body };
+  if (payload.details && typeof payload.details === "string") {
+    try {
+      payload.details = JSON.parse(payload.details);
+    } catch {
+      payload.details = payload.details.split("\n").map((r) => r.trim()).filter(Boolean);
+    }
+  }
+  return payload;
+};
+var createAward2 = async (req, res, next) => {
+  try {
+    const result = await AwardService.createAward(
+      parseAwardPayload(req)
+    );
+    res.status(201).json({
+      success: true,
+      message: "Award created successfully",
+      data: result
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var getAwards2 = async (req, res, next) => {
+  try {
+    const { isPublished } = req.query;
+    const publishedFilter = isPublished === "true" ? true : isPublished === "false" ? false : void 0;
+    const result = await AwardService.getAwards(publishedFilter);
+    res.status(200).json({
+      success: true,
+      message: "Retrieved all awards successfully",
+      data: result
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var updateAward2 = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await AwardService.updateAward(
+      id,
+      parseAwardPayload(req)
+    );
+    res.status(200).json({
+      success: true,
+      message: "Award updated successfully",
+      data: result
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var deleteAward2 = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await AwardService.deleteAward(id);
+    res.status(200).json({
+      success: true,
+      message: "Award deleted successfully"
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var AwardController = {
+  createAward: createAward2,
+  getAwards: getAwards2,
+  updateAward: updateAward2,
+  deleteAward: deleteAward2
+};
+
+// src/app/modules/award/award.validation.ts
+init_esm_shims();
+import { z as z9 } from "zod";
+var booleanFromString3 = z9.union([z9.boolean(), z9.string()]).transform((val) => {
+  if (typeof val === "boolean") return val;
+  return val === "true" || val === "on";
+});
+var numberFromString4 = z9.union([z9.number(), z9.string()]).transform((val) => {
+  if (typeof val === "number") return val;
+  return Number(val);
+}).pipe(z9.number());
+var detailsField = z9.union([z9.array(z9.string()), z9.string()]).transform((val) => {
+  if (Array.isArray(val)) return val;
+  try {
+    const parsed = JSON.parse(val);
+    if (Array.isArray(parsed)) return parsed;
+  } catch {
+    return val.split("\n").map((r) => r.trim()).filter(Boolean);
+  }
+  return [val];
+});
+var createAwardZodSchema = z9.object({
+  title: z9.string().min(1, "title is required"),
+  subTitle: z9.string().min(1, "subTitle is required"),
+  date: z9.string().min(1, "date is required"),
+  details: detailsField,
+  isPublished: booleanFromString3.optional(),
+  sortOrder: numberFromString4.optional()
+});
+var updateAwardZodSchema = createAwardZodSchema.partial();
+var AwardValidation = {
+  createAwardZodSchema,
+  updateAwardZodSchema
+};
+
+// src/app/modules/award/award.route.ts
+var awardUpload = multer2();
+var router13 = express12.Router();
+router13.get("/", AwardController.getAwards);
+router13.post(
+  "/",
+  auth_default("ADMIN" /* ADMIN */),
+  awardUpload.none(),
+  validateRequest(AwardValidation.createAwardZodSchema),
+  AwardController.createAward
+);
+router13.put(
+  "/:id",
+  auth_default("ADMIN" /* ADMIN */),
+  awardUpload.none(),
+  validateRequest(AwardValidation.updateAwardZodSchema),
+  AwardController.updateAward
+);
+router13.delete("/:id", auth_default("ADMIN" /* ADMIN */), AwardController.deleteAward);
+var AwardRouter = router13;
+
 // src/app/routes/index.ts
-var router13 = Router12();
-router13.use("/auth", AuthRouter);
-router13.use("/users", UserRouter);
-router13.use("/admins", AdminRouter);
-router13.use("/reviews", ReviewRouter);
-router13.use("/categories", CategoryRouter);
-router13.use("/settings", SettingRouter);
-router13.use("/about", AboutRouter);
-router13.use("/analytics", AnalyticsRouter);
-router13.use("/chatbot", ChatbotRouter);
-router13.use("/projects", ProjectRouter);
-router13.use("/contacts", ContactRouter);
-router13.use("/experiences", ExperienceRouter);
-var IndexRoutes = router13;
+var router14 = Router13();
+router14.use("/auth", AuthRouter);
+router14.use("/users", UserRouter);
+router14.use("/admins", AdminRouter);
+router14.use("/reviews", ReviewRouter);
+router14.use("/categories", CategoryRouter);
+router14.use("/settings", SettingRouter);
+router14.use("/about", AboutRouter);
+router14.use("/analytics", AnalyticsRouter);
+router14.use("/chatbot", ChatbotRouter);
+router14.use("/projects", ProjectRouter);
+router14.use("/contacts", ContactRouter);
+router14.use("/experiences", ExperienceRouter);
+router14.use("/awards", AwardRouter);
+var IndexRoutes = router14;
 
 // src/app/modules/sitemap/sitemap.route.ts
 init_esm_shims();
-import express12 from "express";
+import express13 from "express";
 
 // src/app/modules/sitemap/sitemap.controller.ts
 init_esm_shims();
@@ -12603,11 +12841,11 @@ var SitemapController = {
 };
 
 // src/app/modules/sitemap/sitemap.route.ts
-var router14 = express12.Router();
-router14.get("/sitemap.xml", SitemapController.getSitemapXml);
-router14.get("/sitemap.json", SitemapController.getSitemapJson);
-router14.get("/robots.txt", SitemapController.getRobotsTxt);
-var SitemapRouter = router14;
+var router15 = express13.Router();
+router15.get("/sitemap.xml", SitemapController.getSitemapXml);
+router15.get("/sitemap.json", SitemapController.getSitemapJson);
+router15.get("/robots.txt", SitemapController.getRobotsTxt);
+var SitemapRouter = router15;
 
 // src/app/middlewares/notFound.ts
 init_esm_shims();
@@ -12622,16 +12860,16 @@ function notFound(req, res) {
 
 // src/app/middlewares/globalErrorHandler.ts
 init_esm_shims();
-import status15 from "http-status";
-import { z as z9 } from "zod";
-import multer2 from "multer";
-var import_prisma19 = __toESM(require_prisma(), 1);
+import status16 from "http-status";
+import { z as z10 } from "zod";
+import multer3 from "multer";
+var import_prisma20 = __toESM(require_prisma(), 1);
 
 // src/app/errorHelpers/handleZodError.ts
 init_esm_shims();
-import status13 from "http-status";
+import status14 from "http-status";
 var handleZodError = (err) => {
-  const statusCode = status13.BAD_REQUEST;
+  const statusCode = status14.BAD_REQUEST;
   const message = "Zod Validation Error";
   const errorSources = [];
   err.issues.forEach((issue) => {
@@ -12651,9 +12889,9 @@ var handleZodError = (err) => {
 
 // src/app/errorHelpers/handlePrismaError.ts
 init_esm_shims();
-import status14 from "http-status";
+import status15 from "http-status";
 var handlePrismaKnownRequestError = (err) => {
-  let statusCode = status14.BAD_REQUEST;
+  let statusCode = status15.BAD_REQUEST;
   let message = "Database Request Error";
   let errorSources = [];
   switch (err.code) {
@@ -12661,7 +12899,7 @@ var handlePrismaKnownRequestError = (err) => {
     case "P2002": {
       const target = err.meta?.target;
       const fieldName = Array.isArray(target) ? target.join(", ") : target || "field";
-      statusCode = status14.CONFLICT;
+      statusCode = status15.CONFLICT;
       message = `Duplicate value for ${fieldName}. This value already exists.`;
       errorSources = [
         {
@@ -12673,7 +12911,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Record not found (update / delete / findUniqueOrThrow) ────────────
     case "P2025": {
-      statusCode = status14.NOT_FOUND;
+      statusCode = status15.NOT_FOUND;
       message = "Record Not Found";
       errorSources = [
         {
@@ -12686,7 +12924,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Foreign key constraint failed ─────────────────────────────────────
     case "P2003": {
       const fieldName = err.meta?.field_name || "foreign key";
-      statusCode = status14.BAD_REQUEST;
+      statusCode = status15.BAD_REQUEST;
       message = "Foreign Key Constraint Failed";
       errorSources = [
         {
@@ -12699,7 +12937,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Value too long for column ─────────────────────────────────────────
     case "P2000": {
       const column = err.meta?.column_name || "field";
-      statusCode = status14.BAD_REQUEST;
+      statusCode = status15.BAD_REQUEST;
       message = "Input Value Too Long";
       errorSources = [
         {
@@ -12712,7 +12950,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Null constraint violation ─────────────────────────────────────────
     case "P2011": {
       const constraint = err.meta?.constraint || "field";
-      statusCode = status14.BAD_REQUEST;
+      statusCode = status15.BAD_REQUEST;
       message = "Null Constraint Violation";
       errorSources = [
         {
@@ -12725,7 +12963,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Missing required value ────────────────────────────────────────────
     case "P2012": {
       const path4 = err.meta?.path || "field";
-      statusCode = status14.BAD_REQUEST;
+      statusCode = status15.BAD_REQUEST;
       message = "Missing Required Value";
       errorSources = [
         {
@@ -12738,7 +12976,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Required relation violation ───────────────────────────────────────
     case "P2014": {
       const relation = err.meta?.relation_name || "relation";
-      statusCode = status14.BAD_REQUEST;
+      statusCode = status15.BAD_REQUEST;
       message = "Relation Constraint Violation";
       errorSources = [
         {
@@ -12750,7 +12988,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Invalid ID format (e.g. bad UUID / ObjectId) ──────────────────────
     case "P2023": {
-      statusCode = status14.BAD_REQUEST;
+      statusCode = status15.BAD_REQUEST;
       message = "Invalid ID Format";
       errorSources = [
         {
@@ -12762,7 +13000,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Connection pool timeout ───────────────────────────────────────────
     case "P2024": {
-      statusCode = status14.SERVICE_UNAVAILABLE;
+      statusCode = status15.SERVICE_UNAVAILABLE;
       message = "Database Connection Timeout";
       errorSources = [
         {
@@ -12774,7 +13012,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Transaction write conflict / deadlock ─────────────────────────────
     case "P2034": {
-      statusCode = status14.CONFLICT;
+      statusCode = status15.CONFLICT;
       message = "Transaction Conflict";
       errorSources = [
         {
@@ -12808,7 +13046,7 @@ var handlePrismaValidationError = (err) => {
   const lines = err.message.split("\n").map((l) => l.trim()).filter(Boolean);
   const reason = lines[lines.length - 1] || err.message;
   return {
-    statusCode: status14.BAD_REQUEST,
+    statusCode: status15.BAD_REQUEST,
     success: false,
     message: "Invalid Data Provided",
     errorSources: [
@@ -12822,7 +13060,7 @@ var handlePrismaValidationError = (err) => {
 };
 var handlePrismaInitializationError = (err) => {
   return {
-    statusCode: status14.SERVICE_UNAVAILABLE,
+    statusCode: status15.SERVICE_UNAVAILABLE,
     success: false,
     message: "Database Service Unavailable",
     errorSources: [
@@ -12836,7 +13074,7 @@ var handlePrismaInitializationError = (err) => {
 };
 var handlePrismaUnknownRequestError = (err) => {
   return {
-    statusCode: status14.INTERNAL_SERVER_ERROR,
+    statusCode: status15.INTERNAL_SERVER_ERROR,
     success: false,
     message: "Unexpected Database Error",
     errorSources: [
@@ -12850,7 +13088,7 @@ var handlePrismaUnknownRequestError = (err) => {
 };
 var handlePrismaRustPanicError = (err) => {
   return {
-    statusCode: status14.INTERNAL_SERVER_ERROR,
+    statusCode: status15.INTERNAL_SERVER_ERROR,
     success: false,
     message: "Critical Database Engine Error",
     errorSources: [
@@ -12901,45 +13139,45 @@ var cleanupUploadedFiles = async (req) => {
 };
 var globalErrorHandler = async (err, req, res, _next) => {
   await cleanupUploadedFiles(req);
-  let statusCode = status15.INTERNAL_SERVER_ERROR;
+  let statusCode = status16.INTERNAL_SERVER_ERROR;
   let message = "Internal Server Error";
   let errorSources = [];
   if (err instanceof AppError_default) {
     statusCode = err.statusCode;
     message = err.message;
     errorSources = err.errorSources ?? [{ path: "", message: err.message }];
-  } else if (err instanceof z9.ZodError) {
+  } else if (err instanceof z10.ZodError) {
     const simplified = handleZodError(err);
-    statusCode = simplified.statusCode ?? status15.BAD_REQUEST;
+    statusCode = simplified.statusCode ?? status16.BAD_REQUEST;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma19.Prisma.PrismaClientKnownRequestError) {
+  } else if (err instanceof import_prisma20.Prisma.PrismaClientKnownRequestError) {
     const simplified = handlePrismaKnownRequestError(err);
-    statusCode = simplified.statusCode ?? status15.BAD_REQUEST;
+    statusCode = simplified.statusCode ?? status16.BAD_REQUEST;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma19.Prisma.PrismaClientValidationError) {
+  } else if (err instanceof import_prisma20.Prisma.PrismaClientValidationError) {
     const simplified = handlePrismaValidationError(err);
-    statusCode = simplified.statusCode ?? status15.BAD_REQUEST;
+    statusCode = simplified.statusCode ?? status16.BAD_REQUEST;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma19.Prisma.PrismaClientInitializationError) {
+  } else if (err instanceof import_prisma20.Prisma.PrismaClientInitializationError) {
     const simplified = handlePrismaInitializationError(err);
-    statusCode = simplified.statusCode ?? status15.SERVICE_UNAVAILABLE;
+    statusCode = simplified.statusCode ?? status16.SERVICE_UNAVAILABLE;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma19.Prisma.PrismaClientUnknownRequestError) {
+  } else if (err instanceof import_prisma20.Prisma.PrismaClientUnknownRequestError) {
     const simplified = handlePrismaUnknownRequestError(err);
-    statusCode = simplified.statusCode ?? status15.INTERNAL_SERVER_ERROR;
+    statusCode = simplified.statusCode ?? status16.INTERNAL_SERVER_ERROR;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma19.Prisma.PrismaClientRustPanicError) {
+  } else if (err instanceof import_prisma20.Prisma.PrismaClientRustPanicError) {
     const simplified = handlePrismaRustPanicError(err);
-    statusCode = simplified.statusCode ?? status15.INTERNAL_SERVER_ERROR;
+    statusCode = simplified.statusCode ?? status16.INTERNAL_SERVER_ERROR;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof multer2.MulterError) {
-    statusCode = status15.BAD_REQUEST;
+  } else if (err instanceof multer3.MulterError) {
+    statusCode = status16.BAD_REQUEST;
     switch (err.code) {
       case "LIMIT_FILE_SIZE":
         message = "File too large. Maximum allowed size is 5MB.";
@@ -12958,11 +13196,11 @@ var globalErrorHandler = async (err, req, res, _next) => {
     }
     errorSources = [{ path: err.field || "file", message }];
   } else if (err instanceof SyntaxError && "body" in err) {
-    statusCode = status15.BAD_REQUEST;
+    statusCode = status16.BAD_REQUEST;
     message = "Malformed JSON in request body";
     errorSources = [{ path: "body", message }];
   } else if (err && typeof err.code === "string" && NETWORK_ERROR_CODES.has(err.code)) {
-    statusCode = status15.SERVICE_UNAVAILABLE;
+    statusCode = status16.SERVICE_UNAVAILABLE;
     message = "Upstream Service Unavailable";
     errorSources = [
       {
@@ -12999,7 +13237,7 @@ var globalErrorHandler_default = globalErrorHandler;
 
 // src/app/modules/health/health.route.ts
 init_esm_shims();
-import express13 from "express";
+import express14 from "express";
 
 // src/app/modules/health/health.controller.ts
 init_esm_shims();
@@ -13050,12 +13288,12 @@ var healthCheck = async (_req, res) => {
 };
 
 // src/app/modules/health/health.route.ts
-var router15 = express13.Router();
-router15.get("/", healthCheck);
-var HealthRoutes = router15;
+var router16 = express14.Router();
+router16.get("/", healthCheck);
+var HealthRoutes = router16;
 
 // src/app.ts
-var app = express14();
+var app = express15();
 app.set("view engine", "ejs");
 app.set("views", path3.resolve(process.cwd(), "src/app/templates"));
 app.use(
@@ -13071,8 +13309,8 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
-app.use(express14.json());
-app.use(express14.urlencoded({ extended: true }));
+app.use(express15.json());
+app.use(express15.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.all("/api/auth/*splat", authLimiter, toNodeHandler(auth));
 app.use("/api/v1", globalLimiter, IndexRoutes);
