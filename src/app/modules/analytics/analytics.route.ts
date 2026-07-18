@@ -31,25 +31,11 @@ router.get(
 
 // ─── Resume Downloads ──────────────────────────────────────────
 
-// Track a resume download (public — called when visitor downloads resume)
-router.post(
-  "/resume-downloads",
-  validateRequest(AnalyticsValidation.createResumeDownloadLogZodSchema),
-  AnalyticsController.trackResumeDownload,
-);
-
 // Get all resume download logs (admin only)
 router.get(
   "/resume-downloads",
   auth(UserRole.ADMIN),
   AnalyticsController.getResumeDownloadLogs,
-);
-
-// Get resume download count (admin only)
-router.get(
-  "/resume-downloads/count",
-  auth(UserRole.ADMIN),
-  AnalyticsController.getResumeDownloadCount,
 );
 
 export const AnalyticsRouter: Router = router;

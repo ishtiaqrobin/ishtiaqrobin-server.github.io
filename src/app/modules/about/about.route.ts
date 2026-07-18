@@ -12,17 +12,12 @@ const router = express.Router();
 // Get about (singleton)
 router.get("/", AboutController.getAbout);
 
-// Download resume — increment counter
-router.post("/download-resume", AboutController.downloadResume);
-
 // Create about (upsert)
 router.post(
   "/",
   auth(UserRole.ADMIN),
   aboutImageUpload.fields([
-    { name: "heroImg", maxCount: 1 },
     { name: "aboutMeImg", maxCount: 1 },
-    { name: "resume", maxCount: 1 },
   ]),
   validateRequest(AboutValidation.createAboutZodSchema),
   AboutController.createAbout,
@@ -33,9 +28,7 @@ router.put(
   "/",
   auth(UserRole.ADMIN),
   aboutImageUpload.fields([
-    { name: "heroImg", maxCount: 1 },
     { name: "aboutMeImg", maxCount: 1 },
-    { name: "resume", maxCount: 1 },
   ]),
   validateRequest(AboutValidation.updateAboutZodSchema),
   AboutController.updateAbout,

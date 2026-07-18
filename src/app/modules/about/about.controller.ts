@@ -9,9 +9,7 @@ const createAbout = async (req: Request, res: Response, next: NextFunction) => {
     const payload = { ...req.body };
     const files = req.files as Record<string, Express.Multer.File[]>;
 
-    if (files?.heroImg?.[0]) payload.heroImg = files.heroImg[0].path;
     if (files?.aboutMeImg?.[0]) payload.aboutMeImg = files.aboutMeImg[0].path;
-    if (files?.resume?.[0]) payload.resumeUrl = files.resume[0].path;
 
     const result = await AboutService.createAbout(payload);
     res.status(201).json({
@@ -47,9 +45,7 @@ const updateAbout = async (req: Request, res: Response, next: NextFunction) => {
     const payload = { ...req.body };
     const files = req.files as Record<string, Express.Multer.File[]>;
 
-    if (files?.heroImg?.[0]) payload.heroImg = files.heroImg[0].path;
     if (files?.aboutMeImg?.[0]) payload.aboutMeImg = files.aboutMeImg[0].path;
-    if (files?.resume?.[0]) payload.resumeUrl = files.resume[0].path;
 
     const result = await AboutService.updateAbout(payload);
     res.status(200).json({
@@ -62,33 +58,8 @@ const updateAbout = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-// Download resume — increment counter
-const downloadResume = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  try {
-    const result = await AboutService.downloadResume();
-    if (!result?.resumeUrl) {
-      throw new AppError(status.NOT_FOUND, "Resume not found");
-    }
-    res.status(200).json({
-      success: true,
-      message: "Resume download link retrieved",
-      data: {
-        resumeUrl: result.resumeUrl,
-        downloadCount: result.resumeDownloadCount,
-      },
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-
 export const AboutController = {
   createAbout,
   getAbout,
   updateAbout,
-  downloadResume,
 };

@@ -2,7 +2,6 @@ import { prisma } from "../../lib/prisma";
 import {
   AnalyticsQueryInput,
   CreatePageViewInput,
-  CreateResumeDownloadLogInput,
 } from "./analytics.interface";
 
 // Track a page view
@@ -58,30 +57,6 @@ const getPageViewStats = async () => {
   }));
 };
 
-// Track a resume download
-const trackResumeDownload = async (payload: CreateResumeDownloadLogInput) => {
-  // Log the download
-  const log = await prisma.resumeDownloadLog.create({
-    data: payload,
-  });
-
-  // Increment the counter in About singleton
-  await prisma.about.upsert({
-    where: { id: "singleton" },
-    update: {
-      resumeDownloadCount: {
-        increment: 1,
-      },
-    },
-    create: {
-      id: "singleton",
-      resumeDownloadCount: 1,
-    },
-  });
-
-  return log;
-};
-
 // Get all resume download logs
 const getResumeDownloadLogs = async () => {
   const result = await prisma.resumeDownloadLog.findMany({
@@ -93,21 +68,9 @@ const getResumeDownloadLogs = async () => {
   return result;
 };
 
-// Get resume download count from About singleton
-const getResumeDownloadCount = async () => {
-  const about = await prisma.about.findUnique({
-    where: { id: "singleton" },
-    select: { resumeDownloadCount: true },
-  });
-
-  return { resumeDownloadCount: about?.resumeDownloadCount ?? 0 };
-};
-
 export const AnalyticsService = {
   trackPageView,
   getPageViews,
   getPageViewStats,
-  trackResumeDownload,
   getResumeDownloadLogs,
-  getResumeDownloadCount,
 };

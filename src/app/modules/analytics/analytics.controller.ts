@@ -58,25 +58,6 @@ const getPageViewStats = async (
   }
 };
 
-// Track a resume download
-const trackResumeDownload = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  try {
-    const result = await AnalyticsService.trackResumeDownload(req.body);
-
-    res.status(201).json({
-      success: true,
-      message: "Resume download tracked successfully",
-      data: result,
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-
 // Get all resume download logs
 const getResumeDownloadLogs = async (
   req: Request,
@@ -96,30 +77,9 @@ const getResumeDownloadLogs = async (
   }
 };
 
-// Get resume download count
-const getResumeDownloadCount = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  try {
-    const result = await AnalyticsService.getResumeDownloadCount();
-
-    res.status(200).json({
-      success: true,
-      message: "Retrieved resume download count successfully",
-      data: result,
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-
 export const AnalyticsController = {
   trackPageView,
   getPageViews,
   getPageViewStats,
-  trackResumeDownload,
   getResumeDownloadLogs,
-  getResumeDownloadCount,
 };

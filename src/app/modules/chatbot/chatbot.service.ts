@@ -49,29 +49,19 @@ const checkRateLimit = (
 // ── DB Context Builder ────────────────────────────────────
 // DB থেকে সব data এনে একটা readable context string বানায়
 const buildContextFromDB = async (): Promise<string> => {
-  const [about, skills, experiences, projects, services, settings] =
-    await Promise.all([
-      prisma.about.findUnique({ where: { id: "singleton" } }),
-      prisma.skill.findMany({
-        where: { category: { isPublished: true } },
-        include: { category: true },
-        orderBy: { sortOrder: "asc" },
-      }),
-      prisma.experience.findMany({
-        where: { isPublished: true },
-        orderBy: { startDate: "desc" },
-      }),
-      prisma.project.findMany({
-        where: { isPublished: true, isFeatured: true },
-        include: { category: true },
-        orderBy: { sortOrder: "asc" },
-      }),
-      prisma.service.findMany({
-        where: { isPublished: true },
-        orderBy: { sortOrder: "asc" },
-      }),
-      prisma.settings.findUnique({ where: { id: "singleton" } }),
-    ]);
+  const [about, experiences, projects, settings] = await Promise.all([
+    prisma.about.findUnique({ where: { id: "singleton" } }),
+    prisma.experience.findMany({
+      where: { isPublished: true },
+      orderBy: { startDate: "desc" },
+    }),
+    prisma.project.findMany({
+      where: { isPublished: true, isFeatured: true },
+      include: { category: true },
+      orderBy: { sortOrder: "asc" },
+    }),
+    prisma.settings.findUnique({ where: { id: "singleton" } }),
+  ]);
 
   const lines: string[] = [];
 
@@ -92,29 +82,15 @@ const buildContextFromDB = async (): Promise<string> => {
       lines.push(`Availability: ${settings.availability}`);
   }
 
-  // Skills
-  if (skills.length) {
-    const grouped = skills.reduce<Record<string, string[]>>((acc, skill) => {
-      const cat = skill.category.name;
-      if (!acc[cat]) acc[cat] = [];
-      acc[cat].push(`${skill.name} (${skill.level})`);
-      return acc;
-    }, {});
-    lines.push("\nSkills:");
-    Object.entries(grouped).forEach(([cat, list]) => {
-      lines.push(`  ${cat}: ${list.join(", ")}`);
-    });
-  }
-
   // Experience
   if (experiences.length) {
     lines.push("\nWork Experience:");
     experiences.forEach((exp) => {
       const end = exp.endDate ? exp.endDate.getFullYear() : "Present";
       lines.push(
-        `  - ${exp.title} at ${exp.company} (${exp.startDate.getFullYear()}–${end})`,
+        `  - ${exp.position} at ${exp.companyName} (${exp.startDate.getFullYear()}–${end})`,
       );
-      if (exp.description) lines.push(`    ${exp.description}`);
+      if (exp.responsibilities) lines.push(`    ${exp.responsibilities}`);
     });
   }
 
@@ -126,16 +102,6 @@ const buildContextFromDB = async (): Promise<string> => {
       lines.push(`    ${proj.description}`);
       if (proj.liveUrl) lines.push(`    Live: ${proj.liveUrl}`);
       if (proj.githubUrl) lines.push(`    GitHub: ${proj.githubUrl}`);
-    });
-  }
-
-  // Services
-  if (services.length) {
-    lines.push("\nServices Offered:");
-    services.forEach((svc) => {
-      lines.push(
-        `  - ${svc.name}${svc.description ? `: ${svc.description}` : ""}`,
-      );
     });
   }
 

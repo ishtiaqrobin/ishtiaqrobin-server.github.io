@@ -1,17 +1,14 @@
 // About Model — SINGLETON
 // id = 'singleton' fixed। upsert({ where: { id: 'singleton' }, ... }) ব্যবহার করতে হবে।
 model About {
-    id         String  @id @default("singleton")
-    heroImg    String?
-    aboutMeImg String?
+    id String @id @default("singleton")
 
     title       String?
     subtitle    String?
     description String? @db.Text
-    resumeUrl   String?
+    resumeUrl   String? // just use resume url not upload file
 
-    // Resume download tracking
-    resumeDownloadCount Int @default(0)
+    aboutMeImg String?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt

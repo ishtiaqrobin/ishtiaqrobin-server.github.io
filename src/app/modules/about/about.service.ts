@@ -26,14 +26,7 @@ const updateAbout = async (payload: UpdateAboutInput) => {
     where: { id: "singleton" },
   });
 
-  // Delete old images from Cloudinary if new ones are being uploaded
-  if (
-    payload.heroImg &&
-    current?.heroImg &&
-    payload.heroImg !== current.heroImg
-  ) {
-    await deleteFileFromCloudinary(current.heroImg);
-  }
+  // Delete old image from Cloudinary if a new one is being uploaded
   if (
     payload.aboutMeImg &&
     current?.aboutMeImg &&
@@ -49,20 +42,8 @@ const updateAbout = async (payload: UpdateAboutInput) => {
   return result;
 };
 
-// Download resume — increment counter
-const downloadResume = async () => {
-  const result = await prisma.about.update({
-    where: { id: "singleton" },
-    data: {
-      resumeDownloadCount: { increment: 1 },
-    },
-  });
-  return result;
-};
-
 export const AboutService = {
   createAbout,
   getAbout,
   updateAbout,
-  downloadResume,
 };
