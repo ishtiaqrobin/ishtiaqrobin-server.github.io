@@ -919,12 +919,12 @@ ${log3.fields?.reason}`;
       y.e = getBase10Exponent(xd, e);
       return external ? finalise(y, pr, rm) : y;
     };
-    P.precision = P.sd = function(z11) {
+    P.precision = P.sd = function(z12) {
       var k, x = this;
-      if (z11 !== void 0 && z11 !== !!z11 && z11 !== 1 && z11 !== 0) throw Error(invalidArgument + z11);
+      if (z12 !== void 0 && z12 !== !!z12 && z12 !== 1 && z12 !== 0) throw Error(invalidArgument + z12);
       if (x.d) {
         k = getPrecision(x.d);
-        if (z11 && x.e + 1 > k) k = x.e + 1;
+        if (z12 && x.e + 1 > k) k = x.e + 1;
       } else {
         k = NaN;
       }
@@ -6037,7 +6037,7 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
           }
           case "sum": {
             let o = await Promise.all(t.args.map((s) => this.interpretNode(s, r, n, i).then((a) => a.value)));
-            return { value: o.length > 0 ? o.reduce((s, a) => z11(s) + z11(a)) : 0 };
+            return { value: o.length > 0 ? o.reduce((s, a) => z12(s) + z12(a)) : 0 };
           }
           case "execute": {
             let o = Hn(t.args, n, i, this.#u()), s = 0;
@@ -6163,7 +6163,7 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
     function Wn(e) {
       return Array.isArray(e) ? e : [e];
     }
-    function z11(e) {
+    function z12(e) {
       if (typeof e == "number") return e;
       if (typeof e == "string") return Number(e);
       throw new Error(`Expected number, got ${typeof e}`);
@@ -6205,13 +6205,13 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
         case "set":
           return H(e.value, r, n);
         case "add":
-          return z11(t) + z11(H(e.value, r, n));
+          return z12(t) + z12(H(e.value, r, n));
         case "subtract":
-          return z11(t) - z11(H(e.value, r, n));
+          return z12(t) - z12(H(e.value, r, n));
         case "multiply":
-          return z11(t) * z11(H(e.value, r, n));
+          return z12(t) * z12(H(e.value, r, n));
         case "divide": {
-          let i = z11(t), o = z11(H(e.value, r, n));
+          let i = z12(t), o = z12(H(e.value, r, n));
           return o === 0 ? null : i / o;
         }
         default:
@@ -7822,7 +7822,7 @@ var require_query_compiler_bg = __commonJS({
     };
     var B = (e) => O(h({}, "__esModule", { value: true }), e);
     var xe = {};
-    D(xe, { QueryCompiler: () => F, __wbg_Error_e83987f665cf5504: () => q, __wbg_Number_bb48ca12f395cd08: () => C, __wbg_String_8f0eb39a4a4c2f66: () => k, __wbg___wbindgen_boolean_get_6d5a1ee65bab5f68: () => W, __wbg___wbindgen_debug_string_df47ffb5e35e6763: () => V, __wbg___wbindgen_in_bb933bd9e1b3bc0f: () => z11, __wbg___wbindgen_is_object_c818261d21f283a4: () => L, __wbg___wbindgen_is_string_fbb76cb2940daafd: () => P, __wbg___wbindgen_is_undefined_2d472862bd29a478: () => Q, __wbg___wbindgen_jsval_loose_eq_b664b38a2f582147: () => Y, __wbg___wbindgen_number_get_a20bf9b85341449d: () => G, __wbg___wbindgen_string_get_e4f06c90489ad01b: () => J, __wbg___wbindgen_throw_b855445ff6a94295: () => X, __wbg_entries_e171b586f8f6bdbf: () => H, __wbg_getTime_14776bfb48a1bff9: () => K, __wbg_get_7bed016f185add81: () => Z, __wbg_get_with_ref_key_1dc361bd10053bfe: () => v, __wbg_instanceof_ArrayBuffer_70beb1189ca63b38: () => ee, __wbg_instanceof_Uint8Array_20c8e73002f7af98: () => te, __wbg_isSafeInteger_d216eda7911dde36: () => ne, __wbg_length_69bca3cb64fc8748: () => re, __wbg_length_cdd215e10d9dd507: () => _e, __wbg_new_0_f9740686d739025c: () => oe, __wbg_new_1acc0b6eea89d040: () => ce, __wbg_new_5a79be3ab53b8aa5: () => ie, __wbg_new_68651c719dcda04e: () => se, __wbg_new_e17d9f43105b08be: () => ue, __wbg_prototypesetcall_2a6620b6922694b2: () => fe, __wbg_set_3f1d0b984ed272ed: () => be, __wbg_set_907fb406c34a251d: () => de, __wbg_set_c213c871859d6500: () => ae, __wbg_set_message_82ae475bb413aa5c: () => ge, __wbg_set_wasm: () => N, __wbindgen_cast_2241b6af4c4b2941: () => le, __wbindgen_cast_4625c577ab2ec9ee: () => we, __wbindgen_cast_9ae0607507abb057: () => pe, __wbindgen_cast_d6cd19b81560fd6e: () => ye, __wbindgen_init_externref_table: () => me });
+    D(xe, { QueryCompiler: () => F, __wbg_Error_e83987f665cf5504: () => q, __wbg_Number_bb48ca12f395cd08: () => C, __wbg_String_8f0eb39a4a4c2f66: () => k, __wbg___wbindgen_boolean_get_6d5a1ee65bab5f68: () => W, __wbg___wbindgen_debug_string_df47ffb5e35e6763: () => V, __wbg___wbindgen_in_bb933bd9e1b3bc0f: () => z12, __wbg___wbindgen_is_object_c818261d21f283a4: () => L, __wbg___wbindgen_is_string_fbb76cb2940daafd: () => P, __wbg___wbindgen_is_undefined_2d472862bd29a478: () => Q, __wbg___wbindgen_jsval_loose_eq_b664b38a2f582147: () => Y, __wbg___wbindgen_number_get_a20bf9b85341449d: () => G, __wbg___wbindgen_string_get_e4f06c90489ad01b: () => J, __wbg___wbindgen_throw_b855445ff6a94295: () => X, __wbg_entries_e171b586f8f6bdbf: () => H, __wbg_getTime_14776bfb48a1bff9: () => K, __wbg_get_7bed016f185add81: () => Z, __wbg_get_with_ref_key_1dc361bd10053bfe: () => v, __wbg_instanceof_ArrayBuffer_70beb1189ca63b38: () => ee, __wbg_instanceof_Uint8Array_20c8e73002f7af98: () => te, __wbg_isSafeInteger_d216eda7911dde36: () => ne, __wbg_length_69bca3cb64fc8748: () => re, __wbg_length_cdd215e10d9dd507: () => _e, __wbg_new_0_f9740686d739025c: () => oe, __wbg_new_1acc0b6eea89d040: () => ce, __wbg_new_5a79be3ab53b8aa5: () => ie, __wbg_new_68651c719dcda04e: () => se, __wbg_new_e17d9f43105b08be: () => ue, __wbg_prototypesetcall_2a6620b6922694b2: () => fe, __wbg_set_3f1d0b984ed272ed: () => be, __wbg_set_907fb406c34a251d: () => de, __wbg_set_c213c871859d6500: () => ae, __wbg_set_message_82ae475bb413aa5c: () => ge, __wbg_set_wasm: () => N, __wbindgen_cast_2241b6af4c4b2941: () => le, __wbindgen_cast_4625c577ab2ec9ee: () => we, __wbindgen_cast_9ae0607507abb057: () => pe, __wbindgen_cast_d6cd19b81560fd6e: () => ye, __wbindgen_init_externref_table: () => me });
     module.exports = B(xe);
     var A = () => {
     };
@@ -7963,7 +7963,7 @@ ${e.stack}` : _;
       const n = I(t), _ = l(n, o.__wbindgen_malloc, o.__wbindgen_realloc), r = f;
       u().setInt32(e + 4 * 1, r, true), u().setInt32(e + 4 * 0, _, true);
     }
-    function z11(e, t) {
+    function z12(e, t) {
       return e in t;
     }
     function L(e) {
@@ -8154,13 +8154,11 @@ var require_prisma = __commonJS({
     });
     exports.Prisma.AboutScalarFieldEnum = {
       id: "id",
-      heroImg: "heroImg",
-      aboutMeImg: "aboutMeImg",
       title: "title",
       subtitle: "subtitle",
       description: "description",
       resumeUrl: "resumeUrl",
-      resumeDownloadCount: "resumeDownloadCount",
+      aboutMeImg: "aboutMeImg",
       createdAt: "createdAt",
       updatedAt: "updatedAt"
     };
@@ -8378,10 +8376,6 @@ var require_prisma = __commonJS({
     };
     exports.Prisma.SettingsScalarFieldEnum = {
       id: "id",
-      siteTitle: "siteTitle",
-      tagline: "tagline",
-      logoUrl: "logoUrl",
-      faviconUrl: "faviconUrl",
       linkedinUrl: "linkedinUrl",
       githubUrl: "githubUrl",
       facebookUrl: "facebookUrl",
@@ -8496,17 +8490,14 @@ var require_prisma = __commonJS({
       "inlineSchema": `// About Model \u2014 SINGLETON
 // id = 'singleton' fixed\u0964 upsert({ where: { id: 'singleton' }, ... }) \u09AC\u09CD\u09AF\u09AC\u09B9\u09BE\u09B0 \u0995\u09B0\u09A4\u09C7 \u09B9\u09AC\u09C7\u0964
 model About {
-  id         String  @id @default("singleton")
-  heroImg    String?
-  aboutMeImg String?
+  id String @id @default("singleton")
 
   title       String?
   subtitle    String?
   description String? @db.Text
-  resumeUrl   String?
+  resumeUrl   String? // just use resume url not upload file
 
-  // Resume download tracking
-  resumeDownloadCount Int @default(0)
+  aboutMeImg String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -8978,12 +8969,6 @@ datasource db {
 model Settings {
   id String @id @default("singleton")
 
-  // Site identity
-  siteTitle  String?
-  tagline    String?
-  logoUrl    String?
-  faviconUrl String?
-
   // Social Links
   linkedinUrl  String?
   githubUrl    String?
@@ -9014,7 +8999,7 @@ model Settings {
 }
 `
     };
-    config.runtimeDataModel = JSON.parse('{"models":{"About":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"heroImg","kind":"scalar","type":"String"},{"name":"aboutMeImg","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subtitle","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"resumeUrl","kind":"scalar","type":"String"},{"name":"resumeDownloadCount","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"about"},"AdminProfile":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"bio","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AdminProfileToUser"}],"dbName":"admin_profile"},"PageView":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"page","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"city","kind":"scalar","type":"String"},{"name":"referrer","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"page_views"},"ResumeDownloadLog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"resume_download_logs"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"emailVerified","kind":"scalar","type":"Boolean"},{"name":"name","kind":"scalar","type":"String"},{"name":"image","kind":"scalar","type":"String"},{"name":"phone","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"Role"},{"name":"status","kind":"enum","type":"UserStatus"},{"name":"needPasswordChange","kind":"scalar","type":"Boolean"},{"name":"isDeleted","kind":"scalar","type":"Boolean"},{"name":"deletedAt","kind":"scalar","type":"DateTime"},{"name":"isActive","kind":"scalar","type":"Boolean"},{"name":"isBanned","kind":"scalar","type":"Boolean"},{"name":"isReviewed","kind":"scalar","type":"Boolean"},{"name":"reviewId","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"sessions","kind":"object","type":"Session","relationName":"SessionToUser"},{"name":"accounts","kind":"object","type":"Account","relationName":"AccountToUser"},{"name":"adminProfile","kind":"object","type":"AdminProfile","relationName":"AdminProfileToUser"},{"name":"reviews","kind":"object","type":"Review","relationName":"ReviewToUser"}],"dbName":"users"},"Session":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"token","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"user","kind":"object","type":"User","relationName":"SessionToUser"}],"dbName":"sessions"},"Account":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"accountId","kind":"scalar","type":"String"},{"name":"providerId","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"accessToken","kind":"scalar","type":"String"},{"name":"refreshToken","kind":"scalar","type":"String"},{"name":"idToken","kind":"scalar","type":"String"},{"name":"accessTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"refreshTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"scope","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AccountToUser"}],"dbName":"accounts"},"Verification":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"identifier","kind":"scalar","type":"String"},{"name":"value","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"verifications"},"Award":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subTitle","kind":"scalar","type":"String"},{"name":"date","kind":"scalar","type":"String"},{"name":"details","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"awards"},"Blog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"excerpt","kind":"scalar","type":"String"},{"name":"content","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"BlogStatus"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"publishedAt","kind":"scalar","type":"DateTime"},{"name":"metaTitle","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"viewCount","kind":"scalar","type":"Int"},{"name":"likeCount","kind":"scalar","type":"Int"},{"name":"tags","kind":"object","type":"BlogTag","relationName":"BlogToBlogTag"},{"name":"comments","kind":"object","type":"BlogComment","relationName":"BlogToBlogComment"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blogs"},"BlogTag":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"blogs","kind":"object","type":"Blog","relationName":"BlogToBlogTag"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_tags"},"BlogComment":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"blogId","kind":"scalar","type":"String"},{"name":"blog","kind":"object","type":"Blog","relationName":"BlogToBlogComment"},{"name":"parentId","kind":"scalar","type":"String"},{"name":"parent","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"replies","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_comments"},"Category":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"projects","kind":"object","type":"Project","relationName":"CategoryToProject"}],"dbName":"categories"},"AiProviderConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"provider","kind":"scalar","type":"String"},{"name":"apiKey","kind":"scalar","type":"String"},{"name":"model","kind":"scalar","type":"String"},{"name":"endpoint","kind":"scalar","type":"String"},{"name":"maxTokens","kind":"scalar","type":"Int"},{"name":"temperature","kind":"scalar","type":"Float"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"ai_provider_config"},"ChatbotConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"botName","kind":"scalar","type":"String"},{"name":"welcomeMsg","kind":"scalar","type":"String"},{"name":"systemPrompt","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"chatbot_config"},"Contact":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"subject","kind":"scalar","type":"String"},{"name":"message","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"ContactStatus"},{"name":"adminNote","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"contacts"},"Experience":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"companyUrl","kind":"scalar","type":"String"},{"name":"companyLogo","kind":"scalar","type":"String"},{"name":"responsibilities","kind":"scalar","type":"String"},{"name":"startDate","kind":"scalar","type":"DateTime"},{"name":"endDate","kind":"scalar","type":"DateTime"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"experiences"},"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"bannerImage","kind":"scalar","type":"String"},{"name":"year","kind":"scalar","type":"String"},{"name":"bgColor","kind":"scalar","type":"String"},{"name":"liveUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"roles","kind":"scalar","type":"String"},{"name":"client","kind":"scalar","type":"String"},{"name":"techStack","kind":"scalar","type":"String"},{"name":"tags","kind":"scalar","type":"String"},{"name":"sections","kind":"scalar","type":"Json"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"categoryId","kind":"scalar","type":"String"},{"name":"category","kind":"object","type":"Category","relationName":"CategoryToProject"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"projects"},"Review":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"isPinned","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"ReviewToUser"}],"dbName":"reviews"},"Settings":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"siteTitle","kind":"scalar","type":"String"},{"name":"tagline","kind":"scalar","type":"String"},{"name":"logoUrl","kind":"scalar","type":"String"},{"name":"faviconUrl","kind":"scalar","type":"String"},{"name":"linkedinUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"facebookUrl","kind":"scalar","type":"String"},{"name":"instagramUrl","kind":"scalar","type":"String"},{"name":"twitterUrl","kind":"scalar","type":"String"},{"name":"youtubeUrl","kind":"scalar","type":"String"},{"name":"resumeLink","kind":"scalar","type":"String"},{"name":"contactEmail","kind":"scalar","type":"String"},{"name":"contactPhone","kind":"scalar","type":"String"},{"name":"whatsappNumber","kind":"scalar","type":"String"},{"name":"address","kind":"scalar","type":"String"},{"name":"availability","kind":"scalar","type":"String"},{"name":"experience","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"metaKeywords","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"settings"}},"enums":{},"types":{}}');
+    config.runtimeDataModel = JSON.parse('{"models":{"About":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subtitle","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"resumeUrl","kind":"scalar","type":"String"},{"name":"aboutMeImg","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"about"},"AdminProfile":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"bio","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AdminProfileToUser"}],"dbName":"admin_profile"},"PageView":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"page","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"city","kind":"scalar","type":"String"},{"name":"referrer","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"page_views"},"ResumeDownloadLog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"resume_download_logs"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"emailVerified","kind":"scalar","type":"Boolean"},{"name":"name","kind":"scalar","type":"String"},{"name":"image","kind":"scalar","type":"String"},{"name":"phone","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"Role"},{"name":"status","kind":"enum","type":"UserStatus"},{"name":"needPasswordChange","kind":"scalar","type":"Boolean"},{"name":"isDeleted","kind":"scalar","type":"Boolean"},{"name":"deletedAt","kind":"scalar","type":"DateTime"},{"name":"isActive","kind":"scalar","type":"Boolean"},{"name":"isBanned","kind":"scalar","type":"Boolean"},{"name":"isReviewed","kind":"scalar","type":"Boolean"},{"name":"reviewId","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"sessions","kind":"object","type":"Session","relationName":"SessionToUser"},{"name":"accounts","kind":"object","type":"Account","relationName":"AccountToUser"},{"name":"adminProfile","kind":"object","type":"AdminProfile","relationName":"AdminProfileToUser"},{"name":"reviews","kind":"object","type":"Review","relationName":"ReviewToUser"}],"dbName":"users"},"Session":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"token","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"user","kind":"object","type":"User","relationName":"SessionToUser"}],"dbName":"sessions"},"Account":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"accountId","kind":"scalar","type":"String"},{"name":"providerId","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"accessToken","kind":"scalar","type":"String"},{"name":"refreshToken","kind":"scalar","type":"String"},{"name":"idToken","kind":"scalar","type":"String"},{"name":"accessTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"refreshTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"scope","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AccountToUser"}],"dbName":"accounts"},"Verification":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"identifier","kind":"scalar","type":"String"},{"name":"value","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"verifications"},"Award":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subTitle","kind":"scalar","type":"String"},{"name":"date","kind":"scalar","type":"String"},{"name":"details","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"awards"},"Blog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"excerpt","kind":"scalar","type":"String"},{"name":"content","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"BlogStatus"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"publishedAt","kind":"scalar","type":"DateTime"},{"name":"metaTitle","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"viewCount","kind":"scalar","type":"Int"},{"name":"likeCount","kind":"scalar","type":"Int"},{"name":"tags","kind":"object","type":"BlogTag","relationName":"BlogToBlogTag"},{"name":"comments","kind":"object","type":"BlogComment","relationName":"BlogToBlogComment"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blogs"},"BlogTag":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"blogs","kind":"object","type":"Blog","relationName":"BlogToBlogTag"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_tags"},"BlogComment":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"blogId","kind":"scalar","type":"String"},{"name":"blog","kind":"object","type":"Blog","relationName":"BlogToBlogComment"},{"name":"parentId","kind":"scalar","type":"String"},{"name":"parent","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"replies","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_comments"},"Category":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"projects","kind":"object","type":"Project","relationName":"CategoryToProject"}],"dbName":"categories"},"AiProviderConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"provider","kind":"scalar","type":"String"},{"name":"apiKey","kind":"scalar","type":"String"},{"name":"model","kind":"scalar","type":"String"},{"name":"endpoint","kind":"scalar","type":"String"},{"name":"maxTokens","kind":"scalar","type":"Int"},{"name":"temperature","kind":"scalar","type":"Float"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"ai_provider_config"},"ChatbotConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"botName","kind":"scalar","type":"String"},{"name":"welcomeMsg","kind":"scalar","type":"String"},{"name":"systemPrompt","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"chatbot_config"},"Contact":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"subject","kind":"scalar","type":"String"},{"name":"message","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"ContactStatus"},{"name":"adminNote","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"contacts"},"Experience":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"companyUrl","kind":"scalar","type":"String"},{"name":"companyLogo","kind":"scalar","type":"String"},{"name":"responsibilities","kind":"scalar","type":"String"},{"name":"startDate","kind":"scalar","type":"DateTime"},{"name":"endDate","kind":"scalar","type":"DateTime"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"experiences"},"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"bannerImage","kind":"scalar","type":"String"},{"name":"year","kind":"scalar","type":"String"},{"name":"bgColor","kind":"scalar","type":"String"},{"name":"liveUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"roles","kind":"scalar","type":"String"},{"name":"client","kind":"scalar","type":"String"},{"name":"techStack","kind":"scalar","type":"String"},{"name":"tags","kind":"scalar","type":"String"},{"name":"sections","kind":"scalar","type":"Json"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"categoryId","kind":"scalar","type":"String"},{"name":"category","kind":"object","type":"Category","relationName":"CategoryToProject"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"projects"},"Review":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"isPinned","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"ReviewToUser"}],"dbName":"reviews"},"Settings":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"linkedinUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"facebookUrl","kind":"scalar","type":"String"},{"name":"instagramUrl","kind":"scalar","type":"String"},{"name":"twitterUrl","kind":"scalar","type":"String"},{"name":"youtubeUrl","kind":"scalar","type":"String"},{"name":"resumeLink","kind":"scalar","type":"String"},{"name":"contactEmail","kind":"scalar","type":"String"},{"name":"contactPhone","kind":"scalar","type":"String"},{"name":"whatsappNumber","kind":"scalar","type":"String"},{"name":"address","kind":"scalar","type":"String"},{"name":"availability","kind":"scalar","type":"String"},{"name":"experience","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"metaKeywords","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"settings"}},"enums":{},"types":{}}');
     defineDmmfProperty2(exports.Prisma, config.runtimeDataModel);
     config.compilerWasm = {
       getRuntime: async () => require_query_compiler_bg(),
@@ -10757,10 +10742,43 @@ var SettingController = {
   updateSettings: updateSettings2
 };
 
+// src/app/modules/setting/setting.validation.ts
+init_esm_shims();
+import { z as z3 } from "zod";
+var updateSettingsZodSchema = z3.object({
+  // Social Links
+  linkedinUrl: z3.string().url().optional().or(z3.literal("")),
+  githubUrl: z3.string().url().optional().or(z3.literal("")),
+  facebookUrl: z3.string().url().optional().or(z3.literal("")),
+  instagramUrl: z3.string().url().optional().or(z3.literal("")),
+  twitterUrl: z3.string().url().optional().or(z3.literal("")),
+  youtubeUrl: z3.string().url().optional().or(z3.literal("")),
+  // Contact info
+  resumeLink: z3.string().url().optional().or(z3.literal("")),
+  contactEmail: z3.string().email().optional().or(z3.literal("")),
+  contactPhone: z3.string().optional(),
+  whatsappNumber: z3.string().optional(),
+  address: z3.string().optional(),
+  // Availability & meta
+  availability: z3.string().optional(),
+  experience: z3.string().optional(),
+  // SEO
+  metaDescription: z3.string().optional(),
+  metaKeywords: z3.string().optional()
+});
+var SettingValidation = {
+  updateSettingsZodSchema
+};
+
 // src/app/modules/setting/setting.route.ts
 var router6 = express5.Router();
 router6.get("/", SettingController.getSettings);
-router6.patch("/", auth_default("ADMIN" /* ADMIN */), SettingController.updateSettings);
+router6.patch(
+  "/",
+  auth_default("ADMIN" /* ADMIN */),
+  validateRequest(SettingValidation.updateSettingsZodSchema),
+  SettingController.updateSettings
+);
 var SettingRouter = router6;
 
 // src/app/modules/project/project.route.ts
@@ -11009,16 +11027,16 @@ var ProjectController = {
 
 // src/app/modules/project/project.validation.ts
 init_esm_shims();
-import { z as z3 } from "zod";
-var booleanFromString = z3.union([z3.boolean(), z3.string()]).transform((val) => {
+import { z as z4 } from "zod";
+var booleanFromString = z4.union([z4.boolean(), z4.string()]).transform((val) => {
   if (typeof val === "boolean") return val;
   return val === "true" || val === "on";
 });
-var numberFromString2 = z3.union([z3.number(), z3.string()]).transform((val) => {
+var numberFromString2 = z4.union([z4.number(), z4.string()]).transform((val) => {
   if (typeof val === "number") return val;
   return Number(val);
-}).pipe(z3.number());
-var tagsField = z3.union([z3.array(z3.string()), z3.string()]).transform((val) => {
+}).pipe(z4.number());
+var tagsField = z4.union([z4.array(z4.string()), z4.string()]).transform((val) => {
   if (Array.isArray(val)) return val;
   try {
     const parsed = JSON.parse(val);
@@ -11027,8 +11045,8 @@ var tagsField = z3.union([z3.array(z3.string()), z3.string()]).transform((val) =
     return val.split(",").map((t) => t.trim()).filter(Boolean);
   }
   return [val];
-}).pipe(z3.array(z3.string()).nonempty("At least one tag is required"));
-var sectionsField = z3.union([z3.array(z3.any()), z3.string()]).transform((val) => {
+}).pipe(z4.array(z4.string()).nonempty("At least one tag is required"));
+var sectionsField = z4.union([z4.array(z4.any()), z4.string()]).transform((val) => {
   if (Array.isArray(val)) return val;
   try {
     return JSON.parse(val);
@@ -11036,20 +11054,20 @@ var sectionsField = z3.union([z3.array(z3.any()), z3.string()]).transform((val) 
     return [];
   }
 }).optional();
-var createProjectZodSchema = z3.object({
-  title: z3.string().min(1, "title is required"),
-  slug: z3.string().min(1, "slug is required"),
-  description: z3.string().min(1, "description is required"),
+var createProjectZodSchema = z4.object({
+  title: z4.string().min(1, "title is required"),
+  slug: z4.string().min(1, "slug is required"),
+  description: z4.string().min(1, "description is required"),
   tags: tagsField,
-  categoryId: z3.string().min(1, "categoryId is required"),
-  thumbnail: z3.string().optional(),
-  bannerImage: z3.string().optional(),
-  year: z3.string().optional(),
-  bgColor: z3.string().optional(),
-  liveUrl: z3.string().optional(),
-  githubUrl: z3.string().optional(),
-  roles: z3.string().optional(),
-  client: z3.string().optional(),
+  categoryId: z4.string().min(1, "categoryId is required"),
+  thumbnail: z4.string().optional(),
+  bannerImage: z4.string().optional(),
+  year: z4.string().optional(),
+  bgColor: z4.string().optional(),
+  liveUrl: z4.string().optional(),
+  githubUrl: z4.string().optional(),
+  roles: z4.string().optional(),
+  client: z4.string().optional(),
   techStack: tagsField.optional(),
   sections: sectionsField,
   isFeatured: booleanFromString.optional(),
@@ -11098,17 +11116,17 @@ import express7 from "express";
 // src/app/modules/contact/contact.validation.ts
 init_esm_shims();
 var import_prisma12 = __toESM(require_prisma(), 1);
-import { z as z4 } from "zod";
-var createContactZodSchema = z4.object({
-  name: z4.string("Name is required"),
-  email: z4.string("Email is required").email("Invalid email format"),
-  subject: z4.string("Subject is required"),
-  message: z4.string().optional(),
-  ipAddress: z4.string().optional()
+import { z as z5 } from "zod";
+var createContactZodSchema = z5.object({
+  name: z5.string("Name is required"),
+  email: z5.string("Email is required").email("Invalid email format"),
+  subject: z5.string("Subject is required"),
+  message: z5.string().optional(),
+  ipAddress: z5.string().optional()
 });
-var updateContactZodSchema = z4.object({
-  status: z4.nativeEnum(import_prisma12.ContactStatus).optional(),
-  adminNote: z4.string().optional()
+var updateContactZodSchema = z5.object({
+  status: z5.nativeEnum(import_prisma12.ContactStatus).optional(),
+  adminNote: z5.string().optional()
 });
 var ContactValidation = {
   createContactZodSchema,
@@ -11410,9 +11428,6 @@ var updateAbout = async (payload) => {
   const current = await prisma.about.findUnique({
     where: { id: "singleton" }
   });
-  if (payload.heroImg && current?.heroImg && payload.heroImg !== current.heroImg) {
-    await deleteFileFromCloudinary(current.heroImg);
-  }
   if (payload.aboutMeImg && current?.aboutMeImg && payload.aboutMeImg !== current.aboutMeImg) {
     await deleteFileFromCloudinary(current.aboutMeImg);
   }
@@ -11422,20 +11437,10 @@ var updateAbout = async (payload) => {
   });
   return result;
 };
-var downloadResume = async () => {
-  const result = await prisma.about.update({
-    where: { id: "singleton" },
-    data: {
-      resumeDownloadCount: { increment: 1 }
-    }
-  });
-  return result;
-};
 var AboutService = {
   createAbout,
   getAbout,
-  updateAbout,
-  downloadResume
+  updateAbout
 };
 
 // src/app/modules/about/about.controller.ts
@@ -11444,9 +11449,7 @@ var createAbout2 = async (req, res, next) => {
   try {
     const payload = { ...req.body };
     const files = req.files;
-    if (files?.heroImg?.[0]) payload.heroImg = files.heroImg[0].path;
     if (files?.aboutMeImg?.[0]) payload.aboutMeImg = files.aboutMeImg[0].path;
-    if (files?.resume?.[0]) payload.resumeUrl = files.resume[0].path;
     const result = await AboutService.createAbout(payload);
     res.status(201).json({
       success: true,
@@ -11476,9 +11479,7 @@ var updateAbout2 = async (req, res, next) => {
   try {
     const payload = { ...req.body };
     const files = req.files;
-    if (files?.heroImg?.[0]) payload.heroImg = files.heroImg[0].path;
     if (files?.aboutMeImg?.[0]) payload.aboutMeImg = files.aboutMeImg[0].path;
-    if (files?.resume?.[0]) payload.resumeUrl = files.resume[0].path;
     const result = await AboutService.updateAbout(payload);
     res.status(200).json({
       success: true,
@@ -11489,41 +11490,21 @@ var updateAbout2 = async (req, res, next) => {
     next(err);
   }
 };
-var downloadResume2 = async (req, res, next) => {
-  try {
-    const result = await AboutService.downloadResume();
-    if (!result?.resumeUrl) {
-      throw new AppError_default(status10.NOT_FOUND, "Resume not found");
-    }
-    res.status(200).json({
-      success: true,
-      message: "Resume download link retrieved",
-      data: {
-        resumeUrl: result.resumeUrl,
-        downloadCount: result.resumeDownloadCount
-      }
-    });
-  } catch (err) {
-    next(err);
-  }
-};
 var AboutController = {
   createAbout: createAbout2,
   getAbout: getAbout2,
-  updateAbout: updateAbout2,
-  downloadResume: downloadResume2
+  updateAbout: updateAbout2
 };
 
 // src/app/modules/about/about.validation.ts
 init_esm_shims();
-import { z as z5 } from "zod";
-var createAboutZodSchema = z5.object({
-  title: z5.string().optional(),
-  subtitle: z5.string().optional(),
-  description: z5.string().optional(),
-  heroImg: z5.string().optional(),
-  aboutMeImg: z5.string().optional(),
-  resumeUrl: z5.string().optional()
+import { z as z6 } from "zod";
+var createAboutZodSchema = z6.object({
+  title: z6.string().optional(),
+  subtitle: z6.string().optional(),
+  description: z6.string().optional(),
+  aboutMeImg: z6.string().optional(),
+  resumeUrl: z6.string().optional()
 });
 var updateAboutZodSchema = createAboutZodSchema.partial();
 var AboutValidation = {
@@ -11535,14 +11516,11 @@ var AboutValidation = {
 var aboutImageUpload = createMulterUpload("about");
 var router9 = express8.Router();
 router9.get("/", AboutController.getAbout);
-router9.post("/download-resume", AboutController.downloadResume);
 router9.post(
   "/",
   auth_default("ADMIN" /* ADMIN */),
   aboutImageUpload.fields([
-    { name: "heroImg", maxCount: 1 },
-    { name: "aboutMeImg", maxCount: 1 },
-    { name: "resume", maxCount: 1 }
+    { name: "aboutMeImg", maxCount: 1 }
   ]),
   validateRequest(AboutValidation.createAboutZodSchema),
   AboutController.createAbout
@@ -11551,9 +11529,7 @@ router9.put(
   "/",
   auth_default("ADMIN" /* ADMIN */),
   aboutImageUpload.fields([
-    { name: "heroImg", maxCount: 1 },
-    { name: "aboutMeImg", maxCount: 1 },
-    { name: "resume", maxCount: 1 }
+    { name: "aboutMeImg", maxCount: 1 }
   ]),
   validateRequest(AboutValidation.updateAboutZodSchema),
   AboutController.updateAbout
@@ -11610,24 +11586,6 @@ var getPageViewStats = async () => {
     totalViews: item._count.id
   }));
 };
-var trackResumeDownload = async (payload) => {
-  const log = await prisma.resumeDownloadLog.create({
-    data: payload
-  });
-  await prisma.about.upsert({
-    where: { id: "singleton" },
-    update: {
-      resumeDownloadCount: {
-        increment: 1
-      }
-    },
-    create: {
-      id: "singleton",
-      resumeDownloadCount: 1
-    }
-  });
-  return log;
-};
 var getResumeDownloadLogs = async () => {
   const result = await prisma.resumeDownloadLog.findMany({
     orderBy: {
@@ -11636,20 +11594,11 @@ var getResumeDownloadLogs = async () => {
   });
   return result;
 };
-var getResumeDownloadCount = async () => {
-  const about = await prisma.about.findUnique({
-    where: { id: "singleton" },
-    select: { resumeDownloadCount: true }
-  });
-  return { resumeDownloadCount: about?.resumeDownloadCount ?? 0 };
-};
 var AnalyticsService = {
   trackPageView,
   getPageViews,
   getPageViewStats,
-  trackResumeDownload,
-  getResumeDownloadLogs,
-  getResumeDownloadCount
+  getResumeDownloadLogs
 };
 
 // src/app/modules/analytics/analytics.controller.ts
@@ -11689,18 +11638,6 @@ var getPageViewStats2 = async (req, res, next) => {
     next(err);
   }
 };
-var trackResumeDownload2 = async (req, res, next) => {
-  try {
-    const result = await AnalyticsService.trackResumeDownload(req.body);
-    res.status(201).json({
-      success: true,
-      message: "Resume download tracked successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
 var getResumeDownloadLogs2 = async (req, res, next) => {
   try {
     const result = await AnalyticsService.getResumeDownloadLogs();
@@ -11713,42 +11650,28 @@ var getResumeDownloadLogs2 = async (req, res, next) => {
     next(err);
   }
 };
-var getResumeDownloadCount2 = async (req, res, next) => {
-  try {
-    const result = await AnalyticsService.getResumeDownloadCount();
-    res.status(200).json({
-      success: true,
-      message: "Retrieved resume download count successfully",
-      data: result
-    });
-  } catch (err) {
-    next(err);
-  }
-};
 var AnalyticsController = {
   trackPageView: trackPageView2,
   getPageViews: getPageViews2,
   getPageViewStats: getPageViewStats2,
-  trackResumeDownload: trackResumeDownload2,
-  getResumeDownloadLogs: getResumeDownloadLogs2,
-  getResumeDownloadCount: getResumeDownloadCount2
+  getResumeDownloadLogs: getResumeDownloadLogs2
 };
 
 // src/app/modules/analytics/analytics.validation.ts
 init_esm_shims();
-import { z as z6 } from "zod";
-var createPageViewZodSchema = z6.object({
-  page: z6.string("Page is required"),
-  userAgent: z6.string().optional(),
-  ipAddress: z6.string().optional(),
-  country: z6.string().optional(),
-  city: z6.string().optional(),
-  referrer: z6.string().optional()
+import { z as z7 } from "zod";
+var createPageViewZodSchema = z7.object({
+  page: z7.string("Page is required"),
+  userAgent: z7.string().optional(),
+  ipAddress: z7.string().optional(),
+  country: z7.string().optional(),
+  city: z7.string().optional(),
+  referrer: z7.string().optional()
 });
-var createResumeDownloadLogZodSchema = z6.object({
-  ipAddress: z6.string().optional(),
-  country: z6.string().optional(),
-  userAgent: z6.string().optional()
+var createResumeDownloadLogZodSchema = z7.object({
+  ipAddress: z7.string().optional(),
+  country: z7.string().optional(),
+  userAgent: z7.string().optional()
 });
 var AnalyticsValidation = {
   createPageViewZodSchema,
@@ -11772,20 +11695,10 @@ router10.get(
   auth_default("ADMIN" /* ADMIN */),
   AnalyticsController.getPageViewStats
 );
-router10.post(
-  "/resume-downloads",
-  validateRequest(AnalyticsValidation.createResumeDownloadLogZodSchema),
-  AnalyticsController.trackResumeDownload
-);
 router10.get(
   "/resume-downloads",
   auth_default("ADMIN" /* ADMIN */),
   AnalyticsController.getResumeDownloadLogs
-);
-router10.get(
-  "/resume-downloads/count",
-  auth_default("ADMIN" /* ADMIN */),
-  AnalyticsController.getResumeDownloadCount
 );
 var AnalyticsRouter = router10;
 
@@ -11820,13 +11733,8 @@ var checkRateLimit = (ip, rateLimit2, rateLimitWindow) => {
   record.count += 1;
 };
 var buildContextFromDB = async () => {
-  const [about, skills, experiences, projects, services, settings] = await Promise.all([
+  const [about, experiences, projects, settings] = await Promise.all([
     prisma.about.findUnique({ where: { id: "singleton" } }),
-    prisma.skill.findMany({
-      where: { category: { isPublished: true } },
-      include: { category: true },
-      orderBy: { sortOrder: "asc" }
-    }),
     prisma.experience.findMany({
       where: { isPublished: true },
       orderBy: { startDate: "desc" }
@@ -11834,10 +11742,6 @@ var buildContextFromDB = async () => {
     prisma.project.findMany({
       where: { isPublished: true, isFeatured: true },
       include: { category: true },
-      orderBy: { sortOrder: "asc" }
-    }),
-    prisma.service.findMany({
-      where: { isPublished: true },
       orderBy: { sortOrder: "asc" }
     }),
     prisma.settings.findUnique({ where: { id: "singleton" } })
@@ -11856,26 +11760,14 @@ var buildContextFromDB = async () => {
     if (settings.availability)
       lines.push(`Availability: ${settings.availability}`);
   }
-  if (skills.length) {
-    const grouped = skills.reduce((acc, skill) => {
-      const cat = skill.category.name;
-      if (!acc[cat]) acc[cat] = [];
-      acc[cat].push(`${skill.name} (${skill.level})`);
-      return acc;
-    }, {});
-    lines.push("\nSkills:");
-    Object.entries(grouped).forEach(([cat, list]) => {
-      lines.push(`  ${cat}: ${list.join(", ")}`);
-    });
-  }
   if (experiences.length) {
     lines.push("\nWork Experience:");
     experiences.forEach((exp) => {
       const end = exp.endDate ? exp.endDate.getFullYear() : "Present";
       lines.push(
-        `  - ${exp.title} at ${exp.company} (${exp.startDate.getFullYear()}\u2013${end})`
+        `  - ${exp.position} at ${exp.companyName} (${exp.startDate.getFullYear()}\u2013${end})`
       );
-      if (exp.description) lines.push(`    ${exp.description}`);
+      if (exp.responsibilities) lines.push(`    ${exp.responsibilities}`);
     });
   }
   if (projects.length) {
@@ -11885,14 +11777,6 @@ var buildContextFromDB = async () => {
       lines.push(`    ${proj.description}`);
       if (proj.liveUrl) lines.push(`    Live: ${proj.liveUrl}`);
       if (proj.githubUrl) lines.push(`    GitHub: ${proj.githubUrl}`);
-    });
-  }
-  if (services.length) {
-    lines.push("\nServices Offered:");
-    services.forEach((svc) => {
-      lines.push(
-        `  - ${svc.name}${svc.description ? `: ${svc.description}` : ""}`
-      );
     });
   }
   return lines.join("\n");
@@ -12119,7 +12003,7 @@ var ChatbotController = {
 
 // src/app/modules/chatbot/chatbot.validation.ts
 init_esm_shims();
-import { z as z7 } from "zod";
+import { z as z8 } from "zod";
 
 // src/app/utils/sanitize.ts
 init_esm_shims();
@@ -12141,21 +12025,21 @@ var sanitizeUrl = (input) => {
 };
 
 // src/app/modules/chatbot/chatbot.validation.ts
-var optionalText = z7.string().optional().transform((v) => v === void 0 ? void 0 : sanitizeText(v));
-var optionalNullableUrl = z7.string().optional().nullable().transform((v) => v === void 0 || v === null ? v : sanitizeUrl(v));
-var createAiProviderConfigZodSchema = z7.object({
-  provider: z7.string("provider is required").transform((v) => sanitizeText(v)),
+var optionalText = z8.string().optional().transform((v) => v === void 0 ? void 0 : sanitizeText(v));
+var optionalNullableUrl = z8.string().optional().nullable().transform((v) => v === void 0 || v === null ? v : sanitizeUrl(v));
+var createAiProviderConfigZodSchema = z8.object({
+  provider: z8.string("provider is required").transform((v) => sanitizeText(v)),
   // apiKey — never rendered to UI, but still strip HTML defensively
-  apiKey: z7.string("apiKey is required").transform((v) => sanitizeText(v)),
-  model: z7.string("model is required").transform((v) => sanitizeText(v)),
+  apiKey: z8.string("apiKey is required").transform((v) => sanitizeText(v)),
+  model: z8.string("model is required").transform((v) => sanitizeText(v)),
   endpoint: optionalNullableUrl,
-  maxTokens: z7.number().optional(),
-  temperature: z7.number().min(0).max(1).optional(),
-  isEnabled: z7.boolean().optional()
+  maxTokens: z8.number().optional(),
+  temperature: z8.number().min(0).max(1).optional(),
+  isEnabled: z8.boolean().optional()
 });
 var updateAiProviderConfigZodSchema = createAiProviderConfigZodSchema.partial();
-var createChatbotConfigZodSchema = z7.object({
-  isEnabled: z7.boolean().optional(),
+var createChatbotConfigZodSchema = z8.object({
+  isEnabled: z8.boolean().optional(),
   botName: optionalText,
   welcomeMsg: optionalText,
   // System prompt is fed to the LLM, not rendered as HTML.
@@ -12167,9 +12051,9 @@ var createChatbotConfigZodSchema = z7.object({
   // rateLimitWindow: z.number().min(1).optional(),
 });
 var updateChatbotConfigZodSchema = createChatbotConfigZodSchema.partial();
-var sendMessageZodSchema = z7.object({
-  message: z7.string("message is required").min(1, "message cannot be empty").transform((v) => sanitizeText(v)).refine((v) => v.length > 0, "message cannot be empty after sanitization"),
-  sessionId: z7.string("sessionId is required").transform((v) => sanitizeText(v))
+var sendMessageZodSchema = z8.object({
+  message: z8.string("message is required").min(1, "message cannot be empty").transform((v) => sanitizeText(v)).refine((v) => v.length > 0, "message cannot be empty after sanitization"),
+  sessionId: z8.string("sessionId is required").transform((v) => sanitizeText(v))
 });
 var ChatbotValidation = {
   createAiProviderConfigZodSchema,
@@ -12374,16 +12258,16 @@ var ExperienceController = {
 
 // src/app/modules/experience/experience.validation.ts
 init_esm_shims();
-import { z as z8 } from "zod";
-var booleanFromString2 = z8.union([z8.boolean(), z8.string()]).transform((val) => {
+import { z as z9 } from "zod";
+var booleanFromString2 = z9.union([z9.boolean(), z9.string()]).transform((val) => {
   if (typeof val === "boolean") return val;
   return val === "true" || val === "on";
 });
-var numberFromString3 = z8.union([z8.number(), z8.string()]).transform((val) => {
+var numberFromString3 = z9.union([z9.number(), z9.string()]).transform((val) => {
   if (typeof val === "number") return val;
   return Number(val);
-}).pipe(z8.number());
-var responsibilitiesField = z8.union([z8.array(z8.string()), z8.string()]).transform((val) => {
+}).pipe(z9.number());
+var responsibilitiesField = z9.union([z9.array(z9.string()), z9.string()]).transform((val) => {
   if (Array.isArray(val)) return val;
   try {
     const parsed = JSON.parse(val);
@@ -12393,13 +12277,13 @@ var responsibilitiesField = z8.union([z8.array(z8.string()), z8.string()]).trans
   }
   return [val];
 });
-var createExperienceZodSchema = z8.object({
-  position: z8.string().min(1, "position is required"),
-  companyName: z8.string().min(1, "companyName is required"),
-  startDate: z8.string().min(1, "startDate is required"),
-  endDate: z8.string().optional().nullable(),
-  companyUrl: z8.string().optional().nullable(),
-  companyLogo: z8.string().optional().nullable(),
+var createExperienceZodSchema = z9.object({
+  position: z9.string().min(1, "position is required"),
+  companyName: z9.string().min(1, "companyName is required"),
+  startDate: z9.string().min(1, "startDate is required"),
+  endDate: z9.string().optional().nullable(),
+  companyUrl: z9.string().optional().nullable(),
+  companyLogo: z9.string().optional().nullable(),
   responsibilities: responsibilitiesField,
   isPublished: booleanFromString2.optional(),
   sortOrder: numberFromString3.optional()
@@ -12572,16 +12456,16 @@ var AwardController = {
 
 // src/app/modules/award/award.validation.ts
 init_esm_shims();
-import { z as z9 } from "zod";
-var booleanFromString3 = z9.union([z9.boolean(), z9.string()]).transform((val) => {
+import { z as z10 } from "zod";
+var booleanFromString3 = z10.union([z10.boolean(), z10.string()]).transform((val) => {
   if (typeof val === "boolean") return val;
   return val === "true" || val === "on";
 });
-var numberFromString4 = z9.union([z9.number(), z9.string()]).transform((val) => {
+var numberFromString4 = z10.union([z10.number(), z10.string()]).transform((val) => {
   if (typeof val === "number") return val;
   return Number(val);
-}).pipe(z9.number());
-var detailsField = z9.union([z9.array(z9.string()), z9.string()]).transform((val) => {
+}).pipe(z10.number());
+var detailsField = z10.union([z10.array(z10.string()), z10.string()]).transform((val) => {
   if (Array.isArray(val)) return val;
   try {
     const parsed = JSON.parse(val);
@@ -12591,10 +12475,10 @@ var detailsField = z9.union([z9.array(z9.string()), z9.string()]).transform((val
   }
   return [val];
 });
-var createAwardZodSchema = z9.object({
-  title: z9.string().min(1, "title is required"),
-  subTitle: z9.string().min(1, "subTitle is required"),
-  date: z9.string().min(1, "date is required"),
+var createAwardZodSchema = z10.object({
+  title: z10.string().min(1, "title is required"),
+  subTitle: z10.string().min(1, "subTitle is required"),
+  date: z10.string().min(1, "date is required"),
   details: detailsField,
   isPublished: booleanFromString3.optional(),
   sortOrder: numberFromString4.optional()
@@ -12861,7 +12745,7 @@ function notFound(req, res) {
 // src/app/middlewares/globalErrorHandler.ts
 init_esm_shims();
 import status16 from "http-status";
-import { z as z10 } from "zod";
+import { z as z11 } from "zod";
 import multer3 from "multer";
 var import_prisma20 = __toESM(require_prisma(), 1);
 
@@ -13146,7 +13030,7 @@ var globalErrorHandler = async (err, req, res, _next) => {
     statusCode = err.statusCode;
     message = err.message;
     errorSources = err.errorSources ?? [{ path: "", message: err.message }];
-  } else if (err instanceof z10.ZodError) {
+  } else if (err instanceof z11.ZodError) {
     const simplified = handleZodError(err);
     statusCode = simplified.statusCode ?? status16.BAD_REQUEST;
     message = simplified.message;

@@ -13,6 +13,7 @@ import { AnalyticsRouter } from "../modules/analytics/analytics.route";
 import { ChatbotRouter } from "../modules/chatbot/chatbot.route";
 import { ExperienceRouter } from "../modules/experience/experience.route";
 import { AwardRouter } from "../modules/award/award.route";
+import { FaqRouter } from "../modules/faq/faq.route";
 
 const router = Router();
 
@@ -29,6 +30,7 @@ router.use("/projects", ProjectRouter);
 router.use("/contacts", ContactRouter);
 router.use("/experiences", ExperienceRouter);
 router.use("/awards", AwardRouter);
+router.use("/faqs", FaqRouter);
 
 // router.use("/blogs", BlogRouter);
 

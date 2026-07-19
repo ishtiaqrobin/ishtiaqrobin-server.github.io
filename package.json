@@ -14,8 +14,7 @@
     "studio": "prisma studio",
     "seed:admin": "tsx src/scripts/seedAdmin.ts",
     "build": "prisma generate && tsup",
-    "postinstall": "prisma generate",
-    "stripe:webhook": "stripe listen --forward-to localhost:5000/webhook"
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
