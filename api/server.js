@@ -919,12 +919,12 @@ ${log3.fields?.reason}`;
       y.e = getBase10Exponent(xd, e);
       return external ? finalise(y, pr, rm) : y;
     };
-    P.precision = P.sd = function(z12) {
+    P.precision = P.sd = function(z13) {
       var k, x = this;
-      if (z12 !== void 0 && z12 !== !!z12 && z12 !== 1 && z12 !== 0) throw Error(invalidArgument + z12);
+      if (z13 !== void 0 && z13 !== !!z13 && z13 !== 1 && z13 !== 0) throw Error(invalidArgument + z13);
       if (x.d) {
         k = getPrecision(x.d);
-        if (z12 && x.e + 1 > k) k = x.e + 1;
+        if (z13 && x.e + 1 > k) k = x.e + 1;
       } else {
         k = NaN;
       }
@@ -6037,7 +6037,7 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
           }
           case "sum": {
             let o = await Promise.all(t.args.map((s) => this.interpretNode(s, r, n, i).then((a) => a.value)));
-            return { value: o.length > 0 ? o.reduce((s, a) => z12(s) + z12(a)) : 0 };
+            return { value: o.length > 0 ? o.reduce((s, a) => z13(s) + z13(a)) : 0 };
           }
           case "execute": {
             let o = Hn(t.args, n, i, this.#u()), s = 0;
@@ -6163,7 +6163,7 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
     function Wn(e) {
       return Array.isArray(e) ? e : [e];
     }
-    function z12(e) {
+    function z13(e) {
       if (typeof e == "number") return e;
       if (typeof e == "string") return Number(e);
       throw new Error(`Expected number, got ${typeof e}`);
@@ -6205,13 +6205,13 @@ Note that ${s.bold("include")} statements only accept relation fields.`, a;
         case "set":
           return H(e.value, r, n);
         case "add":
-          return z12(t) + z12(H(e.value, r, n));
+          return z13(t) + z13(H(e.value, r, n));
         case "subtract":
-          return z12(t) - z12(H(e.value, r, n));
+          return z13(t) - z13(H(e.value, r, n));
         case "multiply":
-          return z12(t) * z12(H(e.value, r, n));
+          return z13(t) * z13(H(e.value, r, n));
         case "divide": {
-          let i = z12(t), o = z12(H(e.value, r, n));
+          let i = z13(t), o = z13(H(e.value, r, n));
           return o === 0 ? null : i / o;
         }
         default:
@@ -7822,7 +7822,7 @@ var require_query_compiler_bg = __commonJS({
     };
     var B = (e) => O(h({}, "__esModule", { value: true }), e);
     var xe = {};
-    D(xe, { QueryCompiler: () => F, __wbg_Error_e83987f665cf5504: () => q, __wbg_Number_bb48ca12f395cd08: () => C, __wbg_String_8f0eb39a4a4c2f66: () => k, __wbg___wbindgen_boolean_get_6d5a1ee65bab5f68: () => W, __wbg___wbindgen_debug_string_df47ffb5e35e6763: () => V, __wbg___wbindgen_in_bb933bd9e1b3bc0f: () => z12, __wbg___wbindgen_is_object_c818261d21f283a4: () => L, __wbg___wbindgen_is_string_fbb76cb2940daafd: () => P, __wbg___wbindgen_is_undefined_2d472862bd29a478: () => Q, __wbg___wbindgen_jsval_loose_eq_b664b38a2f582147: () => Y, __wbg___wbindgen_number_get_a20bf9b85341449d: () => G, __wbg___wbindgen_string_get_e4f06c90489ad01b: () => J, __wbg___wbindgen_throw_b855445ff6a94295: () => X, __wbg_entries_e171b586f8f6bdbf: () => H, __wbg_getTime_14776bfb48a1bff9: () => K, __wbg_get_7bed016f185add81: () => Z, __wbg_get_with_ref_key_1dc361bd10053bfe: () => v, __wbg_instanceof_ArrayBuffer_70beb1189ca63b38: () => ee, __wbg_instanceof_Uint8Array_20c8e73002f7af98: () => te, __wbg_isSafeInteger_d216eda7911dde36: () => ne, __wbg_length_69bca3cb64fc8748: () => re, __wbg_length_cdd215e10d9dd507: () => _e, __wbg_new_0_f9740686d739025c: () => oe, __wbg_new_1acc0b6eea89d040: () => ce, __wbg_new_5a79be3ab53b8aa5: () => ie, __wbg_new_68651c719dcda04e: () => se, __wbg_new_e17d9f43105b08be: () => ue, __wbg_prototypesetcall_2a6620b6922694b2: () => fe, __wbg_set_3f1d0b984ed272ed: () => be, __wbg_set_907fb406c34a251d: () => de, __wbg_set_c213c871859d6500: () => ae, __wbg_set_message_82ae475bb413aa5c: () => ge, __wbg_set_wasm: () => N, __wbindgen_cast_2241b6af4c4b2941: () => le, __wbindgen_cast_4625c577ab2ec9ee: () => we, __wbindgen_cast_9ae0607507abb057: () => pe, __wbindgen_cast_d6cd19b81560fd6e: () => ye, __wbindgen_init_externref_table: () => me });
+    D(xe, { QueryCompiler: () => F, __wbg_Error_e83987f665cf5504: () => q, __wbg_Number_bb48ca12f395cd08: () => C, __wbg_String_8f0eb39a4a4c2f66: () => k, __wbg___wbindgen_boolean_get_6d5a1ee65bab5f68: () => W, __wbg___wbindgen_debug_string_df47ffb5e35e6763: () => V, __wbg___wbindgen_in_bb933bd9e1b3bc0f: () => z13, __wbg___wbindgen_is_object_c818261d21f283a4: () => L, __wbg___wbindgen_is_string_fbb76cb2940daafd: () => P, __wbg___wbindgen_is_undefined_2d472862bd29a478: () => Q, __wbg___wbindgen_jsval_loose_eq_b664b38a2f582147: () => Y, __wbg___wbindgen_number_get_a20bf9b85341449d: () => G, __wbg___wbindgen_string_get_e4f06c90489ad01b: () => J, __wbg___wbindgen_throw_b855445ff6a94295: () => X, __wbg_entries_e171b586f8f6bdbf: () => H, __wbg_getTime_14776bfb48a1bff9: () => K, __wbg_get_7bed016f185add81: () => Z, __wbg_get_with_ref_key_1dc361bd10053bfe: () => v, __wbg_instanceof_ArrayBuffer_70beb1189ca63b38: () => ee, __wbg_instanceof_Uint8Array_20c8e73002f7af98: () => te, __wbg_isSafeInteger_d216eda7911dde36: () => ne, __wbg_length_69bca3cb64fc8748: () => re, __wbg_length_cdd215e10d9dd507: () => _e, __wbg_new_0_f9740686d739025c: () => oe, __wbg_new_1acc0b6eea89d040: () => ce, __wbg_new_5a79be3ab53b8aa5: () => ie, __wbg_new_68651c719dcda04e: () => se, __wbg_new_e17d9f43105b08be: () => ue, __wbg_prototypesetcall_2a6620b6922694b2: () => fe, __wbg_set_3f1d0b984ed272ed: () => be, __wbg_set_907fb406c34a251d: () => de, __wbg_set_c213c871859d6500: () => ae, __wbg_set_message_82ae475bb413aa5c: () => ge, __wbg_set_wasm: () => N, __wbindgen_cast_2241b6af4c4b2941: () => le, __wbindgen_cast_4625c577ab2ec9ee: () => we, __wbindgen_cast_9ae0607507abb057: () => pe, __wbindgen_cast_d6cd19b81560fd6e: () => ye, __wbindgen_init_externref_table: () => me });
     module.exports = B(xe);
     var A = () => {
     };
@@ -7963,7 +7963,7 @@ ${e.stack}` : _;
       const n = I(t), _ = l(n, o.__wbindgen_malloc, o.__wbindgen_realloc), r = f;
       u().setInt32(e + 4 * 1, r, true), u().setInt32(e + 4 * 0, _, true);
     }
-    function z12(e, t) {
+    function z13(e, t) {
       return e in t;
     }
     function L(e) {
@@ -8340,6 +8340,15 @@ var require_prisma = __commonJS({
       createdAt: "createdAt",
       updatedAt: "updatedAt"
     };
+    exports.Prisma.FaqScalarFieldEnum = {
+      id: "id",
+      question: "question",
+      answer: "answer",
+      isPublished: "isPublished",
+      sortOrder: "sortOrder",
+      createdAt: "createdAt",
+      updatedAt: "updatedAt"
+    };
     exports.Prisma.ProjectScalarFieldEnum = {
       id: "id",
       slug: "slug",
@@ -8478,6 +8487,7 @@ var require_prisma = __commonJS({
       ChatbotConfig: "ChatbotConfig",
       Contact: "Contact",
       Experience: "Experience",
+      Faq: "Faq",
       Project: "Project",
       Review: "Review",
       Settings: "Settings"
@@ -8899,6 +8909,21 @@ model Experience {
   @@map("experiences")
 }
 
+// FAQ Model
+model Faq {
+  id       String @id @default(uuid())
+  question String
+  answer   String
+
+  isPublished Boolean @default(true)
+  sortOrder   Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("faqs")
+}
+
 // Project Model
 model Project {
   id          String  @id @default(uuid())
@@ -8999,7 +9024,7 @@ model Settings {
 }
 `
     };
-    config.runtimeDataModel = JSON.parse('{"models":{"About":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subtitle","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"resumeUrl","kind":"scalar","type":"String"},{"name":"aboutMeImg","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"about"},"AdminProfile":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"bio","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AdminProfileToUser"}],"dbName":"admin_profile"},"PageView":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"page","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"city","kind":"scalar","type":"String"},{"name":"referrer","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"page_views"},"ResumeDownloadLog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"resume_download_logs"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"emailVerified","kind":"scalar","type":"Boolean"},{"name":"name","kind":"scalar","type":"String"},{"name":"image","kind":"scalar","type":"String"},{"name":"phone","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"Role"},{"name":"status","kind":"enum","type":"UserStatus"},{"name":"needPasswordChange","kind":"scalar","type":"Boolean"},{"name":"isDeleted","kind":"scalar","type":"Boolean"},{"name":"deletedAt","kind":"scalar","type":"DateTime"},{"name":"isActive","kind":"scalar","type":"Boolean"},{"name":"isBanned","kind":"scalar","type":"Boolean"},{"name":"isReviewed","kind":"scalar","type":"Boolean"},{"name":"reviewId","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"sessions","kind":"object","type":"Session","relationName":"SessionToUser"},{"name":"accounts","kind":"object","type":"Account","relationName":"AccountToUser"},{"name":"adminProfile","kind":"object","type":"AdminProfile","relationName":"AdminProfileToUser"},{"name":"reviews","kind":"object","type":"Review","relationName":"ReviewToUser"}],"dbName":"users"},"Session":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"token","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"user","kind":"object","type":"User","relationName":"SessionToUser"}],"dbName":"sessions"},"Account":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"accountId","kind":"scalar","type":"String"},{"name":"providerId","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"accessToken","kind":"scalar","type":"String"},{"name":"refreshToken","kind":"scalar","type":"String"},{"name":"idToken","kind":"scalar","type":"String"},{"name":"accessTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"refreshTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"scope","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AccountToUser"}],"dbName":"accounts"},"Verification":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"identifier","kind":"scalar","type":"String"},{"name":"value","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"verifications"},"Award":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subTitle","kind":"scalar","type":"String"},{"name":"date","kind":"scalar","type":"String"},{"name":"details","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"awards"},"Blog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"excerpt","kind":"scalar","type":"String"},{"name":"content","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"BlogStatus"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"publishedAt","kind":"scalar","type":"DateTime"},{"name":"metaTitle","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"viewCount","kind":"scalar","type":"Int"},{"name":"likeCount","kind":"scalar","type":"Int"},{"name":"tags","kind":"object","type":"BlogTag","relationName":"BlogToBlogTag"},{"name":"comments","kind":"object","type":"BlogComment","relationName":"BlogToBlogComment"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blogs"},"BlogTag":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"blogs","kind":"object","type":"Blog","relationName":"BlogToBlogTag"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_tags"},"BlogComment":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"blogId","kind":"scalar","type":"String"},{"name":"blog","kind":"object","type":"Blog","relationName":"BlogToBlogComment"},{"name":"parentId","kind":"scalar","type":"String"},{"name":"parent","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"replies","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_comments"},"Category":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"projects","kind":"object","type":"Project","relationName":"CategoryToProject"}],"dbName":"categories"},"AiProviderConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"provider","kind":"scalar","type":"String"},{"name":"apiKey","kind":"scalar","type":"String"},{"name":"model","kind":"scalar","type":"String"},{"name":"endpoint","kind":"scalar","type":"String"},{"name":"maxTokens","kind":"scalar","type":"Int"},{"name":"temperature","kind":"scalar","type":"Float"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"ai_provider_config"},"ChatbotConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"botName","kind":"scalar","type":"String"},{"name":"welcomeMsg","kind":"scalar","type":"String"},{"name":"systemPrompt","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"chatbot_config"},"Contact":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"subject","kind":"scalar","type":"String"},{"name":"message","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"ContactStatus"},{"name":"adminNote","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"contacts"},"Experience":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"companyUrl","kind":"scalar","type":"String"},{"name":"companyLogo","kind":"scalar","type":"String"},{"name":"responsibilities","kind":"scalar","type":"String"},{"name":"startDate","kind":"scalar","type":"DateTime"},{"name":"endDate","kind":"scalar","type":"DateTime"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"experiences"},"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"bannerImage","kind":"scalar","type":"String"},{"name":"year","kind":"scalar","type":"String"},{"name":"bgColor","kind":"scalar","type":"String"},{"name":"liveUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"roles","kind":"scalar","type":"String"},{"name":"client","kind":"scalar","type":"String"},{"name":"techStack","kind":"scalar","type":"String"},{"name":"tags","kind":"scalar","type":"String"},{"name":"sections","kind":"scalar","type":"Json"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"categoryId","kind":"scalar","type":"String"},{"name":"category","kind":"object","type":"Category","relationName":"CategoryToProject"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"projects"},"Review":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"isPinned","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"ReviewToUser"}],"dbName":"reviews"},"Settings":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"linkedinUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"facebookUrl","kind":"scalar","type":"String"},{"name":"instagramUrl","kind":"scalar","type":"String"},{"name":"twitterUrl","kind":"scalar","type":"String"},{"name":"youtubeUrl","kind":"scalar","type":"String"},{"name":"resumeLink","kind":"scalar","type":"String"},{"name":"contactEmail","kind":"scalar","type":"String"},{"name":"contactPhone","kind":"scalar","type":"String"},{"name":"whatsappNumber","kind":"scalar","type":"String"},{"name":"address","kind":"scalar","type":"String"},{"name":"availability","kind":"scalar","type":"String"},{"name":"experience","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"metaKeywords","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"settings"}},"enums":{},"types":{}}');
+    config.runtimeDataModel = JSON.parse('{"models":{"About":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subtitle","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"resumeUrl","kind":"scalar","type":"String"},{"name":"aboutMeImg","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"about"},"AdminProfile":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"bio","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AdminProfileToUser"}],"dbName":"admin_profile"},"PageView":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"page","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"city","kind":"scalar","type":"String"},{"name":"referrer","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"page_views"},"ResumeDownloadLog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"country","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"resume_download_logs"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"emailVerified","kind":"scalar","type":"Boolean"},{"name":"name","kind":"scalar","type":"String"},{"name":"image","kind":"scalar","type":"String"},{"name":"phone","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"Role"},{"name":"status","kind":"enum","type":"UserStatus"},{"name":"needPasswordChange","kind":"scalar","type":"Boolean"},{"name":"isDeleted","kind":"scalar","type":"Boolean"},{"name":"deletedAt","kind":"scalar","type":"DateTime"},{"name":"isActive","kind":"scalar","type":"Boolean"},{"name":"isBanned","kind":"scalar","type":"Boolean"},{"name":"isReviewed","kind":"scalar","type":"Boolean"},{"name":"reviewId","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"sessions","kind":"object","type":"Session","relationName":"SessionToUser"},{"name":"accounts","kind":"object","type":"Account","relationName":"AccountToUser"},{"name":"adminProfile","kind":"object","type":"AdminProfile","relationName":"AdminProfileToUser"},{"name":"reviews","kind":"object","type":"Review","relationName":"ReviewToUser"}],"dbName":"users"},"Session":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"token","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"userAgent","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"user","kind":"object","type":"User","relationName":"SessionToUser"}],"dbName":"sessions"},"Account":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"accountId","kind":"scalar","type":"String"},{"name":"providerId","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"accessToken","kind":"scalar","type":"String"},{"name":"refreshToken","kind":"scalar","type":"String"},{"name":"idToken","kind":"scalar","type":"String"},{"name":"accessTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"refreshTokenExpiresAt","kind":"scalar","type":"DateTime"},{"name":"scope","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"AccountToUser"}],"dbName":"accounts"},"Verification":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"identifier","kind":"scalar","type":"String"},{"name":"value","kind":"scalar","type":"String"},{"name":"expiresAt","kind":"scalar","type":"DateTime"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"verifications"},"Award":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"subTitle","kind":"scalar","type":"String"},{"name":"date","kind":"scalar","type":"String"},{"name":"details","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"awards"},"Blog":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"excerpt","kind":"scalar","type":"String"},{"name":"content","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"BlogStatus"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"publishedAt","kind":"scalar","type":"DateTime"},{"name":"metaTitle","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"viewCount","kind":"scalar","type":"Int"},{"name":"likeCount","kind":"scalar","type":"Int"},{"name":"tags","kind":"object","type":"BlogTag","relationName":"BlogToBlogTag"},{"name":"comments","kind":"object","type":"BlogComment","relationName":"BlogToBlogComment"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blogs"},"BlogTag":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"blogs","kind":"object","type":"Blog","relationName":"BlogToBlogTag"},{"name":"createdAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_tags"},"BlogComment":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"blogId","kind":"scalar","type":"String"},{"name":"blog","kind":"object","type":"Blog","relationName":"BlogToBlogComment"},{"name":"parentId","kind":"scalar","type":"String"},{"name":"parent","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"replies","kind":"object","type":"BlogComment","relationName":"CommentReplies"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"blog_comments"},"Category":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"projects","kind":"object","type":"Project","relationName":"CategoryToProject"}],"dbName":"categories"},"AiProviderConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"provider","kind":"scalar","type":"String"},{"name":"apiKey","kind":"scalar","type":"String"},{"name":"model","kind":"scalar","type":"String"},{"name":"endpoint","kind":"scalar","type":"String"},{"name":"maxTokens","kind":"scalar","type":"Int"},{"name":"temperature","kind":"scalar","type":"Float"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"ai_provider_config"},"ChatbotConfig":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"isEnabled","kind":"scalar","type":"Boolean"},{"name":"botName","kind":"scalar","type":"String"},{"name":"welcomeMsg","kind":"scalar","type":"String"},{"name":"systemPrompt","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"chatbot_config"},"Contact":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"subject","kind":"scalar","type":"String"},{"name":"message","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"ContactStatus"},{"name":"adminNote","kind":"scalar","type":"String"},{"name":"ipAddress","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"contacts"},"Experience":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"companyUrl","kind":"scalar","type":"String"},{"name":"companyLogo","kind":"scalar","type":"String"},{"name":"responsibilities","kind":"scalar","type":"String"},{"name":"startDate","kind":"scalar","type":"DateTime"},{"name":"endDate","kind":"scalar","type":"DateTime"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"experiences"},"Faq":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"question","kind":"scalar","type":"String"},{"name":"answer","kind":"scalar","type":"String"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"faqs"},"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"slug","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"thumbnail","kind":"scalar","type":"String"},{"name":"bannerImage","kind":"scalar","type":"String"},{"name":"year","kind":"scalar","type":"String"},{"name":"bgColor","kind":"scalar","type":"String"},{"name":"liveUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"roles","kind":"scalar","type":"String"},{"name":"client","kind":"scalar","type":"String"},{"name":"techStack","kind":"scalar","type":"String"},{"name":"tags","kind":"scalar","type":"String"},{"name":"sections","kind":"scalar","type":"Json"},{"name":"isFeatured","kind":"scalar","type":"Boolean"},{"name":"isPublished","kind":"scalar","type":"Boolean"},{"name":"sortOrder","kind":"scalar","type":"Int"},{"name":"categoryId","kind":"scalar","type":"String"},{"name":"category","kind":"object","type":"Category","relationName":"CategoryToProject"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"projects"},"Review":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String"},{"name":"position","kind":"scalar","type":"String"},{"name":"companyName","kind":"scalar","type":"String"},{"name":"comment","kind":"scalar","type":"String"},{"name":"isApproved","kind":"scalar","type":"Boolean"},{"name":"isPinned","kind":"scalar","type":"Boolean"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"},{"name":"user","kind":"object","type":"User","relationName":"ReviewToUser"}],"dbName":"reviews"},"Settings":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"linkedinUrl","kind":"scalar","type":"String"},{"name":"githubUrl","kind":"scalar","type":"String"},{"name":"facebookUrl","kind":"scalar","type":"String"},{"name":"instagramUrl","kind":"scalar","type":"String"},{"name":"twitterUrl","kind":"scalar","type":"String"},{"name":"youtubeUrl","kind":"scalar","type":"String"},{"name":"resumeLink","kind":"scalar","type":"String"},{"name":"contactEmail","kind":"scalar","type":"String"},{"name":"contactPhone","kind":"scalar","type":"String"},{"name":"whatsappNumber","kind":"scalar","type":"String"},{"name":"address","kind":"scalar","type":"String"},{"name":"availability","kind":"scalar","type":"String"},{"name":"experience","kind":"scalar","type":"String"},{"name":"metaDescription","kind":"scalar","type":"String"},{"name":"metaKeywords","kind":"scalar","type":"String"},{"name":"createdAt","kind":"scalar","type":"DateTime"},{"name":"updatedAt","kind":"scalar","type":"DateTime"}],"dbName":"settings"}},"enums":{},"types":{}}');
     defineDmmfProperty2(exports.Prisma, config.runtimeDataModel);
     config.compilerWasm = {
       getRuntime: async () => require_query_compiler_bg(),
@@ -9030,7 +9055,7 @@ init_esm_shims();
 
 // src/app.ts
 init_esm_shims();
-import express15 from "express";
+import express16 from "express";
 import { toNodeHandler } from "better-auth/node";
 
 // src/app/lib/auth.ts
@@ -9379,7 +9404,7 @@ import path3 from "path";
 
 // src/app/routes/index.ts
 init_esm_shims();
-import { Router as Router13 } from "express";
+import { Router as Router14 } from "express";
 
 // src/app/modules/auth/auth.route.ts
 init_esm_shims();
@@ -11179,10 +11204,10 @@ var createContact = async (payload) => {
   return result;
 };
 var getAllContacts = async (query) => {
-  const { status: status17, startDate, endDate } = query;
+  const { status: status18, startDate, endDate } = query;
   const result = await prisma.contact.findMany({
     where: {
-      ...status17 && { status: status17 },
+      ...status18 && { status: status18 },
       ...startDate || endDate ? {
         createdAt: {
           ...startDate && { gte: new Date(startDate) },
@@ -12510,26 +12535,182 @@ router13.put(
 router13.delete("/:id", auth_default("ADMIN" /* ADMIN */), AwardController.deleteAward);
 var AwardRouter = router13;
 
+// src/app/modules/faq/faq.route.ts
+init_esm_shims();
+import express13 from "express";
+import multer3 from "multer";
+
+// src/app/modules/faq/faq.controller.ts
+init_esm_shims();
+
+// src/app/modules/faq/faq.service.ts
+init_esm_shims();
+import status14 from "http-status";
+var createFaq = async (payload) => {
+  const result = await prisma.faq.create({ data: payload });
+  return result;
+};
+var getFaqs = async (isPublished) => {
+  const results = await prisma.faq.findMany({
+    where: {
+      ...isPublished !== void 0 && { isPublished }
+    },
+    orderBy: { sortOrder: "asc" }
+  });
+  return results;
+};
+var updateFaq = async (id, payload) => {
+  const current = await prisma.faq.findUnique({ where: { id } });
+  if (!current) {
+    throw new AppError_default(status14.NOT_FOUND, "FAQ not found");
+  }
+  const result = await prisma.faq.update({
+    where: { id },
+    data: payload
+  });
+  return result;
+};
+var deleteFaq = async (id) => {
+  const current = await prisma.faq.findUnique({ where: { id } });
+  if (!current) {
+    throw new AppError_default(status14.NOT_FOUND, "FAQ not found");
+  }
+  await prisma.faq.delete({ where: { id } });
+};
+var FaqService = {
+  createFaq,
+  getFaqs,
+  updateFaq,
+  deleteFaq
+};
+
+// src/app/modules/faq/faq.controller.ts
+var createFaq2 = async (req, res, next) => {
+  try {
+    const result = await FaqService.createFaq(req.body);
+    res.status(201).json({
+      success: true,
+      message: "FAQ created successfully",
+      data: result
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var getFaqs2 = async (req, res, next) => {
+  try {
+    const { isPublished } = req.query;
+    const publishedFilter = isPublished === "true" ? true : isPublished === "false" ? false : void 0;
+    const result = await FaqService.getFaqs(publishedFilter);
+    res.status(200).json({
+      success: true,
+      message: "Retrieved all FAQs successfully",
+      data: result
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var updateFaq2 = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await FaqService.updateFaq(
+      id,
+      req.body
+    );
+    res.status(200).json({
+      success: true,
+      message: "FAQ updated successfully",
+      data: result
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var deleteFaq2 = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await FaqService.deleteFaq(id);
+    res.status(200).json({
+      success: true,
+      message: "FAQ deleted successfully"
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+var FaqController = {
+  createFaq: createFaq2,
+  getFaqs: getFaqs2,
+  updateFaq: updateFaq2,
+  deleteFaq: deleteFaq2
+};
+
+// src/app/modules/faq/faq.validation.ts
+init_esm_shims();
+import { z as z11 } from "zod";
+var booleanFromString4 = z11.union([z11.boolean(), z11.string()]).transform((val) => {
+  if (typeof val === "boolean") return val;
+  return val === "true" || val === "on";
+});
+var numberFromString5 = z11.union([z11.number(), z11.string()]).transform((val) => {
+  if (typeof val === "number") return val;
+  return Number(val);
+}).pipe(z11.number());
+var createFaqZodSchema = z11.object({
+  question: z11.string().min(1, "question is required"),
+  answer: z11.string().min(1, "answer is required"),
+  isPublished: booleanFromString4.optional(),
+  sortOrder: numberFromString5.optional()
+});
+var updateFaqZodSchema = createFaqZodSchema.partial();
+var FaqValidation = {
+  createFaqZodSchema,
+  updateFaqZodSchema
+};
+
+// src/app/modules/faq/faq.route.ts
+var faqUpload = multer3();
+var router14 = express13.Router();
+router14.get("/", FaqController.getFaqs);
+router14.post(
+  "/",
+  auth_default("ADMIN" /* ADMIN */),
+  faqUpload.none(),
+  validateRequest(FaqValidation.createFaqZodSchema),
+  FaqController.createFaq
+);
+router14.put(
+  "/:id",
+  auth_default("ADMIN" /* ADMIN */),
+  faqUpload.none(),
+  validateRequest(FaqValidation.updateFaqZodSchema),
+  FaqController.updateFaq
+);
+router14.delete("/:id", auth_default("ADMIN" /* ADMIN */), FaqController.deleteFaq);
+var FaqRouter = router14;
+
 // src/app/routes/index.ts
-var router14 = Router13();
-router14.use("/auth", AuthRouter);
-router14.use("/users", UserRouter);
-router14.use("/admins", AdminRouter);
-router14.use("/reviews", ReviewRouter);
-router14.use("/categories", CategoryRouter);
-router14.use("/settings", SettingRouter);
-router14.use("/about", AboutRouter);
-router14.use("/analytics", AnalyticsRouter);
-router14.use("/chatbot", ChatbotRouter);
-router14.use("/projects", ProjectRouter);
-router14.use("/contacts", ContactRouter);
-router14.use("/experiences", ExperienceRouter);
-router14.use("/awards", AwardRouter);
-var IndexRoutes = router14;
+var router15 = Router14();
+router15.use("/auth", AuthRouter);
+router15.use("/users", UserRouter);
+router15.use("/admins", AdminRouter);
+router15.use("/reviews", ReviewRouter);
+router15.use("/categories", CategoryRouter);
+router15.use("/settings", SettingRouter);
+router15.use("/about", AboutRouter);
+router15.use("/analytics", AnalyticsRouter);
+router15.use("/chatbot", ChatbotRouter);
+router15.use("/projects", ProjectRouter);
+router15.use("/contacts", ContactRouter);
+router15.use("/experiences", ExperienceRouter);
+router15.use("/awards", AwardRouter);
+router15.use("/faqs", FaqRouter);
+var IndexRoutes = router15;
 
 // src/app/modules/sitemap/sitemap.route.ts
 init_esm_shims();
-import express13 from "express";
+import express14 from "express";
 
 // src/app/modules/sitemap/sitemap.controller.ts
 init_esm_shims();
@@ -12725,11 +12906,11 @@ var SitemapController = {
 };
 
 // src/app/modules/sitemap/sitemap.route.ts
-var router15 = express13.Router();
-router15.get("/sitemap.xml", SitemapController.getSitemapXml);
-router15.get("/sitemap.json", SitemapController.getSitemapJson);
-router15.get("/robots.txt", SitemapController.getRobotsTxt);
-var SitemapRouter = router15;
+var router16 = express14.Router();
+router16.get("/sitemap.xml", SitemapController.getSitemapXml);
+router16.get("/sitemap.json", SitemapController.getSitemapJson);
+router16.get("/robots.txt", SitemapController.getRobotsTxt);
+var SitemapRouter = router16;
 
 // src/app/middlewares/notFound.ts
 init_esm_shims();
@@ -12744,16 +12925,16 @@ function notFound(req, res) {
 
 // src/app/middlewares/globalErrorHandler.ts
 init_esm_shims();
-import status16 from "http-status";
-import { z as z11 } from "zod";
-import multer3 from "multer";
-var import_prisma20 = __toESM(require_prisma(), 1);
+import status17 from "http-status";
+import { z as z12 } from "zod";
+import multer4 from "multer";
+var import_prisma21 = __toESM(require_prisma(), 1);
 
 // src/app/errorHelpers/handleZodError.ts
 init_esm_shims();
-import status14 from "http-status";
+import status15 from "http-status";
 var handleZodError = (err) => {
-  const statusCode = status14.BAD_REQUEST;
+  const statusCode = status15.BAD_REQUEST;
   const message = "Zod Validation Error";
   const errorSources = [];
   err.issues.forEach((issue) => {
@@ -12773,9 +12954,9 @@ var handleZodError = (err) => {
 
 // src/app/errorHelpers/handlePrismaError.ts
 init_esm_shims();
-import status15 from "http-status";
+import status16 from "http-status";
 var handlePrismaKnownRequestError = (err) => {
-  let statusCode = status15.BAD_REQUEST;
+  let statusCode = status16.BAD_REQUEST;
   let message = "Database Request Error";
   let errorSources = [];
   switch (err.code) {
@@ -12783,7 +12964,7 @@ var handlePrismaKnownRequestError = (err) => {
     case "P2002": {
       const target = err.meta?.target;
       const fieldName = Array.isArray(target) ? target.join(", ") : target || "field";
-      statusCode = status15.CONFLICT;
+      statusCode = status16.CONFLICT;
       message = `Duplicate value for ${fieldName}. This value already exists.`;
       errorSources = [
         {
@@ -12795,7 +12976,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Record not found (update / delete / findUniqueOrThrow) ────────────
     case "P2025": {
-      statusCode = status15.NOT_FOUND;
+      statusCode = status16.NOT_FOUND;
       message = "Record Not Found";
       errorSources = [
         {
@@ -12808,7 +12989,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Foreign key constraint failed ─────────────────────────────────────
     case "P2003": {
       const fieldName = err.meta?.field_name || "foreign key";
-      statusCode = status15.BAD_REQUEST;
+      statusCode = status16.BAD_REQUEST;
       message = "Foreign Key Constraint Failed";
       errorSources = [
         {
@@ -12821,7 +13002,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Value too long for column ─────────────────────────────────────────
     case "P2000": {
       const column = err.meta?.column_name || "field";
-      statusCode = status15.BAD_REQUEST;
+      statusCode = status16.BAD_REQUEST;
       message = "Input Value Too Long";
       errorSources = [
         {
@@ -12834,7 +13015,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Null constraint violation ─────────────────────────────────────────
     case "P2011": {
       const constraint = err.meta?.constraint || "field";
-      statusCode = status15.BAD_REQUEST;
+      statusCode = status16.BAD_REQUEST;
       message = "Null Constraint Violation";
       errorSources = [
         {
@@ -12847,7 +13028,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Missing required value ────────────────────────────────────────────
     case "P2012": {
       const path4 = err.meta?.path || "field";
-      statusCode = status15.BAD_REQUEST;
+      statusCode = status16.BAD_REQUEST;
       message = "Missing Required Value";
       errorSources = [
         {
@@ -12860,7 +13041,7 @@ var handlePrismaKnownRequestError = (err) => {
     // ── Required relation violation ───────────────────────────────────────
     case "P2014": {
       const relation = err.meta?.relation_name || "relation";
-      statusCode = status15.BAD_REQUEST;
+      statusCode = status16.BAD_REQUEST;
       message = "Relation Constraint Violation";
       errorSources = [
         {
@@ -12872,7 +13053,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Invalid ID format (e.g. bad UUID / ObjectId) ──────────────────────
     case "P2023": {
-      statusCode = status15.BAD_REQUEST;
+      statusCode = status16.BAD_REQUEST;
       message = "Invalid ID Format";
       errorSources = [
         {
@@ -12884,7 +13065,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Connection pool timeout ───────────────────────────────────────────
     case "P2024": {
-      statusCode = status15.SERVICE_UNAVAILABLE;
+      statusCode = status16.SERVICE_UNAVAILABLE;
       message = "Database Connection Timeout";
       errorSources = [
         {
@@ -12896,7 +13077,7 @@ var handlePrismaKnownRequestError = (err) => {
     }
     // ── Transaction write conflict / deadlock ─────────────────────────────
     case "P2034": {
-      statusCode = status15.CONFLICT;
+      statusCode = status16.CONFLICT;
       message = "Transaction Conflict";
       errorSources = [
         {
@@ -12930,7 +13111,7 @@ var handlePrismaValidationError = (err) => {
   const lines = err.message.split("\n").map((l) => l.trim()).filter(Boolean);
   const reason = lines[lines.length - 1] || err.message;
   return {
-    statusCode: status15.BAD_REQUEST,
+    statusCode: status16.BAD_REQUEST,
     success: false,
     message: "Invalid Data Provided",
     errorSources: [
@@ -12944,7 +13125,7 @@ var handlePrismaValidationError = (err) => {
 };
 var handlePrismaInitializationError = (err) => {
   return {
-    statusCode: status15.SERVICE_UNAVAILABLE,
+    statusCode: status16.SERVICE_UNAVAILABLE,
     success: false,
     message: "Database Service Unavailable",
     errorSources: [
@@ -12958,7 +13139,7 @@ var handlePrismaInitializationError = (err) => {
 };
 var handlePrismaUnknownRequestError = (err) => {
   return {
-    statusCode: status15.INTERNAL_SERVER_ERROR,
+    statusCode: status16.INTERNAL_SERVER_ERROR,
     success: false,
     message: "Unexpected Database Error",
     errorSources: [
@@ -12972,7 +13153,7 @@ var handlePrismaUnknownRequestError = (err) => {
 };
 var handlePrismaRustPanicError = (err) => {
   return {
-    statusCode: status15.INTERNAL_SERVER_ERROR,
+    statusCode: status16.INTERNAL_SERVER_ERROR,
     success: false,
     message: "Critical Database Engine Error",
     errorSources: [
@@ -13023,45 +13204,45 @@ var cleanupUploadedFiles = async (req) => {
 };
 var globalErrorHandler = async (err, req, res, _next) => {
   await cleanupUploadedFiles(req);
-  let statusCode = status16.INTERNAL_SERVER_ERROR;
+  let statusCode = status17.INTERNAL_SERVER_ERROR;
   let message = "Internal Server Error";
   let errorSources = [];
   if (err instanceof AppError_default) {
     statusCode = err.statusCode;
     message = err.message;
     errorSources = err.errorSources ?? [{ path: "", message: err.message }];
-  } else if (err instanceof z11.ZodError) {
+  } else if (err instanceof z12.ZodError) {
     const simplified = handleZodError(err);
-    statusCode = simplified.statusCode ?? status16.BAD_REQUEST;
+    statusCode = simplified.statusCode ?? status17.BAD_REQUEST;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma20.Prisma.PrismaClientKnownRequestError) {
+  } else if (err instanceof import_prisma21.Prisma.PrismaClientKnownRequestError) {
     const simplified = handlePrismaKnownRequestError(err);
-    statusCode = simplified.statusCode ?? status16.BAD_REQUEST;
+    statusCode = simplified.statusCode ?? status17.BAD_REQUEST;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma20.Prisma.PrismaClientValidationError) {
+  } else if (err instanceof import_prisma21.Prisma.PrismaClientValidationError) {
     const simplified = handlePrismaValidationError(err);
-    statusCode = simplified.statusCode ?? status16.BAD_REQUEST;
+    statusCode = simplified.statusCode ?? status17.BAD_REQUEST;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma20.Prisma.PrismaClientInitializationError) {
+  } else if (err instanceof import_prisma21.Prisma.PrismaClientInitializationError) {
     const simplified = handlePrismaInitializationError(err);
-    statusCode = simplified.statusCode ?? status16.SERVICE_UNAVAILABLE;
+    statusCode = simplified.statusCode ?? status17.SERVICE_UNAVAILABLE;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma20.Prisma.PrismaClientUnknownRequestError) {
+  } else if (err instanceof import_prisma21.Prisma.PrismaClientUnknownRequestError) {
     const simplified = handlePrismaUnknownRequestError(err);
-    statusCode = simplified.statusCode ?? status16.INTERNAL_SERVER_ERROR;
+    statusCode = simplified.statusCode ?? status17.INTERNAL_SERVER_ERROR;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof import_prisma20.Prisma.PrismaClientRustPanicError) {
+  } else if (err instanceof import_prisma21.Prisma.PrismaClientRustPanicError) {
     const simplified = handlePrismaRustPanicError(err);
-    statusCode = simplified.statusCode ?? status16.INTERNAL_SERVER_ERROR;
+    statusCode = simplified.statusCode ?? status17.INTERNAL_SERVER_ERROR;
     message = simplified.message;
     errorSources = simplified.errorSources ?? [];
-  } else if (err instanceof multer3.MulterError) {
-    statusCode = status16.BAD_REQUEST;
+  } else if (err instanceof multer4.MulterError) {
+    statusCode = status17.BAD_REQUEST;
     switch (err.code) {
       case "LIMIT_FILE_SIZE":
         message = "File too large. Maximum allowed size is 5MB.";
@@ -13080,11 +13261,11 @@ var globalErrorHandler = async (err, req, res, _next) => {
     }
     errorSources = [{ path: err.field || "file", message }];
   } else if (err instanceof SyntaxError && "body" in err) {
-    statusCode = status16.BAD_REQUEST;
+    statusCode = status17.BAD_REQUEST;
     message = "Malformed JSON in request body";
     errorSources = [{ path: "body", message }];
   } else if (err && typeof err.code === "string" && NETWORK_ERROR_CODES.has(err.code)) {
-    statusCode = status16.SERVICE_UNAVAILABLE;
+    statusCode = status17.SERVICE_UNAVAILABLE;
     message = "Upstream Service Unavailable";
     errorSources = [
       {
@@ -13121,7 +13302,7 @@ var globalErrorHandler_default = globalErrorHandler;
 
 // src/app/modules/health/health.route.ts
 init_esm_shims();
-import express14 from "express";
+import express15 from "express";
 
 // src/app/modules/health/health.controller.ts
 init_esm_shims();
@@ -13172,12 +13353,12 @@ var healthCheck = async (_req, res) => {
 };
 
 // src/app/modules/health/health.route.ts
-var router16 = express14.Router();
-router16.get("/", healthCheck);
-var HealthRoutes = router16;
+var router17 = express15.Router();
+router17.get("/", healthCheck);
+var HealthRoutes = router17;
 
 // src/app.ts
-var app = express15();
+var app = express16();
 app.set("view engine", "ejs");
 app.set("views", path3.resolve(process.cwd(), "src/app/templates"));
 app.use(
@@ -13193,8 +13374,8 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
-app.use(express15.json());
-app.use(express15.urlencoded({ extended: true }));
+app.use(express16.json());
+app.use(express16.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.all("/api/auth/*splat", authLimiter, toNodeHandler(auth));
 app.use("/api/v1", globalLimiter, IndexRoutes);

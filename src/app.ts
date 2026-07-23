@@ -73,8 +73,8 @@ app.get("/", (_req: Request, res: Response) => {
 // ── Health Check Route
 app.use("/health", HealthRoutes);
 
-// ── Error Handler (সবার শেষে)
-app.use(globalErrorHandler);
+// ── Error Handler
 app.use(notFound);
+app.use(globalErrorHandler);
 
 export default app;
