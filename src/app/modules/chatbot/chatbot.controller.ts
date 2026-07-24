@@ -96,40 +96,53 @@ const upsertChatbotConfig = async (
 };
 
 // ── Chatbot Logs ──────────────────────────────────────────
-// DISABLED — ChatbotLog model আপাতত comment out করা schema এ।
-// চালু করতে চাইলে: schema model uncomment → migrate → নিচের handler
-// ও export uncomment + route গুলো uncomment।
-//
+
 // Get all logs (admin)
-// const getChatbotLogs = async (req: Request, res: Response, next: NextFunction) => {
-//   try {
-//     const { sessionId } = req.query;
-//     const result = await ChatbotService.getChatbotLogs(sessionId as string);
-//     res.status(200).json({
-//       success: true,
-//       message: "Retrieved chatbot logs successfully",
-//       data: result,
-//     });
-//   } catch (err) {
-//     next(err);
-//   }
-// };
-//
+const getChatbotLogs = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { sessionId } = req.query;
+    const limit = req.query.limit
+      ? Number(req.query.limit)
+      : undefined;
+    const result = await ChatbotService.getChatbotLogs(
+      sessionId as string,
+      limit,
+    );
+    const total = await ChatbotService.getChatbotLogCount();
+    res.status(200).json({
+      success: true,
+      message: "Retrieved chatbot logs successfully",
+      data: result,
+      meta: { total },
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 // Delete logs (admin — specific session or all)
-// const deleteChatbotLogs = async (req: Request, res: Response, next: NextFunction) => {
-//   try {
-//     const { sessionId } = req.query;
-//     await ChatbotService.deleteChatbotLogs(sessionId as string);
-//     res.status(200).json({
-//       success: true,
-//       message: sessionId
-//         ? "Session logs deleted successfully"
-//         : "All chatbot logs deleted successfully",
-//     });
-//   } catch (err) {
-//     next(err);
-//   }
-// };
+const deleteChatbotLogs = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { sessionId } = req.query;
+    await ChatbotService.deleteChatbotLogs(sessionId as string);
+    res.status(200).json({
+      success: true,
+      message: sessionId
+        ? "Session logs deleted successfully"
+        : "All chatbot logs deleted successfully",
+    });
+  } catch (err) {
+    next(err);
+  }
+};
 
 export const ChatbotController = {
   sendMessage,
@@ -137,6 +150,6 @@ export const ChatbotController = {
   upsertAiProviderConfig,
   getChatbotConfig,
   upsertChatbotConfig,
-  // getChatbotLogs,
-  // deleteChatbotLogs,
+  getChatbotLogs,
+  deleteChatbotLogs,
 };

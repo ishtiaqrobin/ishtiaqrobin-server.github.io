@@ -62,18 +62,15 @@ router.put(
 );
 
 // ── Chatbot Logs (Admin) ───
-// DISABLED — ChatbotLog model schema এ comment out করা।
-// চালু করতে চাইলে: schema model uncomment → migrate → controller/service
-// এর related code uncomment → নিচের route গুলো uncomment।
-//
-// Get all logs (optional ?sessionId=xxx filter)
-// router.get("/logs", auth(UserRole.ADMIN), ChatbotController.getChatbotLogs);
-//
+
+// Get all logs (optional ?sessionId=xxx filter, ?limit=50)
+router.get("/logs", auth(UserRole.ADMIN), ChatbotController.getChatbotLogs);
+
 // Delete logs (optional ?sessionId=xxx, না দিলে সব delete)
-// router.delete(
-//   "/logs",
-//   auth(UserRole.ADMIN),
-//   ChatbotController.deleteChatbotLogs,
-// );
+router.delete(
+  "/logs",
+  auth(UserRole.ADMIN),
+  ChatbotController.deleteChatbotLogs,
+);
 
 export const ChatbotRouter: Router = router;

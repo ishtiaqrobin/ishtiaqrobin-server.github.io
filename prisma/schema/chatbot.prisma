@@ -45,21 +45,20 @@ model ChatbotConfig {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Chatbot Conversation Log — DISABLED
-// আপাতত DB তে log save করা হচ্ছে না (privacy + storage cost কমাতে)।
-// পরে চালু করতে চাইলে: এই block uncomment করো, prisma migrate চালাও,
-// এবং chatbot.service.ts এ logging code uncomment করো।
+// Chatbot Conversation Log
+// প্রতিটি user message ও AI response এখানে save হয়।
+// Dashboard থেকে সব log একসাথে clear করা যাবে।
 // ─────────────────────────────────────────────────────────────
-// model ChatbotLog {
-//     id        String  @id @default(uuid())
-//     sessionId String
-//     role      String // "user" | "assistant"
-//     message   String  @db.Text
-//     ipAddress String?
-//
-//     createdAt DateTime @default(now())
-//
-//     @@index([sessionId])
-//     @@index([createdAt])
-//     @@map("chatbot_logs")
-// }
+model ChatbotLog {
+    id        String   @id @default(uuid())
+    sessionId String
+    role      String   // "user" | "model"
+    message   String   @db.Text
+    ipAddress String?
+
+    createdAt DateTime @default(now())
+
+    @@index([sessionId])
+    @@index([createdAt])
+    @@map("chatbot_logs")
+}

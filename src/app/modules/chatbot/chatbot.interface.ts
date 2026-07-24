@@ -37,3 +37,13 @@ export interface ConversationMessage {
   role: "user" | "model";
   parts: [{ text: string }];
 }
+
+// Chatbot Log
+export interface ChatbotLogResponse {
+  id: string;
+  sessionId: string;
+  role: string;
+  message: string;
+  ipAddress: string | null;
+  createdAt: Date;
+}
