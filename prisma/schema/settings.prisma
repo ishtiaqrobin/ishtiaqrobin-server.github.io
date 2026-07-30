@@ -14,10 +14,11 @@ model Settings {
     youtubeUrl   String?
 
     // Contact info
-    contactPhone String?
+    resumeLink     String?
+    contactPhone   String?
     contactEmail   String?
     whatsappNumber String?
-    address String?
+    address        String?
 
     // Availability & meta
     availability String?
