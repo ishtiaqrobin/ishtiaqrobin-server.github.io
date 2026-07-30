@@ -71,6 +71,7 @@ const buildContextFromDB = async (): Promise<string> => {
     if (about.title) lines.push(`Name: ${about.title}`);
     if (about.subtitle) lines.push(`Role: ${about.subtitle}`);
     if (about.description) lines.push(`About: ${about.description}`);
+    if (about.resumeUrl) lines.push(`Resume: ${about.resumeUrl}`);
   }
 
   // Contact & Social
@@ -81,6 +82,16 @@ const buildContextFromDB = async (): Promise<string> => {
     if (settings.linkedinUrl) lines.push(`LinkedIn: ${settings.linkedinUrl}`);
     if (settings.availability)
       lines.push(`Availability: ${settings.availability}`);
+    if (settings.experience)
+      lines.push(`Year Of Experience: ${settings.experience}`);
+    if (settings.address) lines.push(`Address: ${settings.address}`);
+    if (settings.whatsappNumber)
+      lines.push(`WhatsApp: ${settings.whatsappNumber}`);
+    if (settings.instagramUrl)
+      lines.push(`Instagram: ${settings.instagramUrl}`);
+    if (settings.facebookUrl) lines.push(`Facebook: ${settings.facebookUrl}`);
+    if (settings.twitterUrl) lines.push(`Twitter: ${settings.twitterUrl}`);
+    if (settings.youtubeUrl) lines.push(`YouTube: ${settings.youtubeUrl}`);
   }
 
   // Experience
@@ -338,7 +349,7 @@ const getChatbotLogs = async (
   const result = await prisma.chatbotLog.findMany({
     where: { ...(sessionId && { sessionId }) },
     orderBy: { createdAt: "desc" },
-    take: limit,
+    take: limit || 50,
   });
   return result;
 };

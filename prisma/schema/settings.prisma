@@ -15,10 +15,8 @@ model Settings {
 
     // Contact info
     contactPhone String?
-
     contactEmail   String?
     whatsappNumber String?
-
     address String?
 
     // Availability & meta
