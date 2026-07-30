@@ -5,19 +5,21 @@ model Settings {
     id String @id @default("singleton")
 
     // Social Links
-    linkedinUrl  String?
-    githubUrl    String?
-    facebookUrl  String?
+    linkedinUrl String?
+    githubUrl   String?
+    facebookUrl String?
+
     instagramUrl String?
     twitterUrl   String?
     youtubeUrl   String?
 
     // Contact info
-    resumeLink     String?
+    contactPhone String?
+
     contactEmail   String?
-    contactPhone   String?
     whatsappNumber String?
-    address        String?
+
+    address String?
 
     // Availability & meta
     availability String?

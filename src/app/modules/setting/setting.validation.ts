@@ -10,7 +10,6 @@ const updateSettingsZodSchema = z.object({
   youtubeUrl: z.string().url().optional().or(z.literal("")),
 
   // Contact info
-  resumeLink: z.string().url().optional().or(z.literal("")),
   contactEmail: z.string().email().optional().or(z.literal("")),
   contactPhone: z.string().optional(),
   whatsappNumber: z.string().optional(),
