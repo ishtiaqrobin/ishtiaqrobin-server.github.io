@@ -77,6 +77,10 @@ const getDashboardStats = async (): Promise<DashboardStats> => {
       totalCategories,
       totalReviews,
 
+      totalExperiences,
+      totalAwards,
+      totalFaqs,
+
       totalContacts,
       totalUnreadContacts,
 
@@ -91,6 +95,10 @@ const getDashboardStats = async (): Promise<DashboardStats> => {
       tx.project.count(),
       tx.category.count(),
       tx.review.count(),
+
+      tx.experience.count(),
+      tx.award.count(),
+      tx.faq.count(),
 
       tx.contact.count(),
       tx.contact.count({ where: { status: "UNREAD" } }),
@@ -109,9 +117,11 @@ const getDashboardStats = async (): Promise<DashboardStats> => {
       totalSkills: 0,
       totalCategories,
       totalServices: 0,
-      totalExperiences: 0,
+      totalExperiences,
       totalEducations: 0,
       totalCertificates: 0,
+      totalAwards,
+      totalFaqs,
       totalReviews,
       totalGallery: 0,
       totalVideos: 0,

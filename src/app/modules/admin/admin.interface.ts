@@ -1,5 +1,6 @@
 export interface DashboardStats {
   // Users
+  grandTotalUsers: number;
   totalUsers: number;
   totalAdmins: number;
   totalVerifiedUsers: number;
@@ -13,6 +14,8 @@ export interface DashboardStats {
   totalExperiences: number;
   totalEducations: number;
   totalCertificates: number;
+  totalAwards: number;
+  totalFaqs: number;
   totalReviews: number;
   totalGallery: number;
   totalVideos: number;
