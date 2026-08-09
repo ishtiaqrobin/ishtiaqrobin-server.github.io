@@ -14,6 +14,8 @@ interface EnvConfig {
   REFRESH_TOKEN_SECRET: string;
   REFRESH_TOKEN_EXPIRES_IN: string;
   FRONTEND_URL: string;
+  CLIENT_URL?: string;
+  ALLOWED_ORIGINS?: string;
   CONTACT_RECEIVER_EMAIL: string;
   GOOGLE_CLIENT_ID: string;
   GOOGLE_CLIENT_SECRET: string;
@@ -86,6 +88,8 @@ const loadEnvVariables = (): EnvConfig => {
     REFRESH_TOKEN_SECRET: process.env.REFRESH_TOKEN_SECRET as string,
     REFRESH_TOKEN_EXPIRES_IN: process.env.REFRESH_TOKEN_EXPIRES_IN as string,
     FRONTEND_URL: process.env.FRONTEND_URL as string,
+    CLIENT_URL: process.env.CLIENT_URL as string,
+    ALLOWED_ORIGINS: process.env.ALLOWED_ORIGINS as string,
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID as string,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET as string,
     CONTACT_RECEIVER_EMAIL: process.env.CONTACT_RECEIVER_EMAIL as string,

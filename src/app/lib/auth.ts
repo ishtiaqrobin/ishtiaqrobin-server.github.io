@@ -10,12 +10,23 @@ export const auth = betterAuth({
   baseURL: env.BETTER_AUTH_URL,
   secret: env.BETTER_AUTH_SECRET,
 
-  trustedOrigins: [
-    env.FRONTEND_URL,
-    env.BETTER_AUTH_URL,
-    "http://localhost:3000",
-    "http://localhost:5000",
-  ],
+  trustedOrigins: Array.from(
+    new Set(
+      [
+        env.FRONTEND_URL,
+        env.CLIENT_URL,
+        ...(env.ALLOWED_ORIGINS
+          ? env.ALLOWED_ORIGINS.split(",").map((s) => s.trim())
+          : []),
+        env.BETTER_AUTH_URL,
+        "https://ishtiaqrobin.vercel.app",
+        "https://ishtiaqrobin.netlify.app",
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://localhost:5000",
+      ].filter(Boolean) as string[],
+    ),
+  ),
 
   database: prismaAdapter(prisma, {
     provider: "postgresql",

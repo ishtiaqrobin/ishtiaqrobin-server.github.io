@@ -27,17 +27,42 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve(process.cwd(), "src/app/templates"));
 
 // ── Core Middlewares
-app.use(
-  cors({
-    origin: [
+const parseAllowedOrigins = (str?: string) =>
+  str ? str.split(",").map((s) => s.trim()) : [];
+
+const staticAllowedOrigins = Array.from(
+  new Set(
+    [
       env.FRONTEND_URL,
+      env.CLIENT_URL,
+      ...parseAllowedOrigins(env.ALLOWED_ORIGINS),
       env.BETTER_AUTH_URL,
+      "https://ishtiaqrobin.vercel.app",
+      "https://ishtiaqrobin.netlify.app",
       "http://localhost:5000",
       "http://localhost:3000",
-    ],
+      "http://localhost:3001",
+    ].filter(Boolean) as string[],
+  ),
+);
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (
+        staticAllowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app") ||
+        origin.endsWith(".netlify.app") ||
+        origin.includes("localhost")
+      ) {
+        return callback(null, origin);
+      }
+      return callback(null, origin);
+    },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   }),
 );
 
