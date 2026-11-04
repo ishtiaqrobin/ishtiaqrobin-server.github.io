@@ -98,6 +98,57 @@ vercel --prod
 
 ---
 
+## 5. Redeploying (after code changes)
+
+The project is linked to Vercel as **`ishtiaqrobin-server`**
+(`projectId: prj_FayKWjFNTo3kFc593MC4nMvzcKbF`).
+
+### Option A — Git push (automatic)
+
+If the Vercel project is connected to the GitHub repo
+(`ishtiaqrobin/ishtiaqrobin-server.github.io`), every push to `main`
+triggers a production build automatically:
+
+```bash
+git add -A
+git commit -m "your message"
+git push origin main
+```
+
+### Option B — Vercel CLI (manual)
+
+```bash
+# 1. Authenticate once (token expires periodically)
+npx vercel login
+
+# 2. Verify you're logged in
+npx vercel whoami
+
+# 3. Deploy to production
+npx vercel --prod
+```
+
+> **Note:** `api/server.js` is gitignored — Vercel regenerates it during the
+> build via the `build` script (`prisma generate && tsup`). Never commit it.
+
+### Option C — Vercel Dashboard
+
+1. Go to <https://vercel.com/dashboard>
+2. Open the **`ishtiaqrobin-server`** project
+3. **Deployments** tab → find the latest deployment
+4. Click **⋯** → **Redeploy**
+5. (Optional) Uncheck *"Use existing Build Cache"* for a clean rebuild
+
+### Verifying a deploy
+
+```bash
+# Should return 401 (route exists + auth-protected), NOT 404
+curl -X POST https://<your-domain>/api/v1/chatbot/ai-config/test \
+  -H "Content-Type: application/json" -d '{}'
+```
+
+---
+
 ## 💡 Why this setup?
 
 1. **ESM Support**: Using `.mjs` prevents "Dynamic require" errors that often crash backends on Vercel.
