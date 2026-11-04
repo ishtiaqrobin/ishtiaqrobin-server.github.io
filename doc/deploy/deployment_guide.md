@@ -137,7 +137,7 @@ npx vercel --prod
 2. Open the **`ishtiaqrobin-server`** project
 3. **Deployments** tab → find the latest deployment
 4. Click **⋯** → **Redeploy**
-5. (Optional) Uncheck *"Use existing Build Cache"* for a clean rebuild
+5. (Optional) Uncheck _"Use existing Build Cache"_ for a clean rebuild
 
 ### Verifying a deploy
 
