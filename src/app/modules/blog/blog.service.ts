@@ -131,8 +131,7 @@ const createBlog = async (payload: CreateBlogInput) => {
   // Auto-set publishedAt when publishing without an explicit date
   const finalStatus = rest.status ?? "DRAFT";
   const finalPublishedAt =
-    publishedAt ??
-    (finalStatus === "PUBLISHED" ? new Date() : null);
+    publishedAt ?? (finalStatus === "PUBLISHED" ? new Date() : null);
 
   const result = await prisma.blog.create({
     data: {
@@ -454,7 +453,10 @@ const createComment = async (
   });
   if (!blog) throw new AppError(status.NOT_FOUND, "Blog not found");
   if (blog.status !== "PUBLISHED") {
-    throw new AppError(status.BAD_REQUEST, "Cannot comment on an unpublished post.");
+    throw new AppError(
+      status.BAD_REQUEST,
+      "Cannot comment on an unpublished post.",
+    );
   }
 
   // Validate parent belongs to the same blog
@@ -468,7 +470,10 @@ const createComment = async (
     }
     // Only 1 level of nesting
     if (parent.parentId) {
-      throw new AppError(status.BAD_REQUEST, "Replies to replies are not allowed.");
+      throw new AppError(
+        status.BAD_REQUEST,
+        "Replies to replies are not allowed.",
+      );
     }
   }
 

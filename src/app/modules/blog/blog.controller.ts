@@ -58,8 +58,16 @@ const createBlog = async (req: Request, res: Response, next: NextFunction) => {
 
 const getBlogs = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { status, isFeatured, isPinned, tagId, tagSlug, search, page, limit } =
-      req.query;
+    const {
+      status,
+      isFeatured,
+      isPinned,
+      tagId,
+      tagSlug,
+      search,
+      page,
+      limit,
+    } = req.query;
 
     // Public callers only ever see PUBLISHED posts.
     // Admins (authenticated) may request any status.

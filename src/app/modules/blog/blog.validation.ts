@@ -1,5 +1,9 @@
 import { z } from "zod";
-import { sanitizeText, sanitizeRichContent, sanitizeUrl } from "../../utils/sanitize";
+import {
+  sanitizeText,
+  sanitizeRichContent,
+  sanitizeUrl,
+} from "../../utils/sanitize";
 
 // ── Reusable multipart-aware primitives ───────────────────
 
@@ -55,7 +59,9 @@ const optionalUrl = z
   .string()
   .optional()
   .nullable()
-  .transform((v) => (v === undefined || v === null ? undefined : sanitizeUrl(v)));
+  .transform((v) =>
+    v === undefined || v === null ? undefined : sanitizeUrl(v),
+  );
 
 const blogStatusEnum = z.enum(["DRAFT", "PUBLISHED", "ARCHIVED"]);
 

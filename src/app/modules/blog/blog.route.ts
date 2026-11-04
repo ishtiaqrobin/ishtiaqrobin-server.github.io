@@ -26,11 +26,7 @@ router.delete("/tags/:id", auth(UserRole.ADMIN), BlogController.deleteTag);
 // ── Comments (admin moderation) ───────────────────────────
 // Declared before "/:id" for the same reason.
 
-router.get(
-  "/comments",
-  auth(UserRole.ADMIN),
-  BlogController.getAllComments,
-);
+router.get("/comments", auth(UserRole.ADMIN), BlogController.getAllComments);
 
 router.patch(
   "/comments/:id/approve",

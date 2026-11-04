@@ -1,16 +1,16 @@
 // Blog Post Model
 model Blog {
-    id          String     @id @default(uuid())
-    title       String
-    slug        String     @unique // URL-friendly: "my-first-post"
-    excerpt     String?    @db.Text // Short preview text
-    content     String     @db.Text // Full post content (sanitized HTML from Tiptap)
-    thumbnail   String?
+    id            String     @id @default(uuid())
+    title         String
+    slug          String     @unique // URL-friendly: "my-first-post"
+    excerpt       String?    @db.Text // Short preview text
+    content       String     @db.Text // Full post content (sanitized HTML from Tiptap)
+    thumbnail     String?
     coverImageAlt String? // accessibility alt text for thumbnail
-    status      BlogStatus @default(DRAFT)
-    isFeatured  Boolean    @default(false)
-    isPinned    Boolean    @default(false) // pin to top of public list
-    publishedAt DateTime?  // null হলে draft হিসেবে থাকবে
+    status        BlogStatus @default(DRAFT)
+    isFeatured    Boolean    @default(false)
+    isPinned      Boolean    @default(false) // pin to top of public list
+    publishedAt   DateTime? // null হলে draft হিসেবে থাকবে
 
     // Author (single-author blog — pulled from Settings)
     authorName String?
@@ -57,11 +57,11 @@ model BlogTag {
 
 // Blog Comment Model (public users comment করতে পারবে)
 model BlogComment {
-    id      String  @id @default(uuid())
-    name    String  // commenter name (guest হলে)
-    email   String  // commenter email
-    comment String  @db.Text
-    
+    id      String @id @default(uuid())
+    name    String // commenter name (guest হলে)
+    email   String // commenter email
+    comment String @db.Text
+
     isApproved Boolean @default(false) // Admin approve করার আগে দেখাবে না
     ipAddress  String? // spam prevention
 
