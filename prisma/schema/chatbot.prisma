@@ -25,7 +25,7 @@ model ChatbotConfig {
     id String @id @default("singleton")
 
     isEnabled  Boolean @default(true)
-    botName    String  @default("Ishtiaq's Assistant")
+    botName    String  @default("Ahmed Nur's Assistant")
     welcomeMsg String?
 
     // System prompt — DB context এর সাথে combine হবে

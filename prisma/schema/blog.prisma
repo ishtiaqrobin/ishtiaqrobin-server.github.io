@@ -4,15 +4,25 @@ model Blog {
     title       String
     slug        String     @unique // URL-friendly: "my-first-post"
     excerpt     String?    @db.Text // Short preview text
-    content     String     @db.Text // Full post content (Markdown / HTML)
+    content     String     @db.Text // Full post content (sanitized HTML from Tiptap)
     thumbnail   String?
+    coverImageAlt String? // accessibility alt text for thumbnail
     status      BlogStatus @default(DRAFT)
     isFeatured  Boolean    @default(false)
+    isPinned    Boolean    @default(false) // pin to top of public list
     publishedAt DateTime?  // null হলে draft হিসেবে থাকবে
+
+    // Author (single-author blog — pulled from Settings)
+    authorName String?
+
+    // Reading time — auto-computed from content word count
+    readingTime Int?
 
     // SEO
     metaTitle       String?
     metaDescription String?
+    canonicalUrl    String?
+    ogImage         String?
 
     // Stats
     viewCount Int @default(0)
@@ -25,6 +35,9 @@ model Blog {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
+    @@index([status, publishedAt])
+    @@index([isFeatured])
+    @@index([isPinned])
     @@map("blogs")
 }
 
@@ -38,6 +51,7 @@ model BlogTag {
 
     createdAt DateTime @default(now())
 
+    @@index([slug])
     @@map("blog_tags")
 }
 
@@ -56,11 +70,13 @@ model BlogComment {
 
     // Reply support (nested comment, 1 level)
     parentId String?
-    parent   BlogComment?  @relation("CommentReplies", fields: [parentId], references: [id])
+    parent   BlogComment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
     replies  BlogComment[] @relation("CommentReplies")
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
+    @@index([blogId, isApproved])
+    @@index([createdAt])
     @@map("blog_comments")
 }

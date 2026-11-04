@@ -72,4 +72,38 @@ const auth = (...roles: UserRole[]) => {
   };
 };
 
+/**
+ * Optional auth — attaches `req.user` when a valid session exists,
+ * but never blocks the request. Use on public endpoints that behave
+ * differently for admins (e.g. showing drafts in a blog list).
+ */
+export const optionalAuth = async (
+  req: Request,
+  _res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const session = await betterAuth.api.getSession({
+      headers: req.headers as any,
+    });
+
+    if (session?.user) {
+      req.user = {
+        id: session.user.id,
+        name: session.user.name,
+        email: session.user.email,
+        role: session.user.role as string,
+        image: session.user.image ?? undefined,
+        isActive: session.user.isActive as boolean,
+        isBanned: session.user.isBanned as boolean,
+        emailVerified: session.user.emailVerified,
+      };
+    }
+  } catch {
+    // Ignore — treat as anonymous
+  }
+
+  next();
+};
+
 export default auth;

@@ -1,319 +1,169 @@
-# Blog API — Postman Testing Guide
+# Blog API — Reference
 
-> Base URL: `http://localhost:5000/api/blogs`  
-> Admin routes require `Authorization: Bearer <token>` header.
-
----
-
-## 🐛 Bug Fix Summary
-
-**File:** `blog.controller.ts` — `getBlogs` function
-
-**Error:** `Expected 0-1 arguments, but got 6`
-
-**Root cause:** The service function signature is `getBlogs(filters?: { status, isFeatured, tagId })` — it takes **one optional object**. The controller was incorrectly calling it with 3 separate named arguments using invalid TS syntax:
-
-```ts
-// ❌ Wrong — invalid syntax, treated as 6 comma-separated expressions
-await BlogService.getBlogs(
-  status : blogStatus as string,
-  isFeatured : isFeaturedFilter,
-  tagId : tagId as string,
-);
-
-// ✅ Fixed — pass a single object
-await BlogService.getBlogs({
-  status: blogStatus as string,
-  isFeatured: isFeaturedFilter,
-  tagId: tagId as string,
-});
-```
+> Base URL: `http://localhost:5000/api/v1/blogs`
+> Admin routes require `Authorization: Bearer <token>`.
 
 ---
 
-## 📝 Blog Endpoints
+## Public Endpoints
 
-### 1. Create Blog
-
-| Field      | Value                |
-| ---------- | -------------------- |
-| **Method** | `POST`               |
-| **URL**    | `{{baseUrl}}/`       |
-| **Auth**   | Bearer Token (Admin) |
-| **Body**   | `form-data`          |
-
-**form-data fields:**
-| Key | Type | Value (example) |
-|---------------|------|-----------------|
-| `title` | Text | `My First Blog Post` |
-| `slug` | Text | `my-first-blog-post` |
-| `content` | Text | `This is the full content of the blog post.` |
-| `excerpt` | Text | `A short preview of the post.` |
-| `status` | Text | `PUBLISHED` |
-| `isFeatured` | Text | `true` |
-| `publishedAt` | Text | `2024-06-01T10:00:00.000Z` |
-| `metaTitle` | Text | `SEO Title Here` |
-| `metaDescription` | Text | `SEO description here.` |
-| `tagIds` | Text | `["tag-uuid-1", "tag-uuid-2"]` |
-| `thumbnail` | File | _(select an image file)_ |
-
----
-
-### 2. Get All Blogs (with filters)
-
-| Field      | Value          |
-| ---------- | -------------- |
-| **Method** | `GET`          |
-| **URL**    | `{{baseUrl}}/` |
-| **Auth**   | None           |
-
-**Query params (all optional):**
-| Key | Example Value |
-|--------------|---------------|
-| `status` | `PUBLISHED` |
-| `isFeatured` | `true` |
-| `tagId` | `some-tag-uuid` |
-
-**Example URL:**
+### List blogs
 
 ```
-GET http://localhost:5000/api/blogs?status=PUBLISHED&isFeatured=true
+GET /api/v1/blogs
 ```
 
----
+Query params (all optional):
 
-### 3. Get Blog by ID
+| Param        | Example     | Notes                                     |
+| ------------ | ----------- | ----------------------------------------- |
+| `status`     | `PUBLISHED` | Admin only — public always sees PUBLISHED |
+| `isFeatured` | `true`      |                                           |
+| `isPinned`   | `true`      |                                           |
+| `tagId`      | `uuid`      |                                           |
+| `tagSlug`    | `nextjs`    |                                           |
+| `search`     | `react`     | Matches title + excerpt                   |
+| `page`       | `1`         | Default 1                                 |
+| `limit`      | `10`        | Default 10, max 100                       |
 
-| Field      | Value             |
-| ---------- | ----------------- |
-| **Method** | `GET`             |
-| **URL**    | `{{baseUrl}}/:id` |
-| **Auth**   | None              |
+Response includes `data[]` and `meta { total, page, limit, totalPages }`.
 
-**Example URL:**
-
-```
-GET http://localhost:5000/api/blogs/some-blog-uuid
-```
-
----
-
-### 4. Get Blog by Slug
-
-| Field      | Value                    |
-| ---------- | ------------------------ |
-| **Method** | `GET`                    |
-| **URL**    | `{{baseUrl}}/slug/:slug` |
-| **Auth**   | None                     |
-
-**Example URL:**
+### Get blog by slug
 
 ```
-GET http://localhost:5000/api/blogs/slug/my-first-blog-post
+GET /api/v1/blogs/slug/:slug
 ```
 
-> ⚠️ This increments the blog's `viewCount` on every call.
+Increments `viewCount`. Drafts return 404 unless the caller is an admin.
 
----
-
-### 5. Update Blog
-
-| Field      | Value                |
-| ---------- | -------------------- |
-| **Method** | `PUT`                |
-| **URL**    | `{{baseUrl}}/:id`    |
-| **Auth**   | Bearer Token (Admin) |
-| **Body**   | `form-data`          |
-
-**form-data fields** _(all optional for update):_
-| Key | Type | Value (example) |
-|---------------|------|-----------------|
-| `title` | Text | `Updated Title` |
-| `status` | Text | `ARCHIVED` |
-| `isFeatured` | Text | `false` |
-| `tagIds` | Text | `["tag-uuid-1"]` |
-| `thumbnail` | File | _(select a new image file)_ |
-
----
-
-### 6. Like Blog
-
-| Field      | Value                  |
-| ---------- | ---------------------- |
-| **Method** | `PATCH`                |
-| **URL**    | `{{baseUrl}}/:id/like` |
-| **Auth**   | None                   |
-
-**Example URL:**
+### Related blogs
 
 ```
-PATCH http://localhost:5000/api/blogs/some-blog-uuid/like
+GET /api/v1/blogs/slug/:slug/related?limit=3
 ```
 
----
+### Get blog by id
 
-### 7. Delete Blog
+```
+GET /api/v1/blogs/:id
+```
 
-| Field      | Value                |
-| ---------- | -------------------- |
-| **Method** | `DELETE`             |
-| **URL**    | `{{baseUrl}}/:id`    |
-| **Auth**   | Bearer Token (Admin) |
+### Tags
 
----
+```
+GET /api/v1/blogs/tags
+```
 
-## 🏷️ Blog Tag Endpoints
+### Comments (approved only)
 
-### 8. Get All Tags
+```
+GET /api/v1/blogs/:id/comments
+```
 
-| Field      | Value                  |
-| ---------- | ---------------------- |
-| **Method** | `GET`                  |
-| **URL**    | `{{baseUrl}}/tags/all` |
-| **Auth**   | None                   |
+Returns top-level comments with nested `replies[]`.
 
----
+### Like a blog
 
-### 9. Create Tag
+```
+POST /api/v1/blogs/:id/like
+```
 
-| Field      | Value                |
-| ---------- | -------------------- |
-| **Method** | `POST`               |
-| **URL**    | `{{baseUrl}}/tags`   |
-| **Auth**   | Bearer Token (Admin) |
-| **Body**   | `raw → JSON`         |
-
-**JSON body:**
+IP-deduped for 24 hours. Response:
 
 ```json
 {
-  "name": "JavaScript",
-  "slug": "javascript"
+  "liked": true,
+  "alreadyLiked": false,
+  "likeCount": 12,
+  "message": "Thanks for the like!"
 }
 ```
 
----
+### Submit a comment
 
-### 10. Update Tag
+```
+POST /api/v1/blogs/:id/comments
+Content-Type: application/json
 
-| Field      | Value                  |
-| ---------- | ---------------------- |
-| **Method** | `PUT`                  |
-| **URL**    | `{{baseUrl}}/tags/:id` |
-| **Auth**   | Bearer Token (Admin)   |
-| **Body**   | `raw → JSON`           |
-
-**JSON body:**
-
-```json
 {
-  "name": "TypeScript",
-  "slug": "typescript"
+  "name": "Rahim",
+  "email": "rahim@example.com",
+  "comment": "Great post!",
+  "parentId": "optional-uuid"
 }
 ```
 
----
-
-### 11. Delete Tag
-
-| Field      | Value                  |
-| ---------- | ---------------------- |
-| **Method** | `DELETE`               |
-| **URL**    | `{{baseUrl}}/tags/:id` |
-| **Auth**   | Bearer Token (Admin)   |
+Comments are created with `isApproved: false` and appear only after admin approval.
+Replies are limited to one level of nesting.
 
 ---
 
-## 💬 Blog Comment Endpoints
+## Admin Endpoints
 
-### 12. Create Comment (Public)
-
-| Field      | Value                  |
-| ---------- | ---------------------- |
-| **Method** | `POST`                 |
-| **URL**    | `{{baseUrl}}/comments` |
-| **Auth**   | None                   |
-| **Body**   | `raw → JSON`           |
-
-**JSON body:**
-
-```json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "comment": "Great article! Very helpful.",
-  "blogId": "some-blog-uuid"
-}
-```
-
-**JSON body (reply to a comment):**
-
-```json
-{
-  "name": "Jane Smith",
-  "email": "jane@example.com",
-  "comment": "I agree with the above comment!",
-  "blogId": "some-blog-uuid",
-  "parentId": "some-parent-comment-uuid"
-}
-```
-
-> ℹ️ Comments are `isApproved: false` by default. They won't show publicly until approved by admin.
-
----
-
-### 13. Get All Comments (Admin)
-
-| Field      | Value                      |
-| ---------- | -------------------------- |
-| **Method** | `GET`                      |
-| **URL**    | `{{baseUrl}}/comments/all` |
-| **Auth**   | Bearer Token (Admin)       |
-
-**Query params (all optional):**
-| Key | Example Value |
-|--------------|---------------|
-| `blogId` | `some-blog-uuid` |
-| `isApproved` | `false` |
-
-**Example URL:**
+### Create blog
 
 ```
-GET http://localhost:5000/api/blogs/comments/all?isApproved=false
+POST /api/v1/blogs
+Content-Type: multipart/form-data
+```
+
+| Field             | Type | Notes                                |
+| ----------------- | ---- | ------------------------------------ |
+| `title`           | text | **required**                         |
+| `slug`            | text | auto-generated from title if omitted |
+| `excerpt`         | text |                                      |
+| `content`         | text | **required** — sanitized HTML        |
+| `status`          | text | `DRAFT` \| `PUBLISHED` \| `ARCHIVED` |
+| `isFeatured`      | text | `true` / `false`                     |
+| `isPinned`        | text | `true` / `false`                     |
+| `coverImageAlt`   | text |                                      |
+| `metaTitle`       | text |                                      |
+| `metaDescription` | text |                                      |
+| `canonicalUrl`    | text |                                      |
+| `tagIds`          | text | JSON array: `["uuid1","uuid2"]`      |
+| `thumbnail`       | file | image                                |
+| `ogImage`         | file | image                                |
+
+`readingTime` is computed automatically from the content (200 wpm).
+`publishedAt` is set automatically on first publish.
+
+### Update blog
+
+```
+PUT /api/v1/blogs/:id
+```
+
+Same fields as create, all optional. Sending `tagIds` replaces the whole tag set.
+
+### Delete blog
+
+```
+DELETE /api/v1/blogs/:id
+```
+
+Also deletes the thumbnail/ogImage from Cloudinary and cascades comments.
+
+### Tags
+
+```
+POST   /api/v1/blogs/tags        { "name": "Next.js" }
+DELETE /api/v1/blogs/tags/:id
+```
+
+### Comment moderation
+
+```
+GET   /api/v1/blogs/comments?isApproved=false&page=1&limit=20
+PATCH /api/v1/blogs/comments/:id/approve   { "isApproved": true }
+DELETE /api/v1/blogs/comments/:id
 ```
 
 ---
 
-### 14. Approve Comment (Admin)
+## Notes
 
-| Field      | Value                              |
-| ---------- | ---------------------------------- |
-| **Method** | `PATCH`                            |
-| **URL**    | `{{baseUrl}}/comments/:id/approve` |
-| **Auth**   | Bearer Token (Admin)               |
-
----
-
-### 15. Delete Comment (Admin)
-
-| Field      | Value                      |
-| ---------- | -------------------------- |
-| **Method** | `DELETE`                   |
-| **URL**    | `{{baseUrl}}/comments/:id` |
-| **Auth**   | Bearer Token (Admin)       |
-
----
-
-## ⚙️ Postman Environment Variables
-
-Set these in your Postman environment for convenience:
-
-| Variable    | Value                                            |
-| ----------- | ------------------------------------------------ |
-| `baseUrl`   | `http://localhost:5000/api/blogs`                |
-| `token`     | `your_admin_jwt_token_here`                      |
-| `blogId`    | _(paste a real blog UUID after creating one)_    |
-| `tagId`     | _(paste a real tag UUID after creating one)_     |
-| `commentId` | _(paste a real comment UUID after creating one)_ |
-
-Then use `{{baseUrl}}`, `{{token}}`, etc. in your requests.
+- **Content format:** sanitized HTML (Tiptap output). Sanitized with
+  `sanitizeRichContent()` on save.
+- **Slug collisions:** automatically suffixed `-2`, `-3`, …
+- **Public visibility:** only `PUBLISHED` posts are returned to anonymous callers.
+- **Sitemap:** published blogs are included automatically at `/sitemap.xml`.

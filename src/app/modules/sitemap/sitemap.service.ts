@@ -50,48 +50,27 @@ const getStaticRoutes = (baseUrl: string): SitemapUrl[] => {
     { loc: `${baseUrl}/about`, changefreq: "monthly", priority: 0.8 },
     { loc: `${baseUrl}/projects`, changefreq: "weekly", priority: 0.9 },
     { loc: `${baseUrl}/blogs`, changefreq: "daily", priority: 0.9 },
-    { loc: `${baseUrl}/services`, changefreq: "monthly", priority: 0.7 },
-    { loc: `${baseUrl}/certificates`, changefreq: "monthly", priority: 0.6 },
-    { loc: `${baseUrl}/gallery`, changefreq: "monthly", priority: 0.5 },
     { loc: `${baseUrl}/contact`, changefreq: "yearly", priority: 0.5 },
-    { loc: `${baseUrl}/store`, changefreq: "weekly", priority: 0.8 },
   ];
 };
 
 /**
  * Dynamic routes — pulled live from the database so any newly created
- * blog/project/service/certificate/product appears automatically.
+ * blog/project appears automatically.
  */
 const getDynamicRoutes = async (baseUrl: string): Promise<SitemapUrl[]> => {
-  const [blogs, projects, services, certificates, products] = await Promise.all(
-    [
-      prisma.blog.findMany({
-        where: { status: "PUBLISHED" },
-        select: { slug: true, updatedAt: true, publishedAt: true },
-        orderBy: { updatedAt: "desc" },
-      }),
-      prisma.project.findMany({
-        where: { isPublished: true },
-        select: { id: true, updatedAt: true },
-        orderBy: { updatedAt: "desc" },
-      }),
-      prisma.service.findMany({
-        where: { isPublished: true },
-        select: { id: true, updatedAt: true },
-        orderBy: { updatedAt: "desc" },
-      }),
-      prisma.certificate.findMany({
-        where: { isPublished: true },
-        select: { id: true, updatedAt: true },
-        orderBy: { updatedAt: "desc" },
-      }),
-      prisma.product.findMany({
-        where: { status: "PUBLISHED" },
-        select: { slug: true, updatedAt: true },
-        orderBy: { updatedAt: "desc" },
-      }),
-    ],
-  );
+  const [blogs, projects] = await Promise.all([
+    prisma.blog.findMany({
+      where: { status: "PUBLISHED" },
+      select: { slug: true, updatedAt: true, publishedAt: true },
+      orderBy: { updatedAt: "desc" },
+    }),
+    prisma.project.findMany({
+      where: { isPublished: true },
+      select: { slug: true, updatedAt: true },
+      orderBy: { updatedAt: "desc" },
+    }),
+  ]);
 
   const blogUrls: SitemapUrl[] = blogs.map((b) => ({
     loc: `${baseUrl}/blogs/${b.slug}`,
@@ -101,40 +80,13 @@ const getDynamicRoutes = async (baseUrl: string): Promise<SitemapUrl[]> => {
   }));
 
   const projectUrls: SitemapUrl[] = projects.map((p) => ({
-    loc: `${baseUrl}/projects/${p.id}`,
+    loc: `${baseUrl}/projects/${p.slug}`,
     lastmod: p.updatedAt.toISOString(),
     changefreq: "monthly",
     priority: 0.7,
   }));
 
-  const serviceUrls: SitemapUrl[] = services.map((s) => ({
-    loc: `${baseUrl}/services/${s.id}`,
-    lastmod: s.updatedAt.toISOString(),
-    changefreq: "monthly",
-    priority: 0.6,
-  }));
-
-  const certificateUrls: SitemapUrl[] = certificates.map((c) => ({
-    loc: `${baseUrl}/certificates/${c.id}`,
-    lastmod: c.updatedAt.toISOString(),
-    changefreq: "yearly",
-    priority: 0.4,
-  }));
-
-  const productUrls: SitemapUrl[] = products.map((p) => ({
-    loc: `${baseUrl}/store/${p.slug}`,
-    lastmod: p.updatedAt.toISOString(),
-    changefreq: "weekly",
-    priority: 0.7,
-  }));
-
-  return [
-    ...blogUrls,
-    ...projectUrls,
-    ...serviceUrls,
-    ...certificateUrls,
-    ...productUrls,
-  ];
+  return [...blogUrls, ...projectUrls];
 };
 
 /**
