@@ -40,6 +40,15 @@ router.put(
   ChatbotController.upsertAiProviderConfig,
 );
 
+// Test AI provider connection (admin)
+// Body optional — না দিলে saved config দিয়ে test হবে
+router.post(
+  "/ai-config/test",
+  auth(UserRole.ADMIN),
+  validateRequest(ChatbotValidation.testAiProviderConnectionZodSchema),
+  ChatbotController.testAiProviderConnection,
+);
+
 // ── Chatbot Config (Admin) ───
 
 // Get chatbot config

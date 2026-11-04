@@ -120,6 +120,56 @@ const buildContextFromDB = async (): Promise<string> => {
   return lines.join("\n");
 };
 
+// ── Provider Defaults ─────────────────────────────────────
+// প্রতিটি provider এর default base URL / endpoint
+export const PROVIDER_DEFAULTS: Record<
+  string,
+  { endpoint: string; model: string }
+> = {
+  gemini: {
+    endpoint: "https://generativelanguage.googleapis.com/v1beta/models",
+    model: "gemini-2.0-flash",
+  },
+  openai: {
+    endpoint: "https://api.openai.com/v1/chat/completions",
+    model: "gpt-4o-mini",
+  },
+  groq: {
+    endpoint: "https://api.groq.com/openai/v1/chat/completions",
+    model: "llama-3.3-70b-versatile",
+  },
+  // River AI — OpenAI-compatible gateway
+  // baseURL: https://api.river.ai/v1  →  /chat/completions
+  river: {
+    endpoint: "https://api.river.ai/v1/chat/completions",
+    model: "zai-org/GLM-5.3-Flash",
+  },
+  custom: {
+    endpoint: "",
+    model: "",
+  },
+};
+
+// River AI এর base URL (OpenAI SDK এর baseURL এর মতো)
+const RIVER_BASE_URL = "https://api.river.ai/v1";
+
+/**
+ * River AI / OpenAI-compatible endpoint normalize করে।
+ * User base URL দিলেও (https://api.river.ai/v1) আর full
+ * endpoint দিলেও (…/v1/chat/completions) — দুটোই কাজ করবে।
+ */
+const resolveChatCompletionsUrl = (
+  endpoint: string | null | undefined,
+  fallback: string,
+): string => {
+  const raw = (endpoint || fallback || "").trim().replace(/\/+$/, "");
+  if (!raw) return "";
+  // already full path
+  if (/\/chat\/completions$/i.test(raw)) return raw;
+  // base URL → append path
+  return `${raw}/chat/completions`;
+};
+
 // ── AI API Caller ─────────────────────────────────────────
 // Provider config অনুযায়ী সঠিক API call করে
 const callAiApi = async (
@@ -180,9 +230,26 @@ const callAiApi = async (
     );
   }
 
-  // ── OpenAI compatible (openai / custom) ──
-  if (provider === "openai" || provider === "custom") {
-    const url = endpoint || "https://api.openai.com/v1/chat/completions";
+  // ── OpenAI compatible (openai / groq / river / custom) ──
+  if (
+    provider === "openai" ||
+    provider === "groq" ||
+    provider === "river" ||
+    provider === "custom"
+  ) {
+    const fallback =
+      provider === "river"
+        ? `${RIVER_BASE_URL}/chat/completions`
+        : "https://api.openai.com/v1/chat/completions";
+
+    const url = resolveChatCompletionsUrl(endpoint, fallback);
+
+    if (!url) {
+      throw new AppError(
+        status.BAD_REQUEST,
+        "Endpoint is required for this provider.",
+      );
+    }
 
     const messages = [
       { role: "system", content: systemPrompt },
@@ -208,10 +275,12 @@ const callAiApi = async (
     });
 
     if (!res.ok) {
-      const err = await res.json();
+      const err = await res.json().catch(() => null);
       throw new AppError(
         status.BAD_GATEWAY,
-        err?.error?.message || "OpenAI API error",
+        err?.error?.message ||
+          err?.message ||
+          `${provider} API error (HTTP ${res.status})`,
       );
     }
 
@@ -322,6 +391,76 @@ const getAiProviderConfig = async () => {
   return result;
 };
 
+// ── Test Connection ───────────────────────────────────────
+// Dashboard এর "Test Connection" বাটন থেকে call হয়।
+// payload এ override দিলে সেটা ব্যবহার করবে (save না করেই test),
+// না দিলে DB এর saved config ব্যবহার করবে।
+const testConnection = async (
+  payload?: Partial<CreateAiProviderConfigInput>,
+) => {
+  const saved = await prisma.aiProviderConfig.findUnique({
+    where: { id: "singleton" },
+  });
+
+  const provider = payload?.provider || saved?.provider;
+  const apiKey = payload?.apiKey || saved?.apiKey;
+  const model = payload?.model || saved?.model;
+  const endpoint = payload?.endpoint ?? saved?.endpoint ?? null;
+  const maxTokens = payload?.maxTokens ?? saved?.maxTokens ?? 32;
+  const temperature = payload?.temperature ?? saved?.temperature ?? 0.7;
+
+  if (!provider) {
+    throw new AppError(
+      status.BAD_REQUEST,
+      "Provider is required. Save a provider config first.",
+    );
+  }
+  if (!apiKey) {
+    throw new AppError(status.BAD_REQUEST, "API key is required.");
+  }
+  if (!model) {
+    throw new AppError(status.BAD_REQUEST, "Model name is required.");
+  }
+
+  const startedAt = Date.now();
+
+  try {
+    const reply = await callAiApi(
+      { provider, apiKey, model, endpoint, maxTokens, temperature },
+      "You are a connection test. Reply with exactly: OK",
+      [],
+      "Reply with exactly: OK",
+    );
+
+    return {
+      success: true,
+      provider,
+      model,
+      endpoint: endpoint || PROVIDER_DEFAULTS[provider]?.endpoint || null,
+      latencyMs: Date.now() - startedAt,
+      reply: (reply || "").slice(0, 200),
+      message: "Connection successful — provider is responding.",
+    };
+  } catch (err) {
+    const message =
+      err instanceof AppError
+        ? err.message
+        : err instanceof Error
+          ? err.message
+          : "Unknown error while contacting the provider.";
+
+    return {
+      success: false,
+      provider,
+      model,
+      endpoint: endpoint || PROVIDER_DEFAULTS[provider]?.endpoint || null,
+      latencyMs: Date.now() - startedAt,
+      reply: null,
+      message,
+    };
+  }
+};
+
 // ── Chatbot Config CRUD ───────────────────────────────────
 
 const upsertChatbotConfig = async (payload: CreateChatbotConfigInput) => {
@@ -368,6 +507,7 @@ export const ChatbotService = {
   sendMessage,
   upsertAiProviderConfig,
   getAiProviderConfig,
+  testConnection,
   upsertChatbotConfig,
   getChatbotConfig,
   getChatbotLogs,

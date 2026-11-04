@@ -57,8 +57,25 @@ const upsertAiProviderConfig = async (
   }
 };
 
-// ── Chatbot Config ────────────────────────────────────────
+// Test AI provider connection (admin)
+const testAiProviderConnection = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const result = await ChatbotService.testConnection(req.body);
+    res.status(200).json({
+      success: true,
+      message: result.message,
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
 
+// ── Chatbot Config ────────────────────────────────────────
 // Get chatbot config (admin)
 const getChatbotConfig = async (
   req: Request,
@@ -148,6 +165,7 @@ export const ChatbotController = {
   sendMessage,
   getAiProviderConfig,
   upsertAiProviderConfig,
+  testAiProviderConnection,
   getChatbotConfig,
   upsertChatbotConfig,
   getChatbotLogs,

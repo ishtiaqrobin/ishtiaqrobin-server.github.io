@@ -4,9 +4,9 @@
 model AiProviderConfig {
     id String @id @default("singleton")
 
-    provider    String  @default("gemini") // "gemini" | "openai" | "anthropic" | "custom"
+    provider    String  @default("gemini") // "gemini" | "openai" | "groq" | "river" | "custom"
     apiKey      String  @db.Text // dashboard থেকে update করা যাবে
-    model       String  @default("gemini-2.0-flash") // e.g. "gpt-4o", "claude-3-5-haiku"
+    model       String  @default("gemini-2.0-flash") // e.g. "gpt-4o", "zai-org/GLM-5.3-Flash"
     endpoint    String? // custom হলে এখানে দাও, না হলে provider default
     maxTokens   Int     @default(1000)
     temperature Float   @default(0.7) // 0.0 = focused, 1.0 = creative

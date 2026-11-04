@@ -28,6 +28,18 @@ const createAiProviderConfigZodSchema = z.object({
 const updateAiProviderConfigZodSchema =
   createAiProviderConfigZodSchema.partial();
 
+// ── Test Connection ───────────────────────────────────────
+// সব field optional — না দিলে DB এর saved config ব্যবহার হবে।
+// Dashboard থেকে save না করেই test করা যাবে।
+const testAiProviderConnectionZodSchema = z.object({
+  provider: optionalText,
+  apiKey: optionalText,
+  model: optionalText,
+  endpoint: optionalNullableUrl,
+  maxTokens: z.number().optional(),
+  temperature: z.number().min(0).max(1).optional(),
+});
+
 // ── Chatbot Config ────────────────────────────────────────
 const createChatbotConfigZodSchema = z.object({
   isEnabled: z.boolean().optional(),
@@ -61,6 +73,7 @@ const sendMessageZodSchema = z.object({
 export const ChatbotValidation = {
   createAiProviderConfigZodSchema,
   updateAiProviderConfigZodSchema,
+  testAiProviderConnectionZodSchema,
   createChatbotConfigZodSchema,
   updateChatbotConfigZodSchema,
   sendMessageZodSchema,
