@@ -50,10 +50,10 @@ model ChatbotConfig {
 // Dashboard থেকে সব log একসাথে clear করা যাবে।
 // ─────────────────────────────────────────────────────────────
 model ChatbotLog {
-    id        String   @id @default(uuid())
+    id        String  @id @default(uuid())
     sessionId String
-    role      String   // "user" | "model"
-    message   String   @db.Text
+    role      String // "user" | "model"
+    message   String  @db.Text
     ipAddress String?
 
     createdAt DateTime @default(now())

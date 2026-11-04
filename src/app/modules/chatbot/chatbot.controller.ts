@@ -122,9 +122,7 @@ const getChatbotLogs = async (
 ) => {
   try {
     const { sessionId } = req.query;
-    const limit = req.query.limit
-      ? Number(req.query.limit)
-      : undefined;
+    const limit = req.query.limit ? Number(req.query.limit) : undefined;
     const result = await ChatbotService.getChatbotLogs(
       sessionId as string,
       limit,
